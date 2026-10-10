@@ -1,4 +1,671 @@
-/* Temporary test rule. We'll replace this file in Stage 1. */
+:root {
+  /* Colors */
+  --color-paper:       #FAF6EE;  /* page background */
+  --color-card:        #FFFFFF;  /* cards, panels */
+  --color-ink:         #1C2333;  /* main text */
+  --color-slate:       #545E70;  /* secondary text */
+  --color-teal:        #1D6B64;  /* links, buttons ("click here") */
+  --color-teal-deep:   #14504B;  /* hover, dark bands */
+  --color-teal-wash:   #E8F1EF;  /* tinted areas, chips */
+  --color-rule:        #E4DCCD;  /* borders, dividers */
+  --color-red-pen:     #C2412A;  /* labels, attention */
+  --color-highlighter: #F2C14E;  /* highlights, active link underline */
+  --color-sticky:      #FFE89A;  /* margin notes */
+  --color-bubble:      #4D9DE0;  /* Pop the Verbs only, shapes only */
+  --color-red-pen:     #C2412A;  /* labels, attention */
+  --color-red-wash:    #FDF0EC;  /* pale pink for review notes */
+
+  /* Fonts (with backups in case a font fails to load) */
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body:    "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", Consolas, monospace;
+
+  /* Type sizes: PHONE sizes first (desktop sizes are below) */
+  --text-hero:  2.375rem;   /* 38px */
+  --text-h1:    2.125rem;   /* 34px */
+  --text-h2:    1.6875rem;  /* 27px */
+  --text-h3:    1.3125rem;  /* 21px */
+  --text-body:  1.0625rem;  /* 17px */
+  --text-small: 0.9375rem;  /* 15px */
+  --text-label: 0.8125rem;  /* 13px */
+
+  /* Spacing scale: only use these for gaps and padding */
+  --space-4:  4px;
+  --space-8:  8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+
+  /* Layout */
+  --gutter:      var(--space-16);  /* space at the left/right screen edges */
+  --section-gap: var(--space-48);  /* space between page sections */
+  --content-max: 1120px;           /* widest the content gets */
+  --reading-max: 68ch;             /* comfortable line length for paragraphs */
+
+  /* Shapes */
+  --radius-button: 10px;
+  --radius-card:   16px;
+  --radius-pill:   999px;
+  --radius-note:   2px;
+
+  /* Shadows */
+  --shadow-card:       0 1px 2px rgb(28 35 51 / 0.06), 0 4px 12px rgb(28 35 51 / 0.06);
+  --shadow-card-hover: 0 2px 4px rgb(28 35 51 / 0.08), 0 12px 24px rgb(28 35 51 / 0.10);
+  --shadow-note:       0 2px 6px rgb(28 35 51 / 0.15);
+}
+
+/* Tablet and desktop: screens 768px wide or more get bigger sizes */
+@media (min-width: 768px) {
+  :root {
+    --text-hero: 3.5rem;    /* 56px */
+    --text-h1:   3rem;      /* 48px */
+    --text-h2:   2.125rem;  /* 34px */
+    --text-h3:   1.5rem;    /* 24px */
+    --text-body: 1.125rem;  /* 18px */
+
+    --gutter:      var(--space-24);
+    --section-gap: var(--space-96);
+  }
+}
+
+
+/* ---------- 2. BASE STYLES ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin: 0 0 var(--space-16);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-ink);
+  text-wrap: balance;  /* avoids a single lonely word on the last line */
+}
+
+h1 { font-size: var(--text-h1); line-height: 1.1; }
+h2 { font-size: var(--text-h2); line-height: 1.15; }
+h3 { font-size: var(--text-h3); line-height: 1.2; }
+
 p {
-  color: #1D6B64; /* Chalkboard Teal from the handbook */
+  margin: 0 0 var(--space-16);
+  max-width: var(--reading-max);
+}
+
+a {
+  color: var(--color-teal);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--color-teal-deep);
+  text-decoration-thickness: 2px;
+}
+
+/* Keyboard focus: a clear teal outline (accessibility) */
+:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+mark {
+  background-color: var(--color-highlighter);
+  color: var(--color-ink);
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: var(--color-sticky);
+  color: var(--color-ink);
+}
+
+
+/* ---------- 3. LAYOUT HELPERS ---------- */
+
+/* Centers content and keeps it from getting too wide */
+.container {
+  width: 100%;
+  max-width: calc(var(--content-max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Vertical breathing room for each page section */
+.section {
+  padding-block: var(--section-gap);
+}
+
+
+/* ---------- 4. TEXT HELPERS ---------- */
+
+.text-hero {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-hero);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.text-small {
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--color-slate);
+}
+
+/* Small uppercase labels, e.g. "CASE STUDY · INTERNAL TOOL" */
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-red-pen);
+}
+
+
+/* ---------- 5. REDUCED MOTION ---------- */
+/* From Handbook Chapter G: if someone turns on "reduce motion"
+   in their device settings, switch animations off. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- 6. ACCESSIBILITY HELPERS ---------- */
+
+/* Hides text visually but keeps it for screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* "Skip to main content": hidden above the screen until focused */
+.skip-link {
+  position: absolute;
+  top: var(--space-16);
+  left: var(--space-16);
+  z-index: 100;
+  padding: var(--space-8) var(--space-16);
+  background-color: var(--color-ink);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: var(--radius-button);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.skip-link:hover {
+  color: #FFFFFF;
+}
+
+/* When jumping to #contact etc., stop below the sticky header */
+[id] {
+  scroll-margin-top: 88px;
+}
+
+
+/* ---------- 7. BUTTONS ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: 44px;                 /* comfortable finger-sized target */
+  padding: var(--space-12) var(--space-24);
+  border: 2px solid transparent;
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+/* Filled teal: the main action ("See my work") */
+.button--primary {
+  background-color: var(--color-teal);
+  color: #FFFFFF;
+}
+.button--primary:hover {
+  background-color: var(--color-teal-deep);
+  color: #FFFFFF;
+}
+
+/* Outlined teal: the second action ("Read my journey", "Résumé") */
+.button--secondary {
+  background-color: transparent;
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+.button--secondary:hover {
+  background-color: var(--color-teal-wash);
+  color: var(--color-teal-deep);
+}
+
+/* Smaller version for the top bar */
+.button--small {
+  min-height: 40px;
+  padding: var(--space-8) var(--space-16);
+  font-size: var(--text-small);
+}
+
+/* For dark teal backgrounds: solid white */
+.button--light {
+  background-color: #FFFFFF;
+  color: var(--color-teal-deep);
+}
+.button--light:hover {
+  background-color: var(--color-teal-wash);
+  color: var(--color-teal-deep);
+}
+
+/* For dark teal backgrounds: white outline */
+.button--outline-light {
+  background-color: transparent;
+  border-color: rgb(255 255 255 / 0.6);
+  color: #FFFFFF;
+}
+.button--outline-light:hover {
+  background-color: rgb(255 255 255 / 0.1);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+
+/* ---------- 8. SITE HEADER ---------- */
+
+.site-header {
+  position: sticky;      /* stays at the top while scrolling */
+  top: 0;
+  z-index: 50;           /* sits above other content */
+  background-color: var(--color-paper);
+  border-bottom: 1px solid transparent;
+  transition: border-color 180ms ease;
+}
+
+/* JavaScript adds this class after the first scroll */
+.site-header.is-scrolled {
+  border-bottom-color: var(--color-rule);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  min-height: 64px;
+}
+
+/* Your name + tilted sticky-note square */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.brand:hover {
+  color: var(--color-ink);
+}
+
+.brand__mark {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-highlighter);
+  border-radius: 3px;
+  box-shadow: var(--shadow-note);
+  transform: rotate(-8deg);
+}
+
+/* On small phones show only "Loran" (as in Handbook Figure D.7) */
+.brand__surname {
+  display: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding-block: var(--space-8);
+  font-size: var(--text-small);
+  font-weight: 700;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+/* Hover, and the "you are here" page: teal text + highlighter underline */
+.site-nav__link:hover,
+.site-nav__link[aria-current="page"] {
+  color: var(--color-teal);
+  text-decoration: underline;
+  text-decoration-color: var(--color-highlighter);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+/* Résumé button hidden on phones (it's in the contact band instead) */
+.site-nav__resume {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .brand__surname {
+    display: inline;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-header__inner {
+    min-height: 72px;
+  }
+  .site-nav__list {
+    gap: var(--space-24);
+  }
+  .site-nav__link {
+    font-size: 1rem;
+  }
+  .site-nav__resume {
+    display: inline-flex;
+  }
+}
+
+
+/* ---------- 9. CONTACT BAND + FOOTER ---------- */
+
+.site-footer {
+  padding-top: var(--section-gap);
+  background-color: var(--color-teal-deep);
+  color: #FFFFFF;
+}
+
+/* Teal focus outlines would be invisible on teal, so use yellow here */
+.site-footer :focus-visible {
+  outline-color: var(--color-highlighter);
+}
+
+.label--light {
+  color: var(--color-highlighter);
+}
+
+.contact__title {
+  max-width: 22ch;
+  color: #FFFFFF;
+}
+
+.contact__text {
+  color: rgb(255 255 255 / 0.85);
+}
+
+.contact__email {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  margin-block: var(--space-24);
+}
+
+/* Phones: full-width buttons, easy to tap */
+.contact__email .button {
+  flex: 1 1 100%;
+}
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact__links a {
+  font-weight: 700;
+  color: var(--color-highlighter);
+}
+.contact__links a:hover {
+  color: #FFFFFF;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-12);
+  margin-top: var(--space-48);
+  padding-block: var(--space-24);
+  border-top: 1px solid rgb(255 255 255 / 0.2);
+  font-size: var(--text-small);
+  color: rgb(255 255 255 / 0.8);
+}
+
+.site-footer__bottom p {
+  margin: 0;
+}
+
+.site-footer__bottom a {
+  color: #FFFFFF;
+}
+
+@media (min-width: 768px) {
+  .contact__email .button {
+    flex: 0 0 auto;      /* desktop: buttons only as wide as their text */
+  }
+}
+/* ---------- 10. HERO ---------- */
+
+.hero {
+  padding-block: var(--space-48) var(--space-64);
+  border-bottom: 1px solid var(--color-rule);
+  /* Faint graph-paper grid (Handbook E: "hero only") */
+  background-image:
+    linear-gradient(to right,  rgb(28 35 51 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(28 35 51 / 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Phone: one column (text first, then picture) */
+.hero__inner {
+  display: grid;
+  gap: var(--space-48);
+  align-items: center;
+}
+
+.hero__title {
+  margin-bottom: var(--space-24);
+}
+
+/* "Now I build it." in teal italics */
+.hero__title em {
+  font-style: italic;
+  color: var(--color-teal);
+}
+
+.hero__text {
+  max-width: 52ch;
+}
+
+/* The definition line, styled like a margin note */
+.hero__definition {
+  max-width: 52ch;
+  margin-bottom: var(--space-32);
+  padding-left: var(--space-12);
+  border-left: 3px solid var(--color-highlighter);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--color-slate);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+/* Phone: full-width buttons */
+.hero__actions .button {
+  flex: 1 1 100%;
+}
+
+
+/* --- Hero illustration --- */
+
+.hero-art {
+  position: relative;          /* lets the notes be placed on top of it */
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+  padding: var(--space-32) var(--space-24);  /* room so notes never stick off-screen */
+}
+
+.hero-art__page {
+  transform: rotate(-2deg);
+  filter: drop-shadow(0 12px 24px rgb(28 35 51 / 0.12));
+}
+
+/* Shared sticky-note look: paper-like, nearly square corners */
+.hero-art__note {
+  position: absolute;
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-note);
+  box-shadow: var(--shadow-note);
+  line-height: 1.3;
+}
+
+.hero-art__note p {
+  margin: 0;
+}
+
+.hero-art__note--sticky {
+  top: 0;
+  right: 0;
+  width: 50%;
+  background-color: var(--color-sticky);
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 0.9375rem;
+  transform: rotate(4deg);
+}
+
+.hero-art__note--review {
+  bottom: var(--space-48);
+  left: 0;
+  width: 46%;
+  background-color: var(--color-red-wash);
+  font-size: var(--text-small);
+  transform: rotate(-3deg);
+}
+
+.hero-art__note--review .label {
+  margin-bottom: var(--space-4);
+  font-size: 0.6875rem;   /* 11px: a tiny tag inside the note */
+}
+
+
+/* --- Shapes inside the SVG drawing --- */
+
+.art-card      { fill: var(--color-card); stroke: var(--color-rule); stroke-width: 2; }
+.art-guide     { fill: none; stroke: var(--color-teal); stroke-opacity: 0.3;
+                 stroke-width: 1.5; stroke-dasharray: 6 5; }
+.art-teal      { fill: var(--color-teal); }
+.art-line      { fill: var(--color-rule); }
+.art-highlight { fill: var(--color-highlighter); }
+.art-wash      { fill: var(--color-teal-wash); }
+.art-bubble    { fill: var(--color-card); stroke: var(--color-bubble); stroke-width: 3; }
+.art-bubble--dashed { stroke-dasharray: 5 4; stroke-opacity: 0.6; }
+.art-word      { fill: var(--color-ink); font-family: var(--font-body); font-size: 15px;
+                 font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+.art-ceiling   { stroke: var(--color-red-pen); stroke-width: 3; }
+.art-ceiling-label { fill: var(--color-red-pen); font-family: var(--font-mono);
+                     font-size: 12px; text-anchor: end; }
+
+
+/* --- Bigger screens --- */
+
+@media (min-width: 768px) {
+  .hero__actions .button {
+    flex: 0 0 auto;   /* buttons only as wide as their text */
+  }
+  .hero-art {
+    max-width: 380px;
+  }
+}
+
+/* Wide screens: text and picture side by side */
+@media (min-width: 960px) {
+  .hero {
+    padding-block: var(--space-64) var(--space-96);
+  }
+  .hero__inner {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-64);
+  }
+  .hero-art {
+    max-width: 420px;
+  }
 }
