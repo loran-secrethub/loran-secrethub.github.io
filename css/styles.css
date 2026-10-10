@@ -13,8 +13,13 @@
   --color-sticky:      #FFE89A;  /* margin notes */
   --color-bubble:      #4D9DE0;  /* Pop the Verbs only, shapes only */
   --color-bubble-wash: #E7F1FB;  /* pale blue background for Pop the Verbs */
+  /* Journey blends: yellow (teaching) → teal (building) */
+  --mix-25: color-mix(in srgb, var(--color-teal) 25%, var(--color-highlighter));
+  --mix-50: color-mix(in srgb, var(--color-teal) 50%, var(--color-highlighter));
+  --mix-75: color-mix(in srgb, var(--color-teal) 75%, var(--color-highlighter));
   --color-red-pen:     #C2412A;  /* labels, attention */
   --color-red-wash:    #FDF0EC;  /* pale pink for review notes */
+
 
   /* Fonts (with backups in case a font fails to load) */
   --font-heading: "Fraunces", Georgia, serif;
@@ -673,10 +678,6 @@ mark {
 /* ---------- 11. JOURNEY STRIP ---------- */
 
 .journey-strip {
-  /* Blends from yellow (teaching) to teal (building) */
-  --mix-25: color-mix(in srgb, var(--color-teal) 25%, var(--color-highlighter));
-  --mix-50: color-mix(in srgb, var(--color-teal) 50%, var(--color-highlighter));
-  --mix-75: color-mix(in srgb, var(--color-teal) 75%, var(--color-highlighter));
   --step-gap: var(--space-24);
 
   padding-block: var(--space-48);
@@ -1315,5 +1316,230 @@ mark {
   }
   .work-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* ---------- 21. JOURNEY CHAPTERS ---------- */
+
+.chapters {
+  --chapter-gap: var(--space-48);
+  display: grid;
+  gap: var(--chapter-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter {
+  position: relative;
+  display: grid;
+  gap: var(--space-24);
+  padding-left: 60px;     /* room for the numbered circle */
+}
+
+/* Each chapter's circle color, and the next one (for the line) */
+.chapter:nth-child(1) { --dot: var(--color-highlighter); --next: var(--mix-25); }
+.chapter:nth-child(2) { --dot: var(--mix-25);            --next: var(--mix-50); }
+.chapter:nth-child(3) { --dot: var(--mix-50);            --next: var(--mix-75); }
+.chapter:nth-child(4) { --dot: var(--mix-75);            --next: var(--color-teal); }
+.chapter:nth-child(5) { --dot: var(--color-teal); }
+
+/* The numbered circle */
+.chapter__marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;    /* centers the number */
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-paper);
+  border: 3px solid var(--dot);
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.chapter--current .chapter__marker {
+  background-color: var(--color-teal);
+  color: #FFFFFF;
+}
+
+/* The line from this circle down to the next one */
+.chapter:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 44px;
+  left: 20.5px;
+  width: 3px;
+  height: calc(100% - 44px + var(--chapter-gap));
+  background: linear-gradient(to bottom, var(--dot), var(--next));
+}
+
+.chapter__main .label {
+  margin-bottom: var(--space-8);
+}
+
+.chapter__main p {
+  max-width: 62ch;
+}
+
+/* "What I carried forward" note */
+.chapter__note {
+  align-self: start;
+  max-width: 320px;
+  transform: rotate(1.5deg);
+}
+
+/* Notes can now hold several paragraphs */
+.margin-note p {
+  margin: 0;
+}
+
+.margin-note__label {
+  margin-bottom: var(--space-4) !important;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+}
+
+/* Wide screens: notes move into a side column, like real margin notes */
+@media (min-width: 960px) {
+  .chapters {
+    --chapter-gap: var(--space-64);
+  }
+  .chapter {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--space-48);
+  }
+  .chapter__note {
+    margin-top: var(--space-32);
+    transform: rotate(2deg);
+  }
+}
+
+
+/* ---------- 22. THREADS ---------- */
+
+.threads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.thread {
+  padding: var(--space-24) var(--space-16) var(--space-16);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-rule);
+  border-top: 4px solid var(--thread-color);
+  border-radius: var(--radius-card);
+}
+
+.thread:nth-child(1) { --thread-color: var(--color-highlighter); }
+.thread:nth-child(2) { --thread-color: var(--mix-25); }
+.thread:nth-child(3) { --thread-color: var(--mix-50); }
+.thread:nth-child(4) { --thread-color: var(--mix-75); }
+.thread:nth-child(5) { --thread-color: var(--color-teal); }
+
+.thread h3 {
+  margin-bottom: var(--space-8);
+  font-size: 1.125rem;
+}
+
+.thread dl {
+  margin: 0;
+}
+
+.thread dt {
+  margin-top: var(--space-12);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+}
+
+.thread dd {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+
+/* ---------- 23. SKILLS WITH EVIDENCE ---------- */
+
+.skill-groups {
+  display: grid;
+  gap: var(--space-32) var(--space-48);
+}
+
+.skill-group h3 {
+  margin-bottom: var(--space-8);
+  font-size: 1.25rem;
+}
+
+.skill-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  padding-block: var(--space-12);
+  border-bottom: 1px solid var(--color-rule);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.skill-list strong {
+  display: block;
+  color: var(--color-ink);
+}
+
+.skill-list span {
+  color: var(--color-slate);
+}
+
+@media (min-width: 768px) {
+  .skill-groups {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ---------- 24. CALL TO ACTION + BUTTON ROW ---------- */
+
+.cta h2 {
+  margin-bottom: var(--space-8);
+}
+
+.cta p {
+  color: var(--color-slate);
+}
+
+/* A row of buttons: full width on phones, side by side on bigger screens */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  margin-top: var(--space-24);
+}
+
+.button-row .button {
+  flex: 1 1 100%;
+}
+
+@media (min-width: 768px) {
+  .button-row .button {
+    flex: 0 0 auto;
   }
 }
