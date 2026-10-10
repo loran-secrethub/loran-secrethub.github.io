@@ -669,3 +669,137 @@ mark {
     max-width: 420px;
   }
 }
+/* ---------- 11. JOURNEY STRIP ---------- */
+
+.journey-strip {
+  /* Blends from yellow (teaching) to teal (building) */
+  --mix-25: color-mix(in srgb, var(--color-teal) 25%, var(--color-highlighter));
+  --mix-50: color-mix(in srgb, var(--color-teal) 50%, var(--color-highlighter));
+  --mix-75: color-mix(in srgb, var(--color-teal) 75%, var(--color-highlighter));
+  --step-gap: var(--space-24);
+
+  padding-block: var(--space-48);
+  background-color: var(--color-card);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.journey-strip__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8) var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+.journey-strip__title {
+  margin: 0;
+}
+
+.journey-strip__link {
+  font-size: var(--text-small);
+  font-weight: 700;
+  text-decoration: none;
+}
+.journey-strip__link:hover {
+  text-decoration: underline;
+}
+
+.journey-strip__list {
+  display: grid;
+  gap: var(--step-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* --- One step (phone: dot on the left, text on the right) --- */
+
+.journey-step {
+  position: relative;
+  padding-left: var(--space-32);
+}
+
+/* Each step gets its own colors: its dot, and the next dot */
+.journey-step:nth-child(1) { --dot: var(--color-highlighter); --next: var(--mix-25); }
+.journey-step:nth-child(2) { --dot: var(--mix-25);            --next: var(--mix-50); }
+.journey-step:nth-child(3) { --dot: var(--mix-50);            --next: var(--mix-75); }
+.journey-step:nth-child(4) { --dot: var(--mix-75);            --next: var(--color-teal); }
+.journey-step:nth-child(5) { --dot: var(--color-teal); }
+
+.journey-step__dot {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  z-index: 1;                        /* sits on top of the line */
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-card);
+  border: 3px solid var(--dot);
+  border-radius: 50%;
+}
+
+/* The current role: a filled dot */
+.journey-step--current .journey-step__dot {
+  background-color: var(--color-teal);
+}
+
+/* The line: drawn from this dot to the next one (not after the last) */
+.journey-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 11px;                          /* center of this dot */
+  left: 7.5px;                        /* center of the dot, minus half the line */
+  width: 3px;
+  height: calc(100% + var(--step-gap));  /* reaches the next dot */
+  background: linear-gradient(to bottom, var(--dot), var(--next));
+}
+
+.journey-step__role {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-small);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.journey-step--current .journey-step__role {
+  color: var(--color-teal);
+}
+
+.journey-step__note {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.4;
+  color: var(--color-slate);
+}
+
+
+/* --- Tablet and desktop: horizontal line --- */
+
+@media (min-width: 768px) {
+  .journey-strip {
+    --step-gap: var(--space-16);
+  }
+
+  .journey-strip__list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .journey-step {
+    padding-left: 0;
+    padding-top: var(--space-32);     /* dot on top, text below */
+  }
+
+  .journey-step__dot {
+    top: 0;
+  }
+
+  .journey-step:not(:last-child)::before {
+    top: 7.5px;
+    left: 9px;
+    width: calc(100% + var(--step-gap));  /* reaches the next column's dot */
+    height: 3px;
+    background: linear-gradient(to right, var(--dot), var(--next));
+  }
+}
