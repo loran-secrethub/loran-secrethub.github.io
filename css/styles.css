@@ -12,6 +12,7 @@
   --color-highlighter: #F2C14E;  /* highlights, active link underline */
   --color-sticky:      #FFE89A;  /* margin notes */
   --color-bubble:      #4D9DE0;  /* Pop the Verbs only, shapes only */
+  --color-bubble-wash: #E7F1FB;  /* pale blue background for Pop the Verbs */
   --color-red-pen:     #C2412A;  /* labels, attention */
   --color-red-wash:    #FDF0EC;  /* pale pink for review notes */
 
@@ -998,3 +999,50 @@ mark {
 .art-text--bold     { font-weight: 700; }
 .art-text--red      { fill: var(--color-red-pen); font-weight: 700; }
 .art-text--muted    { fill: var(--color-slate); }
+
+/* ---------- 15. POP THE VERBS CARD ---------- */
+
+/* Space between stacked project cards */
+.project-card + .project-card {
+  margin-top: var(--space-48);
+}
+
+/* Bubble-blue wash instead of teal wash */
+.project-card--game .project-card__visual {
+  background-color: var(--color-bubble-wash);
+}
+
+.project-card__status {
+  margin: var(--space-12) 0 0;
+  font-size: var(--text-small);
+  font-style: italic;
+  color: var(--color-slate);
+}
+
+/* Wide screens: text LEFT, picture RIGHT (opposite of Worktext) */
+@media (min-width: 960px) {
+  .project-card--game {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-card--game .project-card__visual {
+    order: 2;    /* move the picture to the second (right) column */
+    padding: var(--space-32);
+    border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  }
+
+  .project-card--game .project-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: var(--space-48) var(--space-32) var(--space-48) var(--space-48);
+  }
+}
+
+/* Shapes inside the Pop the Verbs drawing */
+.art-sky       { fill: var(--color-bubble-wash); }
+.art-ground    { fill: var(--color-teal-wash); }
+.art-text--lg  { font-size: 13px; }
+.art-pop       { fill: var(--color-teal); font-family: var(--font-heading);
+                 font-size: 16px; font-style: italic; font-weight: 600; text-anchor: middle; }
