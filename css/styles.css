@@ -1808,3 +1808,28 @@ mark {
     transform: rotate(2deg);
   }
 }
+/* ---------- 26. PROJECT PAGE HERO (Pop the Verbs) ---------- */
+
+/* Text and picture side by side on wide screens */
+.case-hero {
+  display: grid;
+  gap: var(--space-48);
+  align-items: center;
+}
+
+/* Facts in this hero: always 2 columns (the values are short) */
+.case-hero .facts {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Bubble-blue frame for game visuals */
+.case-visual__frame--bubble {
+  background-color: var(--color-bubble-wash);
+}
+
+@media (min-width: 960px) {
+  .case-hero {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-64);
+  }
+}
