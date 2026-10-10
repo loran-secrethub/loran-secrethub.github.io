@@ -1046,3 +1046,72 @@ mark {
 .art-text--lg  { font-size: 13px; }
 .art-pop       { fill: var(--color-teal); font-family: var(--font-heading);
                  font-size: 16px; font-style: italic; font-weight: 600; text-anchor: middle; }
+
+/* ---------- 16. MORE LEARNING WORK (compact cards) ---------- */
+
+/* Use when a section follows another closely: no extra top space */
+.section--tight-top {
+  padding-top: 0;
+}
+
+/* Section header with a link on the right */
+.section-header--split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8) var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+/* A bold teal link with an arrow, e.g. "See all learning work →" */
+.text-link {
+  font-weight: 700;
+  text-decoration: none;
+}
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive grid: 1 column → 2 → 3 */
+.card-grid {
+  display: grid;
+  gap: var(--space-24);
+}
+
+/* Cards in a grid sit side by side, so cancel the stacking gap
+   from section 15 (.project-card + .project-card) */
+.card-grid .project-card + .project-card {
+  margin-top: 0;
+}
+
+/* Compact card: text only, link pinned to the bottom */
+.project-card--compact .project-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card--compact .project-card__summary {
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.project-card--compact .chips {
+  margin-bottom: var(--space-16);
+}
+
+.project-card--compact .project-card__link {
+  margin-top: auto;    /* pushes the link to the bottom of the card */
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
