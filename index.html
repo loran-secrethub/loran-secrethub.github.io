@@ -457,57 +457,85 @@
       </div>
     </section>
 
-    <!-- ===== 6. TOOLBOX SNAPSHOT ===== -->
-    <section class="section" aria-labelledby="toolbox-title">
+       <!-- ===== 6. TECH STACK ===== -->
+    <section class="section" id="stack" aria-labelledby="stack-title">
       <div class="container">
 
         <div class="section-header">
-          <p class="label">Toolbox</p>
-          <h2 id="toolbox-title">What I work with, and where I've used it</h2>
+          <p class="label">Tech stack</p>
+          <h2 id="stack-title">What I build with</h2>
         </div>
 
-        <div class="toolbox">
+        <ul class="stack">
 
-          <div class="toolbox__group">
-            <h3 class="toolbox__heading">Learning &amp; authoring</h3>
-            <ul class="chips">
-              <li><a class="chip chip--link" href="work.html">Storyline</a></li>
-              <li><a class="chip chip--link" href="work.html#xapi">xAPI</a></li>
-              <li><a class="chip chip--link" href="work.html#bloom-moodle">SCORM</a></li>
-              <li><a class="chip chip--link" href="work.html#bloom-moodle">Moodle</a></li>
-            </ul>
-          </div>
+          <!-- Frontend -->
+          <li class="stack__row stack__row--frontend">
+            <span class="stack__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </span>
+            <div class="stack__body">
+              <h3 class="stack__title">Frontend</h3>
+              <p class="stack__tools">HTML5 · CSS3 · JavaScript · Phaser</p>
+              <p class="stack__desc">
+                Responsive interfaces, browser tools and educational games. Used in
+                <a href="worktext-studio.html">Worktext Studio</a>,
+                <a href="pop-the-verbs.html">Pop the Verbs</a> and this website.
+              </p>
+            </div>
+          </li>
 
-          <div class="toolbox__group">
-            <h3 class="toolbox__heading">Front end &amp; games</h3>
-            <ul class="chips">
-              <li><a class="chip chip--link" href="worktext-studio.html">HTML</a></li>
-              <li><a class="chip chip--link" href="worktext-studio.html">CSS</a></li>
-              <li><a class="chip chip--link" href="worktext-studio.html">JavaScript</a></li>
-              <li><a class="chip chip--link" href="pop-the-verbs.html">Phaser</a></li>
-            </ul>
-          </div>
+          <!-- Backend -->
+          <li class="stack__row stack__row--backend">
+            <span class="stack__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+            </span>
+            <div class="stack__body">
+              <h3 class="stack__title">Backend</h3>
+              <p class="stack__tools">Node.js · Express.js</p>
+              <span class="badge">Learning and developing</span>
+              <p class="stack__desc">
+                Server-side logic and APIs, the next layer I'm building toward.
+                Today my back-end work runs on Google Apps Script (below).
+              </p>
+            </div>
+          </li>
 
-          <div class="toolbox__group">
-            <h3 class="toolbox__heading">Integrations &amp; data</h3>
-            <ul class="chips">
-              <li><a class="chip chip--link" href="worktext-studio.html">Apps Script</a></li>
-              <li><a class="chip chip--link" href="worktext-studio.html">Google Sheets</a></li>
-              <li><a class="chip chip--link" href="worktext-studio.html">Google Sign-In</a></li>
-              <li><a class="chip chip--link" href="work.html#docx-xml">Python</a></li>
-            </ul>
-          </div>
+          <!-- E-learning Development -->
+          <li class="stack__row stack__row--elearning">
+            <span class="stack__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </span>
+            <div class="stack__body">
+              <h3 class="stack__title">E-learning Development</h3>
+              <p class="stack__tools">Articulate Storyline · SCORM · xAPI · Moodle · JavaScript-enhanced interactions</p>
+              <p class="stack__desc">
+                My specialist area, and what sets me apart from general web developers. See
+                <a href="work.html#bloom-moodle">Bloom's + Moodle</a>,
+                <a href="work.html#xapi">xAPI tracking</a> and
+                <a href="work.html#cyber-safety">Cyber Safety</a>.
+              </p>
+            </div>
+          </li>
 
-          <div class="toolbox__group">
-            <h3 class="toolbox__heading">Teaching &amp; STEM</h3>
-            <ul class="chips">
-              <li><a class="chip chip--link" href="journey.html#preschool-ict">Scratch</a></li>
-              <li><a class="chip chip--link" href="journey.html#robotics">Robotics kits</a></li>
-              <li><a class="chip chip--link" href="journey.html#preschool-ict">Teacher training</a></li>
-            </ul>
-          </div>
+          <!-- Integrations and Automation -->
+          <li class="stack__row stack__row--integrations">
+            <span class="stack__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
+            </span>
+            <div class="stack__body">
+              <h3 class="stack__title">Integrations and Automation</h3>
+              <!-- TODO: add "REST APIs" only if you've built or called real API endpoints -->
+              <p class="stack__tools">Google Apps Script · Google Sign-In · Google Sheets · Webhooks · Python</p>
+              <p class="stack__desc">
+                Connecting tools and automating production work. Used in
+                <a href="worktext-studio.html">Worktext Studio</a>,
+                <a href="work.html#cyber-safety">Cyber Safety</a> and the
+                <a href="work.html#docx-xml">DOCX → XML Converter</a>.
+              </p>
+            </div>
+          </li>
 
-        </div>
+        </ul>
 
         <p class="toolbox__more">
           <a class="text-link" href="journey.html#skills">Full skills on my Journey page <span aria-hidden="true">→</span></a>

@@ -1934,3 +1934,92 @@ mark {
   from { opacity: 0.3; scale: 0.6; }
   to   { opacity: 1;   scale: 1; }
 }
+/* ---------- 28. TECH STACK ---------- */
+
+/* One white card, with rows separated by thin lines */
+.stack {
+  max-width: 860px;
+  margin: 0;
+  padding: 0 var(--space-24);
+  list-style: none;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+}
+
+.stack__row {
+  display: grid;
+  grid-template-columns: 44px 1fr;   /* icon column + text column */
+  gap: var(--space-16);
+  padding-block: var(--space-24);
+}
+
+.stack__row + .stack__row {
+  border-top: 1px solid var(--color-rule);
+}
+
+/* Rounded square behind each icon */
+.stack__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--icon-bg);
+  color: var(--icon-color);
+}
+
+.stack__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;              /* the icon uses the color set above */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Each row's colors, from the site palette */
+.stack__row--frontend     { --icon-bg: var(--color-teal-wash);   --icon-color: var(--color-teal); }
+.stack__row--backend      { --icon-bg: var(--color-bubble-wash); --icon-color: var(--color-bubble); }
+.stack__row--elearning    { --icon-bg: color-mix(in srgb, var(--color-highlighter) 30%, white);
+                            --icon-color: var(--color-ink); }
+.stack__row--integrations { --icon-bg: var(--color-red-wash);    --icon-color: var(--color-red-pen); }
+
+.stack__title {
+  margin-bottom: var(--space-4);
+  font-size: 1.125rem;
+}
+
+.stack__tools {
+  margin: 0 0 var(--space-4);
+  line-height: 1.5;
+}
+
+.stack__desc {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--color-slate);
+}
+
+/* Small status pill, e.g. "Learning and developing" */
+.badge {
+  display: inline-block;
+  margin: var(--space-4) 0 var(--space-8);
+  padding: 2px var(--space-12);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bubble-wash);
+  color: color-mix(in srgb, var(--color-bubble) 45%, black);  /* dark blue, readable */
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .stack {
+    padding: 0 var(--space-32);
+  }
+  .stack__row {
+    gap: var(--space-24);
+  }
+}
