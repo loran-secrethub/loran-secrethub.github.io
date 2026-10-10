@@ -175,6 +175,110 @@
 
   </main>
 
+      <!-- ===== 3. SELECTED WORK ===== -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+
+        <div class="section-header">
+          <p class="label">Selected work</p>
+          <h2 id="work-title">Things I've built for learners and learning teams</h2>
+        </div>
+
+        <!-- Featured project: Worktext Studio -->
+        <article class="project-card project-card--featured">
+
+          <div class="project-card__visual">
+            <!-- TODO: replace with a real screenshot (sample content) once approved -->
+            <svg class="project-card__image" viewBox="0 0 480 300" role="img" aria-labelledby="ws-art-title">
+              <title id="ws-art-title">Illustration of Worktext Studio: a page list, a PDF preview with an overflow warning, and review comments</title>
+
+              <!-- Window and toolbar -->
+              <rect class="art-panel" x="0.5" y="0.5" width="479" height="299" rx="8"/>
+              <rect class="art-ink" x="0" y="0" width="480" height="36" rx="8"/>
+              <rect class="art-ink" x="0" y="20" width="480" height="16"/>
+              <text class="art-label" x="14" y="22">WORKTEXT STUDIO</text>
+              <rect class="art-red" x="130" y="10" width="54" height="16" rx="4"/>
+              <text class="art-label" x="157" y="21" text-anchor="middle">PDF Sim</text>
+              <rect class="art-highlight" x="340" y="10" width="86" height="16" rx="8"/>
+              <text class="art-label art-label--dark" x="383" y="21" text-anchor="middle">Revise &amp; Check</text>
+              <text class="art-label art-label--muted" x="454" y="21" text-anchor="middle">Review</text>
+
+              <!-- Center: preview area -->
+              <rect class="art-paper" x="110" y="36" width="250" height="263"/>
+              <line class="art-divider" x1="110" y1="36" x2="110" y2="300"/>
+              <line class="art-divider" x1="360" y1="36" x2="360" y2="300"/>
+
+              <!-- Left: page list with height bars (p2 overflows) -->
+              <text class="art-text art-text--bold" x="12" y="58">lesson.html</text>
+              <text class="art-text" x="12" y="82">p1</text>
+              <rect class="art-line" x="34" y="76" width="66" height="6" rx="3"/>
+              <rect class="art-teal" x="34" y="76" width="44" height="6" rx="3"/>
+              <text class="art-text art-text--red" x="12" y="102">p2 !</text>
+              <rect class="art-red"  x="34" y="96" width="66" height="6" rx="3"/>
+              <text class="art-text" x="12" y="122">p3</text>
+              <rect class="art-line" x="34" y="116" width="66" height="6" rx="3"/>
+              <rect class="art-teal" x="34" y="116" width="52" height="6" rx="3"/>
+              <text class="art-text" x="12" y="142">p4</text>
+              <rect class="art-line" x="34" y="136" width="66" height="6" rx="3"/>
+              <rect class="art-teal" x="34" y="136" width="36" height="6" rx="3"/>
+
+              <!-- The worktext page, with the red overflow box around it -->
+              <rect class="art-card"  x="160" y="56" width="150" height="200" rx="4"/>
+              <rect class="art-guide" x="170" y="66" width="130" height="170"/>
+              <rect class="art-teal"  x="180" y="80"  width="70"  height="8" rx="3"/>
+              <rect class="art-line"  x="180" y="98"  width="110" height="6" rx="3"/>
+              <rect class="art-line"  x="180" y="110" width="90"  height="6" rx="3"/>
+              <rect class="art-wash"  x="180" y="124" width="110" height="50" rx="6"/>
+              <rect class="art-highlight" x="180" y="188" width="50" height="6" rx="3"/>
+              <rect class="art-line"  x="180" y="200" width="100" height="6" rx="3"/>
+              <rect class="art-overflow" x="156" y="52" width="158" height="220" rx="2"/>
+              <rect class="art-red" x="244" y="42" width="74" height="15" rx="3"/>
+              <text class="art-label" x="281" y="53" text-anchor="middle">Overflow +36px</text>
+
+              <!-- Right: review comments -->
+              <text class="art-text art-text--bold" x="370" y="58">Comments (2)</text>
+              <rect class="art-comment" x="370" y="68" width="100" height="40" rx="4"/>
+              <text class="art-text art-text--bold" x="378" y="84">p2</text>
+              <text class="art-text" x="378" y="99">Check image size</text>
+              <rect class="art-panel" x="370" y="116" width="100" height="30" rx="4"/>
+              <text class="art-text art-text--muted" x="378" y="135">Fixed ✓</text>
+            </svg>
+          </div>
+
+          <div class="project-card__body">
+            <p class="label label--teal">Internal tool · In team use</p>
+            <h3 class="project-card__title">Worktext Studio</h3>
+            <p class="project-card__summary">
+              A browser tool that lets my team preview, check and review worktext
+              pages <em>before</em> they're rendered to PDF.
+            </p>
+
+            <ul class="project-card__points">
+              <li>Simulates the PDF renderer and flags pages that overflow</li>
+              <li>Sticky-note reviews that stay attached to edited text</li>
+              <li>Shared comments with Google Sign-In, stored in a Google Sheet through Apps Script</li>
+            </ul>
+
+            <ul class="chips" aria-label="Built with">
+              <li class="chip">JavaScript</li>
+              <li class="chip">Google Sign-In</li>
+              <li class="chip">Apps Script</li>
+              <li class="chip">Google Sheets</li>
+            </ul>
+
+            <a class="button button--primary project-card__link" href="worktext-studio.html">
+              Read the case study<span class="visually-hidden">: Worktext Studio</span>
+              <span class="project-card__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <p class="margin-note project-card__note">Started as a preview page. Grew as my team used it.</p>
+
+        </article>
+
+      </div>
+    </section>
+
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
     <div class="container">

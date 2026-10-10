@@ -803,3 +803,198 @@ mark {
     background: linear-gradient(to right, var(--dot), var(--next));
   }
 }
+/* ---------- 12. SHARED COMPONENTS ---------- */
+
+/* Label + heading at the top of a section */
+.section-header {
+  margin-bottom: var(--space-48);
+}
+
+.section-header .label {
+  margin-bottom: var(--space-8);
+}
+
+.section-header h2 {
+  margin: 0;
+}
+
+/* Teal labels for project types */
+.label--teal {
+  color: var(--color-teal);
+}
+
+/* Technology chips: small pill-shaped tags */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-24);
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-teal-wash);
+  color: var(--color-teal-deep);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;   /* 12px */
+  line-height: 1.5;
+}
+
+/* Margin note: a yellow sticky note in your voice */
+.margin-note {
+  max-width: 220px;
+  margin: 0;
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-sticky);
+  border-radius: var(--radius-note);
+  box-shadow: var(--shadow-note);
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--color-ink);
+  transform: rotate(3deg);
+}
+
+
+/* ---------- 13. PROJECT CARDS ---------- */
+
+.project-card {
+  position: relative;          /* frame for the clickable area and the note */
+  display: grid;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Hover AND keyboard focus: lift the card (Handbook G, animation 2) */
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* The picture area: tinted panel, rounded top corners on phones */
+.project-card__visual {
+  display: flex;
+  align-items: center;
+  padding: var(--space-16);
+  background-color: var(--color-teal-wash);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.project-card__image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+}
+
+.project-card__body {
+  padding: var(--space-24);
+}
+
+.project-card__body .label {
+  margin-bottom: var(--space-8);
+}
+
+.project-card__title {
+  margin-bottom: var(--space-8);
+}
+
+.project-card--featured .project-card__title {
+  font-size: var(--text-h2);
+}
+
+.project-card__points {
+  margin: 0 0 var(--space-24);
+  padding-left: 1.2em;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.project-card__points li + li {
+  margin-top: var(--space-4);
+}
+
+/* Makes the WHOLE card clickable: the link's invisible ::before
+   stretches over the entire card */
+.project-card__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+}
+
+.project-card:hover .button--primary {
+  background-color: var(--color-teal-deep);
+}
+
+/* The arrow slides right on hover/focus */
+.project-card__arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.project-card:hover .project-card__arrow,
+.project-card:focus-within .project-card__arrow {
+  transform: translateX(4px);
+}
+
+/* Margin note pinned to the top-right edge */
+.project-card__note {
+  position: absolute;
+  top: calc(var(--space-12) * -1);
+  right: var(--space-12);
+  max-width: 190px;
+  font-size: 0.875rem;
+}
+
+/* Wide screens: picture left, text right */
+@media (min-width: 960px) {
+  .project-card--featured {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .project-card--featured .project-card__visual {
+    padding: var(--space-32);
+    border-radius: var(--radius-card) 0 0 var(--radius-card);
+  }
+
+  .project-card--featured .project-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: var(--space-48) var(--space-48) var(--space-48) var(--space-32);
+  }
+
+  .project-card__note {
+    right: var(--space-24);
+    max-width: 210px;
+  }
+}
+
+
+/* ---------- 14. MORE ILLUSTRATION SHAPES ---------- */
+/* Used inside the Worktext Studio drawing */
+
+.art-ink      { fill: var(--color-ink); }
+.art-red      { fill: var(--color-red-pen); }
+.art-paper    { fill: var(--color-paper); }
+.art-panel    { fill: var(--color-card); stroke: var(--color-rule); stroke-width: 1; }
+.art-divider  { stroke: var(--color-rule); stroke-width: 1; }
+.art-overflow { fill: none; stroke: var(--color-red-pen); stroke-width: 2; }
+.art-comment  { fill: var(--color-card); stroke: var(--color-highlighter); stroke-width: 1.5; }
+
+.art-label          { fill: #FFFFFF; font-family: var(--font-mono); font-size: 9px; font-weight: 700; }
+.art-label--dark    { fill: var(--color-ink); }
+.art-label--muted   { fill: rgb(255 255 255 / 0.7); }
+.art-text           { fill: var(--color-ink); font-family: var(--font-body); font-size: 10px; }
+.art-text--bold     { font-weight: 700; }
+.art-text--red      { fill: var(--color-red-pen); font-weight: 700; }
+.art-text--muted    { fill: var(--color-slate); }
