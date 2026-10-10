@@ -1210,3 +1210,110 @@ mark {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+/* ---------- 19. PAGE HEADER (top of inner pages) ---------- */
+
+.page-header {
+  padding-block: var(--space-48);
+}
+
+.page-header h1 {
+  max-width: 20ch;
+}
+
+.page-header__intro {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--color-slate);
+}
+
+@media (min-width: 960px) {
+  .page-header {
+    padding-block: var(--space-64);
+  }
+}
+
+
+/* ---------- 20. WORK LIST (mini write-ups) ---------- */
+
+.work-list {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.work-item {
+  padding: var(--space-24);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+}
+
+.work-item .label {
+  margin-bottom: var(--space-8);
+}
+
+.work-item h3 {
+  margin-bottom: var(--space-12);
+}
+
+.work-item p {
+  font-size: var(--text-small);
+  line-height: 1.55;
+}
+
+/* Small heading inside an item, e.g. "What I did" */
+.work-item__subhead {
+  margin-bottom: var(--space-4);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.work-item__list {
+  margin: 0 0 var(--space-16);
+  padding-left: 1.2em;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.work-item__list li + li {
+  margin-top: var(--space-4);
+}
+
+.work-item .chips {
+  margin-bottom: 0;
+}
+
+/* Short cards in the "Earlier work" grid sit on paper, so make them white */
+.work-item--small {
+  background-color: var(--color-card);
+}
+
+.work-item--small p {
+  margin-bottom: 0;
+}
+
+/* Code examples */
+.code-sample {
+  margin: 0 0 var(--space-8);
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-teal-wash);
+  border-radius: 8px;
+  color: var(--color-teal-deep);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  white-space: pre-wrap;      /* wrap long lines instead of overflowing on phones */
+  overflow-wrap: anywhere;
+}
+
+.code-caption {
+  color: var(--color-slate);
+}
+
+@media (min-width: 960px) {
+  .work-item {
+    padding: var(--space-32);
+  }
+  .work-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
