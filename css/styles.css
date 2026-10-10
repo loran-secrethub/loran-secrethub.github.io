@@ -1115,3 +1115,98 @@ mark {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+/* ---------- 17. HOW I WORK ---------- */
+
+/* A full-width white band, to alternate with paper sections */
+.section--band {
+  background-color: var(--color-card);
+  border-block: 1px solid var(--color-rule);
+}
+
+.principles {
+  display: grid;
+  gap: var(--space-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Dashed border: like a worksheet box waiting to be filled */
+.principle {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-24);
+  background-color: var(--color-paper);
+  border: 1.5px dashed var(--color-rule);
+  border-radius: var(--radius-card);
+}
+
+.principle__number {
+  margin-bottom: var(--space-8);
+}
+
+.principle__title {
+  margin-bottom: var(--space-16);
+}
+
+/* Evidence line, in margin-note style (yellow edge) */
+.evidence {
+  margin: auto 0 0;      /* auto top margin keeps evidence at the bottom */
+  padding-left: var(--space-12);
+  border-left: 3px solid var(--color-highlighter);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--color-slate);
+}
+
+@media (min-width: 960px) {
+  .principles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ---------- 18. TOOLBOX SNAPSHOT ---------- */
+
+.toolbox {
+  display: grid;
+  gap: var(--space-32) var(--space-24);
+}
+
+.toolbox__heading {
+  margin-bottom: var(--space-12);
+  font-size: 1.125rem;
+}
+
+.toolbox .chips {
+  margin-bottom: 0;
+}
+
+/* Chips that are links: slightly bigger to tap, fill teal on hover */
+.chip--link {
+  display: inline-block;
+  padding: 6px var(--space-12);
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.chip--link:hover {
+  background-color: var(--color-teal);
+  color: #FFFFFF;
+}
+
+.toolbox__more {
+  margin: var(--space-32) 0 0;
+}
+
+@media (min-width: 768px) {
+  .toolbox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .toolbox {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
