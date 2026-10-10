@@ -46,3 +46,26 @@ if (copyButton) {
     }, 2000);
   });
 }
+// ---------- 3. Journey line: draw when it scrolls into view ----------
+// Only runs if the visitor hasn't asked to reduce motion,
+// and only once per page visit.
+
+const journeyStrip = document.querySelector(".journey-strip");
+const motionOK = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+
+if (journeyStrip && motionOK && "IntersectionObserver" in window) {
+  // Step 1: get ready (CSS collapses the lines)
+  journeyStrip.classList.add("will-draw");
+
+  // Step 2: watch for the strip to appear on screen
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        journeyStrip.classList.add("is-drawn"); // CSS starts the drawing
+        observer.disconnect();                  // stop watching: draw only once
+      }
+    });
+  }, { threshold: 0.4 });  // start when 40% of the strip is visible
+
+  observer.observe(journeyStrip);
+}

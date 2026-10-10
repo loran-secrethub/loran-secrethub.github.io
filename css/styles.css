@@ -1833,3 +1833,104 @@ mark {
     gap: var(--space-64);
   }
 }
+/* ---------- 27. MOTION (Handbook Chapter G) ---------- */
+/* Everything here runs ONLY if the visitor hasn't asked
+   their device to reduce motion. */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* --- 1. Hero entrance --- */
+
+  /* Text: each line fades in and rises 12px, 80ms after the one before */
+  .hero__content > * {
+    animation: rise-in 400ms ease-out both;
+  }
+  .hero__content > :nth-child(2) { animation-delay: 80ms; }
+  .hero__content > :nth-child(3) { animation-delay: 160ms; }
+  .hero__content > :nth-child(4) { animation-delay: 240ms; }
+  .hero__content > :nth-child(5) { animation-delay: 320ms; }
+
+  /* The illustrated page rises in a little after the text starts */
+  .hero-art__page {
+    animation: rise-in 600ms ease-out 200ms both;
+  }
+
+  /* Sticky notes drop onto the page and settle */
+  .hero-art__note--sticky {
+    animation: settle-in 500ms ease-out 550ms both;
+  }
+  .hero-art__note--review {
+    animation: settle-in 500ms ease-out 700ms both;
+  }
+
+
+  /* --- 3. Journey line draws itself --- */
+  /* JavaScript adds .will-draw (get ready) and then
+     .is-drawn (it's on screen, go!) to the journey strip. */
+
+  /* Phone: lines grow downward from the top */
+  .journey-strip {
+    --draw-from: 1 0;
+  }
+  .journey-step:not(:last-child)::before {
+    transform-origin: top center;
+  }
+
+  /* Before it's on screen: lines collapsed, dots small and faint */
+  .journey-strip.will-draw .journey-step:not(:last-child)::before {
+    scale: var(--draw-from);
+  }
+  .journey-strip.will-draw .journey-step__dot {
+    opacity: 0.3;
+    scale: 0.6;
+  }
+
+  /* On screen: each step draws in turn, 180ms apart */
+  .journey-strip.is-drawn .journey-step:not(:last-child)::before {
+    animation: draw-line 300ms ease-out forwards;
+    animation-delay: calc(var(--step) * 180ms + 120ms);
+  }
+  .journey-strip.is-drawn .journey-step__dot {
+    animation: dot-in 250ms ease-out forwards;
+    animation-delay: calc(var(--step) * 180ms);
+  }
+
+  .journey-step:nth-child(1) { --step: 0; }
+  .journey-step:nth-child(2) { --step: 1; }
+  .journey-step:nth-child(3) { --step: 2; }
+  .journey-step:nth-child(4) { --step: 3; }
+  .journey-step:nth-child(5) { --step: 4; }
+}
+
+/* Tablet and desktop: the line is horizontal, so it grows left to right */
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .journey-strip {
+    --draw-from: 0 1;
+  }
+  .journey-step:not(:last-child)::before {
+    transform-origin: left center;
+  }
+}
+
+
+/* --- The movements themselves --- */
+
+@keyframes rise-in {
+  from { opacity: 0; translate: 0 12px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes settle-in {
+  from { opacity: 0; translate: 0 -16px; rotate: 8deg; scale: 1.06; }
+  to   { opacity: 1; translate: 0 0;     rotate: 0deg; scale: 1; }
+}
+
+@keyframes draw-line {
+  from { scale: var(--draw-from); }
+  to   { scale: 1; }
+}
+
+@keyframes dot-in {
+  from { opacity: 0.3; scale: 0.6; }
+  to   { opacity: 1;   scale: 1; }
+}
