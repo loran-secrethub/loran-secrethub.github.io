@@ -408,7 +408,7 @@ mark {
 
 /* Hover, and the "you are here" page: teal text + highlighter underline */
 .site-nav__link:hover,
-.site-nav__link[aria-current="page"] {
+.site-nav__link[aria-current] {
   color: var(--color-teal);
   text-decoration: underline;
   text-decoration-color: var(--color-highlighter);
@@ -1541,5 +1541,270 @@ mark {
 @media (min-width: 768px) {
   .button-row .button {
     flex: 0 0 auto;
+  }
+}
+/* ---------- 25. CASE STUDY PAGES ---------- */
+
+/* Breadcrumb: "Work / Worktext Studio" */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-16);
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: var(--space-8);
+}
+
+.breadcrumb a {
+  color: var(--color-slate);
+}
+
+.breadcrumb [aria-current="page"] {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.case-header__who {
+  margin-top: var(--space-12);
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+
+/* Facts strip: role, users, type, built with */
+.facts {
+  display: grid;
+  gap: var(--space-16) var(--space-24);
+  margin: var(--space-32) 0 0;
+  padding-top: var(--space-24);
+  border-top: 1px solid var(--color-rule);
+}
+
+.facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+}
+
+.facts dd {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+/* Big framed visual */
+.case-visual {
+  margin: 0;
+}
+
+.case-visual__frame {
+  padding: var(--space-16);
+  background-color: var(--color-teal-wash);
+  border-radius: var(--radius-card);
+}
+
+.case-visual figcaption {
+  margin-top: var(--space-8);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-slate);
+}
+
+/* Case study sections: tighter than homepage sections */
+.case-section {
+  padding-block: var(--space-48);
+}
+
+/* Story on the left, margin note on the right (desktop) */
+.case-block {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.case-block__main > p,
+.case-block__main > ul {
+  max-width: 62ch;
+}
+
+.case-block__note {
+  align-self: start;
+  max-width: 300px;
+  transform: rotate(1.5deg);
+}
+
+/* Second kind of margin note: a technical decision (pink) */
+.margin-note--decision {
+  background-color: var(--color-red-wash);
+}
+
+.margin-note--decision .margin-note__label {
+  color: var(--color-red-pen);
+}
+
+/* Flow diagram: boxes with arrows (vertical on phones) */
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: var(--space-24) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow > li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+/* Arrow between boxes (the "/ ''" part hides it from screen readers) */
+.flow > li + li::before {
+  content: "↓" / "";
+  padding-left: var(--space-16);
+  font-weight: 700;
+  color: var(--color-slate);
+}
+
+.flow__box {
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-card);
+  border: 2px solid var(--color-teal);
+  border-radius: var(--radius-button);
+  font-size: var(--text-small);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.flow__box span {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-slate);
+}
+
+/* Yellow boxes = the Google-hosted back-end parts */
+.flow__box--google {
+  background-color: color-mix(in srgb, var(--color-highlighter) 18%, white);
+  border-color: var(--color-highlighter);
+}
+
+/* Front end / back end panels */
+.arch {
+  display: grid;
+  gap: var(--space-16);
+  margin-top: var(--space-24);
+}
+
+.arch__panel {
+  padding: var(--space-24);
+  background-color: var(--color-card);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+}
+
+.arch__panel--google {
+  background-color: color-mix(in srgb, var(--color-highlighter) 12%, white);
+  border-color: var(--color-highlighter);
+}
+
+.arch__panel .label {
+  margin-bottom: var(--space-8);
+}
+
+.arch__panel ul {
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.arch__panel li + li {
+  margin-top: var(--space-4);
+}
+
+/* Feature tiles */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-16);
+  margin: var(--space-24) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-tile {
+  padding: var(--space-24);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+}
+
+.feature-tile h3 {
+  margin-bottom: var(--space-8);
+  font-size: 1.125rem;
+}
+
+.feature-tile p {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+/* Previous / next links at the bottom */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding-block: var(--space-32);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 768px) {
+  .facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flow,
+  .flow > li {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .flow > li + li::before {
+    content: "→" / "";
+    padding-left: 0;
+  }
+  .arch {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .case-visual__frame {
+    padding: var(--space-32);
+  }
+  .case-section {
+    padding-block: var(--space-64);
+  }
+  .case-block {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--space-48);
+  }
+  .case-block__note {
+    margin-top: var(--space-48);
+    transform: rotate(2deg);
   }
 }
