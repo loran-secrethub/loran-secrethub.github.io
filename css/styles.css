@@ -1,7 +1,20 @@
+/* ---------- 0. CUSTOM FONT FILES ---------- */
+/* Loads Handy Casual from our own folder (it's not on Google Fonts). */
+@font-face {
+  font-family: "Handy Casual";
+  src: url("../assets/font/handy-casual.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* ---------- 1. DESIGN TOKENS ---------- */
 :root {
   /* Colors */
-  --color-paper:       #FAF6EE;  /* page background */
-  --color-card:        #FFFFFF;  /* cards, panels */
+  --color-paper:       #FFFFFF;  /* page background */
+  --color-card:        #fdf2f2;  /* cards, panels */
   --color-ink:         #1C2333;  /* main text */
   --color-slate:       #545E70;  /* secondary text */
   --color-teal:        #1D6B64;  /* links, buttons ("click here") */
@@ -22,9 +35,10 @@
 
 
   /* Fonts (with backups in case a font fails to load) */
-  --font-heading: "Fraunces", Georgia, serif;
-  --font-body:    "Atkinson Hyperlegible", system-ui, sans-serif;
-  --font-mono:    "JetBrains Mono", Consolas, monospace;
+  --font-hand: "Handy Casual", "Comic Sans MS", cursive;
+  --font-heading: var(--font-hand);
+  --font-body: var(--font-hand);
+  --font-mono: var(--font-hand);
 
   /* Type sizes: PHONE sizes first (desktop sizes are below) */
   --text-hero:  2.375rem;   /* 38px */
@@ -358,9 +372,9 @@ mark {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-family: var(--font-hand);
+  font-size: 1.375rem;   /* Handy Casual is narrow, so a little bigger */
+  font-weight: 400;
   color: var(--color-ink);
   text-decoration: none;
 }
@@ -376,6 +390,21 @@ mark {
   border-radius: 3px;
   box-shadow: var(--shadow-note);
   transform: rotate(-8deg);
+}
+/* Pinwheel GIF beside the name (replaces the yellow square) */
+.brand__pinwheel {
+  display: block;
+  flex-shrink: 0;   /* never squash the pinwheel on small phones */
+}
+
+.brand__pinwheel img {
+  width: 36px;
+}
+
+@media (min-width: 768px) {
+  .brand__pinwheel img {
+    width: 44px;    /* a bit bigger on tablets and desktops */
+  }
 }
 
 /* On small phones show only "Loran" (as in Handbook Figure D.7) */
@@ -400,8 +429,9 @@ mark {
 .site-nav__link {
   display: inline-block;
   padding-block: var(--space-8);
-  font-size: var(--text-small);
-  font-weight: 700;
+  font-family: var(--font-hand);
+  font-size: 1.125rem;
+  font-weight: 400;
   color: var(--color-ink);
   text-decoration: none;
 }
@@ -435,7 +465,7 @@ mark {
     gap: var(--space-24);
   }
   .site-nav__link {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
   .site-nav__resume {
     display: inline-flex;
@@ -1299,7 +1329,7 @@ mark {
   background-color: var(--color-teal-wash);
   border-radius: 8px;
   color: var(--color-teal-deep);
-  font-family: var(--font-mono);
+  font-family: "JetBrains Mono", Consolas, monospace;
   font-size: 0.8125rem;
   line-height: 1.5;
   white-space: pre-wrap;      /* wrap long lines instead of overflowing on phones */
