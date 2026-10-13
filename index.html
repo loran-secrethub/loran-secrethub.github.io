@@ -48,82 +48,54 @@
   <main id="main">
 
     <!-- ===== 1. HERO ===== -->
+        <!-- ===== 1. HERO ===== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__inner">
-
-        <!-- Left: the message -->
+      <div class="container">
         <div class="hero__content">
-          <p class="label">Full Stack E-learning Developer</p>
 
-          <h1 id="hero-title" class="text-hero hero__title">
-            I taught with technology. <em>Now I build it.</em>
-          </h1>
+          <!-- Headline with hand-drawn sparkles on both sides -->
+          <div class="hero__headline">
+            <svg class="sparkles sparkles--left" viewBox="0 0 48 52" aria-hidden="true" focusable="false">
+              <path transform="translate(22 0)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
+              <path transform="translate(2 20) scale(0.5)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
+              <path transform="translate(8 36) scale(0.6)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
+            </svg>
+
+            <h1 id="hero-title" class="hero__title">
+              <span class="hero__line">I taught with technology.</span>
+              <span class="hero__line hero__line--outline">Now I build it.</span>
+            </h1>
+
+            <svg class="sparkles sparkles--right" viewBox="0 0 48 60" aria-hidden="true" focusable="false">
+              <path transform="translate(0 18)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
+              <path transform="translate(30 0) scale(0.5)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
+              <path transform="translate(28 40) scale(0.75)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
+            </svg>
+          </div>
+
+          <!-- Job title pill with "emphasis lines" on both sides -->
+          <div class="hero__role">
+            <svg class="hero__dashes" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
+              <path d="M6 6L54 15M4 20H54M6 34L54 25"/>
+            </svg>
+            <p class="hero__pill">Full Stack E-Learning Developer</p>
+            <svg class="hero__dashes hero__dashes--right" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
+              <path d="M6 6L54 15M4 20H54M6 34L54 25"/>
+            </svg>
+          </div>
 
           <p class="hero__text">
-            I spent almost six years in education, teaching ESL, preschool,
-            ICT and robotics. Today I write the code behind interactive lessons,
-            educational games, and tools that make course production easier.
-          </p>
-
-          <p class="hero__definition">
-            Full stack, the e-learning way: lesson design, interactive builds,
-            tracking, and the small tools and data connections that help
-            learning teams work faster.
+            I spent almost six years in education, teaching ESL, preschool, ICT and robotics.
+            Today I write the code behind interactive lessons, educational games, and tools
+            that make course production easier.
           </p>
 
           <div class="hero__actions">
             <a class="button button--primary" href="work.html">See my work <span aria-hidden="true">→</span></a>
             <a class="button button--secondary" href="journey.html">Read my journey</a>
           </div>
-        </div>
-
-        <!-- Right: decorative illustration (hidden from screen readers) -->
-        <div class="hero-art" aria-hidden="true">
-
-          <svg class="hero-art__page" viewBox="0 0 360 440" focusable="false">
-            <!-- The paper and its dashed margin guide -->
-            <rect class="art-card"  x="1"  y="1"  width="358" height="438" rx="12"/>
-            <rect class="art-guide" x="24" y="24" width="312" height="392" rx="4"/>
-
-            <!-- Title bar and text lines -->
-            <rect class="art-teal" x="48" y="52"  width="150" height="16" rx="4"/>
-            <rect class="art-line" x="48" y="86"  width="264" height="8"  rx="4"/>
-            <rect class="art-line" x="48" y="102" width="236" height="8"  rx="4"/>
-            <rect class="art-line" x="48" y="118" width="196" height="8"  rx="4"/>
-
-            <!-- Activity box with word bubbles (verbs solid, non-verb dashed) -->
-            <rect class="art-wash" x="48" y="142" width="264" height="120" rx="10"/>
-            <circle class="art-bubble" cx="104" cy="204" r="34"/>
-            <text   class="art-word"   x="104"  y="204">run</text>
-            <circle class="art-bubble" cx="188" cy="190" r="27"/>
-            <text   class="art-word"   x="188"  y="190">sing</text>
-            <circle class="art-bubble art-bubble--dashed" cx="262" cy="214" r="30"/>
-            <text   class="art-word"   x="262"  y="214">table</text>
-
-            <!-- More text lines, one highlighted -->
-            <rect class="art-line"      x="48" y="288" width="228" height="8" rx="4"/>
-            <rect class="art-highlight" x="48" y="306" width="110" height="8" rx="4"/>
-            <rect class="art-line"      x="48" y="324" width="250" height="8" rx="4"/>
-            <rect class="art-line"      x="48" y="342" width="170" height="8" rx="4"/>
-
-            <!-- The red "ceiling" line, like Worktext Studio's overflow limit -->
-            <line class="art-ceiling" x1="24" y1="378" x2="336" y2="378"/>
-            <text class="art-ceiling-label" x="336" y="398">990px</text>
-          </svg>
-
-          <!-- Sticky notes, layered on top of the page -->
-          <div class="hero-art__note hero-art__note--sticky">
-            <p>Chapter 1: a teacher.</p>
-            <p>Chapter 5: a builder.</p>
-          </div>
-
-          <div class="hero-art__note hero-art__note--review">
-            <p class="label">Review note</p>
-            <p>Every chapter counts.</p>
-          </div>
 
         </div>
-
       </div>
     </section>
 
@@ -132,50 +104,34 @@
         </div>
     </section>
 
-    <!-- ===== 2. JOURNEY STRIP ===== -->
-    <section class="journey-strip" aria-labelledby="journey-strip-title">
+        <!-- ===== 2. LOGOS: WHERE I'VE WORKED ===== -->
+    <section class="logo-band" aria-labelledby="logos-title">
+
+      <!-- Wavy top edge (decoration) -->
+      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
       <div class="container">
+        <h2 id="logos-title" class="logo-band__title">Where I've taught, coded and built</h2>
 
-        <div class="journey-strip__header">
-          <h2 id="journey-strip-title" class="label journey-strip__title">How I got here</h2>
-          <a class="journey-strip__link" href="journey.html">Read the full journey <span aria-hidden="true">→</span></a>
-        </div>
-
-        <ol class="journey-strip__list">
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role">ESL Teacher</p>
-            <p class="journey-step__note">Adapting to every learner</p>
-          </li>
-
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role">Preschool &amp; ICT Teacher</p>
-            <p class="journey-step__note">Online classes, Scratch, tech help</p>
-          </li>
-
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role">Robotics Teacher</p>
-            <p class="journey-step__note">Kits, robots and app coding</p>
-          </li>
-
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role">Storyline Developer</p>
-            <p class="journey-step__note">Tracked digital lessons</p>
-          </li>
-
-          <li class="journey-step journey-step--current">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role">Learning Experience Developer</p>
-            <p class="journey-step__note">Now: building tools</p>
-          </li>
-        </ol>
-
+        <ul class="logo-band__list">
+          <li><img src="assets/images/9.png"  alt="RoboThink"></li>
+          <li><img src="assets/images/10.png" alt="TLB"><!-- TODO: full name of TLB --></li>
+          <li><img src="assets/images/11.png" alt="Company name"><!-- TODO: name of the green thumbs-up logo --></li>
+          <li><img src="assets/images/12.png" alt="Everyday Play N Learn Child Development"></li>
+          <li><img src="assets/images/13.png" alt="Audacious Labs"></li>
+        </ul>
       </div>
-    </section>
 
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
+    </section>
   </main>
 
       <!-- ===== 3. SELECTED WORK ===== -->
