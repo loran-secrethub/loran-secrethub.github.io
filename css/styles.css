@@ -7,7 +7,43 @@
   font-style: normal;
   font-display: swap;
 }
-
+/* Quicksand: a clean, rounded font with five real weights.
+   Each block connects one weight number to one file. */
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/font/Quicksand-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/font/Quicksand-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/font/Quicksand-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/font/Quicksand-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/font/Quicksand-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 
 /* ---------- 1. DESIGN TOKENS ---------- */
@@ -48,6 +84,7 @@
 
   /* Fonts (with backups in case a font fails to load) */
   --font-hand: "Handy Casual", "Comic Sans MS", cursive;
+  --font-clean: "Quicksand", "Segoe UI", system-ui, sans-serif;
   --font-heading: var(--font-hand);
   --font-body: var(--font-hand);
   --font-mono: var(--font-hand);
