@@ -126,6 +126,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-body);
   line-height: 1.6;
+  font-synthesis: none;   /* never fake bold or italic: our font has one style */
 }
 
 h1, h2, h3 {
