@@ -399,35 +399,25 @@ mark {
   color: var(--color-ink);
 }
 
-/* The flower logo */
+/* The flower logo (flower_1.svg) */
 .brand__flower {
   display: block;
   flex-shrink: 0;        /* never squash the flower on small phones */
   width: 32px;
-  height: 32px;
+  height: auto;          /* keeps the flower's own shape */
 }
 
-.flower__petal,
-.flower__center {
-  stroke: var(--color-plum);
-  stroke-width: 2;
-}
-.flower__petal--pink  { fill: var(--color-pink); }
-.flower__petal--mint  { fill: var(--color-mint); }
-.flower__petal--mauve { fill: var(--color-mauve); }
-.flower__petal--rose  { fill: var(--color-rose); }
-.flower__center       { fill: var(--color-lemon); }
-
-/* A gentle quarter turn when you hover over your name
-   (only if the visitor hasn't asked to reduce motion) */
+/* Spins clockwise, non-stop. One full turn every 8 seconds.
+   Stays still for visitors who ask their device to reduce motion. */
 @media (prefers-reduced-motion: no-preference) {
   .brand__flower {
-    transition: rotate 400ms ease;
+    animation: flower-spin 8s linear infinite;
   }
-  .brand:hover .brand__flower,
-  .brand:focus-visible .brand__flower {
-    rotate: 90deg;
-  }
+}
+
+@keyframes flower-spin {
+  from { rotate: 0deg; }
+  to   { rotate: 360deg; }
 }
 
 /* On small phones show only "Loran" */
@@ -462,17 +452,6 @@ mark {
   text-underline-offset: 6px;
 }
 
-/* Résumé: a plain link with a thin plum underline.
-   Hidden on phones (it's in the contact area instead). */
-.site-nav__resume {
-  display: none;
-}
-.site-nav__resume .site-nav__link {
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 5px;
-}
-
 @media (min-width: 480px) {
   .brand__surname {
     display: inline;
@@ -482,16 +461,12 @@ mark {
 @media (min-width: 768px) {
   .brand__flower {
     width: 40px;
-    height: 40px;
   }
   .site-nav__list {
     gap: var(--space-24);
   }
   .site-nav__link {
     font-size: 1.25rem;
-  }
-  .site-nav__resume {
-    display: block;
   }
 }
 
@@ -577,7 +552,7 @@ mark {
 }
 /* ---------- 10. HERO ---------- */
 
-/* White graph paper with pale mauve lines */
+/* White graph paper with pale mauve lines, everything centered */
 .hero {
   overflow: hidden;            /* nothing can poke out sideways on phones */
   padding-block: var(--space-48) var(--space-64);
@@ -586,19 +561,14 @@ mark {
     linear-gradient(to right,  var(--color-grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
   background-size: 28px 28px;
+  text-align: center;
 }
 
-/* Phones: one column (words first, then photo) */
-.hero__inner {
-  display: grid;
-  gap: var(--space-48);
-  align-items: center;
-}
-
+/* Stack everything in a centered column */
 .hero__content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* "Full stack e-learning developer" in a mint pill */
@@ -613,7 +583,8 @@ mark {
 }
 
 .hero__title {
-  margin: 0 0 var(--space-24);
+  max-width: 20ch;             /* keeps the headline from stretching too wide */
+  margin: 0 auto var(--space-24);
   font-size: clamp(2.5rem, 6vw, 4rem);   /* grows with the screen: 40px to 64px */
   font-weight: 400;
   line-height: 1.15;
@@ -630,24 +601,33 @@ mark {
 
 .hero__text {
   max-width: 52ch;
-  margin: 0 0 var(--space-16);
+  margin: 0 auto var(--space-16);
   font-size: 1.1875rem;
 }
 
-/* The definition line, with a pink edge on the left */
+/* The definition line, with a short pink dash above it */
 .hero__definition {
   max-width: 52ch;
-  margin: 0 0 var(--space-32);
-  padding-left: var(--space-12);
-  border-left: 4px solid var(--color-pink);
+  margin: 0 auto var(--space-32);
   font-size: var(--text-small);
   line-height: 1.5;
   color: var(--color-slate);
 }
 
+.hero__definition::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin: 0 auto var(--space-12);
+  background-color: var(--color-pink);
+  border-radius: 2px;
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-12);
   width: 100%;
 }
@@ -655,58 +635,6 @@ mark {
 /* Phone: full-width buttons */
 .hero__actions .button {
   flex: 1 1 100%;
-}
-
-/* --- Photo circle --- */
-
-.hero__photo {
-  position: relative;          /* lets the sparkle sit in its corner */
-  justify-self: center;
-  width: min(100%, 220px);
-  text-align: center;
-}
-
-.hero__photo-frame {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 1;             /* always a perfect circle */
-  overflow: hidden;
-  background-color: var(--color-rose);
-  border: 2px solid var(--color-plum);
-  border-radius: 50%;
-}
-
-/* When you add your real photo, it fills the circle */
-.hero__photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* The placeholder person drawing */
-.hero__person {
-  width: 100%;
-  fill: var(--color-card);
-  stroke: var(--color-plum);
-  stroke-width: 2;
-}
-
-.hero__photo-caption {
-  margin: var(--space-8) auto 0;
-  font-size: var(--text-small);
-  color: var(--color-slate);
-}
-
-/* Lemon sparkle with a plum outline */
-.hero__sparkle {
-  position: absolute;
-  top: -12px;
-  right: -16px;
-  width: 32px;
-  fill: var(--color-lemon);
-  stroke: var(--color-plum);
-  stroke-width: 1.5;
-  stroke-linejoin: round;
 }
 
 
@@ -735,22 +663,11 @@ mark {
   .hero__actions .button {
     flex: 0 0 auto;            /* buttons only as wide as their text */
   }
-  .hero__photo {
-    width: 260px;
-  }
 }
 
-/* Wide screens: words on the left, photo on the right */
 @media (min-width: 960px) {
   .hero {
     padding-block: var(--space-64) var(--space-96);
-  }
-  .hero__inner {
-    grid-template-columns: 1.4fr 1fr;
-    gap: var(--space-64);
-  }
-  .hero__photo {
-    width: 300px;
   }
 }
 /* ---------- 11. JOURNEY STRIP ---------- */
