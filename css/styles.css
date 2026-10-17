@@ -402,9 +402,9 @@ mark {
 /* The flower logo (flower_1.svg) */
 .brand__flower {
   display: block;
-  flex-shrink: 0;        /* never squash the flower on small phones */
-  width: 32px;
-  height: auto;          /* keeps the flower's own shape */
+  flex-shrink: 0;
+  width: 32px;      /* ← phone size: change this number */
+  height: auto;
 }
 
 /* Spins clockwise, non-stop. One full turn every 8 seconds.
@@ -459,8 +459,8 @@ mark {
 }
 
 @media (min-width: 768px) {
-  .brand__flower {
-    width: 40px;
+    .brand__flower {
+    width: 40px;    /* ← tablet and laptop size: change this number */
   }
   .site-nav__list {
     gap: var(--space-24);
@@ -583,11 +583,15 @@ mark {
 }
 
 .hero__title {
-  max-width: 20ch;             /* keeps the headline from stretching too wide */
   margin: 0 auto var(--space-24);
   font-size: clamp(2.5rem, 6vw, 4rem);   /* grows with the screen: 40px to 64px */
   font-weight: 400;
   line-height: 1.15;
+}
+
+/* Each part of the headline starts on its own line */
+.hero__line {
+  display: block;
 }
 
 /* "want to click." on a pink highlighter stripe */
