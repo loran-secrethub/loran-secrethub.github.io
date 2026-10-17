@@ -288,75 +288,80 @@ mark {
 
 
 /* ---------- 7. BUTTONS ---------- */
+/* Sticker buttons: plum outline + small plum shadow */
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-8);
-  min-height: 44px;                 /* comfortable finger-sized target */
-  padding: var(--space-12) var(--space-24);
-  border: 2px solid transparent;
+  min-height: 44px;                    /* comfortable finger-sized target */
+  padding: var(--space-8) var(--space-24);
+  border: 2px solid var(--color-plum);
   border-radius: var(--radius-button);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--color-plum);   /* the sticker shadow */
+  font-family: var(--font-hand);
+  font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.2;
+  color: var(--color-ink);
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  transition: translate 120ms ease, box-shadow 120ms ease, background-color 180ms ease;
 }
 
-/* Filled teal: the main action ("See my work") */
+/* Hover: the sticker lifts a little */
+.button:hover {
+  translate: -1px -1px;
+  box-shadow: 4px 4px 0 var(--color-plum);
+  color: var(--color-ink);
+}
+
+/* Click: the sticker presses down into its shadow */
+.button:active {
+  translate: 2px 2px;
+  box-shadow: 1px 1px 0 var(--color-plum);
+}
+
+/* Pink: the main action ("See my work") */
 .button--primary {
-  background-color: var(--color-teal);
-  color: #FFFFFF;
-}
-.button--primary:hover {
-  background-color: var(--color-teal-deep);
-  color: #FFFFFF;
+  background-color: var(--color-pink);
 }
 
-/* Outlined teal: the second action ("Read my journey", "Résumé") */
+/* White: the second action ("Play something") */
 .button--secondary {
-  background-color: transparent;
-  border-color: var(--color-teal);
-  color: var(--color-teal);
-}
-.button--secondary:hover {
-  background-color: var(--color-teal-wash);
-  color: var(--color-teal-deep);
+  background-color: var(--color-card);
 }
 
-/* Smaller version for the top bar */
+/* Smaller version */
 .button--small {
   min-height: 40px;
-  padding: var(--space-8) var(--space-16);
-  font-size: var(--text-small);
+  padding: var(--space-4) var(--space-16);
+  font-size: 1rem;
 }
 
-/* For dark teal backgrounds: solid white */
+/* For the dark footer (we'll redesign the footer later) */
 .button--light {
-  background-color: #FFFFFF;
-  color: var(--color-teal-deep);
+  background-color: var(--color-card);
+  border-color: var(--color-card);
+  box-shadow: 3px 3px 0 var(--color-pink);
 }
 .button--light:hover {
-  background-color: var(--color-teal-wash);
-  color: var(--color-teal-deep);
+  box-shadow: 4px 4px 0 var(--color-pink);
 }
 
-/* For dark teal backgrounds: white outline */
 .button--outline-light {
   background-color: transparent;
   border-color: rgb(255 255 255 / 0.6);
+  box-shadow: none;
   color: #FFFFFF;
 }
 .button--outline-light:hover {
   background-color: rgb(255 255 255 / 0.1);
   border-color: #FFFFFF;
+  box-shadow: none;
   color: #FFFFFF;
 }
-
 
 /* ---------- 8. SITE HEADER ---------- */
 
@@ -1014,10 +1019,6 @@ mark {
   position: absolute;
   inset: 0;
   border-radius: var(--radius-card);
-}
-
-.project-card:hover .button--primary {
-  background-color: var(--color-teal-deep);
 }
 
 /* The arrow slides right on hover/focus */
