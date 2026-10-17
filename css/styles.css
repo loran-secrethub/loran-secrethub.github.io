@@ -626,7 +626,7 @@ mark {
 
 .hero__title {
   margin: 0 auto var(--space-24);
-  font-size: clamp(2.5rem, 6vw, 4rem);   /* grows with the screen: 40px to 64px */
+  font-size: clamp(2rem, 4.2vw, 3.25rem);   /* grows with the screen: 32px to 52px */
   font-weight: 400;
   line-height: 1.15;
 }
