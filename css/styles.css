@@ -49,7 +49,7 @@
 /* ---------- 1. DESIGN TOKENS ---------- */
 :root {
     /* ----- Your pastel palette ----- */
-  --color-lemon: #f8f5dc;  /* Lemon Chiffon: page background, sticky notes */
+  --color-cream: #fdfdf2;  /* Cream: page background, sticky notes */
   --color-pink:  #FF99C8;  /* Baby Pink: things you can click */
   --color-mint:  #D0F4DE;  /* Frosted Mint: tools that make teams faster */
   --color-mauve: #E4C1F9;  /* Mauve: learning you can play */
@@ -976,62 +976,163 @@ mark {
   }
 }
 
-/* ---------- 12. SHARED COMPONENTS ---------- */
+//* ---------- 12. WORK BANDS ---------- */
 
-/* Label + heading at the top of a section */
-.section-header {
-  margin-bottom: var(--space-48);
+.work-band {
+  padding-block: var(--space-48);
 }
 
-.section-header .label {
-  margin-bottom: var(--space-8);
+/* First band: extra top space so the journey strip's bottom wave doesn't cover the title */
+.work-band--tools   { background-color: var(--color-mint); padding-top: calc(var(--space-48) + 40px); }
+.work-band--play    { background-color: var(--color-mauve); }
+.work-band--systems { background-color: var(--color-rose); }
+
+.work-band__inner {
+  width: min(100% - 2rem, 1100px);
+  margin-inline: auto;
 }
 
-.section-header h2 {
-  margin: 0;
+/* Band title with the little outlined circle */
+.work-band__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 var(--space-24);
+  font-family: var(--font-clean);
+  font-weight: 500;
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  color: var(--color-plum);
+}
+.work-band__title::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.75em;
+  height: 0.75em;
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
 }
 
-/* Teal labels for project types */
-.label--teal {
-  color: var(--color-teal);
+/* Card grids */
+.work-grid {
+  display: grid;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .work-grid--three { grid-template-columns: repeat(3, 1fr); }
+  .work-grid--two   { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Technology chips: small pill-shaped tags */
-.chips {
+/* --- Card (sticker style) --- */
+.work-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-plum);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--color-plum);
+  color: var(--color-plum);
+}
+
+/* Picture area on top of the card */
+.work-card__art {
+  display: grid;
+  place-items: center;
+  min-height: 90px;
+  padding: 12px;
+  border-bottom: 2px solid var(--color-plum);
+}
+.work-card__art svg {
+  height: 56px;
+  width: auto;
+}
+.work-card__art--rose  { background-color: var(--color-rose); }
+.work-card__art--mint  { background-color: var(--color-mint); }
+.work-card__art--lemon { background-color: var(--color-lemon); }
+
+.work-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 16px 16px;
+}
+
+.work-card__title {
+  margin: 0 0 4px;
+  font-family: var(--font-clean);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.work-card__meta {
+  margin: 0 0 12px;
+  font-family: var(--font-clean);
+  font-size: 0.875rem;
+}
+
+.work-card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-8);
-  margin: 0 0 var(--space-24);
-  padding: 0;
-  list-style: none;
+  gap: 12px;
+  margin-top: auto;      /* buttons line up at the bottom */
 }
 
-.chip {
-  padding: var(--space-4) var(--space-12);
-  border-radius: var(--radius-pill);
-  background-color: var(--color-teal-wash);
-  color: var(--color-teal-deep);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;   /* 12px */
+/* Smaller sticker buttons for cards */
+.button--small {
+  min-height: 40px;
+  padding: 6px 20px;
+  font-family: var(--font-clean);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* --- Featured card (Worktext Studio) --- */
+.work-card--featured .work-card__art {
+  min-height: 0;
+  padding: 20px;
+  background-color: #FFFFFF;
+}
+.work-card--featured .work-card__art svg {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+}
+.work-card--featured .work-card__body {
+  padding: 20px 24px 24px;
+}
+.work-card--featured .work-card__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.work-card__pill {
+  align-self: flex-start;
+  margin: 0 0 8px;
+  padding: 2px 14px;
+  font-family: var(--font-clean);
+  font-size: 0.8rem;
+  background-color: var(--color-mint);
+  border: 2px solid var(--color-plum);
+  border-radius: 999px;
+}
+
+.work-card__text {
+  margin: 0 0 16px;
+  font-family: var(--font-clean);
   line-height: 1.5;
 }
 
-/* Margin note: a yellow sticky note in your voice */
-.margin-note {
-  max-width: 220px;
-  margin: 0;
-  padding: var(--space-12) var(--space-16);
-  background-color: var(--color-sticky);
-  border-radius: var(--radius-note);
-  box-shadow: var(--shadow-note);
-  font-family: var(--font-heading);
-  font-size: 0.9375rem;
-  font-style: italic;
-  line-height: 1.3;
-  color: var(--color-ink);
-  transform: rotate(3deg);
+/* Tablet and up: picture on the left, words on the right */
+@media (min-width: 768px) {
+  .work-card--featured {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+  }
+  .work-card--featured .work-card__art {
+    border-bottom: 0;
+    border-right: 2px solid var(--color-plum);
+  }
 }
-
 
 /* ---------- 13. PROJECT CARDS ---------- */
 

@@ -134,374 +134,120 @@
     </section>
   </main>
 
-      <!-- ===== 3. SELECTED WORK ===== -->
-    <section class="section" id="work" aria-labelledby="work-title">
-      <div class="container">
+      <!-- ===== WORK BANDS (replaces Selected Work → Tech Stack) ===== -->
 
-        <div class="section-header">
-          <p class="label">Selected work</p>
-          <h2 id="work-title">Things I've built for learners and learning teams</h2>
-        </div>
+<!-- Band 1: Tools (mint) -->
+<section class="work-band work-band--tools" aria-labelledby="tools-title">
+  <div class="work-band__inner">
+    <h2 id="tools-title" class="work-band__title">Tools that make teams faster</h2>
 
-        <!-- Featured project: Worktext Studio -->
-        <article class="project-card project-card--featured">
-
-          <div class="project-card__visual">
-            <!-- TODO: replace with a real screenshot (sample content) once approved -->
-            <svg class="project-card__image" viewBox="0 0 480 300" role="img" aria-labelledby="ws-art-title">
-              <title id="ws-art-title">Illustration of Worktext Studio: a page list, a PDF preview with an overflow warning, and review comments</title>
-
-              <!-- Window and toolbar -->
-              <rect class="art-panel" x="0.5" y="0.5" width="479" height="299" rx="8"/>
-              <rect class="art-ink" x="0" y="0" width="480" height="36" rx="8"/>
-              <rect class="art-ink" x="0" y="20" width="480" height="16"/>
-              <text class="art-label" x="14" y="22">WORKTEXT STUDIO</text>
-              <rect class="art-red" x="130" y="10" width="54" height="16" rx="4"/>
-              <text class="art-label" x="157" y="21" text-anchor="middle">PDF Sim</text>
-              <rect class="art-highlight" x="340" y="10" width="86" height="16" rx="8"/>
-              <text class="art-label art-label--dark" x="383" y="21" text-anchor="middle">Revise &amp; Check</text>
-              <text class="art-label art-label--muted" x="454" y="21" text-anchor="middle">Review</text>
-
-              <!-- Center: preview area -->
-              <rect class="art-paper" x="110" y="36" width="250" height="263"/>
-              <line class="art-divider" x1="110" y1="36" x2="110" y2="300"/>
-              <line class="art-divider" x1="360" y1="36" x2="360" y2="300"/>
-
-              <!-- Left: page list with height bars (p2 overflows) -->
-              <text class="art-text art-text--bold" x="12" y="58">lesson.html</text>
-              <text class="art-text" x="12" y="82">p1</text>
-              <rect class="art-line" x="34" y="76" width="66" height="6" rx="3"/>
-              <rect class="art-teal" x="34" y="76" width="44" height="6" rx="3"/>
-              <text class="art-text art-text--red" x="12" y="102">p2 !</text>
-              <rect class="art-red"  x="34" y="96" width="66" height="6" rx="3"/>
-              <text class="art-text" x="12" y="122">p3</text>
-              <rect class="art-line" x="34" y="116" width="66" height="6" rx="3"/>
-              <rect class="art-teal" x="34" y="116" width="52" height="6" rx="3"/>
-              <text class="art-text" x="12" y="142">p4</text>
-              <rect class="art-line" x="34" y="136" width="66" height="6" rx="3"/>
-              <rect class="art-teal" x="34" y="136" width="36" height="6" rx="3"/>
-
-              <!-- The worktext page, with the red overflow box around it -->
-              <rect class="art-card"  x="160" y="56" width="150" height="200" rx="4"/>
-              <rect class="art-guide" x="170" y="66" width="130" height="170"/>
-              <rect class="art-teal"  x="180" y="80"  width="70"  height="8" rx="3"/>
-              <rect class="art-line"  x="180" y="98"  width="110" height="6" rx="3"/>
-              <rect class="art-line"  x="180" y="110" width="90"  height="6" rx="3"/>
-              <rect class="art-wash"  x="180" y="124" width="110" height="50" rx="6"/>
-              <rect class="art-highlight" x="180" y="188" width="50" height="6" rx="3"/>
-              <rect class="art-line"  x="180" y="200" width="100" height="6" rx="3"/>
-              <rect class="art-overflow" x="156" y="52" width="158" height="220" rx="2"/>
-              <rect class="art-red" x="244" y="42" width="74" height="15" rx="3"/>
-              <text class="art-label" x="281" y="53" text-anchor="middle">Overflow +36px</text>
-
-              <!-- Right: review comments -->
-              <text class="art-text art-text--bold" x="370" y="58">Comments (2)</text>
-              <rect class="art-comment" x="370" y="68" width="100" height="40" rx="4"/>
-              <text class="art-text art-text--bold" x="378" y="84">p2</text>
-              <text class="art-text" x="378" y="99">Check image size</text>
-              <rect class="art-panel" x="370" y="116" width="100" height="30" rx="4"/>
-              <text class="art-text art-text--muted" x="378" y="135">Fixed ✓</text>
-            </svg>
-          </div>
-
-          <div class="project-card__body">
-            <p class="label label--teal">Internal tool · In team use</p>
-            <h3 class="project-card__title">Worktext Studio</h3>
-            <p class="project-card__summary">
-              A browser tool that lets my team preview, check and review worktext
-              pages <em>before</em> they're rendered to PDF.
-            </p>
-
-            <ul class="project-card__points">
-              <li>Simulates the PDF renderer and flags pages that overflow</li>
-              <li>Sticky-note reviews that stay attached to edited text</li>
-              <li>Shared comments with Google Sign-In, stored in a Google Sheet through Apps Script</li>
-            </ul>
-
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">JavaScript</li>
-              <li class="chip">Google Sign-In</li>
-              <li class="chip">Apps Script</li>
-              <li class="chip">Google Sheets</li>
-            </ul>
-
-            <a class="button button--primary project-card__link" href="worktext-studio.html">
-              Read the case study<span class="visually-hidden">: Worktext Studio</span>
-              <span class="project-card__arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-
-          <p class="margin-note project-card__note">Started as a preview page. Grew as my team used it.</p>
-
-        </article>
-
-                <!-- Featured project: Pop the Verbs -->
-        <article class="project-card project-card--game">
-
-          <div class="project-card__visual">
-            <!-- TODO: replace with real gameplay (image or short muted clip) -->
-            <svg class="project-card__image" viewBox="0 0 480 300" role="img" aria-labelledby="ptv-art-title">
-              <title id="ptv-art-title">Illustration of Pop the Verbs: word bubbles floating up, some holding verbs and some holding other words</title>
-
-              <!-- Background and ground -->
-              <rect class="art-sky" x="0" y="0" width="480" height="300" rx="8"/>
-              <rect class="art-ground" x="0" y="262" width="480" height="38"/>
-
-              <!-- Goal tag -->
-              <rect class="art-card" x="16" y="16" width="150" height="28" rx="14"/>
-              <text class="art-text art-text--bold art-text--lg" x="91" y="34" text-anchor="middle">Goal: pop 15 verbs</text>
-
-              <!-- Word bubbles -->
-              <circle class="art-bubble" cx="110" cy="140" r="40"/>
-              <text   class="art-word"   x="110" y="140">jump</text>
-              <circle class="art-bubble" cx="230" cy="105" r="34"/>
-              <text   class="art-word"   x="230" y="105">happy</text>
-              <circle class="art-bubble" cx="350" cy="170" r="42"/>
-              <text   class="art-word"   x="350" y="170">write</text>
-              <circle class="art-bubble" cx="200" cy="225" r="34"/>
-              <text   class="art-word"   x="200" y="225">table</text>
-              <circle class="art-bubble" cx="430" cy="100" r="28"/>
-              <text   class="art-word"   x="430" y="100">sing</text>
-
-              <!-- A pop -->
-              <text class="art-pop" x="310" y="252">✦ pop! ✦</text>
-            </svg>
-          </div>
-
-          <div class="project-card__body">
-            <p class="label label--teal">Educational game · Phaser</p>
-            <h3 class="project-card__title">Pop the Verbs</h3>
-            <p class="project-card__summary">
-              A bubble-popping game built with Phaser. Every bubble holds a word,
-              and learners pop the 15 verbs hiding among the other words.
-            </p>
-
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">Phaser</li>
-              <li class="chip">JavaScript</li>
-              <li class="chip">Game logic</li>
-            </ul>
-
-            <a class="button button--primary project-card__link" href="pop-the-verbs.html">
-              How I built it<span class="visually-hidden">: Pop the Verbs</span>
-              <span class="project-card__arrow" aria-hidden="true">→</span>
-            </a>
-
-            <!-- TODO: replace with a "Play" button once the game is hosted -->
-            <p class="project-card__status">Playable version coming soon</p>
-          </div>
-
-        </article>
-
+    <article class="work-card work-card--featured">
+      <div class="work-card__art">
+        <svg viewBox="0 0 200 130" aria-hidden="true" focusable="false">
+          <rect x="4" y="4" width="192" height="122" rx="3" fill="#FCF6BD" stroke="#3B2A44" stroke-width="3"/>
+          <rect x="4" y="4" width="192" height="12" fill="#3B2A44"/>
+          <rect x="40" y="30" width="56" height="82" fill="#FFFFFF" stroke="#FF99C8" stroke-width="3"/>
+          <rect x="120" y="46" width="50" height="22" fill="#FEC8C3" stroke="#FF99C8" stroke-width="2"/>
+          <rect x="120" y="76" width="50" height="20" fill="#E4C1F9" stroke="#3B2A44" stroke-width="1.5"/>
+        </svg>
       </div>
-    </section>
-
-        <!-- ===== 4. MORE LEARNING WORK ===== -->
-    <section class="section section--tight-top" aria-labelledby="more-work-title">
-      <div class="container">
-
-        <div class="section-header section-header--split">
-          <h2 id="more-work-title">More learning work</h2>
-          <a class="text-link" href="work.html">See all learning work <span aria-hidden="true">→</span></a>
+      <div class="work-card__body">
+        <p class="work-card__pill">Featured · in team use</p>
+        <h3 class="work-card__title">Worktext Studio</h3>
+        <p class="work-card__text">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
+        <div class="work-card__actions">
+          <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
+          <a class="button button--secondary button--small" href="#">Watch demo</a> <!-- TODO: demo link -->
         </div>
-
-        <div class="card-grid">
-
-          <!-- Bloom's Taxonomy + Moodle -->
-          <article class="project-card project-card--compact">
-            <div class="project-card__body">
-              <p class="label label--teal">Moodle · SCORM</p>
-              <h3 class="project-card__title">Bloom's Taxonomy + Moodle</h3>
-              <p class="project-card__summary">
-                A Moodle course with a Storyline drag-and-drop activity uploaded
-                as a SCORM package, a quiz and a completion certificate.
-              </p>
-              <ul class="chips" aria-label="Built with">
-                <li class="chip">Moodle</li>
-                <li class="chip">SCORM</li>
-                <li class="chip">Storyline</li>
-              </ul>
-              <a class="text-link project-card__link" href="work.html#bloom-moodle">
-                Details<span class="visually-hidden">: Bloom's Taxonomy + Moodle</span>
-                <span class="project-card__arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Cyber Safety: Learner Data Prototype -->
-          <article class="project-card project-card--compact">
-            <div class="project-card__body">
-              <p class="label label--teal">Prototype · Storyline</p>
-              <h3 class="project-card__title">Cyber Safety: Learner Data Prototype</h3>
-              <p class="project-card__summary">
-                A Storyline lesson that collects the learner's name, score and
-                completion and sends them as JSON to a webhook.
-              </p>
-              <ul class="chips" aria-label="Built with">
-                <li class="chip">Storyline</li>
-                <li class="chip">JSON</li>
-                <li class="chip">Webhook</li>
-              </ul>
-              <a class="text-link project-card__link" href="work.html#cyber-safety">
-                Details<span class="visually-hidden">: Cyber Safety: Learner Data Prototype</span>
-                <span class="project-card__arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- DOCX → XML Converter -->
-          <article class="project-card project-card--compact">
-            <div class="project-card__body">
-              <p class="label label--teal">Automation · Python</p>
-              <h3 class="project-card__title">DOCX → XML Converter</h3>
-              <p class="project-card__summary">
-                A Python script that converts a folder of lesson documents to XML
-                in one run and creates QR code images when it finds links.
-              </p>
-              <ul class="chips" aria-label="Built with">
-                <li class="chip">Python</li>
-                <li class="chip">XML</li>
-                <li class="chip">QR codes</li>
-              </ul>
-              <a class="text-link project-card__link" href="work.html#docx-xml">
-                Details<span class="visually-hidden">: DOCX to XML Converter</span>
-                <span class="project-card__arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-        </div>
-
       </div>
-    </section>
+    </article>
+  </div>
+</section>
 
-        <!-- ===== 5. HOW I WORK ===== -->
-    <section class="section section--band" aria-labelledby="how-title">
-      <div class="container">
+<!-- Band 2: Learning you can play (mauve) -->
+<section class="work-band work-band--play" aria-labelledby="play-title">
+  <div class="work-band__inner">
+    <h2 id="play-title" class="work-band__title">Learning you can play</h2>
 
-        <div class="section-header">
-          <p class="label">How a teacher builds</p>
-          <h2 id="how-title">How I work</h2>
+    <div class="work-grid work-grid--three">
+      <article class="work-card">
+        <div class="work-card__art work-card__art--rose">
+          <svg viewBox="0 0 40 50" aria-hidden="true" focusable="false">
+            <path d="M10 24 L30 24 L20 46 Z" fill="#FCF6BD" stroke="#3B2A44" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="20" cy="14" r="9" fill="#FF99C8" stroke="#3B2A44" stroke-width="2"/>
+          </svg>
         </div>
-
-        <ul class="principles">
-          <li class="principle">
-            <p class="label label--teal principle__number">01</p>
-            <h3 class="principle__title">Start from the struggle.</h3>
-            <p class="evidence">
-              Worktext Studio began because layout problems only showed up
-              after PDF rendering.
-            </p>
-          </li>
-
-          <li class="principle">
-            <p class="label label--teal principle__number">02</p>
-            <h3 class="principle__title">Keep it free and reachable.</h3>
-            <p class="evidence">
-              I taught coding with free platforms. Worktext Studio runs
-              entirely on free services.
-            </p>
-          </li>
-
-          <li class="principle">
-            <p class="label label--teal principle__number">03</p>
-            <h3 class="principle__title">Build, watch, improve.</h3>
-            <p class="evidence">
-              Each new Worktext Studio feature came from watching how my team
-              used it.
-            </p>
-          </li>
-        </ul>
-
-      </div>
-    </section>
-
-       <!-- ===== 6. TECH STACK ===== -->
-    <section class="section" id="stack" aria-labelledby="stack-title">
-      <div class="container">
-
-        <div class="section-header">
-          <p class="label">Tech stack</p>
-          <h2 id="stack-title">What I build with</h2>
+        <div class="work-card__body">
+          <h3 class="work-card__title">Ice Cream Pet Shop</h3>
+          <p class="work-card__meta">Guess pet orders from clues</p>
+          <div class="work-card__actions">
+            <a class="button button--primary button--small" href="#">Take an order <span aria-hidden="true">▶</span></a> <!-- TODO: link -->
+          </div>
         </div>
+      </article>
 
-        <ul class="stack">
+      <article class="work-card">
+        <div class="work-card__art work-card__art--mint">
+          <svg viewBox="0 0 40 44" aria-hidden="true" focusable="false">
+            <path d="M6 40 V20 A14 14 0 0 1 34 20 V40 Z" fill="#FFFFFF" stroke="#3B2A44" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="15" cy="22" r="2.2" fill="#3B2A44"/>
+            <circle cx="25" cy="22" r="2.2" fill="#3B2A44"/>
+          </svg>
+        </div>
+        <div class="work-card__body">
+          <h3 class="work-card__title">Mythical creature quiz</h3>
+          <p class="work-card__meta">12 questions, 4 creatures</p>
+          <div class="work-card__actions">
+            <a class="button button--primary button--small" href="#">Meet your creature <span aria-hidden="true">▶</span></a> <!-- TODO: link -->
+          </div>
+        </div>
+      </article>
 
-          <!-- Frontend -->
-          <li class="stack__row stack__row--frontend">
-            <span class="stack__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </span>
-            <div class="stack__body">
-              <h3 class="stack__title">Frontend</h3>
-              <p class="stack__tools">HTML5 · CSS3 · JavaScript · Phaser</p>
-              <p class="stack__desc">
-                Responsive interfaces, browser tools and educational games. Used in
-                <a href="worktext-studio.html">Worktext Studio</a>,
-                <a href="pop-the-verbs.html">Pop the Verbs</a> and this website.
-              </p>
-            </div>
-          </li>
+      <article class="work-card">
+        <div class="work-card__art work-card__art--lemon">
+          <svg viewBox="0 0 80 40" aria-hidden="true" focusable="false">
+            <circle cx="24" cy="20" r="14" fill="#FFFFFF" stroke="#3B2A44" stroke-width="2"/>
+            <circle cx="58" cy="20" r="10" fill="none" stroke="#3B2A44" stroke-width="2" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="work-card__body">
+          <h3 class="work-card__title">Pop the Verbs</h3>
+          <p class="work-card__meta">30 bubbles, 15 pops</p>
+          <div class="work-card__actions">
+            <a class="button button--secondary button--small" href="pop-the-verbs.html">How I built it</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-          <!-- Backend -->
-          <li class="stack__row stack__row--backend">
-            <span class="stack__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>
-            </span>
-            <div class="stack__body">
-              <h3 class="stack__title">Backend</h3>
-              <p class="stack__tools">Node.js · Express.js</p>
-              <span class="badge">Learning and developing</span>
-              <p class="stack__desc">
-                Server-side logic and APIs, the next layer I'm building toward.
-                Today my back-end work runs on Google Apps Script (below).
-              </p>
-            </div>
-          </li>
+<!-- Band 3: Learning systems and data (rose) -->
+<section class="work-band work-band--systems" aria-labelledby="systems-title">
+  <div class="work-band__inner">
+    <h2 id="systems-title" class="work-band__title">Learning systems and data</h2>
 
-          <!-- E-learning Development -->
-          <li class="stack__row stack__row--elearning">
-            <span class="stack__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </span>
-            <div class="stack__body">
-              <h3 class="stack__title">E-learning Development</h3>
-              <p class="stack__tools">Articulate Storyline · SCORM · xAPI · Moodle · JavaScript-enhanced interactions</p>
-              <p class="stack__desc">
-                My specialist area, and what sets me apart from general web developers. See
-                <a href="work.html#bloom-moodle">Bloom's + Moodle</a>,
-                <a href="work.html#xapi">xAPI tracking</a> and
-                <a href="work.html#cyber-safety">Cyber Safety</a>.
-              </p>
-            </div>
-          </li>
+    <div class="work-grid work-grid--two">
+      <article class="work-card">
+        <div class="work-card__body">
+          <h3 class="work-card__title">Bloom's Taxonomy course</h3>
+          <div class="work-card__actions">
+            <a class="button button--primary button--small" href="#">Try the activity <span aria-hidden="true">▶</span></a> <!-- TODO: link -->
+          </div>
+        </div>
+      </article>
 
-          <!-- Integrations and Automation -->
-          <li class="stack__row stack__row--integrations">
-            <span class="stack__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
-            </span>
-            <div class="stack__body">
-              <h3 class="stack__title">Integrations and Automation</h3>
-              <!-- TODO: add "REST APIs" only if you've built or called real API endpoints -->
-              <p class="stack__tools">Google Apps Script · Google Sign-In · Google Sheets · Webhooks · Python</p>
-              <p class="stack__desc">
-                Connecting tools and automating production work. Used in
-                <a href="worktext-studio.html">Worktext Studio</a>,
-                <a href="work.html#cyber-safety">Cyber Safety</a> and the
-                <a href="work.html#docx-xml">DOCX → XML Converter</a>.
-              </p>
-            </div>
-          </li>
-
-        </ul>
-
-        <p class="toolbox__more">
-          <a class="text-link" href="journey.html#skills">Full skills on my Journey page <span aria-hidden="true">→</span></a>
-        </p>
-
-      </div>
-    </section>
+      <article class="work-card">
+        <div class="work-card__body">
+          <h3 class="work-card__title">Cyber Safety: LMS simulation</h3>
+          <div class="work-card__actions">
+            <a class="button button--secondary button--small" href="#">See how it works</a> <!-- TODO: link -->
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
     </main>
 
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
