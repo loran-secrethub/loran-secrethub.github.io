@@ -360,38 +360,38 @@ mark {
 
 /* ---------- 8. SITE HEADER ---------- */
 
+/* Solid lemon bar with a plum line underneath */
 .site-header {
   position: sticky;      /* stays at the top while scrolling */
   top: 0;
   z-index: 50;           /* sits above other content */
-  background-color: transparent;   /* see-through at the top of the page */
-  border-bottom: 1px solid transparent;
-  transition: background-color 180ms ease, border-color 180ms ease;
+  background-color: var(--color-lemon);
+  border-bottom: 2px solid var(--color-plum);
+  transition: box-shadow 180ms ease;
 }
 
-/* JavaScript adds this class after the first scroll:
-   solid background + thin line so content doesn't show through */
+/* JavaScript adds this class after the first scroll: a soft shadow */
 .site-header.is-scrolled {
-  background-color: var(--color-paper);
-  border-bottom-color: var(--color-rule);
+  box-shadow: 0 4px 12px rgb(59 42 68 / 0.12);
 }
 
 .site-header__inner {
   display: flex;
+  flex-wrap: wrap;       /* tiny phones: the menu drops below your name instead of squashing */
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-16);
-  min-height: 64px;
+  gap: var(--space-8) var(--space-16);
+  min-height: var(--header-height);
+  padding-block: var(--space-8);
 }
 
-/* Your name + tilted sticky-note square */
+/* Your name + flower */
 .brand {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
   font-family: var(--font-hand);
-  font-size: 1.375rem;   /* Handy Casual is narrow, so a little bigger */
-  font-weight: 400;
+  font-size: 1.375rem;
   color: var(--color-ink);
   text-decoration: none;
 }
@@ -399,45 +399,45 @@ mark {
   color: var(--color-ink);
 }
 
-.brand__mark {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  background-color: var(--color-highlighter);
-  border-radius: 3px;
-  box-shadow: var(--shadow-note);
-  transform: rotate(-8deg);
-}
-/* Pinwheel GIF beside the name (replaces the yellow square) */
-.brand__pinwheel {
+/* The flower logo */
+.brand__flower {
   display: block;
-  flex-shrink: 0;   /* never squash the pinwheel on small phones */
+  flex-shrink: 0;        /* never squash the flower on small phones */
+  width: 32px;
+  height: 32px;
 }
 
-.brand__pinwheel img {
-  width: 36px;
+.flower__petal,
+.flower__center {
+  stroke: var(--color-plum);
+  stroke-width: 2;
 }
+.flower__petal--pink  { fill: var(--color-pink); }
+.flower__petal--mint  { fill: var(--color-mint); }
+.flower__petal--mauve { fill: var(--color-mauve); }
+.flower__petal--rose  { fill: var(--color-rose); }
+.flower__center       { fill: var(--color-lemon); }
 
-@media (min-width: 768px) {
-  .brand__pinwheel img {
-    width: 44px;    /* a bit bigger on tablets and desktops */
+/* A gentle quarter turn when you hover over your name
+   (only if the visitor hasn't asked to reduce motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .brand__flower {
+    transition: rotate 400ms ease;
+  }
+  .brand:hover .brand__flower,
+  .brand:focus-visible .brand__flower {
+    rotate: 90deg;
   }
 }
 
-/* On small phones show only "Loran" (as in Handbook Figure D.7) */
+/* On small phones show only "Loran" */
 .brand__surname {
   display: none;
 }
 
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: var(--space-24);
-}
-
 .site-nav__list {
   display: flex;
-  gap: var(--space-16);
+  gap: var(--space-12);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -447,25 +447,30 @@ mark {
   display: inline-block;
   padding-block: var(--space-8);
   font-family: var(--font-hand);
-  font-size: 1.125rem;
-  font-weight: 400;
+  font-size: 1.0625rem;
   color: var(--color-ink);
   text-decoration: none;
 }
 
-/* Hover, and the "you are here" page: teal text + highlighter underline */
+/* Hover, and the "you are here" page: thick pink underline */
 .site-nav__link:hover,
 .site-nav__link[aria-current] {
-  color: var(--color-teal);
+  color: var(--color-ink);
   text-decoration: underline;
-  text-decoration-color: var(--color-highlighter);
+  text-decoration-color: var(--color-pink);
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
 }
 
-/* Résumé button hidden on phones (it's in the contact band instead) */
+/* Résumé: a plain link with a thin plum underline.
+   Hidden on phones (it's in the contact area instead). */
 .site-nav__resume {
   display: none;
+}
+.site-nav__resume .site-nav__link {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
 }
 
 @media (min-width: 480px) {
@@ -475,8 +480,9 @@ mark {
 }
 
 @media (min-width: 768px) {
-  .site-header__inner {
-    min-height: 72px;
+  .brand__flower {
+    width: 40px;
+    height: 40px;
   }
   .site-nav__list {
     gap: var(--space-24);
@@ -485,10 +491,9 @@ mark {
     font-size: 1.25rem;
   }
   .site-nav__resume {
-    display: inline-flex;
+    display: block;
   }
 }
-
 
 /* ---------- 9. CONTACT BAND + FOOTER ---------- */
 
