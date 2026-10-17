@@ -790,7 +790,17 @@ mark {
   position: relative;      /* lets the waves sit on its top and bottom edges */
   z-index: 1;              /* waves draw on top of the sections around it */
   padding-block: var(--space-48);
-  background-color: var(--color-card);
+  background-color: #eee2f5
+}
+/* Wavy edges match the mauve background */
+.journey-strip .wave__fill {
+  fill: #eee2f5
+}
+
+/* Darker text so everything stays easy to read on mauve */
+.journey-strip__title,
+.journey-step__note {
+  color: var(--color-ink);
 }
 
 .journey-strip__header {
