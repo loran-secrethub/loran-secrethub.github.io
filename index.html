@@ -83,9 +83,8 @@
       </div>
     </section>
 
-    <!-- ===== 2. LOGOS: WHERE I'VE WORKED ===== -->
-    <!-- This moves to the Journey page in a later step -->
-    <section class="logo-band" aria-labelledby="logos-title">
+        <!-- ===== 2. JOURNEY STRIP ===== -->
+    <section class="journey-strip" aria-labelledby="journey-strip-title">
 
       <!-- Wavy top edge (decoration) -->
       <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -94,49 +93,38 @@
       </svg>
 
       <div class="container">
-        <h2 id="logos-title" class="logo-band__title">Where I've taught, coded and built</h2>
-
-        <ul class="logo-band__list">
-          <li><img src="assets/images/9.png"  alt="RoboThink"></li>
-          <li><img src="assets/images/10.png" alt="TLB"><!-- TODO: full name of TLB --></li>
-          <li><img src="assets/images/11.png" alt="Company name"><!-- TODO: name of the green thumbs-up logo --></li>
-          <li><img src="assets/images/12.png" alt="Everyday Play N Learn Child Development"></li>
-          <li><img src="assets/images/13.png" alt="Audacious Labs"></li>
-        </ul>
-      </div>
-
-      <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-
-    </section>
-
-  </main>
-
+        <div class="journey-strip__header">
+          <h2 id="journey-strip-title" class="label journey-strip__title">How I got here</h2>
+          <a class="journey-strip__link" href="journey.html">Read the full journey <span aria-hidden="true">→</span></a>
         </div>
-    </section>
 
-        <!-- ===== 2. LOGOS: WHERE I'VE WORKED ===== -->
-    <section class="logo-band" aria-labelledby="logos-title">
-
-      <!-- Wavy top edge (decoration) -->
-      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-
-      <div class="container">
-        <h2 id="logos-title" class="logo-band__title">Where I've taught, coded and built</h2>
-
-        <ul class="logo-band__list">
-          <li><img src="assets/images/9.png"  alt="RoboThink"></li>
-          <li><img src="assets/images/10.png" alt="TLB"><!-- TODO: full name of TLB --></li>
-          <li><img src="assets/images/11.png" alt="Company name"><!-- TODO: name of the green thumbs-up logo --></li>
-          <li><img src="assets/images/12.png" alt="Everyday Play N Learn Child Development"></li>
-          <li><img src="assets/images/13.png" alt="Audacious Labs"></li>
-        </ul>
+        <ol class="journey-strip__list">
+          <li class="journey-step">
+            <span class="journey-step__dot" aria-hidden="true"></span>
+            <p class="journey-step__role">ESL Teacher</p>
+            <p class="journey-step__note">Adapting to every learner</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-step__dot" aria-hidden="true"></span>
+            <p class="journey-step__role">Preschool &amp; ICT Teacher</p>
+            <p class="journey-step__note">Online classes, Scratch, tech help</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-step__dot" aria-hidden="true"></span>
+            <p class="journey-step__role">Robotics Teacher</p>
+            <p class="journey-step__note">Kits, robots and app coding</p>
+          </li>
+          <li class="journey-step">
+            <span class="journey-step__dot" aria-hidden="true"></span>
+            <p class="journey-step__role">Storyline Developer</p>
+            <p class="journey-step__note">Tracked digital lessons</p>
+          </li>
+          <li class="journey-step journey-step--current">
+            <span class="journey-step__dot" aria-hidden="true"></span>
+            <p class="journey-step__role">Learning Experience Developer</p>
+            <p class="journey-step__note">Now: building tools</p>
+          </li>
+        </ol>
       </div>
 
       <!-- Wavy bottom edge (decoration) -->
