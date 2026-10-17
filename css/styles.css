@@ -792,14 +792,15 @@ mark {
   position: relative;      /* lets the waves sit on its top and bottom edges */
   z-index: 1;              /* waves draw on top of the sections around it */
   padding-block: var(--space-48);
-  background-color: #eee2f5
-}
-/* Wavy edges match the mauve background */
-.journey-strip .wave__fill {
-  fill: #eee2f5
+  background-color: #eee2f5;
 }
 
-/* Darker text so everything stays easy to read on mauve */
+/* Wavy edges match the strip background */
+.journey-strip .wave__fill {
+  fill: #eee2f5;
+}
+
+/* Darker text so everything stays easy to read */
 .journey-strip__title,
 .journey-step__note {
   color: var(--color-ink);
@@ -843,7 +844,10 @@ mark {
   padding-left: var(--space-32);
 }
 
-/* Each step gets its own colors: its dot, and the next dot */
+/* ===== LINE + DOT COLORS: change these to recolor the line =====
+   --dot  = this step's dot color
+   --next = the color the line fades to
+   Rule: each --next must match the --dot on the line below it. */
 .journey-step:nth-child(1) { --dot: var(--color-highlighter); --next: var(--mix-25); }
 .journey-step:nth-child(2) { --dot: var(--mix-25);            --next: var(--mix-50); }
 .journey-step:nth-child(3) { --dot: var(--mix-50);            --next: var(--mix-75); }
@@ -855,26 +859,30 @@ mark {
   top: 2px;
   left: 0;
   z-index: 1;                        /* sits on top of the line */
-  width: 18px;
-  height: 18px;
+  width: 24px;                       /* bigger dot (was 18px) */
+  height: 24px;
   background-color: var(--color-card);
-  border: 3px solid var(--dot);
+  border: 4px solid var(--dot);      /* thicker ring (was 3px) */
   border-radius: 50%;
 }
 
 /* The current role: a filled dot */
 .journey-step--current .journey-step__dot {
-  background-color: var(--color-teal);
+  background-color: #D94F83;
 }
 
-/* The line: drawn from this dot to the next one (not after the last) */
+.journey-step--current .journey-step__role {
+  color: #D94F83;
+}
+
+/* The line (phone): goes down from this dot to the next one */
 .journey-step:not(:last-child)::before {
   content: "";
   position: absolute;
-  top: 11px;                          /* center of this dot */
-  left: 7.5px;                        /* center of the dot, minus half the line */
-  width: 3px;
-  height: calc(100% + var(--step-gap));  /* reaches the next dot */
+  top: 14px;                          /* center of the dot */
+  left: 9.5px;                        /* centers the line on the dot */
+  width: 5px;                         /* thicker line (was 3px) */
+  height: calc(100% + var(--step-gap));
   background: linear-gradient(to bottom, var(--dot), var(--next));
 }
 
@@ -910,21 +918,32 @@ mark {
 
   .journey-step {
     padding-left: 0;
-    padding-top: var(--space-32);     /* dot on top, text below */
+    padding-top: var(--space-40, 40px);   /* room for the bigger dot */
   }
 
   .journey-step__dot {
     top: 0;
   }
 
+  /* The line (desktop): goes right from this dot to the next one */
   .journey-step:not(:last-child)::before {
-    top: 7.5px;
-    left: 9px;
-    width: calc(100% + var(--step-gap));  /* reaches the next column's dot */
-    height: 3px;
+    top: 9.5px;                           /* centers the line on the dot */
+    left: 12px;                           /* starts at the dot's center */
+    width: calc(100% + var(--step-gap));  /* reaches the next dot */
+    height: 5px;                          /* thicker line (was 3px) */
     background: linear-gradient(to right, var(--dot), var(--next));
   }
 }
+
+/* --- Wide screens: make the line longer --- */
+
+@media (min-width: 1024px) {
+  .journey-strip__list {
+    margin-inline: -300px;    /* bigger number = longer line */
+  }
+}
+
+
 /* --- Wavy edges (top and bottom of the journey strip) --- */
 
 .wave {
@@ -941,7 +960,7 @@ mark {
 .wave--bottom { top:    calc(100% - 1px); }
 
 .wave__fill {
-  fill: var(--color-card);      /* same white as the strip */
+  fill: var(--color-card);
 }
 
 .wave__line {
@@ -2043,12 +2062,11 @@ mark {
     animation-delay: calc(var(--step) * 180ms);
   }
 
-  .journey-step:nth-child(1) { --step: 0; }
-  .journey-step:nth-child(2) { --step: 1; }
-  .journey-step:nth-child(3) { --step: 2; }
-  .journey-step:nth-child(4) { --step: 3; }
-  .journey-step:nth-child(5) { --step: 4; }
-}
+  .journey-step:nth-child(1) { --dot: #f8dde6; --next: #F4A1C0; }
+  .journey-step:nth-child(2) { --dot: #F4A1C0; --next: #F48FB1; }
+  .journey-step:nth-child(3) { --dot: #F48FB1; --next: #F06292; }
+  .journey-step:nth-child(4) { --dot: #F06292; --next: #D94F83; }
+  .journey-step:nth-child(5) { --dot: #D94F83; }
 
 /* Tablet and desktop: the line is horizontal, so it grows left to right */
 @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
