@@ -48,58 +48,84 @@
   </header>
 
     <!-- ===== MAIN CONTENT ===== -->
+    <!-- ===== MAIN CONTENT ===== -->
   <main id="main">
 
     <!-- ===== 1. HERO ===== -->
-        <!-- ===== 1. HERO ===== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
+      <div class="container hero__inner">
+
+        <!-- Left: the message -->
         <div class="hero__content">
+          <p class="hero__pill">Full stack e-learning developer</p>
 
-          <!-- Headline with hand-drawn sparkles on both sides -->
-          <div class="hero__headline">
-            <svg class="sparkles sparkles--left" viewBox="0 0 48 52" aria-hidden="true" focusable="false">
-              <path transform="translate(22 0)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
-              <path transform="translate(2 20) scale(0.5)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
-              <path transform="translate(8 36) scale(0.6)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
-            </svg>
-
-            <h1 id="hero-title" class="hero__title">
-              <span class="hero__line">I taught with technology.</span>
-              <span class="hero__line hero__line--outline">Now I build it.</span>
-            </h1>
-
-            <svg class="sparkles sparkles--right" viewBox="0 0 48 60" aria-hidden="true" focusable="false">
-              <path transform="translate(0 18)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
-              <path transform="translate(30 0) scale(0.5)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
-              <path transform="translate(28 40) scale(0.75)" d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
-            </svg>
-          </div>
-
-          <!-- Job title pill with "emphasis lines" on both sides -->
-          <div class="hero__role">
-            <svg class="hero__dashes" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
-              <path d="M6 6L54 15M4 20H54M6 34L54 25"/>
-            </svg>
-            <p class="hero__pill">Full Stack E-Learning Developer</p>
-            <svg class="hero__dashes hero__dashes--right" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
-              <path d="M6 6L54 15M4 20H54M6 34L54 25"/>
-            </svg>
-          </div>
+          <h1 id="hero-title" class="hero__title">
+            I build learning tools people actually
+            <mark class="hero__highlight">want to click.</mark>
+          </h1>
 
           <p class="hero__text">
-            I spent almost six years in education, teaching ESL, preschool, ICT and robotics.
-            Today I write the code behind interactive lessons, educational games, and tools
-            that make course production easier.
+            Interactive lessons, educational games, and the little tools
+            that help learning teams ship faster.
+          </p>
+
+          <p class="hero__definition">
+            Full stack, the e-learning way: learning design, interactive builds,
+            tracking, and the tools and data behind them.
           </p>
 
           <div class="hero__actions">
-            <a class="button button--primary" href="work.html">See my work <span aria-hidden="true">→</span></a>
-            <a class="button button--secondary" href="journey.html">Read my journey</a>
+            <a class="button button--primary" href="work.html">See my work</a>
+            <a class="button button--secondary" href="play.html">Play something</a>
           </div>
-
         </div>
+
+        <!-- Right: photo circle (a placeholder until you add your photo) -->
+        <!-- TODO: replace the drawing inside hero__photo-frame with your photo -->
+        <div class="hero__photo" aria-hidden="true">
+          <svg class="hero__sparkle" viewBox="0 0 24 24" focusable="false">
+            <path d="M12 0Q13.5 10.5 24 12Q13.5 13.5 12 24Q10.5 13.5 0 12Q10.5 10.5 12 0Z"/>
+          </svg>
+          <div class="hero__photo-frame">
+            <svg class="hero__person" viewBox="0 0 100 100" focusable="false">
+              <circle cx="50" cy="40" r="16"/>
+              <path d="M16 100 Q50 52 84 100 Z"/>
+            </svg>
+          </div>
+          <p class="hero__photo-caption">your photo here</p>
+        </div>
+
       </div>
+    </section>
+
+    <!-- ===== 2. LOGOS: WHERE I'VE WORKED ===== -->
+    <!-- This moves to the Journey page in a later step -->
+    <section class="logo-band" aria-labelledby="logos-title">
+
+      <!-- Wavy top edge (decoration) -->
+      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
+      <div class="container">
+        <h2 id="logos-title" class="logo-band__title">Where I've taught, coded and built</h2>
+
+        <ul class="logo-band__list">
+          <li><img src="assets/images/9.png"  alt="RoboThink"></li>
+          <li><img src="assets/images/10.png" alt="TLB"><!-- TODO: full name of TLB --></li>
+          <li><img src="assets/images/11.png" alt="Company name"><!-- TODO: name of the green thumbs-up logo --></li>
+          <li><img src="assets/images/12.png" alt="Everyday Play N Learn Child Development"></li>
+          <li><img src="assets/images/13.png" alt="Audacious Labs"></li>
+        </ul>
+      </div>
+
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
     </section>
 
   </main>
@@ -505,6 +531,7 @@
 
       </div>
     </section>
+    </main>
 
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
