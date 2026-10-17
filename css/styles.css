@@ -49,7 +49,7 @@
 /* ---------- 1. DESIGN TOKENS ---------- */
 :root {
     /* ----- Your pastel palette ----- */
-  --color-lemon: #FCF6BD;  /* Lemon Chiffon: page background, sticky notes */
+  --color-lemon: #f8f5dc;  /* Lemon Chiffon: page background, sticky notes */
   --color-pink:  #FF99C8;  /* Baby Pink: things you can click */
   --color-mint:  #D0F4DE;  /* Frosted Mint: tools that make teams faster */
   --color-mauve: #E4C1F9;  /* Mauve: learning you can play */
@@ -408,7 +408,7 @@ mark {
   top: 0;
   z-index: 50;           /* sits above other content */
   background-color: var(--color-lemon);
-  border-bottom: 2px solid var(--color-plum);
+
   transition: box-shadow 180ms ease;
 }
 
@@ -425,6 +425,7 @@ mark {
   gap: var(--space-8) var(--space-16);
   min-height: var(--header-height);
   padding-block: var(--space-8);
+  max-width: 1900px;     /* wider than the page: bigger number = further apart */
 }
 
 /* Your name + flower */
@@ -594,15 +595,11 @@ mark {
 }
 /* ---------- 10. HERO ---------- */
 
-/* White graph paper with pale mauve lines, everything centered */
+/* Your background image, everything centered */
 .hero {
   overflow: hidden;            /* nothing can poke out sideways on phones */
   padding-block: var(--space-48) var(--space-64);
-  background-color: var(--color-card);
-  background-image:
-    linear-gradient(to right,  var(--color-grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-color: #fffef8
   text-align: center;
 }
 
