@@ -596,11 +596,63 @@ mark {
 
 /* "want to click." on a pink highlighter stripe */
 .hero__highlight {
-  padding: 0 0.2em;
+  display: inline-block;       /* lets us control the stripe's height */
+  padding: 0.05em 0.2em;       /* space around the words: top/bottom, then left/right */
+  line-height: .9;              /* stripe height: smaller number = thinner stripe */
   background-color: var(--color-pink);
-  border-radius: 10px;
+  border-radius: 10px;         /* corner roundness: bigger number = rounder */
   color: var(--color-ink);
   white-space: nowrap;         /* keeps the three words together */
+}
+
+/* Wrapper that keeps the cursor attached to "want to click." */
+.hero__click {
+  position: relative;          /* lets the cursor sit at its corner */
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* White arrow cursor with a plum outline */
+.hero__cursor {
+  position: absolute;
+  right: -0.3em;               /* sideways position: bigger = further right */
+  bottom: -0.45em;             /* up/down position: bigger = lower */
+  width: 0.55em;               /* size: grows with the headline */
+  fill: var(--color-card);
+  stroke: var(--color-plum);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  pointer-events: none;        /* never gets in the way of real clicks */
+  transform-origin: top left;  /* presses down from its tip */
+}
+
+/* The click animation, on loop.
+   Only plays if the visitor hasn't asked to reduce motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__cursor {
+    animation: cursor-click 2.6s ease-in-out infinite;
+  }
+  .hero__highlight {
+    animation: highlight-press 2.6s ease-in-out infinite;
+  }
+}
+
+/* Cursor: glides in, clicks, waits, fades away */
+@keyframes cursor-click {
+  0%   { translate: 0.6em 0.6em; opacity: 0; }
+  15%  { opacity: 1; }
+  45%  { translate: 0 0; scale: 1; }
+  52%  { scale: 0.8; }            /* press */
+  60%  { scale: 1; }              /* release */
+  85%  { translate: 0 0; opacity: 1; }
+  100% { translate: 0.6em 0.6em; opacity: 0; }
+}
+
+/* Pink highlight: a tiny squish at the moment of the click */
+@keyframes highlight-press {
+  0%, 48%   { scale: 1; }
+  52%       { scale: 0.95; }
+  60%, 100% { scale: 1; }
 }
 
 .hero__text {

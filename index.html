@@ -25,15 +25,15 @@
       <a class="brand" href="index.html">
         <!-- Flower logo: four pastel petals (decoration only) -->
           <img class="brand__flower" src="assets/images/flower_1.svg" alt="" width="100" height="100">
-        <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
+        <span class="brand__name" style="font-size:35px">Loran Iñosa </span>
       </a>
 
       <nav class="site-nav" aria-label="Main">
         <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="work.html">Work</a></li>
-          <li><a class="site-nav__link" href="play.html">Play</a></li>
-          <li><a class="site-nav__link" href="journey.html">Journey</a></li>
-          <li><a class="site-nav__link" href="#contact">Contact</a></li>
+          <li><a class="site-nav__link" href="work.html" style="font-size: 30px">Work</a></li>
+          <li><a class="site-nav__link" href="play.html" style="font-size: 30px">Play</a></li>
+          <li><a class="site-nav__link" href="journey.html" style="font-size:30px">Journey</a></li>
+          <li><a class="site-nav__link" href="#contact" style="font-size:30px">Contact</a></li>
         </ul>
       </nav>
 
@@ -53,7 +53,15 @@
 
             <h1 id="hero-title" class="hero__title">
             <span class="hero__line">I build learning tools people</span>
-            <span class="hero__line">actually <mark class="hero__highlight">want to click.</mark></span>
+                        <span class="hero__line">actually
+              <span class="hero__click">
+                <mark class="hero__highlight">want to click.</mark>
+                <!-- Arrow cursor that "clicks" the words (decoration only) -->
+                <svg class="hero__cursor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 2L4 19L8.5 14.8L11.5 21.5L14.3 20.3L11.4 13.7L17.5 13.5Z"/>
+                </svg>
+              </span>
+            </span>
           </h1>
 
           <p class="hero__text">
