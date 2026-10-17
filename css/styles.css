@@ -700,14 +700,18 @@ mark {
 .hero__text {
   max-width: 52ch;
   margin: 0 auto var(--space-16);
-  font-size: 1.1875rem;
+  font-family: var(--font-clean);   /* Quicksand */
+  font-weight: 700;                 /* Medium: try 400 for lighter, 600 for bolder */
+  font-size: 25px;
 }
 
 /* The definition line, with a short pink dash above it */
 .hero__definition {
   max-width: 52ch;
   margin: 0 auto var(--space-32);
-  font-size: var(--text-small);
+  font-family: var(--font-clean);   /* Quicksand */
+  font-weight: 600;                 /* Medium: try 400 for lighter, 600 for bolder */
+  font-size: 20px;
   line-height: 1.5;
   color: var(--color-slate);
 }
@@ -730,9 +734,19 @@ mark {
   width: 100%;
 }
 
-/* Phone: full-width buttons */
+/* The two top buttons: bigger and longer than the others */
 .hero__actions .button {
-  flex: 1 1 100%;
+  flex: 1 1 100%;                         /* phones: full width */
+  min-height: 52px;                       /* height: bigger number = taller */
+  padding: var(--space-12) var(--space-32);   /* space inside: top/bottom, then left/right */
+  font-size: 1.25rem;                     /* text size */
+}
+
+/* Tablets and laptops: both buttons the same, longer width */
+@media (min-width: 768px) {
+  .hero__actions .button {
+    min-width: 200px;                     /* length: bigger number = longer */
+  }
 }
 
 
