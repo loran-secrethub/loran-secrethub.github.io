@@ -12,30 +12,39 @@
 
 /* ---------- 1. DESIGN TOKENS ---------- */
 :root {
-  /* Colors */
-  --color-paper:       #FFFFFF;  /* page background */
-  --color-card:        #FFFFFF;  /* cards, panels */
-  --color-ink:         #1C2333;  /* main text */
-  --color-slate:       #545E70;  /* secondary text */
-  --color-teal:        #1D6B64;  /* links, buttons ("click here") */
-  --color-teal-deep:   #14504B;  /* hover, dark bands */
-  --color-teal-wash:   #E8F1EF;  /* tinted areas, chips */
-  --color-rule:        #E4DCCD;  /* borders, dividers */
-  --color-red-pen:     #C2412A;  /* labels, attention */
-  --color-highlighter: #F2C14E;  /* highlights, active link underline */
-  --color-sticky:      #FFE89A;  /* margin notes */
-  --color-bubble:      #4D9DE0;  /* Pop the Verbs only, shapes only */
-  --color-bubble-wash: #E7F1FB;  /* pale blue background for Pop the Verbs */
-  --color-aqua:      #8EDFE0;  /* "Now I build it." fill */
-  --color-lime-wash: #E2F6B8;  /* job title pill */
-  --color-grid:      #D9ECF8;  /* hero graph-paper lines */
-  /* Journey blends: yellow (teaching) → teal (building) */
+    /* ----- Your pastel palette ----- */
+  --color-lemon: #FCF6BD;  /* Lemon Chiffon: page background, sticky notes */
+  --color-pink:  #FF99C8;  /* Baby Pink: things you can click */
+  --color-mint:  #D0F4DE;  /* Frosted Mint: tools that make teams faster */
+  --color-mauve: #E4C1F9;  /* Mauve: learning you can play */
+  --color-rose:  #FEC8C3;  /* Cotton Rose: learning systems, contact */
+  --color-plum:  #3B2A44;  /* Dark plum: all text and outlines */
+
+  /* ----- Jobs -----
+     Old names kept, so the rest of the site keeps working.
+     We'll tidy these up as we redesign each part. */
+  --color-paper:       var(--color-lemon);
+  --color-card:        #FFFFFF;
+  --color-ink:         var(--color-plum);
+  --color-slate:       #6B5A73;              /* softer plum for secondary text */
+  --color-teal:        var(--color-plum);    /* links and buttons, for now */
+  --color-teal-deep:   #2A1D31;              /* slightly darker plum, for hover */
+  --color-teal-wash:   var(--color-mint);
+  --color-rule:        #DCCDE3;              /* light lines and borders */
+  --color-red-pen:     #C2412A;              /* labels, attention */
+  --color-red-wash:    var(--color-rose);
+  --color-highlighter: var(--color-pink);
+  --color-sticky:      #FFE89A;              /* margin notes */
+  --color-bubble:      #4D9DE0;              /* Pop the Verbs only */
+  --color-bubble-wash: #E7F1FB;
+  --color-aqua:        #8EDFE0;              /* old hero, removed in Step 10 */
+  --color-lime-wash:   var(--color-mint);    /* job title pill */
+  --color-grid:        #EEDDF8;              /* hero graph-paper lines (pale mauve) */
+
+  /* Journey blends: pink → plum */
   --mix-25: color-mix(in srgb, var(--color-teal) 25%, var(--color-highlighter));
   --mix-50: color-mix(in srgb, var(--color-teal) 50%, var(--color-highlighter));
   --mix-75: color-mix(in srgb, var(--color-teal) 75%, var(--color-highlighter));
-  --color-red-pen:     #C2412A;  /* labels, attention */
-  --color-red-wash:    #FDF0EC;  /* pale pink for review notes */
-
 
   /* Fonts (with backups in case a font fails to load) */
   --font-hand: "Handy Casual", "Comic Sans MS", cursive;
