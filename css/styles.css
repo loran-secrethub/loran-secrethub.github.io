@@ -634,14 +634,19 @@ mark {
 }
 
 /* "want to click." on a pink highlighter stripe */
+/* "want to click." on your hand-drawn highlight (highlight.svg) */
 .hero__highlight {
-  display: inline-block;       /* lets us control the stripe's height */
-  padding: 0.05em 0.2em;       /* space around the words: top/bottom, then left/right */
-  line-height: .9;              /* stripe height: smaller number = thinner stripe */
-  background-color: var(--color-pink);
-  border-radius: 10px;         /* corner roundness: bigger number = rounder */
+  display: inline-block;
+  padding: 0.05em 0.3em 0.05em 0.6em;   /* top, right, bottom, LEFT */
+  margin-left: -0.3em;                   /* keeps the text from shifting right */
+  line-height: 1;
+  background-color: transparent;
+  background-image: url("../assets/images/highlight.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
   color: var(--color-ink);
-  white-space: nowrap;         /* keeps the three words together */
+  white-space: nowrap;
 }
 
 /* Wrapper that keeps the cursor attached to "want to click." */
