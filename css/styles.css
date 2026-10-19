@@ -1046,7 +1046,8 @@ mark {
   padding: 12px;
   border-bottom: 2px solid var(--color-plum);
 }
-.work-card__art svg {
+.work-card__art svg,
+.work-card__art img {
   height: 56px;
   width: auto;
 }
@@ -1097,11 +1098,13 @@ mark {
   padding: 20px;
   background-color: #FFFFFF;
 }
-.work-card--featured .work-card__art svg {
+.work-card--featured .work-card__art svg,
+.work-card--featured .work-card__art img {
   width: 100%;
-  max-width: 260px;
+  max-width: 1000px;
   height: auto;
 }
+
 .work-card--featured .work-card__body {
   padding: 20px 24px 24px;
 }
@@ -1225,6 +1228,22 @@ mark {
 .flower--blue   { width: 130px; top: 20px;   right: -165px; }
 .flower--green  { width: 390px; top: -180px; left: -290px; }
 .flower--green  { width: 390px; top: -180px; left: -290px; z-index: -1; }  /* very back, behind the title too */
+
+/* ----- Card text: sizes and boldness ----- */
+.work-card__title {
+  font-size: 30px;     /* project names */
+}
+
+.work-card__text,
+.work-card__meta {
+  font-size: 18px;     /* descriptions */
+  font-weight: 700;    /* bold */
+}
+
+.work-card__pill,
+.chip {
+  font-weight: 700;    /* bold pill and tags */
+}
 
 /* ---------- 13. PROJECT CARDS ---------- */
 
