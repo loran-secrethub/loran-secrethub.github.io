@@ -976,16 +976,27 @@ mark {
   }
 }
 
-//* ---------- 12. WORK BANDS ---------- */
+/* ---------- 12. WORK BANDS ---------- */
 
 .work-band {
-  padding-block: var(--space-48);
+  padding-block: var(--space-64);
 }
 
 /* First band: extra top space so the journey strip's bottom wave doesn't cover the title */
 .work-band--tools   { background-color: var(--color-cream); padding-top: calc(var(--space-48) + 40px); }
 .work-band--play    { background-color: var(--color-cream); }
 .work-band--systems { background-color: var(--color-cream); } 
+
+/* Last band: lets its wave hang over the top of the footer */
+.work-band--systems {
+  position: relative;
+  z-index: 1;
+}
+
+/* Wave color matches the cream band */
+.work-band--systems .wave__fill {
+  fill: var(--color-cream);
+}
 
 .work-band__inner {
   width: min(100% - 2rem, 1100px);
