@@ -24,7 +24,7 @@
 
       <a class="brand" href="index.html">
         <!-- Flower logo: four pastel petals (decoration only) -->
-          <img class="brand__flower" src="assets/images/19.svg" alt="" width="100" height="100">
+          <img class="brand__flower" src="assets/images/flower-pink.svg" alt="" width="100" height="100">
         <span class="brand__name" style="font-size:35px">Loran Iñosa </span>
       </a>
 
@@ -136,9 +136,13 @@
 
       <!-- ===== WORK BANDS (replaces Selected Work → Tech Stack) ===== -->
 
-<!-- Band 1: Tools (mint) -->
+<!-- Band 1: Tools -->
 <section class="work-band work-band--tools" aria-labelledby="tools-title">
   <div class="work-band__inner">
+        <!-- Flowers (decoration only) -->
+    <img class="flower flower--purple" src="assets/images/FLOWER-PURPLE.svg" alt="">
+    <img class="flower flower--orange" src="assets/images/FLOWER-ORANGE.svg" alt="">
+    <img class="flower flower--pink" src="assets/images/FLOWER-PINK.svg" alt="">
     <h2 id="tools-title" class="work-band__title">Tools that make teams faster</h2>
 
     <article class="work-card work-card--featured">
@@ -152,17 +156,16 @@
         </svg>
       </div>
       <div class="work-card__body">
-        <p class="work-card__pill">Featured · in team use</p>
-        <h3 class="work-card__title">Worktext Studio</h3>
-        <p class="work-card__text">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
-        <ul class="chips" aria-label="Built with">
-        <li class="chip">JavaScript</li>
-        <li class="chip">Apps Script</li>
-        <li class="chip">Google Sheets</li>
+        <p class="work-card__pill"><strong>Featured · in team use</strong></p>
+        <h3 class="work-card__title" style="font-family: 'Handy Casual'">Worktext Studio</h3>
+        <p class="work-card__text" style="font-weight: bold">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
+        <strong><ul class="chips" aria-label="Built with"></strong>
+        <li class="chip"><strong>JavaScript</strong></li>
+        <li class="chip"><strong>Apps Script</strong></li>
+        <li class="chip"><strong>Google Sheets</strong></li>
         </ul>
         <div class="work-card__actions">
           <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
-          <a class="button button--secondary button--small" href="#">Watch demo</a> <!-- TODO: demo link -->
         </div>
       </div>
     </article>
@@ -182,12 +185,12 @@
         </svg>
       </div>
       <div class="work-card__body">
-        <h3 class="work-card__title">DOCX → XML Converter</h3>
-        <p class="work-card__meta">Converts a folder of lessons to XML in one run, and makes QR codes from links.</p>
-        <ul class="chips" aria-label="Built with">
-          <li class="chip">Python</li>
-          <li class="chip">XML</li>
-          <li class="chip">QR codes</li>
+        <h3 class="work-card__title" style="font-family: 'Handy Casual', cursive; font-size: 30px;">DOCX → XML Converter</h3>
+        <p class="work-card__meta" style= "font-size: 18px;"><strong>Converts a folder of lessons to XML in one run, and makes QR codes from links.</p></strong>
+        <strong><ul class="chips" aria-label="Built with"></strong>
+          <strong><li class="chip">Python</li></strong>
+          <strong><li class="chip">XML</li></strong>
+          <strong><li class="chip">QR codes</li></strong>
         </ul>
         <div class="work-card__actions">
           <a class="button button--secondary button--small" href="work.html#docx-xml">See how it works</a>
@@ -207,6 +210,8 @@
 <!-- Band 2: Learning you can play (mauve) -->
 <section class="work-band work-band--play" aria-labelledby="play-title">
   <div class="work-band__inner">
+        <!-- Flower (decoration only) -->
+    <img class="flower flower--blue" src="assets/images/FLOWER-BLUE.svg" alt="">
     <h2 id="play-title" class="work-band__title">Learning you can play</h2>
 
         <div class="work-grid work-grid--three">
@@ -220,11 +225,11 @@
           </svg>
         </div>
         <div class="work-card__body">
-          <h3 class="work-card__title">Ice Cream Pet Shop</h3>
-          <p class="work-card__meta">Guess each pet's order, letter by letter</p>
-          <ul class="chips" aria-label="Built with">
-            <li class="chip">Storyline</li>
-            <li class="chip">Variables</li>
+         <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Ice Cream Petshop</h3>
+          <p class="work-card__meta"; style= "font-size: 18px;"><strong>Guess each pet's order, letter by letter</p></strong>
+          <strong><ul class="chips" aria-label="Built with"></strong>
+            <li class="chip"><strong>Storyline</strong></li>
+            <li class="chip"><strong>Variables</strong></li>
           </ul>
           <div class="work-card__actions">
             <!-- TODO: this page doesn't exist yet. We'll build it next. -->
@@ -242,11 +247,11 @@
           </svg>
         </div>
         <div class="work-card__body">
-          <h3 class="work-card__title">Pop the Verbs</h3>
-          <p class="work-card__meta">30 bubbles, 15 pops</p>
+          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Pop the Verbs</h3>
+          <p class="work-card__meta" style= "font-size: 18px;"><strong>30 bubbles, 15 pops</p></strong>
           <ul class="chips" aria-label="Built with">
-            <li class="chip">Phaser</li>
-            <li class="chip">JavaScript</li>
+            <li class="chip"><strong>Phaser</li></strong>
+            <li class="chip"><strong>JavaScript</li></strong>
           </ul>
           <div class="work-card__actions">
             <a class="button button--primary button--small" href="pop-the-verbs.html">Read the case study</a>
@@ -264,11 +269,11 @@
           </svg>
         </div>
         <div class="work-card__body">
-          <h3 class="work-card__title">Mythical creature quiz</h3>
-          <p class="work-card__meta">12 questions, 4 creatures</p>
+          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Mythical creature quiz</h3>
+          <p class="work-card__meta" style= "font-size: 18px;"><strong>12 questions, 4 creatures</p></strong>
           <ul class="chips" aria-label="Built with">
-            <li class="chip">Storyline</li>
-            <li class="chip">Variables</li>
+            <li class="chip"><strong>Storyline</li></strong>
+            <li class="chip"><strong>Variables</li></strong>
           </ul>
           <div class="work-card__actions">
             <a class="button button--secondary button--small" href="work.html#mythical-creature">See details</a>
@@ -283,12 +288,14 @@
 <!-- Band 3: Learning systems and data (rose) -->
 <section class="work-band work-band--systems" aria-labelledby="systems-title">
   <div class="work-band__inner">
+        <!-- Flower (decoration only) -->
+    <img class="flower flower--green" src="assets/images/FLOWER-GREEN.svg" alt="">
     <h2 id="systems-title" class="work-band__title">Learning systems and data</h2>
 
     <div class="work-grid work-grid--two">
       <article class="work-card">
         <div class="work-card__body">
-          <h3 class="work-card__title">Bloom's Taxonomy course</h3>
+          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Bloom's Taxonomy course</h3>
           <div class="work-card__actions">
             <a class="button button--primary button--small" href="#">Try the activity <span aria-hidden="true">▶</span></a> <!-- TODO: link -->
           </div>
@@ -297,7 +304,7 @@
 
       <article class="work-card">
         <div class="work-card__body">
-          <h3 class="work-card__title">Cyber Safety: LMS simulation</h3>
+          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 25px;">Cyber Safety: LMS Simulation</h3>
           <div class="work-card__actions">
             <a class="button button--secondary button--small" href="#">See how it works</a> <!-- TODO: link -->
           </div>

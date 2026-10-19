@@ -1010,18 +1010,10 @@ mark {
   align-items: center;
   gap: 12px;
   margin: 0 0 var(--space-24);
-  font-family: var(--font-clean);
-  font-weight: 500;
-  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-family: var(--font-hand);
+  font-weight: 400;
+  font-size: 40px;
   color: var(--color-plum);
-}
-.work-band__title::before {
-  content: "";
-  flex-shrink: 0;
-  width: 0.75em;
-  height: 0.75em;
-  border: 2px solid var(--color-plum);
-  border-radius: 50%;
 }
 
 /* Card grids */
@@ -1094,9 +1086,9 @@ mark {
 .button--small {
   min-height: 40px;
   padding: 6px 20px;
-  font-family: var(--font-clean);
-  font-weight: 500;
-  font-size: 1rem;
+  font-family: var(--font-hand);
+  font-weight: 400;
+  font-size: 20px;
 }
 
 /* --- Featured card (Worktext Studio) --- */
@@ -1181,6 +1173,58 @@ mark {
   border: 1.5px solid var(--color-plum);
   border-radius: var(--radius-pill);
 }
+
+/* ----- Flowers in the work area ----- */
+
+/* Each band's content box is the "map" the flowers are placed on */
+.work-band__inner {
+  position: relative;
+}
+
+/* Cards sit on top of the flowers */
+.work-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* Game cards sit one layer higher, so the green flower
+   from the section below can't cover them */
+.work-band--play .work-card {
+  z-index: 2;
+}
+
+/* Big flowers near the edge must not make the page scroll sideways */
+.work-band {
+  overflow-x: clip;
+}
+
+/* Every flower */
+.flower {
+  position: absolute;
+  z-index: 0;              /* behind the cards */
+  display: none;           /* hidden on phones and tablets */
+  height: auto;
+  pointer-events: none;    /* never blocks clicks */
+}
+
+/* Only show flowers on big screens, where there's room beside the cards */
+@media (min-width: 1200px) {
+  .flower {
+    display: block;
+  }
+}
+
+/* Each flower's size and spot.
+   width = size
+   top   = up/down (bigger = lower)
+   left  = from the left edge of the cards (more minus = further left)
+   right = from the right edge of the cards (more minus = further right) */
+.flower--purple { width: 350px; top: 100px;  left: -400px; }
+.flower--orange { width: 130px; top: 550px;  left: -120px;  z-index: 2; }  /* in FRONT of the card */
+.flower--pink   { width: 340px; top: 360px;  right: -380px; }
+.flower--blue   { width: 130px; top: 20px;   right: -165px; }
+.flower--green  { width: 390px; top: -180px; left: -290px; }
+.flower--green  { width: 390px; top: -180px; left: -290px; z-index: -1; }  /* very back, behind the title too */
 
 /* ---------- 13. PROJECT CARDS ---------- */
 
