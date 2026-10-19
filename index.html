@@ -155,12 +155,52 @@
         <p class="work-card__pill">Featured · in team use</p>
         <h3 class="work-card__title">Worktext Studio</h3>
         <p class="work-card__text">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
+        <ul class="chips" aria-label="Built with">
+        <li class="chip">JavaScript</li>
+        <li class="chip">Apps Script</li>
+        <li class="chip">Google Sheets</li>
+        </ul>
         <div class="work-card__actions">
           <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
           <a class="button button--secondary button--small" href="#">Watch demo</a> <!-- TODO: demo link -->
         </div>
       </div>
     </article>
+
+        </article>
+
+    <!-- DOCX → XML Converter (slim card) -->
+    <article class="work-card work-card--slim">
+      <div class="work-card__art work-card__art--mint">
+        <!-- Picture: a Word file turning into an XML file (decoration only) -->
+        <svg viewBox="0 0 64 40" aria-hidden="true" focusable="false">
+          <path d="M6 6 H20 L26 12 V34 H6 Z" fill="#FFFFFF" stroke="#3B2A44" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 18 H22 M10 23 H22 M10 28 H18" stroke="#3B2A44" stroke-width="1.5"/>
+          <path d="M29 20 H37 M34 17 L37 20 L34 23" fill="none" stroke="#3B2A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M40 6 H52 L58 12 V34 H40 Z" fill="#FCF6BD" stroke="#3B2A44" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M46 18 L43 22 L46 26 M52 18 L55 22 L52 26" fill="none" stroke="#3B2A44" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="work-card__body">
+        <h3 class="work-card__title">DOCX → XML Converter</h3>
+        <p class="work-card__meta">Converts a folder of lessons to XML in one run, and makes QR codes from links.</p>
+        <ul class="chips" aria-label="Built with">
+          <li class="chip">Python</li>
+          <li class="chip">XML</li>
+          <li class="chip">QR codes</li>
+        </ul>
+        <div class="work-card__actions">
+          <a class="button button--secondary button--small" href="work.html#docx-xml">See how it works</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+
   </div>
 </section>
 
@@ -169,7 +209,9 @@
   <div class="work-band__inner">
     <h2 id="play-title" class="work-band__title">Learning you can play</h2>
 
-    <div class="work-grid work-grid--three">
+        <div class="work-grid work-grid--three">
+
+      <!-- Ice Cream Pet Shop (has a case study) -->
       <article class="work-card">
         <div class="work-card__art work-card__art--rose">
           <svg viewBox="0 0 40 50" aria-hidden="true" focusable="false">
@@ -179,13 +221,40 @@
         </div>
         <div class="work-card__body">
           <h3 class="work-card__title">Ice Cream Pet Shop</h3>
-          <p class="work-card__meta">Guess pet orders from clues</p>
+          <p class="work-card__meta">Guess each pet's order, letter by letter</p>
+          <ul class="chips" aria-label="Built with">
+            <li class="chip">Storyline</li>
+            <li class="chip">Variables</li>
+          </ul>
           <div class="work-card__actions">
-            <a class="button button--primary button--small" href="#">Take an order <span aria-hidden="true">▶</span></a> <!-- TODO: link -->
+            <!-- TODO: this page doesn't exist yet. We'll build it next. -->
+            <a class="button button--primary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
           </div>
         </div>
       </article>
 
+      <!-- Pop the Verbs (has a case study) -->
+      <article class="work-card">
+        <div class="work-card__art work-card__art--lemon">
+          <svg viewBox="0 0 80 40" aria-hidden="true" focusable="false">
+            <circle cx="24" cy="20" r="14" fill="#FFFFFF" stroke="#3B2A44" stroke-width="2"/>
+            <circle cx="58" cy="20" r="10" fill="none" stroke="#3B2A44" stroke-width="2" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="work-card__body">
+          <h3 class="work-card__title">Pop the Verbs</h3>
+          <p class="work-card__meta">30 bubbles, 15 pops</p>
+          <ul class="chips" aria-label="Built with">
+            <li class="chip">Phaser</li>
+            <li class="chip">JavaScript</li>
+          </ul>
+          <div class="work-card__actions">
+            <a class="button button--primary button--small" href="pop-the-verbs.html">Read the case study</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mythical creature quiz (short write-up on the Work page) -->
       <article class="work-card">
         <div class="work-card__art work-card__art--mint">
           <svg viewBox="0 0 40 44" aria-hidden="true" focusable="false">
@@ -197,27 +266,16 @@
         <div class="work-card__body">
           <h3 class="work-card__title">Mythical creature quiz</h3>
           <p class="work-card__meta">12 questions, 4 creatures</p>
+          <ul class="chips" aria-label="Built with">
+            <li class="chip">Storyline</li>
+            <li class="chip">Variables</li>
+          </ul>
           <div class="work-card__actions">
-            <a class="button button--primary button--small" href="#">Meet your creature <span aria-hidden="true">▶</span></a> <!-- TODO: link -->
+            <a class="button button--secondary button--small" href="work.html#mythical-creature">See details</a>
           </div>
         </div>
       </article>
 
-      <article class="work-card">
-        <div class="work-card__art work-card__art--lemon">
-          <svg viewBox="0 0 80 40" aria-hidden="true" focusable="false">
-            <circle cx="24" cy="20" r="14" fill="#FFFFFF" stroke="#3B2A44" stroke-width="2"/>
-            <circle cx="58" cy="20" r="10" fill="none" stroke="#3B2A44" stroke-width="2" stroke-dasharray="3 3"/>
-          </svg>
-        </div>
-        <div class="work-card__body">
-          <h3 class="work-card__title">Pop the Verbs</h3>
-          <p class="work-card__meta">30 bubbles, 15 pops</p>
-          <div class="work-card__actions">
-            <a class="button button--secondary button--small" href="pop-the-verbs.html">How I built it</a>
-          </div>
-        </div>
-      </article>
     </div>
   </div>
 </section>

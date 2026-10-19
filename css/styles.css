@@ -50,6 +50,7 @@
 :root {
     /* ----- Your pastel palette ----- */
   --color-cream: #FFF9f4;  /* Cream: page background, sticky notes */
+  --color-lemon: #FCF6BD;  /* Lemon: picture areas on cards */
   --color-pink:  #FF99C8;  /* Baby Pink: things you can click */
   --color-mint:  #D0F4DE;  /* Frosted Mint: tools that make teams faster */
   --color-mauve: #E4C1F9;  /* Mauve: learning you can play */
@@ -599,7 +600,7 @@ mark {
 .hero {
   overflow: hidden;            /* nothing can poke out sideways on phones */
   padding-block: var(--space-48) var(--space-64);
-  background-color: #fffef8
+  background-color: #FFF9f4;
   text-align: center;
 }
 
@@ -1143,6 +1144,42 @@ mark {
     border-bottom: 0;
     border-right: 2px solid var(--color-plum);
   }
+}
+
+/* Slim card (DOCX converter): sits under the featured card */
+.work-card--slim {
+  margin-top: 20px;
+}
+
+/* Tablet and up: picture on the left, words on the right */
+@media (min-width: 768px) {
+  .work-card--slim {
+    flex-direction: row;
+  }
+  .work-card--slim .work-card__art {
+    flex: 0 0 140px;
+    border-bottom: 0;
+    border-right: 2px solid var(--color-plum);
+  }
+}
+
+/* "Built with" tags: small rounded labels */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 2px 12px;
+  font-family: var(--font-clean);
+  font-size: 0.8rem;
+  background-color: var(--color-cream);
+  border: 1.5px solid var(--color-plum);
+  border-radius: var(--radius-pill);
 }
 
 /* ---------- 13. PROJECT CARDS ---------- */
