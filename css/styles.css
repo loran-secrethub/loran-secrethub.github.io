@@ -2260,6 +2260,7 @@ mark {
   .journey-step:nth-child(3) { --dot: #F48FB1; --next: #F06292; }
   .journey-step:nth-child(4) { --dot: #F06292; --next: #D94F83; }
   .journey-step:nth-child(5) { --dot: #D94F83; }
+}
 
 /* Tablet and desktop: the line is horizontal, so it grows left to right */
 @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
