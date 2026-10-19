@@ -49,7 +49,7 @@
 /* ---------- 1. DESIGN TOKENS ---------- */
 :root {
     /* ----- Your pastel palette ----- */
-  --color-cream: #fdfdf2;  /* Cream: page background, sticky notes */
+  --color-cream: #FFF9f4;  /* Cream: page background, sticky notes */
   --color-pink:  #FF99C8;  /* Baby Pink: things you can click */
   --color-mint:  #D0F4DE;  /* Frosted Mint: tools that make teams faster */
   --color-mauve: #E4C1F9;  /* Mauve: learning you can play */
@@ -59,7 +59,7 @@
   /* ----- Jobs -----
      Old names kept, so the rest of the site keeps working.
      We'll tidy these up as we redesign each part. */
-  --color-paper:       var(--color-lemon);
+  --color-paper:       var(--color-cream);
   --color-card:        #FFFFFF;
   --color-ink:         var(--color-plum);
   --color-slate:       #6B5A73;              /* softer plum for secondary text */
@@ -407,7 +407,7 @@ mark {
   position: sticky;      /* stays at the top while scrolling */
   top: 0;
   z-index: 50;           /* sits above other content */
-  background-color: var(--color-lemon);
+  background-color: var(--color-cream);
 
   transition: box-shadow 180ms ease;
 }
@@ -983,9 +983,9 @@ mark {
 }
 
 /* First band: extra top space so the journey strip's bottom wave doesn't cover the title */
-.work-band--tools   { background-color: var(--color-mint); padding-top: calc(var(--space-48) + 40px); }
-.work-band--play    { background-color: var(--color-mauve); }
-.work-band--systems { background-color: var(--color-rose); }
+.work-band--tools   { background-color: var(--color-cream); padding-top: calc(var(--space-48) + 40px); }
+.work-band--play    { background-color: var(--color-cream); }
+.work-band--systems { background-color: var(--color-cream); } 
 
 .work-band__inner {
   width: min(100% - 2rem, 1100px);
