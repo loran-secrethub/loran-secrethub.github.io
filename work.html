@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Work · Loran Iñosa</title>
-
-  <!-- Fonts: Fraunces (headings), Atkinson Hyperlegible (body), JetBrains Mono (labels) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Tools for learning teams, learning games, and learning platforms built by Loran Iñosa, e-learning developer.">
 
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
@@ -18,15 +14,12 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ===== SITE HEADER (same on every page) ===== -->
-    <header class="site-header">
+  <header class="site-header">
     <div class="container site-header__inner">
-
       <a class="brand" href="index.html">
-        <!-- Flower logo: four pastel petals (decoration only) -->
-          <img class="brand__flower" src="assets/images/flower-pink.svg" alt="" width="32" height="32">
+        <img class="brand__flower" src="assets/images/flower-pink.svg" alt="" width="32" height="32">
         <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
       </a>
-
       <nav class="site-nav" aria-label="Main">
         <ul class="site-nav__list">
           <li><a class="site-nav__link" href="work.html" aria-current="page">Work</a></li>
@@ -35,175 +28,244 @@
           <li><a class="site-nav__link" href="#contact">Contact</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main">
+  <main id="main" class="cs-page">
 
-    <!-- ===== PAGE HEADER ===== -->
-    <section class="page-header">
+    <!-- ===== INTRO ===== -->
+    <section class="cs-hero">
       <div class="container">
         <p class="label">Work</p>
-        <h1>Things I've built for learners and learning teams</h1>
-        <p class="page-header__intro">
-          I'm Loran, a former teacher who now builds e-learning and the tools
-          behind it. Start with the two featured projects, then browse the rest
-          of my learning work.
+        <h1 class="cs-title">Things I've built for learners and learning teams</h1>
+        <p class="cs-lede">
+          Tools, games and learning platforms. Start with the three case
+          studies, then explore the rest.
         </p>
       </div>
     </section>
 
-    <!-- ===== TIER 1: FEATURED PROJECTS ===== -->
-    <section class="section section--tight-top" aria-labelledby="featured-title">
-      <div class="container">
-        <h2 id="featured-title" class="visually-hidden">Featured projects</h2>
+    <!-- ===== GROUP 1: TOOLS FOR LEARNING TEAMS ===== -->
+    <section class="cs-section cs-section--white wk-group wk-group--tools" id="tools" aria-labelledby="tools-title">
+      <div class="container wk-stack">
+        <h2 id="tools-title" class="wk-group__title">Tools for learning teams</h2>
 
-        <!-- PASTE THE TWO FEATURED <article> BLOCKS FROM index.html HERE -->
+        <!-- Worktext Studio (case study) -->
+        <article class="wk-feature wk-feature--wide cs-card">
+          <div class="wk-feature__art">
+            <img src="assets/images/WT_studio.png" alt="">
+          </div>
+          <div class="wk-feature__body">
+            <p class="label">Case study · In use by my team</p>
+            <h3>Worktext Studio</h3>
+            <p>A browser tool that lets my team check and review worktext pages before they become PDFs.</p>
+            <ul class="chips" aria-label="Built with">
+              <li class="chip">JavaScript</li>
+              <li class="chip">Apps Script</li>
+              <li class="chip">Google Sheets</li>
+            </ul>
+            <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
+          </div>
+        </article>
+
+        <!-- DOCX to XML Converter (short write-up) -->
+        <article class="wk-item cs-card" id="docx-xml">
+          <p class="label">Short write-up · Python</p>
+          <h3>DOCX to XML Converter</h3>
+          <p>A Python script that turns a whole folder of Word lessons into XML in one go, and makes QR codes from any links it finds.</p>
+
+          <p class="wk-item__sub">Why</p>
+          <p>Lessons have to become XML before they can be laid out in InDesign, and lessons with web links need QR codes for the printed page.</p>
+
+          <p class="wk-item__sub">How it works</p>
+          <p>Put the Word files in a folder and run one command. The XML files appear in an output folder. Each link becomes a QR code picture, named after its lesson (like S2-U1-C3-L007-qr-1.png), so the InDesign script can place it automatically.</p>
+
+          <ul class="wk-shots">
+            <li>
+              <figure>
+                <img src="assets/images/docx-command.png" alt="Command window showing each lesson converted and each QR code generated">
+                <figcaption>One command converts every lesson</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img src="assets/images/docx-folders.png" alt="The images folder with QR code pictures and the output folder with XML files">
+                <figcaption>QR codes and XML files, ready for InDesign</figcaption>
+              </figure>
+            </li>
+          </ul>
+
+          <ul class="chips" aria-label="Built with">
+            <li class="chip">Python</li>
+            <li class="chip">XML</li>
+            <li class="chip">QR codes</li>
+          </ul>
+        </article>
 
       </div>
     </section>
 
-    <!-- ===== TIER 2: MORE LEARNING WORK ===== -->
-    <section class="section section--band" id="learning-work" aria-labelledby="learning-work-title">
-      <div class="container">
+    <!-- ===== GROUP 2: LEARNING GAMES AND INTERACTIONS ===== -->
+    <section class="cs-section wk-group wk-group--games" id="games" aria-labelledby="games-title">
+      <div class="container wk-stack">
+        <h2 id="games-title" class="wk-group__title">Learning games and interactions</h2>
 
-        <div class="section-header">
-          <p class="label">Platforms · Tracking · Automation</p>
-          <h2 id="learning-work-title">More learning work</h2>
+        <div class="wk-pair">
+          <!-- Ice Cream Petshop (case study) -->
+          <article class="wk-feature cs-card" id="ice-cream">
+            <div class="wk-feature__art wk-feature__art--rose">
+              <img src="assets/images/ice-cream.png" alt="">
+            </div>
+            <div class="wk-feature__body">
+              <p class="label">Case study · Storyline</p>
+              <h3>Ice Cream Petshop</h3>
+              <p>A pixel-style training game: serve six pet customers the right flavor, letter by letter.</p>
+              <a class="button button--primary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
+            </div>
+          </article>
+
+          <!-- Pop the Verbs (case study) -->
+          <article class="wk-feature cs-card" id="pop-the-verbs">
+            <div class="wk-feature__art wk-feature__art--lemon">
+              <img src="assets/images/bubbles.png" alt="">
+            </div>
+            <div class="wk-feature__body">
+              <p class="label">Case study · Phaser</p>
+              <h3>Pop the Verbs</h3>
+              <p>A bubble-popping game: find the 15 verbs among 30 floating words.</p>
+              <a class="button button--primary button--small" href="pop-the-verbs.html">Read the case study</a>
+            </div>
+          </article>
         </div>
 
-        <div class="work-list">
+        <!-- Personality Test (short write-up) -->
+        <article class="wk-item cs-card" id="mythical-creature">
+          <p class="label">Short write-up · Storyline</p>
+          <h3>Personality Test: Philippine Mythical Creatures</h3>
+          <p>A 12-question test that matches your learning style to one of four Philippine mythical creatures.</p>
 
-          <!-- Bloom's Taxonomy + Moodle -->
-          <article class="work-item" id="bloom-moodle">
-            <p class="label label--teal">Moodle · SCORM</p>
-            <h3>Bloom's Taxonomy + Moodle</h3>
-            <p>
-              A Moodle course with a Storyline drag-and-drop activity uploaded
-              as a SCORM package, a quiz and a completion certificate.
-            </p>
-            <p class="work-item__subhead">What I did</p>
-            <ul class="work-item__list">
-              <li>Set up the course structure in Moodle</li>
-              <li>Packaged the Storyline activity as SCORM and uploaded it</li>
-              <li>Added a quiz and completion settings</li>
-              <li>Set up a completion certificate</li>
+          <p class="wk-item__sub">How it works</p>
+          <p>Each question describes a situation with four ways to respond. Each type of answer belongs to one creature, and the result reveals your match. A bonus button downloads a guide to more creatures.</p>
+
+          <p class="wk-item__sub">How I built it</p>
+          <p>Variables count how many answers of each type you pick. At the end, triggers show the creature with the highest count.</p>
+
+          <ul class="wk-shots">
+            <li>
+              <figure>
+                <img src="assets/images/myth-question.png" alt="A situational question with four answer choices">
+                <figcaption>One of the 12 questions</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img src="assets/images/myth-result.png" alt="The result screen revealing the matching mythical creature">
+                <figcaption>The result screen</figcaption>
+              </figure>
+            </li>
+          </ul>
+
+          <p class="wk-note">The bonus guide was made from a Canva template.</p>
+
+          <ul class="chips" aria-label="Built with">
+            <li class="chip">Storyline</li>
+            <li class="chip">Triggers</li>
+            <li class="chip">Variables</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== GROUP 3: LEARNING PLATFORMS AND TRACKING ===== -->
+    <section class="cs-section cs-section--white wk-group wk-group--platforms" id="platforms" aria-labelledby="platforms-title">
+      <div class="container wk-stack">
+        <h2 id="platforms-title" class="wk-group__title">Learning platforms and tracking</h2>
+
+        <div class="wk-pair">
+
+          <!-- Bloom's Taxonomy Moodle course (short write-up) -->
+          <article class="wk-item cs-card" id="bloom-moodle">
+            <p class="label">Short write-up · Moodle</p>
+            <h3>Bloom's Taxonomy Course</h3>
+            <p>A full Moodle course built around Bloom's Taxonomy.</p>
+
+            <p class="wk-item__sub">How it works</p>
+            <p>The course moves from an introduction and learning goals, to lessons, to a drag-and-drop activity, to a quiz. Moodle tracks each learner's progress until the course is complete.</p>
+
+            <p class="wk-item__sub">How I built it</p>
+            <p>I built the drag-and-drop activity in Storyline, with feedback, unlimited tries and a restart option, then added it to Moodle as a SCORM package.</p>
+
+            <ul class="wk-shots">
+              <li>
+                <figure>
+                  <img src="assets/images/blooms-course.png" alt="The Moodle course page showing each section of the course">
+                  <figcaption>The course layout</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="assets/images/blooms-activity.png" alt="The drag-and-drop activity matching descriptions to Bloom's levels">
+                  <figcaption>The drag-and-drop activity</figcaption>
+                </figure>
+              </li>
             </ul>
+
+            <p class="wk-note">The Moodle trial has ended, so this course is shown with screenshots.</p>
+
             <ul class="chips" aria-label="Built with">
               <li class="chip">Moodle</li>
               <li class="chip">SCORM</li>
               <li class="chip">Storyline</li>
             </ul>
-            <!-- TODO: add Moodle screenshots (course, SCORM upload, quiz, completion) -->
           </article>
 
-          <!-- Cyber Safety: Learner Data Prototype -->
-          <article class="work-item" id="cyber-safety">
-            <p class="label label--teal">Prototype · Storyline</p>
-            <h3>Cyber Safety: Learner Data Prototype</h3>
-            <p>
-              A Storyline lesson that collects the learner's name, score and
-              completion and sends them as JSON to a webhook.
-            </p>
-            <p class="work-item__subhead">How it flows</p>
-            <ol class="work-item__list">
-              <li>The learner logs in</li>
-              <li>They complete the assessment</li>
-              <li>They submit their answers</li>
-              <li>Storyline sends the results as JSON to a webhook</li>
-            </ol>
+          <!-- Cyber Safety LMS Simulation (short write-up) -->
+          <article class="wk-item cs-card" id="cyber-safety">
+            <p class="label">Short write-up · Storyline + JavaScript</p>
+            <h3>Cyber Safety LMS Simulation</h3>
+            <p>A pretend learning platform that sends a learner's results to an outside service automatically.</p>
+
+            <p class="wk-item__sub">How it works</p>
+            <p>The learner types their name, answers a question and clicks Submit. My code then sends their name, score and completion to a test service.</p>
+
+            <p class="wk-item__sub">My code</p>
+<pre class="code-sample"><code>var player = GetPlayer();
+
+// Get the Storyline variables
+var name = player.GetVar("UserName");
+var score = player.GetVar("Score");
+var complete = player.GetVar("CourseComplete");
+
+// Test address (placeholder)
+var webhookURL = "https://webhook.site/your-test-id";
+
+// Send the data
+var xhr = new XMLHttpRequest();
+xhr.open("POST", webhookURL, true);
+xhr.send(JSON.stringify({
+  user_name: name,
+  score: score,
+  completed: complete
+}));</code></pre>
+            <p class="code-caption">Runs when the learner clicks Submit: it reads three answers from Storyline and sends them to the test address.</p>
+
+            <p class="wk-item__sub">What arrived</p>
+<pre class="code-sample"><code>{
+  "user_name": "Loran",
+  "score": 1,
+  "completed": true
+}</code></pre>
+
             <ul class="chips" aria-label="Built with">
               <li class="chip">Storyline</li>
+              <li class="chip">JavaScript</li>
               <li class="chip">JSON</li>
               <li class="chip">Webhook</li>
             </ul>
-            <!-- TODO: confirm whether the webhook was a test endpoint -->
-          </article>
-
-          <!-- xAPI tracking & offline packaging -->
-          <article class="work-item" id="xapi">
-            <p class="label label--teal">Tracking · xAPI</p>
-            <h3>Tracking learning with xAPI</h3>
-            <p>
-              In production I add xAPI statements to Storyline questions and
-              completion screens, publish lessons to a learning record store
-              (LRS), pass the learner's identity in through the launch URL, and
-              adjust the published package so it runs offline inside a mobile app.
-            </p>
-            <p class="work-item__subhead">What an xAPI statement looks like</p>
-            <pre class="code-sample"><code>{ "verb": "answered", "result": { "success": true } }</code></pre>
-            <p class="code-caption">A simplified example, not a real statement from my work.</p>
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">Storyline</li>
-              <li class="chip">xAPI</li>
-              <li class="chip">LRS</li>
-            </ul>
-          </article>
-
-          <!-- DOCX → XML Converter -->
-          <article class="work-item" id="docx-xml">
-            <p class="label label--teal">Automation · Python</p>
-            <h3>DOCX → XML Converter</h3>
-            <p>
-              A Python script that converts a folder of lesson documents to XML
-              in one run and creates QR code images when it finds links, for an
-              InDesign production workflow.
-            </p>
-            <p class="work-item__subhead">What it does</p>
-            <ul class="work-item__list">
-              <li>Converts every lesson file in a folder to XML in one run</li>
-              <li>Creates QR code images when it finds links</li>
-              <li>Prepares content for layout in InDesign</li>
-            </ul>
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">Python</li>
-              <li class="chip">XML</li>
-              <li class="chip">QR codes</li>
-            </ul>
-            <!-- TODO: add the input → processing → output diagram -->
           </article>
 
         </div>
-
-      </div>
-    </section>
-
-    <!-- ===== TIER 3: EARLIER STORYLINE WORK ===== -->
-    <section class="section" id="earlier-work" aria-labelledby="earlier-title">
-      <div class="container">
-
-        <div class="section-header">
-          <p class="label">Range and history</p>
-          <h2 id="earlier-title">Earlier Storyline work</h2>
-        </div>
-
-        <div class="card-grid">
-
-          <article class="work-item work-item--small" id="ice-cream">
-            <p class="label label--teal">Storyline · Game</p>
-            <h3>Ice Cream Pet Shop</h3>
-            <p>A gamified matching challenge built in Articulate Storyline.</p>
-            <!-- TODO: add a "Play" link if the build is hosted -->
-          </article>
-
-          <article class="work-item work-item--small" id="mythical-creature">
-            <p class="label label--teal">Storyline · Quiz</p>
-            <h3>Philippine Mythical Creature</h3>
-            <p>A personality quiz with a downloadable PDF guide, built in Storyline.</p>
-            <!-- TODO: add a "Play" link if the build is hosted -->
-          </article>
-
-          <article class="work-item work-item--small" id="portfolio-v1">
-            <p class="label label--teal">Storyline · Portfolio</p>
-            <h3>Portfolio v1</h3>
-            <p>My first portfolio: a pixel-art "choose your adventure" world, built in Articulate Storyline.</p>
-            <!-- TODO: add a link to the old portfolio if it's still online -->
-          </article>
-
-        </div>
-
       </div>
     </section>
 
@@ -212,30 +274,24 @@
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
     <div class="container">
-
       <div class="contact">
         <p class="label label--light">Contact</p>
         <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
         <p class="contact__text">I'd love to hear about it.</p>
-
         <div class="contact__email">
           <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
           <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
         </div>
-
         <ul class="contact__links">
           <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
           <li><a href="https://github.com/YOUR-USERNAME">GitHub</a></li>
         </ul>
-
         <p class="visually-hidden" aria-live="polite" data-copy-status></p>
       </div>
-
       <div class="site-footer__bottom">
         <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
         <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
       </div>
-
     </div>
   </footer>
 

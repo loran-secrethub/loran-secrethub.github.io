@@ -2997,3 +2997,141 @@ mark {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+/* ---------- 33. WORK PAGE ---------- */
+
+/* Space between cards inside a group */
+.wk-stack {
+  display: grid;
+  gap: var(--space-24);
+}
+
+/* Group title with a little colored dot */
+.wk-group__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin: 0;
+  font-weight: 400;
+}
+.wk-group__title::before {
+  content: "";
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background-color: var(--dot);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+}
+.wk-group--tools     { --dot: var(--color-mint); }
+.wk-group--games     { --dot: var(--color-lemon); }
+.wk-group--platforms { --dot: var(--color-rose); }
+
+/* --- Case study cards: picture on top (phones) --- */
+.wk-feature {
+  display: grid;
+  overflow: hidden;
+}
+.wk-feature__art {
+  display: grid;
+  place-items: center;
+  padding: var(--space-16);
+  background-color: var(--color-mint);
+  border-bottom: 2px solid var(--color-plum);
+}
+.wk-feature__art--rose  { background-color: var(--color-rose); }
+.wk-feature__art--lemon { background-color: var(--color-lemon); }
+.wk-feature__art img {
+  width: auto;
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+}
+.wk-feature__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-24);
+}
+.wk-feature__body h3 {
+  margin-bottom: var(--space-8);
+  font-weight: 400;
+}
+.wk-feature__body .label {
+  margin-bottom: var(--space-4);
+}
+.wk-feature__body .button {
+  margin-top: auto;   /* buttons line up at the bottom */
+}
+
+/* Two cards side by side (bigger screens) */
+.wk-pair {
+  display: grid;
+  gap: var(--space-24);
+}
+
+/* --- Short write-ups --- */
+.wk-item {
+  padding: var(--space-24);
+}
+.wk-item .label {
+  margin-bottom: var(--space-4);
+}
+.wk-item h3 {
+  margin-bottom: var(--space-8);
+  font-weight: 400;
+}
+.wk-item p {
+  font-size: var(--text-small);
+  line-height: 1.55;
+}
+.wk-item__sub {
+  margin: var(--space-16) 0 var(--space-4);
+  font-weight: 700 !important;
+}
+
+/* Screenshots: side by side when there's room */
+.wk-shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-12);
+  margin: var(--space-16) 0;
+  padding: 0;
+  list-style: none;
+}
+.wk-shots figure {
+  margin: 0;
+}
+.wk-shots img {
+  width: 100%;
+  border: 2px solid var(--color-plum);
+  border-radius: 8px;
+}
+.wk-shots figcaption {
+  margin-top: var(--space-4);
+  font-family: var(--font-clean);
+  font-size: 0.8125rem;
+  color: var(--color-slate);
+}
+
+/* Small honest notes, like "shown with screenshots" */
+.wk-note {
+  padding-left: var(--space-12);
+  border-left: 3px solid var(--color-pink);
+  color: var(--color-slate);
+}
+
+/* --- Bigger screens --- */
+@media (min-width: 768px) {
+  .wk-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Worktext Studio: picture left, words right */
+  .wk-feature--wide {
+    grid-template-columns: 2fr 3fr;
+  }
+  .wk-feature--wide .wk-feature__art {
+    border-bottom: 0;
+    border-right: 2px solid var(--color-plum);
+  }
+}
