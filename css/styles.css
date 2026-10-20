@@ -2448,3 +2448,241 @@ mark {
     max-width: 160px;
   }
 }
+/* ---------- 30. CASE STUDY PAGES (sticker style) ---------- */
+
+/* Easy-to-read text on case study pages (Quicksand) */
+.cs-page :where(p, dd, li) {
+  font-family: var(--font-clean);
+  font-weight: 500;
+}
+.cs-page .label {
+  font-family: var(--font-mono);
+}
+
+/* The sticker look: plum outline + little plum shadow */
+.cs-card {
+  background-color: var(--color-card);
+  border: 2px solid var(--color-plum);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--color-plum);
+}
+
+/* --- Top of the page --- */
+.cs-hero {
+  padding-block: var(--space-32) var(--space-48);
+}
+
+.cs-pill {
+  display: inline-block;
+  margin: var(--space-8) 0 var(--space-12);
+  padding: 2px 14px;
+  background-color: var(--color-mint);
+  border: 2px solid var(--color-plum);
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.cs-title {
+  margin-bottom: var(--space-8);
+  font-size: clamp(2.5rem, 6vw, 4rem);   /* grows with the screen */
+  font-weight: 400;
+}
+
+.cs-lede {
+  max-width: 40ch;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Four colored fact boxes: 2 per row on phones, 4 on bigger screens */
+.cs-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+  margin: var(--space-24) 0 var(--space-32);
+}
+.cs-fact {
+  padding: var(--space-12);
+}
+.cs-fact:nth-child(1) { background-color: var(--color-lemon); }
+.cs-fact:nth-child(2) { background-color: var(--color-mint); }
+.cs-fact:nth-child(3) { background-color: var(--color-rose); }
+.cs-fact:nth-child(4) { background-color: var(--color-mauve); }
+
+.cs-fact dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-red-pen);
+}
+.cs-fact dd {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-small);
+  line-height: 1.4;
+}
+
+/* Big screenshot */
+.cs-shot {
+  margin: 0;
+  padding: var(--space-12);
+}
+.cs-shot img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* --- Sections --- */
+.cs-section {
+  padding-block: var(--section-gap);
+}
+.cs-section--white {
+  background-color: var(--color-card);
+  border-block: 2px dashed var(--color-rule);
+}
+.cs-section .label {
+  margin-bottom: var(--space-4);
+}
+
+/* Words on the left, note or picture on the right (bigger screens) */
+.cs-split {
+  display: grid;
+  gap: var(--space-24);
+  align-items: center;
+}
+
+/* Yellow sticky note */
+.cs-note {
+  max-width: 260px;
+  padding: var(--space-16);
+  background-color: var(--color-sticky);
+  border: 1.5px solid var(--color-plum);
+  box-shadow: 2px 2px 0 var(--color-plum);
+  transform: rotate(2deg);
+}
+.cs-note p {
+  margin: 0;
+}
+.cs-note__label {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --- Check, review, finish cards --- */
+.cs-steps {
+  display: grid;
+  gap: var(--space-16);
+  margin: var(--space-24) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.cs-step {
+  padding: var(--space-12) var(--space-12) var(--space-16);
+}
+.cs-step h3 {
+  margin: var(--space-12) 0 var(--space-4);
+  font-weight: 400;
+}
+.cs-step p {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+/* Pink number circle */
+.cs-step__num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  margin-right: var(--space-8);
+  background-color: var(--color-pink);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+  font-size: 0.8em;
+}
+
+/* Colored frame around each GIF or picture */
+.cs-media {
+  margin: 0;
+  padding: var(--space-8);
+  background-color: var(--media-bg, var(--color-mint));
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+}
+.cs-media img {
+  width: 100%;
+  border-radius: 6px;
+}
+.cs-media--lemon { --media-bg: var(--color-lemon); }
+.cs-media--mint  { --media-bg: var(--color-mint); }
+.cs-media--rose  { --media-bg: var(--color-rose); }
+.cs-media--mauve { --media-bg: var(--color-mauve); }
+
+/* Wide card: picture left, words right (bigger screens) */
+.cs-wide {
+  display: grid;
+  gap: var(--space-16);
+  align-items: center;
+  margin-top: var(--space-16);
+  padding: var(--space-12);
+}
+.cs-wide h3 {
+  margin-bottom: var(--space-4);
+  font-weight: 400;
+}
+.cs-wide p {
+  margin: 0;
+}
+
+/* --- How I built it cards --- */
+.cs-points {
+  display: grid;
+  gap: var(--space-16);
+  margin: var(--space-24) 0;
+  padding: 0;
+  list-style: none;
+}
+.cs-point {
+  padding: var(--space-16);
+}
+.cs-point:nth-child(1) { background-color: var(--color-lemon); }
+.cs-point:nth-child(2) { background-color: var(--color-mint); }
+.cs-point:nth-child(3) { background-color: var(--color-rose); }
+.cs-point h3 {
+  margin-bottom: var(--space-4);
+  font-weight: 400;
+}
+.cs-point p {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+/* Teammate quote */
+.cs-quote {
+  margin: var(--space-24) 0;
+  padding: var(--space-16) var(--space-24);
+  background-color: var(--color-cream);
+}
+.cs-quote p {
+  margin: 0;
+}
+.cs-quote__who {
+  margin-top: var(--space-8) !important;
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+
+/* --- Bigger screens --- */
+@media (min-width: 768px) {
+  .cs-facts  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cs-split  { grid-template-columns: minmax(0, 1fr) 260px; }
+  .cs-steps  { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cs-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cs-wide   { grid-template-columns: 260px minmax(0, 1fr); }
+}
