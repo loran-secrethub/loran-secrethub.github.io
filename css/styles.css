@@ -3135,3 +3135,89 @@ mark {
     border-right: 2px solid var(--color-plum);
   }
 }
+/* ---------- 35. PLAY PAGE ---------- */
+
+/* Mauve version of the pill */
+.cs-pill--mauve {
+  background-color: var(--color-mauve);
+}
+
+/* --- Intro: everything centered --- */
+.play-intro {
+  padding-block: var(--space-48) var(--space-64);
+  text-align: center;
+}
+.play-intro p {
+  margin-inline: auto;
+}
+.play-intro__text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.play-intro__note {
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+
+/* --- Mauve area with wavy edges --- */
+.play-band {
+  position: relative;      /* lets the waves sit on its edges */
+  z-index: 1;              /* waves draw over the footer */
+  padding-block: var(--space-32) var(--space-64);
+  background-color: var(--color-mauve);
+}
+.play-band .wave__fill {
+  fill: var(--color-mauve);
+}
+
+/* --- Cards: 1 per row on phones, 2 on bigger screens --- */
+.play-grid {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.play-grid .work-card__title {
+  font-family: var(--font-hand);   /* Handy Casual */
+  font-weight: 400;
+  font-size: 1.75rem;
+}
+
+/* Pictures in the card tops */
+.play-grid .work-card__art {
+  min-height: 140px;
+}
+.play-grid .work-card__art img {
+  width: auto;
+  height: 110px;
+}
+
+/* Bloom's drawing */
+.play-art {
+  width: 160px;
+  height: auto;
+  fill: var(--color-card);
+  stroke: var(--color-plum);
+  stroke-width: 2;
+}
+.play-art line {
+  stroke-dasharray: 4 3;
+}
+.play-art__level {
+  fill: var(--color-rose);
+}
+
+/* "Coming soon" card: dashed outline, no sticker shadow */
+.work-card--soon {
+  border-style: dashed;
+  box-shadow: none;
+}
+.work-card--soon .work-card__art {
+  border-bottom-style: dashed;
+  background-color: var(--color-card);
+}
+
+@media (min-width: 768px) {
+  .play-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

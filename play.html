@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Play · Loran Iñosa</title>
+  <meta name="description" content="Play the learning games and activities built by Loran Iñosa. Every build here is real and working.">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== SITE HEADER (same on every page) ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <img class="brand__flower" src="assets/images/flower-pink.svg" alt="" width="32" height="32">
+        <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="work.html">Work</a></li>
+          <li><a class="site-nav__link" href="play.html" aria-current="page">Play</a></li>
+          <li><a class="site-nav__link" href="journey.html">Journey</a></li>
+          <li><a class="site-nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="cs-page">
+
+    <!-- ===== INTRO ===== -->
+    <section class="play-intro">
+      <div class="container">
+        <p class="cs-pill cs-pill--mauve">Play</p>
+        <h1 class="cs-title">Go ahead, click things.</h1>
+        <p class="play-intro__text">Every build here is real and working. Each one opens in a new tab.</p>
+        <p class="play-intro__note">Best on a laptop or tablet.</p>
+      </div>
+    </section>
+
+    <!-- ===== THE GAMES ===== -->
+    <section class="play-band" aria-labelledby="games-title">
+
+      <!-- Wavy top edge (decoration) -->
+      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
+      <div class="container">
+        <h2 id="games-title" class="visually-hidden">Games and activities</h2>
+
+        <div class="play-grid">
+
+          <!-- Ice Cream Petshop -->
+          <article class="work-card">
+            <div class="work-card__art work-card__art--rose">
+              <img src="assets/images/ice-cream.png" alt="">
+            </div>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Ice Cream Petshop</h3>
+              <p class="work-card__meta">Serve 6 pets. Guess each order from its health clue.</p>
+              <div class="work-card__actions">
+                <!-- TODO: replace # with your Netlify link -->
+                <a class="button button--primary button--small" href="#" target="_blank" rel="noopener">
+                  Take an order <span aria-hidden="true">▶</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+                <a class="button button--secondary button--small" href="ice-cream-pet-shop.html">How I built it</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Mythical creature quiz -->
+          <article class="work-card">
+            <div class="work-card__art work-card__art--mint">
+              <img src="assets/images/mythical-creature.png" alt="">
+            </div>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Which mythical creature are you?</h3>
+              <p class="work-card__meta">12 situations, 4 Philippine creatures.</p>
+              <div class="work-card__actions">
+                <!-- TODO: replace # with your Netlify link -->
+                <a class="button button--primary button--small" href="#" target="_blank" rel="noopener">
+                  Meet your creature <span aria-hidden="true">▶</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+                <a class="button button--secondary button--small" href="work.html#mythical-creature">How I built it</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bloom's Taxonomy activity -->
+          <article class="work-card">
+            <div class="work-card__art work-card__art--lemon">
+              <!-- Simple drawing: one description matched to three levels -->
+              <svg class="play-art" viewBox="0 0 160 70" aria-hidden="true" focusable="false">
+                <rect x="10" y="26" width="50" height="18" rx="4"/>
+                <line x1="60" y1="35" x2="98" y2="35"/>
+                <rect class="play-art__level" x="100" y="6"  width="50" height="14" rx="3"/>
+                <rect class="play-art__level" x="100" y="28" width="50" height="14" rx="3"/>
+                <rect class="play-art__level" x="100" y="50" width="50" height="14" rx="3"/>
+              </svg>
+            </div>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Bloom's Taxonomy activity</h3>
+              <p class="work-card__meta">Match descriptions to Bloom's levels.</p>
+              <div class="work-card__actions">
+                <!-- TODO: replace # with your Netlify link -->
+                <a class="button button--primary button--small" href="#" target="_blank" rel="noopener">
+                  Try the activity <span aria-hidden="true">▶</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+                <a class="button button--secondary button--small" href="work.html#bloom-moodle">See the full course</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pop the Verbs (coming soon: dashed outline) -->
+          <article class="work-card work-card--soon">
+            <div class="work-card__art">
+              <img src="assets/images/bubbles.png" alt="">
+            </div>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Pop the Verbs</h3>
+              <p class="work-card__meta">30 bubbles, 15 pops. Coming soon.</p>
+              <div class="work-card__actions">
+                <!-- TODO: once it's online, add a pink "Play ▶" button here,
+                     and remove "work-card--soon" from the line above -->
+                <a class="button button--secondary button--small" href="pop-the-verbs.html">How I built it</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
+    </section>
+
+  </main>
+
+  <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="contact">
+        <p class="label label--light">Contact</p>
+        <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
+        <p class="contact__text">I'd love to hear about it.</p>
+        <div class="contact__email">
+          <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
+          <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
+        </div>
+        <ul class="contact__links">
+          <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
+          <li><a href="https://github.com/YOUR-USERNAME">GitHub</a></li>
+        </ul>
+        <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
