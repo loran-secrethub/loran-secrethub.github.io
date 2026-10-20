@@ -3221,3 +3221,109 @@ mark {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+/* ---------- 36. JOURNEY PAGE ---------- */
+
+/* --- Workplace names as stickers (until you have the logos) --- */
+.jy-logo {
+  padding: var(--space-12) var(--space-24);
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+}
+
+/* --- Sticky notes (this also fixes the missing sticky-note look) --- */
+.margin-note {
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-sticky);
+  border: 1.5px solid var(--color-plum);
+  box-shadow: 2px 2px 0 var(--color-plum);
+}
+
+/* --- Chapter circles: rose (teaching) → pink (now) --- */
+.jy-chapters .chapter:nth-child(1),
+.jy-chapters .chapter:nth-child(2) { --dot: var(--color-rose); }
+.jy-chapters .chapter:nth-child(3) { --dot: var(--color-mauve); }
+.jy-chapters .chapter:nth-child(4) { --dot: var(--color-mint); }
+.jy-chapters .chapter:nth-child(5) { --dot: var(--color-pink); }
+
+.jy-chapters .chapter__marker {
+  background-color: var(--dot);
+  border-color: var(--color-plum);
+  color: var(--color-plum);
+  font-weight: 400;
+}
+
+/* "Now" circle: same pink, slightly bigger outline */
+.jy-chapters .chapter--current .chapter__marker {
+  background-color: var(--color-pink);
+  color: var(--color-plum);
+  border-width: 4px;
+}
+
+/* The line between circles: plain plum */
+.jy-chapters .chapter:not(:last-child)::before {
+  background: var(--color-plum);
+}
+
+.jy-chapters .chapter h3 {
+  font-weight: 400;
+}
+
+/* --- Threads as sticker cards with a colored top --- */
+.jy-chapters ~ .cs-section .threads {
+  margin-top: var(--space-24);
+}
+.thread {
+  background-color: var(--color-card);
+  border: 2px solid var(--color-plum);
+  border-top-width: 6px;
+  border-top-color: var(--thread-color);
+  box-shadow: 3px 3px 0 var(--color-plum);
+}
+.thread:nth-child(1) { --thread-color: var(--color-rose); }
+.thread:nth-child(2) { --thread-color: var(--color-mauve); }
+.thread:nth-child(3) { --thread-color: var(--color-mint); }
+.thread:nth-child(4) { --thread-color: var(--color-lemon); }
+.thread:nth-child(5) { --thread-color: var(--color-pink); }
+.thread h3 {
+  font-weight: 400;
+}
+
+/* --- Skill groups as sticker cards --- */
+.skill-groups {
+  margin-top: var(--space-24);
+  gap: var(--space-24);
+}
+.skill-group {
+  padding: var(--space-16) var(--space-24);
+  background-color: var(--color-card);
+  border: 2px solid var(--color-plum);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--color-plum);
+}
+.skill-group h3 {
+  font-weight: 400;
+}
+.skill-list li {
+  border-bottom-style: dashed;
+}
+.skill-list li:last-child {
+  border-bottom: 0;
+}
+
+/* --- "Want the short version?" rose area with wavy edges --- */
+.jy-cta {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-32) var(--space-48);
+  background-color: var(--color-rose);
+  text-align: center;
+}
+.jy-cta .wave__fill {
+  fill: var(--color-rose);
+}
+.jy-cta h2 {
+  font-weight: 400;
+}
+.jy-cta__buttons {
+  justify-content: center;
+}

@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Journey · Loran Iñosa</title>
-
-  <!-- Fonts: Fraunces (headings), Atkinson Hyperlegible (body), JetBrains Mono (labels) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="About six years in education, then into building e-learning tools. How Loran Iñosa went from the classroom to the code behind the course.">
 
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
@@ -18,15 +14,12 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ===== SITE HEADER (same on every page) ===== -->
-    <header class="site-header">
+  <header class="site-header">
     <div class="container site-header__inner">
-
       <a class="brand" href="index.html">
-        <!-- Flower logo: four pastel petals (decoration only) -->
-          <img class="brand__flower" src="assets/images/flower-pink.svg" alt="" width="32" height="32">
+        <img class="brand__flower" src="assets/images/flower-pink.svg" alt="" width="32" height="32">
         <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
       </a>
-
       <nav class="site-nav" aria-label="Main">
         <ul class="site-nav__list">
           <li><a class="site-nav__link" href="work.html">Work</a></li>
@@ -35,36 +28,62 @@
           <li><a class="site-nav__link" href="#contact">Contact</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main">
+  <main id="main" class="cs-page">
 
-    <!-- ===== PAGE HEADER ===== -->
-    <section class="page-header">
+    <!-- ===== INTRO ===== -->
+    <section class="cs-hero">
       <div class="container">
-        <p class="label">Journey</p>
-        <h1>From the classroom to the code behind the course</h1>
-        <p class="page-header__intro">
-          I spent almost six years in education before moving into e-learning
-          development. Here's that story in five chapters, and the threads that
-          run through all of them.
+        <p class="cs-pill cs-pill--mauve">Journey</p>
+        <h1 class="cs-title">From the classroom to the code behind the course</h1>
+        <p class="cs-lede">
+          About six years in education, then into building. Here's how one
+          led to the other.
         </p>
-        <!-- TODO: add a photo of yourself here (Handbook B: "Short intro + photo") -->
+        <!-- TODO (optional): add a photo of yourself here -->
       </div>
     </section>
 
+    <!-- ===== WHERE I'VE WORKED ===== -->
+    <section class="logo-band" aria-labelledby="logos-title">
+
+      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
+      <div class="container">
+        <h2 id="logos-title" class="logo-band__title">Where I've taught, coded and built</h2>
+
+        <!-- TODO: once you have permission, swap each name for its logo:
+             <li><img src="assets/images/logo-robothink.png" alt="RoboThink"></li> -->
+        <ul class="logo-band__list">
+          <li class="jy-logo cs-card">RoboThink</li>
+          <!-- TODO: write TLB's full name -->
+          <li class="jy-logo cs-card">TLB</li>
+          <li class="jy-logo cs-card">Everyday Play N Learn</li>
+          <li class="jy-logo cs-card">Audacious Labs</li>
+          <!-- TODO: add your fifth workplace (the green thumbs-up logo) -->
+        </ul>
+      </div>
+
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
+    </section>
+
     <!-- ===== FIVE CHAPTERS ===== -->
-    <section class="section section--tight-top" aria-labelledby="chapters-title">
+    <section class="cs-section jy-chapters" aria-labelledby="chapters-title">
       <div class="container">
         <h2 id="chapters-title" class="visually-hidden">Five chapters</h2>
 
         <ol class="chapters">
 
           <!-- Chapter 1 -->
-          <!-- TODO: DRAFT. Rewrite the story and the note in your own words -->
           <li class="chapter" id="esl">
             <span class="chapter__marker" aria-hidden="true">1</span>
             <div class="chapter__main">
@@ -83,11 +102,11 @@
             </aside>
           </li>
 
-          <!-- Chapter 2 (handbook sample, based on your brief) -->
+          <!-- Chapter 2 -->
           <li class="chapter" id="preschool-ict">
             <span class="chapter__marker" aria-hidden="true">2</span>
             <div class="chapter__main">
-              <p class="label">Preschool &amp; ICT Teacher · About 4 years</p>
+              <p class="label">Preschool &amp; ICT Lead Teacher · About 4 years</p>
               <h3>Teaching through a screen</h3>
               <p>
                 I started with Nursery, then the pandemic moved my Kindergarten
@@ -102,18 +121,17 @@
                 teachers.
               </p>
             </div>
-            <!-- TODO: DRAFT note. Rewrite in your own words -->
             <aside class="margin-note chapter__note">
               <p class="margin-note__label">What I carried forward</p>
-              <p>Designing for learners I can't see, and making tools feel less scary for the people using them.</p>
+              <p>Make tools feel less scary for the people using them.</p>
             </aside>
           </li>
 
-          <!-- Chapter 3 (handbook sample, based on your brief) -->
+          <!-- Chapter 3 -->
           <li class="chapter" id="robotics">
             <span class="chapter__marker" aria-hidden="true">3</span>
             <div class="chapter__main">
-              <p class="label">Robotics Teacher · About 6 months</p>
+              <p class="label">Robotics Lead Teacher · About 6 months</p>
               <h3>Robots on the classroom floor</h3>
               <p>
                 For about six months I taught robotics with construction kits and
@@ -121,21 +139,18 @@
                 app. The role was short, but it's where coding stopped being a
                 screen-only activity for me.
               </p>
-              <!-- TODO: add a photo of a robot or kit (no students) -->
             </div>
-            <!-- TODO: DRAFT note. Rewrite in your own words -->
             <aside class="margin-note chapter__note">
               <p class="margin-note__label">What I carried forward</p>
-              <p>Learners understand code faster when they can see it do something.</p>
+              <p>Code clicks when you can see it move.</p>
             </aside>
           </li>
 
           <!-- Chapter 4 -->
-          <!-- TODO: DRAFT. Rewrite the story in your own words; add years if you want -->
           <li class="chapter" id="storyline">
             <span class="chapter__marker" aria-hidden="true">4</span>
             <div class="chapter__main">
-              <p class="label">Storyline Developer</p>
+              <p class="label">Articulate Storyline Developer</p>
               <h3>From teaching lessons to building them</h3>
               <p>
                 I moved from delivering lessons to building them. In Articulate
@@ -151,21 +166,19 @@
           </li>
 
           <!-- Chapter 5 -->
-          <!-- TODO: DRAFT. Rewrite the story and the note in your own words -->
-          <li class="chapter chapter--current" id="lx-developer">
+          <li class="chapter chapter--current" id="now">
             <span class="chapter__marker" aria-hidden="true">5</span>
             <div class="chapter__main">
-              <p class="label">Learning Experience Developer · Now</p>
+              <p class="label">Full Stack E-learning Developer · Now</p>
               <h3>Building the tools</h3>
               <p>
                 Today I write code to solve production problems for my team. I
                 built <a href="worktext-studio.html">Worktext Studio</a>, a browser
-                tool for previewing and reviewing worktexts, wrote a
+                tool for checking and reviewing worktexts, wrote a
                 <a href="work.html#docx-xml">Python script</a> that converts lesson
-                documents to XML, and add <a href="work.html#xapi">xAPI tracking</a>
-                to Storyline lessons. I also built
-                <a href="pop-the-verbs.html">Pop the Verbs</a>, an educational game
-                in Phaser.
+                documents to XML, and add xAPI tracking to Storyline lessons.
+                I also built <a href="pop-the-verbs.html">Pop the Verbs</a>, an
+                educational game in Phaser.
               </p>
             </div>
             <aside class="margin-note chapter__note">
@@ -175,18 +188,14 @@
           </li>
 
         </ol>
-
       </div>
     </section>
 
     <!-- ===== THREADS ===== -->
-    <section class="section section--band" id="threads" aria-labelledby="threads-title">
+    <section class="cs-section cs-section--white" id="threads" aria-labelledby="threads-title">
       <div class="container">
-
-        <div class="section-header">
-          <p class="label">Threads, not a ladder</p>
-          <h2 id="threads-title">What I carried from the classroom</h2>
-        </div>
+        <p class="label">Threads, not a ladder</p>
+        <h2 id="threads-title">What I carried from the classroom</h2>
 
         <ul class="threads">
           <li class="thread">
@@ -222,7 +231,7 @@
               <dt>Then</dt>
               <dd>Zoom and Google Classroom</dd>
               <dt>Now</dt>
-              <dd>xAPI and SCORM tracking</dd>
+              <dd>Moodle courses and SCORM packages</dd>
             </dl>
           </li>
           <li class="thread">
@@ -233,30 +242,24 @@
             </dl>
           </li>
         </ul>
-
       </div>
     </section>
 
-    <!-- ===== SKILLS WITH EVIDENCE ===== -->
-    <section class="section" id="skills" aria-labelledby="skills-title">
+    <!-- ===== SKILLS WITH PROOF ===== -->
+    <section class="cs-section" id="skills" aria-labelledby="skills-title">
       <div class="container">
-
-        <div class="section-header">
-          <p class="label">Skills with evidence</p>
-          <h2 id="skills-title">What I can do today, and where I did it</h2>
-        </div>
+        <p class="label">Skills with proof</p>
+        <h2 id="skills-title">What I can do today, and where I did it</h2>
 
         <div class="skill-groups">
 
           <div class="skill-group">
-            <h3>E-learning &amp; tracking</h3>
+            <h3>E-learning</h3>
             <ul class="skill-list">
               <li><strong>Articulate Storyline</strong>
-                <span>Variables, triggers, layers, JavaScript triggers · <a href="work.html#cyber-safety">Cyber Safety</a>, <a href="work.html#bloom-moodle">Bloom's</a>, daily work</span></li>
-              <li><strong>xAPI and LRS publishing</strong>
-                <span>Statements on questions and completion · <a href="work.html#xapi">work process</a></span></li>
+                <span>Variables, triggers, layers, JavaScript · <a href="ice-cream-pet-shop.html">Ice Cream Petshop</a>, <a href="work.html#cyber-safety">Cyber Safety</a></span></li>
               <li><strong>SCORM and Moodle</strong>
-                <span>Course setup, SCORM upload, quiz, completion, certificate · <a href="work.html#bloom-moodle">Bloom's + Moodle</a></span></li>
+                <span>Course setup, SCORM upload, quiz, completion tracking · <a href="work.html#bloom-moodle">Bloom's course</a></span></li>
             </ul>
           </div>
 
@@ -264,9 +267,9 @@
             <h3>Front end</h3>
             <ul class="skill-list">
               <li><strong>HTML, CSS, JavaScript</strong>
-                <span><a href="worktext-studio.html">Worktext Studio</a>, internal tools, this website</span></li>
+                <span><a href="worktext-studio.html">Worktext Studio</a>, this website</span></li>
               <li><strong>Browser features</strong>
-                <span>Print-to-PDF export, light/dark mode, drag-and-drop notes · <a href="worktext-studio.html">Worktext Studio</a></span></li>
+                <span>PDF export, light and dark mode, drag-and-drop notes · <a href="worktext-studio.html">Worktext Studio</a></span></li>
             </ul>
           </div>
 
@@ -276,7 +279,7 @@
               <li><strong>Phaser</strong>
                 <span><a href="pop-the-verbs.html">Pop the Verbs</a></span></li>
               <li><strong>Gamified Storyline</strong>
-                <span><a href="work.html#ice-cream">Ice Cream Pet Shop</a>, <a href="work.html#mythical-creature">Mythical Creature quiz</a></span></li>
+                <span><a href="ice-cream-pet-shop.html">Ice Cream Petshop</a>, <a href="work.html#mythical-creature">Mythical Creature Test</a></span></li>
             </ul>
           </div>
 
@@ -284,11 +287,11 @@
             <h3>Integrations &amp; automation</h3>
             <ul class="skill-list">
               <li><strong>Google Sign-In and Apps Script</strong>
-                <span><a href="worktext-studio.html">Worktext Studio</a> shared comments</span></li>
+                <span>Shared comments · <a href="worktext-studio.html">Worktext Studio</a></span></li>
               <li><strong>Webhooks and JSON</strong>
-                <span><a href="work.html#cyber-safety">Cyber Safety prototype</a></span></li>
+                <span><a href="work.html#cyber-safety">Cyber Safety</a></span></li>
               <li><strong>Python</strong>
-                <span>DOCX to XML, QR codes · <a href="work.html#docx-xml">converter</a></span></li>
+                <span>Word to XML, QR codes · <a href="work.html#docx-xml">DOCX Converter</a></span></li>
               <li><strong>GitHub Pages hosting</strong>
                 <span><a href="worktext-studio.html">Worktext Studio</a>, this website</span></li>
             </ul>
@@ -298,9 +301,9 @@
             <h3>Data</h3>
             <ul class="skill-list">
               <li><strong>Google Sheets as a data store</strong>
-                <span>Comments grouped by lesson code · <a href="worktext-studio.html">Worktext Studio</a></span></li>
-              <li><strong>Data embedded in HTML files</strong>
-                <span>"Save Reviewed HTML" · <a href="worktext-studio.html">Worktext Studio</a></span></li>
+                <span>Comments grouped by lesson · <a href="worktext-studio.html">Worktext Studio</a></span></li>
+              <li><strong>Data saved inside HTML files</strong>
+                <span>Save Reviewed HTML · <a href="worktext-studio.html">Worktext Studio</a></span></li>
             </ul>
           </div>
 
@@ -319,11 +322,32 @@
           </div>
 
         </div>
-
-        <!-- TODO (Handbook H): add a short "Learning now" list (1–3 items) only when it's true -->
-        <!-- TODO: Figma / Canva: add only with a design file as evidence -->
-
       </div>
+    </section>
+
+    <!-- ===== THE SHORT VERSION ===== -->
+    <section class="jy-cta" aria-labelledby="cta-title">
+
+      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
+      <div class="container">
+        <h2 id="cta-title">Want the short version?</h2>
+        <div class="button-row jy-cta__buttons">
+          <!-- TODO: put your résumé PDF in the assets folder with this exact name,
+               or delete this line until it's ready -->
+          <a class="button button--primary" href="assets/Loran-Inosa-Resume.pdf" download>Download my résumé</a>
+          <a class="button button--secondary" href="work.html">See my work</a>
+        </div>
+      </div>
+
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
     </section>
 
   </main>
@@ -331,30 +355,24 @@
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
     <div class="container">
-
       <div class="contact">
         <p class="label label--light">Contact</p>
         <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
         <p class="contact__text">I'd love to hear about it.</p>
-
         <div class="contact__email">
           <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
           <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
         </div>
-
         <ul class="contact__links">
           <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
           <li><a href="https://github.com/YOUR-USERNAME">GitHub</a></li>
         </ul>
-
         <p class="visually-hidden" aria-live="polite" data-copy-status></p>
       </div>
-
       <div class="site-footer__bottom">
         <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
         <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
       </div>
-
     </div>
   </footer>
 
