@@ -2686,3 +2686,182 @@ mark {
   .cs-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cs-wide   { grid-template-columns: 260px minmax(0, 1fr); }
 }
+/* ---------- 31. POP THE VERBS PAGE ---------- */
+
+/* Lemon version of the pill */
+.cs-pill--lemon {
+  background-color: var(--color-lemon);
+}
+
+/* Top: words left, game picture right (bigger screens) */
+.pv-hero {
+  display: grid;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+.pv-status {
+  margin-top: var(--space-12);
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+
+/* Lemon frame around the game picture */
+.pv-screen {
+  margin: 0;
+  padding: var(--space-12);
+  background-color: var(--color-lemon);
+}
+.pv-screen svg,
+.pv-screen img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Bubbles in the drawing */
+.pv-art-bubble {
+  fill: var(--color-card);
+  stroke: var(--color-plum);
+  stroke-width: 3;
+}
+.pv-art-bubble--verb {
+  fill: var(--color-mint);
+}
+.pv-art-word {
+  fill: var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 20px;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.pv-art-pop {
+  fill: var(--color-red-pen);
+  font-family: var(--font-hand);
+  font-size: 24px;
+  text-anchor: middle;
+}
+
+/* --- The game in numbers: four bubbles --- */
+.pv-center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.pv-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-24);
+  margin: var(--space-24) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pv-number {
+  display: grid;
+  place-content: center;
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--color-plum);
+  text-align: center;
+}
+.pv-number:nth-child(1) { background-color: var(--color-lemon); }
+.pv-number:nth-child(2) { background-color: var(--color-mint); }
+.pv-number:nth-child(3) { background-color: var(--color-rose); }
+.pv-number:nth-child(4) { background-color: var(--color-mauve); }
+
+.pv-number strong {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.pv-number span {
+  font-size: var(--text-small);
+}
+
+/* --- Four game screens, joined by arrows --- */
+.pv-scenes {
+  display: grid;
+  gap: var(--space-32);
+  margin: var(--space-16) 0 var(--space-32);
+  padding: 0;
+  list-style: none;
+}
+.pv-scene {
+  position: relative;
+  padding: var(--space-12);
+  text-align: center;
+}
+.pv-scene:nth-child(1) { background-color: var(--color-lemon); }
+.pv-scene:nth-child(2) { background-color: var(--color-mint); }
+.pv-scene:nth-child(3) { background-color: var(--color-rose); }
+.pv-scene:nth-child(4) { background-color: var(--color-mauve); }
+
+.pv-scene strong {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.pv-scene span {
+  font-size: var(--text-small);
+}
+
+/* Arrow between screens: points down on phones */
+.pv-scene + .pv-scene::before {
+  content: "↓" / "";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  translate: -50% 0;
+  font-weight: 700;
+  color: var(--color-plum);
+}
+
+/* --- What I'd add next: two cards --- */
+.pv-next {
+  display: grid;
+  gap: var(--space-16);
+  margin: var(--space-16) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pv-next li {
+  padding: var(--space-16);
+  background-color: var(--color-cream);
+}
+.pv-next h3 {
+  margin-bottom: var(--space-4);
+  font-weight: 400;
+}
+.pv-next p {
+  margin: 0;
+  font-size: var(--text-small);
+}
+
+/* --- Bigger screens --- */
+@media (min-width: 768px) {
+  .pv-scenes {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  /* Arrow points right instead */
+  .pv-scene + .pv-scene::before {
+    content: "→" / "";
+    top: 50%;
+    left: -16px;
+    translate: -50% -50%;
+  }
+  .pv-next {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .pv-hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-64);
+  }
+}
