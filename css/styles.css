@@ -2865,3 +2865,135 @@ mark {
     gap: var(--space-64);
   }
 }
+/* ---------- 32. ICE CREAM PETSHOP PAGE ---------- */
+
+/* Rose version of the pill */
+.cs-pill--rose {
+  background-color: var(--color-rose);
+}
+
+/* Rose frame for the top picture (instead of lemon) */
+.ic-screen {
+  background-color: var(--color-rose);
+}
+
+/* Ice cream drawing */
+.ic-art-cone   { fill: #F6C98B; stroke: var(--color-plum); stroke-width: 3; stroke-linejoin: round; }
+.ic-art-scoop  { fill: var(--color-pink); stroke: var(--color-plum); stroke-width: 3; }
+.ic-art-cherry { fill: var(--color-red-pen); stroke: var(--color-plum); stroke-width: 2; }
+.ic-art-sparkle {
+  fill: var(--color-plum);
+  font-size: 24px;
+  text-anchor: middle;
+}
+
+/* Two equal columns (scenario words + speech bubble) */
+@media (min-width: 768px) {
+  .cs-split--even {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- Princess Chloe's speech bubble --- */
+.ic-quote {
+  position: relative;
+  margin: 0;
+  padding: var(--space-16) var(--space-24);
+  background-color: var(--color-cream);
+}
+.ic-quote p {
+  margin: 0;
+}
+
+/* The little tail at the bottom of the bubble */
+.ic-quote::after {
+  content: "";
+  position: absolute;
+  left: 32px;
+  bottom: -11px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-cream);
+  border-right: 2px solid var(--color-plum);
+  border-bottom: 2px solid var(--color-plum);
+  transform: rotate(45deg);
+}
+
+.ic-quote__who {
+  margin: var(--space-16) 0 var(--space-8);
+  padding-left: var(--space-16);
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+
+.ic-answer {
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  background-color: var(--color-mint);
+  border: 1.5px dashed var(--color-plum);
+  border-radius: 8px;
+  font-size: var(--text-small);
+}
+
+/* --- The flavor menu: 2 per row on phones, 3 on bigger screens --- */
+.ic-menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-16);
+  margin: var(--space-24) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ic-flavor {
+  padding: var(--space-16) var(--space-12);
+  text-align: center;
+}
+.ic-flavor h3 {
+  margin: 0 0 var(--space-4);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.ic-flavor p {
+  margin: 0 auto;
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+
+/* The colored scoop above each flavor name */
+.ic-scoop {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto var(--space-8);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+}
+.ic-scoop--strawberry { background-color: var(--color-pink); }
+.ic-scoop--pumpkin    { background-color: #F6B26B; }
+.ic-scoop--apple      { background-color: #C8E6A0; }
+.ic-scoop--melon      { background-color: var(--color-mint); }
+.ic-scoop--banana     { background-color: var(--color-lemon); }
+.ic-scoop--mango      { background-color: #FFD27F; }
+
+/* --- Five hearts = five tries --- */
+.ic-hearts {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: var(--space-4);
+  min-height: 120px;
+  font-weight: 700;
+  font-size: var(--text-small);
+}
+.ic-hearts__icons {
+  font-size: 1.75rem;
+  letter-spacing: 0.15em;
+  color: var(--color-red-pen);
+}
+
+@media (min-width: 768px) {
+  .ic-menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
