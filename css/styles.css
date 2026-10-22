@@ -3336,3 +3336,68 @@ mark {
   transform: none;        /* no more tilt */
   border-radius: 12px;    /* rounded corners, same as your cards */
 }
+/* ---------- 38. STEP PICTURES: same size frames ---------- */
+
+/* Every picture frame in the step cards is the same height */
+.cs-steps .cs-media {
+  height: 220px;          /* change this number to make all frames taller or shorter */
+}
+
+/* Center the picture inside its frame */
+.cs-steps figure.cs-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The picture shrinks to fit, never stretches or gets cropped */
+.cs-steps .cs-media img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+/* ---------- 39. TWO MODES CARD (Worktext Studio) ---------- */
+
+.cs-modes {
+  margin-top: var(--space-16);
+  padding: var(--space-16);
+}
+.cs-modes h3 {
+  margin-bottom: var(--space-4);
+  font-weight: 400;
+}
+.cs-modes__text p {
+  margin: 0 0 var(--space-16);
+}
+
+/* The two screenshots: stacked on phones */
+.cs-modes__shots {
+  display: grid;
+  gap: var(--space-16);
+}
+
+/* Small caption under each screenshot */
+.cs-modes__shots figcaption {
+  margin-top: var(--space-8);
+  font-family: var(--font-clean);
+  font-size: var(--text-small);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Bigger screens: side by side */
+@media (min-width: 768px) {
+  .cs-modes__shots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* ---------- 40. CHLOE (Worktext Studio extras) ---------- */
+
+.cs-chloe {
+  margin: 0;
+  justify-self: center;   /* sits in the middle of her space */
+}
+.cs-chloe img {
+  width: 100%;
+  max-width: 220px;       /* change this number to make Chloe bigger or smaller */
+}

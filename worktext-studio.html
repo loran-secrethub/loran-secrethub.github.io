@@ -105,13 +105,13 @@
     <!-- ===== 3. HOW DOES IT WORK? ===== -->
     <section class="cs-section" aria-labelledby="how-title">
       <div class="container">
-        <p class="label">How it works</p>
+        <p class="label" style="font-size:20px">How it works</p>
         <h2 id="how-title">Check, review, finish</h2>
 
         <ol class="cs-steps">
           <li class="cs-step cs-card">
             <figure class="cs-media cs-media--lemon">
-              <img src="assets/images/ws-overflow.gif" alt="A worktext page turns red with an overflow warning when it runs too long">
+              <img src="assets/images/overflow.png" alt="A worktext page with a red border and an overflow warning because it runs too long">
             </figure>
             <h3><span class="cs-step__num" aria-hidden="true">1</span>Check</h3>
             <p>
@@ -123,7 +123,7 @@
 
           <li class="cs-step cs-card">
             <figure class="cs-media cs-media--mint">
-              <img src="assets/images/ws-sticky-note.gif" alt="A reviewer highlights a sentence and adds a sticky-note comment">
+              <img src="assets/images/sample_comment.png" alt="A highlighted sentence with a sticky-note comment beside it">
             </figure>
             <h3><span class="cs-step__num" aria-hidden="true">2</span>Review</h3>
             <p>
@@ -135,7 +135,7 @@
 
           <li class="cs-step cs-card">
             <figure class="cs-media cs-media--rose">
-              <img src="assets/images/ws-comment-jump.gif" alt="Clicking a comment in the side panel jumps to its page and highlights the note">
+              <img src="assets/images/comments_panel.png" alt="The comments panel listing every flagged comment in page order">
             </figure>
             <h3><span class="cs-step__num" aria-hidden="true">3</span>Finish</h3>
             <p>
@@ -146,26 +146,33 @@
           </li>
         </ol>
 
-        <div class="cs-wide cs-card">
-          <figure class="cs-media cs-media--mauve">
-            <img src="assets/images/ws-modes.gif" alt="Switching from Revise and Check mode to Review mode, with the Google Doc opening beside the worktext">
-          </figure>
-          <div>
-            <h3>Two modes</h3>
-            <p>
-               Review puts the Google Doc right beside the worktext, for comparing the
-              two side by side. Revise &amp; Check is the full workspace for fixing pages. 
-              You can switch anytime without losing your place.
-            </p>
-          </div>
-        </div>
-      </div>
+        <div class="cs-modes cs-card">
+  <div class="cs-modes__text">
+    <h3>Two modes</h3>
+    <p>
+      Review puts the Google Doc right beside the worktext, for comparing the
+      two side by side. Revise &amp; Check is the full workspace for fixing pages.
+      You can switch anytime without losing your place.
+    </p>
+  </div>
+
+  <div class="cs-modes__shots">
+    <figure class="cs-media cs-media--mauve">
+      <img src="assets/images/review-mode.png" alt="Review mode in light theme, with the Google Doc beside the worktext">
+      <figcaption>Review mode · light theme</figcaption>
+    </figure>
+    <figure class="cs-media cs-media--mauve">
+      <img src="assets/images/revise-check-mode.png" alt="Revise and Check mode in dark theme, with the page list, worktext and comments panel">
+      <figcaption>Revise &amp; Check · dark theme</figcaption>
+    </figure>
+  </div>
+</div>
     </section>
 
     <!-- ===== 4. HOW DID I BUILD IT? ===== -->
     <section class="cs-section cs-section--white" aria-labelledby="build-title">
       <div class="container">
-        <p class="label">Under the hood</p>
+        <p class="label" style="font-size:20px">Under the hood</p>
         <h2 id="build-title">How I built it</h2>
 
         <ul class="cs-points">
@@ -209,17 +216,17 @@
     <section class="cs-section" aria-labelledby="extras-title">
       <div class="container cs-split">
         <div>
-          <p class="label">Little extras</p>
+          <p class="label" style="font-size:20px">Little extras</p>
           <h2 id="extras-title">Made to feel nice</h2>
           <!-- TODO: add the real reason you made Chloe -->
           <p>
-            Light and dark mode for long working sessions. And Chloe, a little
+            Light and dark theme for long working sessions. And Chloe, a little
             companion who says hi when you open the tool and cheers you on
             while you work.
           </p>
         </div>
-        <figure class="cs-media cs-media--lemon">
-          <img src="assets/images/ws-chloe.png" alt="Chloe, a small companion character, sharing an encouraging message">
+        <figure class="cs-chloe">
+        <img src="assets/images/chloe.gif" alt="Chloe, the Worktext Studio companion, sharing an encouraging message">
         </figure>
       </div>
     </section>
@@ -227,7 +234,7 @@
     <!-- ===== 5. RESULTS + WHAT'S NEXT ===== -->
     <section class="cs-section cs-section--white" aria-labelledby="results-title">
       <div class="container">
-        <p class="label">Results</p>
+        <p class="label" style="font-size:20px">Results</p>
         <h2 id="results-title">What changed</h2>
         <p>
           Worktext Studio is part of my team's everyday production work.
@@ -243,11 +250,6 @@
         </blockquote>
         -->
 
-        <h3>What I'd build next</h3>
-        <p>
-          A public demo with sample content so anyone can try it, and a real
-          database for comments once I learn one.
-        </p>
       </div>
     </section>
 
