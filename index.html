@@ -134,32 +134,25 @@
     </section>
   </main>
 
-      <!-- ===== WORK BANDS (replaces Selected Work → Tech Stack) ===== -->
-
-<!-- Band 1: Tools -->
-<section class="work-band work-band--tools" aria-labelledby="tools-title">
+      <!-- ===== 3. FEATURED WORK ===== -->
+<section class="work-band work-band--featured" aria-labelledby="featured-title">
   <div class="work-band__inner">
 
-    <!-- Flowers (decoration only) -->
-    <img class="flower flower--purple" src="assets/images/FLOWER-PURPLE.svg" alt="">
-    <img class="flower flower--orange" src="assets/images/FLOWER-ORANGE.svg" alt="">
-    <img class="flower flower--pink" src="assets/images/FLOWER-PINK.svg" alt="">
+    <h2 id="featured-title" class="work-band__title">Featured work</h2>
 
-    <h2 id="tools-title" class="work-band__title">Tools that make teams faster</h2>
-
-    <!-- Worktext Studio (featured) -->
+    <!-- Worktext Studio (big card) -->
     <article class="work-card work-card--featured">
       <div class="work-card__art">
-      <img src="assets/images/WT_studio.png" alt="" style="width:600px; margin:0 auto;">
+        <img src="assets/images/WT_studio.png" alt="">
       </div>
       <div class="work-card__body">
-        <p class="work-card__pill"><strong>Featured · in team use</strong></p>
-        <h3 class="work-card__title" style="font-family: 'Handy Casual'">Worktext Studio</h3>
-        <p class="work-card__text" style="font-weight: bold">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
+        <p class="work-card__pill">In use by my team</p>
+        <h3 class="work-card__title">Worktext Studio</h3>
+        <p class="work-card__text">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
         <ul class="chips" aria-label="Built with">
-          <li class="chip"><strong>JavaScript</strong></li>
-          <li class="chip"><strong>Apps Script</strong></li>
-          <li class="chip"><strong>Google Sheets</strong></li>
+          <li class="chip">JavaScript</li>
+          <li class="chip">Apps Script</li>
+          <li class="chip">Google Sheets</li>
         </ul>
         <div class="work-card__actions">
           <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
@@ -167,69 +160,19 @@
       </div>
     </article>
 
-    <!-- DOCX → XML Converter (slim card) -->
-    <article class="work-card work-card--slim">
-      <div class="work-card__art work-card__art--mint">
-        <img src="assets/images/docx-xml.png" style="width:150px; margin:0 auto;">
-      </div>
-      <div class="work-card__body">
-        <h3 class="work-card__title" style="font-family: 'Handy Casual', cursive; font-size: 30px;">DOCX → XML Converter</h3>
-        <p class="work-card__meta" style="font-size: 18px;"><strong>Converts a folder of lessons to XML in one run, and makes QR codes from links.</strong></p>
-        <ul class="chips" aria-label="Built with">
-          <li class="chip"><strong>Python</strong></li>
-          <li class="chip"><strong>XML</strong></li>
-          <li class="chip"><strong>QR codes</strong></li>
-        </ul>
-        <div class="work-card__actions">
-          <a class="button button--secondary button--small" href="work.html#docx-xml">See how it works</a>
-        </div>
-      </div>
-    </article>
+    <!-- Two games, side by side -->
+    <div class="work-grid work-grid--two">
 
-  </div>
-</section>
-
-<!-- Band 2: Learning you can play -->
-<section class="work-band work-band--play" aria-labelledby="play-title">
-  <div class="work-band__inner">
-
-    <!-- Flower (decoration only) -->
-    <img class="flower flower--blue" src="assets/images/FLOWER-BLUE.svg" alt="">
-
-    <h2 id="play-title" class="work-band__title">Learning you can play</h2>
-
-    <div class="work-grid work-grid--three">
-
-      <!-- Ice Cream Pet Shop (has a case study) -->
-      <article class="work-card">
-        <div class="work-card__art work-card__art--rose">
-          <img src="assets/images/ice-cream.png" style="height:150px; margin:0 auto;">
-        </div>
-        <div class="work-card__body">
-          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Ice Cream Petshop</h3>
-          <p class="work-card__meta" style="font-size: 18px;"><strong>Guess each pet's order, <br> letter by letter</strong></p>
-          <ul class="chips" aria-label="Built with">
-            <li class="chip"><strong>Storyline</strong></li>
-            <li class="chip"><strong>Variables</strong></li>
-          </ul>
-          <div class="work-card__actions">
-            <!-- TODO: this page doesn't exist yet. We'll build it next. -->
-            <a class="button button--primary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Pop the Verbs (has a case study) -->
       <article class="work-card">
         <div class="work-card__art work-card__art--lemon">
-          <img src="assets/images/bubbles.png" style="height:150px; margin:0 auto;">
+          <img src="assets/images/bubbles.png" alt="">
         </div>
         <div class="work-card__body">
-          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Pop the Verbs</h3>
-          <p class="work-card__meta" style="font-size: 18px;"><strong>30 bubbles, 15 pops</strong></p>
+          <h3 class="work-card__title">Pop the Verbs</h3>
+          <p class="work-card__meta">A bubble-popping game: find the 15 verbs among 30 floating words.</p>
           <ul class="chips" aria-label="Built with">
-            <li class="chip"><strong>Phaser</strong></li>
-            <li class="chip"><strong>JavaScript</strong></li>
+            <li class="chip">Phaser</li>
+            <li class="chip">JavaScript</li>
           </ul>
           <div class="work-card__actions">
             <a class="button button--primary button--small" href="pop-the-verbs.html">Read the case study</a>
@@ -237,56 +180,37 @@
         </div>
       </article>
 
-      <!-- Mythical creature quiz (short write-up on the Work page) -->
       <article class="work-card">
-        <div class="work-card__art work-card__art--mint">
-          <img src="assets/images/mythical-creature.png" style="height:150px; margin:0 auto;">
+        <div class="work-card__art work-card__art--rose">
+          <img src="assets/images/ice-cream.png" alt="">
         </div>
         <div class="work-card__body">
-          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Mythical creature quiz</h3>
-          <p class="work-card__meta" style="font-size: 18px;"><strong>12 questions, 4 creatures</strong></p>
+          <h3 class="work-card__title">Ice Cream Petshop</h3>
+          <p class="work-card__meta">A pixel-style training game: serve six pets the right flavor, letter by letter.</p>
           <ul class="chips" aria-label="Built with">
-            <li class="chip"><strong>Storyline</strong></li>
-            <li class="chip"><strong>Variables</strong></li>
+            <li class="chip">Storyline</li>
+            <li class="chip">Variables</li>
           </ul>
           <div class="work-card__actions">
-            <a class="button button--secondary button--small" href="work.html#mythical-creature">See details</a>
+            <a class="button button--primary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
           </div>
         </div>
       </article>
 
     </div>
 
+    <p class="work-band__more">
+      <a class="text-link" href="work.html">See all work <span aria-hidden="true">→</span></a>
+    </p>
+
   </div>
+
+  <!-- Wavy bottom edge (decoration) -->
+  <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+  </svg>
 </section>
-
-<!-- Band 3: Learning systems and data (rose) -->
-<section class="work-band work-band--systems" aria-labelledby="systems-title">
-  <div class="work-band__inner">
-        <!-- Flower (decoration only) -->
-    <img class="flower flower--green" src="assets/images/FLOWER-GREEN.svg" alt="">
-    <h2 id="systems-title" class="work-band__title">Learning systems and data</h2>
-
-    <div class="work-grid work-grid--two">
-      <article class="work-card">
-        <div class="work-card__body">
-          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 30px;">Bloom's Taxonomy course</h3>
-          <div class="work-card__actions">
-            <a class="button button--primary button--small" href="#">Try the activity <span aria-hidden="true">▶</span></a> <!-- TODO: link -->
-          </div>
-        </div>
-      </article>
-
-      <article class="work-card">
-        <div class="work-card__body">
-          <h3 class="work-card__title" style="font-family: 'Handy Casual'; font-size: 25px;">Cyber Safety: LMS Simulation</h3>
-          <div class="work-card__actions">
-            <a class="button button--secondary button--small" href="#">See how it works</a> <!-- TODO: link -->
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
 
     <!-- Wavy bottom edge (decoration) -->
     <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
