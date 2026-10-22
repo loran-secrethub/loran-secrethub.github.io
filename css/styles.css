@@ -3327,3 +3327,12 @@ mark {
 .jy-cta__buttons {
   justify-content: center;
 }
+/* ---------- 37. STICKY NOTES: straight and rounded ---------- */
+
+.cs-note,
+.margin-note,
+.chapter__note,
+.case-block__note {
+  transform: none;        /* no more tilt */
+  border-radius: 12px;    /* rounded corners, same as your cards */
+}
