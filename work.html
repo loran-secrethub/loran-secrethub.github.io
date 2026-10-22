@@ -47,6 +47,11 @@
 
     <!-- ===== GROUP 1: TOOLS FOR LEARNING TEAMS ===== -->
     <section class="cs-section cs-section--white wk-group wk-group--tools" id="tools" aria-labelledby="tools-title">
+        <!-- Wavy top edge (decoration) -->
+  <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+  </svg>
       <div class="container wk-stack">
         <h2 id="tools-title" class="wk-group__title">Tools for learning teams</h2>
 
@@ -69,40 +74,103 @@
         </article>
 
         <!-- DOCX to XML Converter (short write-up) -->
-        <article class="wk-item cs-card" id="docx-xml">
-          <p class="label">Short write-up · Python</p>
-          <h3>DOCX to XML Converter</h3>
-          <p>A Python script that turns a whole folder of Word lessons into XML in one go, and makes QR codes from any links it finds.</p>
+<article class="wk-item cs-card" id="docx-xml">
+  <p class="label">Short write-up · Python</p>
+  <h3>DOCX to XML Converter</h3>
+  <p>Reads Word lessons marked with simple tags, turns them into structured XML for InDesign, and makes a QR code for every link. A whole folder, one command.</p>
 
-          <p class="wk-item__sub">Why</p>
-          <p>Lessons have to become XML before they can be laid out in InDesign, and lessons with web links need QR codes for the printed page.</p>
+  <!-- The flow: in → script → out -->
+  <ol class="pv-scenes dx-flow">
+    <li class="pv-scene cs-card"><strong>Tagged Word lesson</strong><span>writers mark each part</span></li>
+    <li class="pv-scene cs-card"><strong>Python parser</strong><span>one command</span></li>
+    <li class="pv-scene cs-card"><strong>XML + QR codes</strong><span>ready for InDesign</span></li>
+  </ol>
 
-          <p class="wk-item__sub">How it works</p>
-          <p>Put the Word files in a folder and run one command. The XML files appear in an output folder. Each link becomes a QR code picture, named after its lesson (like S2-U1-C3-L007-qr-1.png), so the InDesign script can place it automatically.</p>
+  <!-- 1 and 2: before and after -->
+  <div class="dx-pair">
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>What goes in: a Word lesson</p>
+<pre class="dx-doc"><span class="dx-tag">[ENGAGE]</span>
+<span class="dx-tag">[LESSON_TITLE]</span>Float or Sink?<span class="dx-tag">[/LESSON_TITLE]</span>
+<span class="dx-tag">[BODY]</span>Have you ever pushed a beach ball underwater?<span class="dx-tag">[/BODY]</span>
+https://example.com/float-video
+<span class="dx-tag">[/ENGAGE]</span></pre>
+      <p class="code-caption">Writers mark each part with a tag</p>
+    </div>
 
-          <ul class="wk-shots">
-            <li>
-              <figure>
-                <img src="assets/images/docx-command.png" alt="Command window showing each lesson converted and each QR code generated">
-                <figcaption>One command converts every lesson</figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img src="assets/images/docx-folders.png" alt="The images folder with QR code pictures and the output folder with XML files">
-                <figcaption>QR codes and XML files, ready for InDesign</figcaption>
-              </figure>
-            </li>
-          </ul>
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>What comes out: clean XML</p>
+<pre class="dx-code"><span class="dx-com">&lt;lesson&gt;</span>
+  <span class="dx-com">&lt;engage&gt;</span>
+    <span class="dx-key">&lt;lessonTitle&gt;</span>Float or Sink?<span class="dx-key">&lt;/lessonTitle&gt;</span>
+    <span class="dx-key">&lt;body&gt;</span>Have you ever pushed a beach ball underwater?<span class="dx-key">&lt;/body&gt;</span>
+    <span class="dx-ok">&lt;qrLink&gt;</span>https://example.com/float-video<span class="dx-ok">&lt;/qrLink&gt;</span>
+  <span class="dx-com">&lt;/engage&gt;</span>
+<span class="dx-com">&lt;/lesson&gt;</span></pre>
+      <p class="code-caption">Sections, text and links, ready for InDesign</p>
+    </div>
+  </div>
 
-          <ul class="chips" aria-label="Built with">
-            <li class="chip">Python</li>
-            <li class="chip">XML</li>
-            <li class="chip">QR codes</li>
-          </ul>
-        </article>
+  <!-- 3 and 4: the code and the result -->
+  <div class="dx-pair dx-pair--code">
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>A peek at my code</p>
+      <div class="dx-window">
+        <div class="dx-window__bar" aria-hidden="true">
+          <span class="dx-dot"></span><span class="dx-dot"></span><span class="dx-dot"></span>
+          <span>docx-to-xml-converter.py</span>
+        </div>
+<pre class="dx-code"><span class="dx-com"># One QR code per link, named after the lesson</span>
+<span class="dx-key">for</span> qr_element <span class="dx-key">in</span> root.iter(<span class="dx-str">"qrLink"</span>):
+    url = qr_element.text
+    <span class="dx-key">if not</span> url:
+        <span class="dx-key">continue</span>
+
+    qr = qrcode.make(url)
+    filename = lesson_name + <span class="dx-str">"-qr-"</span> + str(qr_count) + <span class="dx-str">".png"</span>
+    qr.save(os.path.join(images_folder, filename))
+
+    print(<span class="dx-str">"✔ QR generated:"</span>, filename)
+    qr_count += 1</pre>
+      </div>
+      <p class="code-caption">Finds each link and names its QR code after the lesson, so the InDesign script can place it automatically.</p>
+    </div>
+
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">4</span>The result</p>
+<pre class="dx-code"><span class="dx-key">&gt;</span> python docx-to-xml-converter.py
+✔ Converted: Lesson-code.docx
+<span class="dx-ok">✔ QR generated: Lesson-code-qr-1.png</span>
+<span class="dx-ok">✔ QR generated: Lesson-code-qr-2.png</span></pre>
+      <figure class="dx-shot">
+        <img src="assets/images/docx-folders.png" alt="The images folder with two QR code pictures, and the output folder with the XML files">
+        <figcaption class="code-caption">QR codes and XML files, ready for InDesign</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Team note + tags -->
+  <div class="dx-footer">
+    <p class="dx-team"><strong>Made for my team.</strong> I wrote a step-by-step guide so anyone can run it, no coding needed.</p>
+    <ul class="chips" aria-label="Built with">
+      <li class="chip">Python</li>
+      <li class="chip">XML</li>
+      <li class="chip">lxml</li>
+      <li class="chip">QR codes</li>
+    </ul>
+  </div>
+</article>
 
       </div>
+
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+    </section>
+
+    <!-- ===== GROUP 2: LEARNING GAMES AND INTERACTIONS ===== -->
     </section>
 
     <!-- ===== GROUP 2: LEARNING GAMES AND INTERACTIONS ===== -->
@@ -110,68 +178,95 @@
       <div class="container wk-stack">
         <h2 id="games-title" class="wk-group__title">Learning games and interactions</h2>
 
-        <div class="wk-pair">
-          <!-- Ice Cream Petshop (case study) -->
-          <article class="wk-feature cs-card" id="ice-cream">
-            <div class="wk-feature__art wk-feature__art--rose">
-              <img src="assets/images/ice-cream.png" alt="">
-            </div>
-            <div class="wk-feature__body">
-              <p class="label">Case study · Storyline</p>
-              <h3>Ice Cream Petshop</h3>
-              <p>A pixel-style training game: serve six pet customers the right flavor, letter by letter.</p>
-              <a class="button button--primary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
-            </div>
-          </article>
+        <!-- Two slim cards: games that have their own case study page -->
+<div class="wk-pair">
 
-          <!-- Pop the Verbs (case study) -->
-          <article class="wk-feature cs-card" id="pop-the-verbs">
-            <div class="wk-feature__art wk-feature__art--lemon">
-              <img src="assets/images/bubbles.png" alt="">
-            </div>
-            <div class="wk-feature__body">
-              <p class="label">Case study · Phaser</p>
-              <h3>Pop the Verbs</h3>
-              <p>A bubble-popping game: find the 15 verbs among 30 floating words.</p>
-              <a class="button button--primary button--small" href="pop-the-verbs.html">Read the case study</a>
-            </div>
-          </article>
-        </div>
+  <article class="wk-slim cs-card" id="ice-cream">
+    <div class="wk-slim__art wk-slim__art--rose">
+      <img src="assets/images/ice-cream.png" alt="">
+    </div>
+    <div class="wk-slim__body">
+      <p class="label">Case study · Storyline</p>
+      <h3>Ice Cream Petshop</h3>
+      <p>Serve six pets the right flavor, letter by letter.</p>
+      <div class="wk-slim__actions">
+        <a class="button button--primary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
+        <!-- TODO (at the end): add your game link, then remove these two comment lines
+        <a class="button button--secondary button--small" href="YOUR-GAME-LINK" target="_blank" rel="noopener">Play <span aria-hidden="true">▶</span><span class="visually-hidden">(opens in a new tab)</span></a>
+        -->
+      </div>
+    </div>
+  </article>
 
-        <!-- Personality Test (short write-up) -->
-        <article class="wk-item cs-card" id="mythical-creature">
-          <p class="label">Short write-up · Storyline</p>
-          <h3>Personality Test: Philippine Mythical Creatures</h3>
-          <p>A 12-question test that matches your learning style to one of four Philippine mythical creatures.</p>
+  <article class="wk-slim cs-card" id="pop-the-verbs">
+    <div class="wk-slim__art wk-slim__art--lemon">
+      <img src="assets/images/bubbles.png" alt="">
+    </div>
+    <div class="wk-slim__body">
+      <p class="label">Case study · Phaser</p>
+      <h3>Pop the Verbs</h3>
+      <p>Find the 15 verbs among 30 floating words.</p>
+      <div class="wk-slim__actions">
+        <a class="button button--primary button--small" href="pop-the-verbs.html">Read the case study</a>
+        <!-- TODO (at the end): add your game link, then remove these two comment lines
+        <a class="button button--secondary button--small" href="YOUR-GAME-LINK" target="_blank" rel="noopener">Play <span aria-hidden="true">▶</span><span class="visually-hidden">(opens in a new tab)</span></a>
+        -->
+      </div>
+    </div>
+  </article>
 
-          <p class="wk-item__sub">How it works</p>
-          <p>Each question describes a situation with four ways to respond. Each type of answer belongs to one creature, and the result reveals your match. A bonus button downloads a guide to more creatures.</p>
+</div>
 
-          <p class="wk-item__sub">How I built it</p>
-          <p>Variables count how many answers of each type you pick. At the end, triggers show the creature with the highest count.</p>
+<!-- Personality Test (the bigger card) -->
+<article class="wk-item cs-card" id="mythical-creature">
+  <p class="label">Short write-up · Storyline</p>
+  <h3>Personality Test: Philippine Mythical Creatures</h3>
+  <p>Twelve situations, four ways to respond. Your answers reveal which Philippine mythical creature matches your learning style.</p>
 
-          <ul class="wk-shots">
-            <li>
-              <figure>
-                <img src="assets/images/myth-question.png" alt="A situational question with four answer choices">
-                <figcaption>One of the 12 questions</figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img src="assets/images/myth-result.png" alt="The result screen revealing the matching mythical creature">
-                <figcaption>The result screen</figcaption>
-              </figure>
-            </li>
-          </ul>
+  <div class="mc-steps">
 
-          <p class="wk-note">The bonus guide was made from a Canva template.</p>
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>Answer 12 situations</p>
+      <figure class="mc-frame mc-frame--mint">
+        <img src="assets/images/myth-question.png" alt="A situational question with four answer choices">
+      </figure>
+      <p class="code-caption">Each answer type belongs to one creature</p>
+    </div>
 
-          <ul class="chips" aria-label="Built with">
-            <li class="chip">Storyline</li>
-            <li class="chip">Triggers</li>
-            <li class="chip">Variables</li>
-          </ul>
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>Variables keep score</p>
+      <!-- TODO: replace Creature A to D with your four creatures -->
+      <div class="mc-frame mc-tally" role="img" aria-label="Example score: Creature A 5, Creature B 3, Creature C 2, Creature D 2">
+        <div class="mc-bar"><span>Creature A</span><span class="mc-bar__fill" style="--w: 100%"></span><strong>5</strong></div>
+        <div class="mc-bar"><span>Creature B</span><span class="mc-bar__fill" style="--w: 60%"></span><span>3</span></div>
+        <div class="mc-bar"><span>Creature C</span><span class="mc-bar__fill" style="--w: 40%"></span><span>2</span></div>
+        <div class="mc-bar"><span>Creature D</span><span class="mc-bar__fill" style="--w: 40%"></span><span>2</span></div>
+      </div>
+      <p class="code-caption">Four counters, one per answer type</p>
+    </div>
+
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>Meet your creature</p>
+      <figure class="mc-frame mc-frame--rose">
+        <img src="assets/images/myth-result.png" alt="The result screen revealing the matching mythical creature">
+      </figure>
+      <p class="code-caption">Triggers reveal the highest count</p>
+    </div>
+
+  </div>
+
+  <div class="dx-footer">
+    <p class="dx-team"><strong>Bonus:</strong> a button downloads a guide to more creatures, straight from a direct-download link.</p>
+    <!-- TODO (at the end): add your game link, then remove these two comment lines
+    <a class="button button--primary button--small" href="YOUR-GAME-LINK" target="_blank" rel="noopener">Meet your creature <span aria-hidden="true">▶</span><span class="visually-hidden">(opens in a new tab)</span></a>
+    -->
+  </div>
+
+  <ul class="chips mc-chips" aria-label="Built with">
+    <li class="chip">Storyline</li>
+    <li class="chip">Triggers</li>
+    <li class="chip">Variables</li>
+  </ul>
         </article>
 
       </div>
@@ -179,94 +274,130 @@
 
     <!-- ===== GROUP 3: LEARNING PLATFORMS AND TRACKING ===== -->
     <section class="cs-section cs-section--white wk-group wk-group--platforms" id="platforms" aria-labelledby="platforms-title">
+        <!-- Wavy top edge (decoration) -->
+  <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+  </svg>
       <div class="container wk-stack">
         <h2 id="platforms-title" class="wk-group__title">Learning platforms and tracking</h2>
 
-        <div class="wk-pair">
+        <!-- Bloom's Taxonomy Moodle course (short write-up) -->
+<article class="wk-item cs-card" id="bloom-moodle">
+  <p class="label">Short write-up · Moodle</p>
+  <h3>Bloom's Taxonomy Course</h3>
+  <p>A full Moodle course built around Bloom's Taxonomy, with a Storyline activity inside it and progress tracked from start to finish.</p>
 
-          <!-- Bloom's Taxonomy Moodle course (short write-up) -->
-          <article class="wk-item cs-card" id="bloom-moodle">
-            <p class="label">Short write-up · Moodle</p>
-            <h3>Bloom's Taxonomy Course</h3>
-            <p>A full Moodle course built around Bloom's Taxonomy.</p>
+  <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>The learner's path</p>
+  <ol class="bl-path">
+    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Introduction</li>
+    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Learning goals</li>
+    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Lessons</li>
+    <li class="bl-stop bl-stop--activity"><span class="bl-check" aria-hidden="true">✓</span>Storyline activity</li>
+    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Quiz</li>
+    <li class="bl-stop bl-stop--done"><span class="bl-check" aria-hidden="true">★</span>Complete</li>
+  </ol>
+  <p class="code-caption">Moodle checks off each step until the course is complete</p>
 
-            <p class="wk-item__sub">How it works</p>
-            <p>The course moves from an introduction and learning goals, to lessons, to a drag-and-drop activity, to a quiz. Moodle tracks each learner's progress until the course is complete.</p>
+  <div class="dx-pair bl-shots">
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>The course in Moodle</p>
+      <figure class="mc-frame mc-frame--mint">
+        <img src="assets/images/blooms-course.png" alt="The Moodle course page showing each section of the course">
+      </figure>
+      <p class="code-caption">Every section, in order</p>
+    </div>
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>The drag-and-drop activity</p>
+      <figure class="mc-frame mc-frame--rose">
+        <img src="assets/images/blooms-activity.png" alt="The drag-and-drop activity matching descriptions to Bloom's levels">
+      </figure>
+      <p class="code-caption">Built in Storyline, added to Moodle as a SCORM package</p>
+    </div>
+  </div>
 
-            <p class="wk-item__sub">How I built it</p>
-            <p>I built the drag-and-drop activity in Storyline, with feedback, unlimited tries and a restart option, then added it to Moodle as a SCORM package.</p>
+  <p class="dx-team"><strong>Good to know:</strong> the Moodle trial has ended, so the course is shown with screenshots. The activity has feedback, unlimited tries and a restart option.</p>
 
-            <ul class="wk-shots">
-              <li>
-                <figure>
-                  <img src="assets/images/blooms-course.png" alt="The Moodle course page showing each section of the course">
-                  <figcaption>The course layout</figcaption>
-                </figure>
-              </li>
-              <li>
-                <figure>
-                  <img src="assets/images/blooms-activity.png" alt="The drag-and-drop activity matching descriptions to Bloom's levels">
-                  <figcaption>The drag-and-drop activity</figcaption>
-                </figure>
-              </li>
-            </ul>
+  <ul class="chips mc-chips" aria-label="Built with">
+    <li class="chip">Moodle</li>
+    <li class="chip">SCORM</li>
+    <li class="chip">Storyline</li>
+  </ul>
+</article>
 
-            <p class="wk-note">The Moodle trial has ended, so this course is shown with screenshots.</p>
+<!-- Cyber Safety LMS Simulation (short write-up) -->
+<article class="wk-item cs-card" id="cyber-safety">
+  <p class="label">Short write-up · Storyline + JavaScript</p>
+  <h3>Cyber Safety LMS Simulation</h3>
+  <p>A pretend learning platform that sends each learner's result to an outside service the moment they click Submit.</p>
 
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">Moodle</li>
-              <li class="chip">SCORM</li>
-              <li class="chip">Storyline</li>
-            </ul>
-          </article>
+  <ol class="pv-scenes dx-flow">
+    <li class="pv-scene cs-card"><strong>Storyline lesson</strong><span>learner clicks Submit</span></li>
+    <li class="pv-scene cs-card"><strong>My JavaScript</strong><span>reads and sends</span></li>
+    <li class="pv-scene cs-card"><strong>Webhook</strong><span>receives the data</span></li>
+  </ol>
 
-          <!-- Cyber Safety LMS Simulation (short write-up) -->
-          <article class="wk-item cs-card" id="cyber-safety">
-            <p class="label">Short write-up · Storyline + JavaScript</p>
-            <h3>Cyber Safety LMS Simulation</h3>
-            <p>A pretend learning platform that sends a learner's results to an outside service automatically.</p>
+  <div class="dx-pair cy-pair">
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>The learner submits</p>
+      <figure class="mc-frame mc-frame--mint">
+        <img src="assets/images/cyber-safety-screen.png" alt="The Storyline screen with a name box, a multiple-choice question and a Submit button">
+      </figure>
+      <p class="code-caption">Name, one question, and a Submit button</p>
+    </div>
 
-            <p class="wk-item__sub">How it works</p>
-            <p>The learner types their name, answers a question and clicks Submit. My code then sends their name, score and completion to a test service.</p>
+    <div>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>My code sends it</p>
+      <div class="dx-window">
+        <div class="dx-window__bar" aria-hidden="true">
+          <span class="dx-dot"></span><span class="dx-dot"></span><span class="dx-dot"></span>
+          <span>Execute JavaScript trigger</span>
+        </div>
+<pre class="dx-code"><span class="dx-key">var</span> player = GetPlayer();
 
-            <p class="wk-item__sub">My code</p>
-<pre class="code-sample"><code>var player = GetPlayer();
+<span class="dx-com">// Get the Storyline variables</span>
+<span class="dx-key">var</span> name = player.GetVar(<span class="dx-str">"UserName"</span>);
+<span class="dx-key">var</span> score = player.GetVar(<span class="dx-str">"Score"</span>);
+<span class="dx-key">var</span> complete = player.GetVar(<span class="dx-str">"CourseComplete"</span>);
 
-// Get the Storyline variables
-var name = player.GetVar("UserName");
-var score = player.GetVar("Score");
-var complete = player.GetVar("CourseComplete");
+<span class="dx-com">// Test address (placeholder)</span>
+<span class="dx-key">var</span> webhookURL = <span class="dx-str">"https://webhook.site/your-test-id"</span>;
 
-// Test address (placeholder)
-var webhookURL = "https://webhook.site/your-test-id";
-
-// Send the data
-var xhr = new XMLHttpRequest();
-xhr.open("POST", webhookURL, true);
+<span class="dx-com">// Send the data</span>
+<span class="dx-key">var</span> xhr = <span class="dx-key">new</span> XMLHttpRequest();
+xhr.open(<span class="dx-str">"POST"</span>, webhookURL, <span class="dx-key">true</span>);
 xhr.send(JSON.stringify({
   user_name: name,
   score: score,
   completed: complete
-}));</code></pre>
-            <p class="code-caption">Runs when the learner clicks Submit: it reads three answers from Storyline and sends them to the test address.</p>
+}));</pre>
+      </div>
+      <p class="code-caption">Runs when the learner clicks Submit: it reads three values from Storyline and sends them to the test address.</p>
+    </div>
+  </div>
 
-            <p class="wk-item__sub">What arrived</p>
-<pre class="code-sample"><code>{
+  <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>What arrived at the webhook</p>
+<pre class="dx-code"><span class="dx-ok">{
   "user_name": "Loran",
   "score": 1,
   "completed": true
-}</code></pre>
+}</span></pre>
 
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">Storyline</li>
-              <li class="chip">JavaScript</li>
-              <li class="chip">JSON</li>
-              <li class="chip">Webhook</li>
-            </ul>
-          </article>
+  <ul class="chips mc-chips" aria-label="Built with">
+    <li class="chip">Storyline</li>
+    <li class="chip">JavaScript</li>
+    <li class="chip">JSON</li>
+    <li class="chip">Webhook</li>
+  </ul>
+</article>
 
         </div>
       </div>
+            <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
     </section>
 
   </main>

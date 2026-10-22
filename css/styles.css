@@ -3013,19 +3013,6 @@ mark {
   margin: 0;
   font-weight: 400;
 }
-.wk-group__title::before {
-  content: "";
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  background-color: var(--dot);
-  border: 2px solid var(--color-plum);
-  border-radius: 50%;
-}
-.wk-group--tools     { --dot: var(--color-mint); }
-.wk-group--games     { --dot: var(--color-lemon); }
-.wk-group--platforms { --dot: var(--color-rose); }
-
 /* --- Case study cards: picture on top (phones) --- */
 .wk-feature {
   display: grid;
@@ -3449,4 +3436,346 @@ mark {
   .work-band--featured .work-card--featured {
     grid-template-columns: 3fr 2fr;   /* picture side : text side */
   }
+}
+/* ---------- 42. DOCX TO XML CARD (Work page) ---------- */
+
+/* The flow strip: 3 boxes (reuses the Pop the Verbs arrows) */
+.dx-flow {
+  margin: var(--space-24) 0;
+}
+.dx-flow .pv-scene:nth-child(2) {
+  background-color: var(--color-mauve);
+}
+@media (min-width: 768px) {
+  .dx-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Two columns side by side (stacked on phones) */
+.dx-pair {
+  display: grid;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+@media (min-width: 768px) {
+  .dx-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dx-pair--code {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);   /* code side a bit wider */
+  }
+}
+
+/* Step titles with a pink number */
+.dx-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-8);
+  font-weight: 700;
+}
+.dx-num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  background-color: var(--color-pink);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+  font-size: 0.8em;
+}
+
+/* "What goes in": a cream Word page with pink tags */
+.dx-doc {
+  margin: 0;
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-cream);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+  font-family: var(--font-clean);
+  font-size: 0.875rem;
+  line-height: 1.9;
+  white-space: pre-wrap;     /* long lines wrap instead of running off */
+  overflow-wrap: anywhere;
+}
+.dx-tag {
+  padding: 0 2px;
+  background-color: var(--color-pink);
+  border-radius: 3px;
+}
+
+/* Dark plum code boxes */
+.dx-code {
+  margin: 0;
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-plum);
+  color: var(--color-cream);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;          /* long lines scroll sideways on small screens */
+}
+
+/* Code colors, from your palette */
+.dx-com { color: var(--color-mauve); }
+.dx-key { color: var(--color-pink); }
+.dx-str { color: var(--color-lemon); }
+.dx-ok  { color: var(--color-mint); }
+
+/* Code editor window with three dots and a file name */
+.dx-window {
+  overflow: hidden;
+  background-color: var(--color-plum);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+}
+.dx-window .dx-code {
+  border: 0;
+  border-radius: 0;
+}
+.dx-window__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px var(--space-12);
+  background-color: var(--color-teal-deep);
+  color: var(--color-mauve);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.75rem;
+}
+.dx-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dx-dot:nth-child(1) { background-color: var(--color-pink); }
+.dx-dot:nth-child(2) { background-color: var(--color-lemon); }
+.dx-dot:nth-child(3) { background-color: var(--color-mint); margin-right: 6px; }
+
+/* Folder screenshot under the result */
+.dx-shot {
+  margin: var(--space-12) 0 0;
+}
+.dx-shot img {
+  width: 100%;
+  border: 2px solid var(--color-plum);
+  border-radius: 8px;
+}
+
+/* Team note and tags at the bottom */
+.dx-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+.dx-team {
+  flex: 1 1 280px;
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  background-color: var(--color-cream);
+  border: 1.5px dashed var(--color-plum);
+  border-radius: 10px;
+}
+.dx-footer .chips {
+  margin: 0;
+}
+/* ---------- 43. LEARNING GAMES (Work page) ---------- */
+
+/* Slim cards: small picture on the left, words on the right */
+.wk-slim {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  overflow: hidden;
+}
+.wk-slim__art {
+  display: grid;
+  place-items: center;
+  padding: var(--space-12);
+  border-right: 2px solid var(--color-plum);
+}
+.wk-slim__art--rose  { background-color: var(--color-rose); }
+.wk-slim__art--lemon { background-color: var(--color-lemon); }
+.wk-slim__art img {
+  width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+.wk-slim__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-16) var(--space-24);
+}
+.wk-slim__body .label {
+  margin-bottom: var(--space-4);
+}
+.wk-slim__body h3 {
+  margin-bottom: var(--space-4);
+  font-weight: 400;
+}
+.wk-slim__body p {
+  margin-bottom: var(--space-12);
+  font-size: var(--text-small);
+}
+.wk-slim__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-top: auto;          /* buttons line up at the bottom */
+}
+
+/* Personality Test: three numbered steps (stacked on phones) */
+.mc-steps {
+  display: grid;
+  gap: var(--space-16);
+  margin: var(--space-24) 0;
+}
+@media (min-width: 768px) {
+  .mc-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Same-size frames for all three steps */
+.mc-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  margin: 0;
+  padding: var(--space-8);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+}
+.mc-frame img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+}
+.mc-frame--mint { background-color: var(--color-mint); }
+.mc-frame--rose { background-color: var(--color-rose); }
+
+/* Step 2: the score counters */
+.mc-tally {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-cream);
+  font-family: var(--font-clean);
+  font-size: var(--text-small);
+}
+.mc-bar {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr) 1.2em;   /* name, bar, number */
+  align-items: center;
+  gap: var(--space-8);
+}
+.mc-bar__fill {
+  width: var(--w);
+  height: 14px;
+  border: 1.5px solid var(--color-plum);
+  border-radius: 7px;
+}
+.mc-bar:nth-child(1) .mc-bar__fill { background-color: var(--color-pink); }
+.mc-bar:nth-child(2) .mc-bar__fill { background-color: var(--color-mauve); }
+.mc-bar:nth-child(3) .mc-bar__fill { background-color: var(--color-lemon); }
+.mc-bar:nth-child(4) .mc-bar__fill { background-color: var(--color-mint); }
+
+.mc-chips {
+  margin: var(--space-16) 0 0;
+}
+/* Personality Test: bigger screenshots */
+.mc-frame {
+  height: 220px;           /* taller frames: change this number to adjust */
+  padding: 4px;            /* less space around the pictures */
+}
+
+@media (min-width: 768px) {
+  .mc-steps {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.4fr);
+    /* screenshot : counters : screenshot */
+  }
+}
+/* ---------- 44. LEARNING PLATFORMS (Work page) ---------- */
+
+/* Bloom's: the learner's path with checkmarks */
+.bl-path {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));   /* phones: 2 rows of 3 */
+  gap: var(--space-16) var(--space-8);
+  margin: var(--space-8) 0;
+  padding: 0;
+  list-style: none;
+}
+.bl-stop {
+  position: relative;
+  z-index: 1;                 /* sits on top of the line */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--text-small);
+  font-weight: 700;
+  text-align: center;
+}
+.bl-check {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-lemon);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+}
+.bl-stop--activity .bl-check { background-color: var(--color-mauve); }  /* the part built in Storyline */
+.bl-stop--done .bl-check     { background-color: var(--color-pink); }
+
+/* Bigger screens: one row of 6, joined by a line */
+@media (min-width: 768px) {
+  .bl-path {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .bl-path::before {
+    content: "";
+    position: absolute;
+    top: 15px;                /* middle of the circles */
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background-color: var(--color-plum);
+  }
+}
+
+/* Space above the two screenshots and the note */
+.bl-shots {
+  margin-top: var(--space-24);
+}
+
+/* Cyber Safety: screenshot narrower, code wider */
+@media (min-width: 768px) {
+  .cy-pair {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  }
+}
+/* ---------- 45. WAVY DIVIDERS (Work page) ---------- */
+
+.wk-group--tools,
+.wk-group--platforms {
+  position: relative;      /* lets the waves sit on the top and bottom edges */
+  z-index: 1;              /* waves draw over the sections around them */
+  border-block: 0;         /* the waves replace the dashed lines */
+}
+
+/* Waves match the white sections */
+.wk-group .wave__fill {
+  fill: var(--color-card);
 }
