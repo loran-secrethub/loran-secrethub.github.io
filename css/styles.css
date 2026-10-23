@@ -3925,3 +3925,40 @@ mark {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
   }
 }
+/* ---------- 47. BLOOM'S COURSE SCREENSHOTS ---------- */
+
+/* Frames hug the pictures: thin, rounded, no fixed height */
+.bl-shots .mc-frame {
+  height: auto;
+  padding: 4px;
+  border-radius: 12px;
+}
+.bl-shots .mc-frame img {
+  width: 100%;
+  max-height: none;
+  border-radius: 8px;
+}
+
+/* Tablets and laptops: split matches the picture shapes (Moodle : activity) */
+@media (min-width: 768px) {
+  .bl-shots {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    align-items: start;
+  }
+}
+/* Bloom's: fine-tune so both pictures are the same height */
+@media (min-width: 768px) {
+  .bl-shots {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+  }
+}
+/* Cream notes: one line when there's room, box hugs the text */
+.dx-team {
+  max-width: none;       /* no more reading-width limit */
+  width: fit-content;    /* box is only as wide as its text */
+  flex: 0 1 auto;
+}
+/* Work page: no reading-width limit, text uses the full width */
+.wk-page p {
+  max-width: none;
+}
