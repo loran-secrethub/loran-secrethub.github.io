@@ -3962,3 +3962,39 @@ mark {
 .wk-page p {
   max-width: none;
 }
+/* Play page: Pop the Verbs picture area in mauve */
+.work-card--soon .work-card__art {
+  background-color: #FF99C8;
+}
+/* ---------- 48. PLAY PAGE: SQUARE CARDS ---------- */
+
+/* Narrower, centered grid so the squares aren't too tall */
+.play-grid {
+  max-width: 760px;        /* grid width: bigger number = bigger squares */
+  margin-inline: auto;
+}
+
+/* Square cards (rounded corners stay) */
+.play-grid .work-card {
+  aspect-ratio: 1 / 1;
+}
+
+/* The picture area fills the extra space... */
+.play-grid .work-card__art {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ...and the words area only takes what it needs */
+.play-grid .work-card__body {
+  flex: 0 0 auto;
+}
+
+/* Bigger pictures */
+.play-grid .work-card__art img {
+  height: 160px;           /* picture size: bigger number = bigger */
+}
+/* Pop the Verbs: same look as the other cards, with its own color */
+.work-card--soon-solid .work-card__art {
+  background-color: #FF99C8;   /* change to #FF99C8 if you prefer the pink */
+}
