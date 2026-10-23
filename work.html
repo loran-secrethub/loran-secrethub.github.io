@@ -339,49 +339,35 @@ https://example.com/float-video
 
   <div class="dx-pair cy-pair">
     <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>The learner submits</p>
-      <figure class="mc-frame mc-frame--mint">
-        <img src="assets/images/cyber-safety-screen.png" alt="The Storyline screen with a name box, a multiple-choice question and a Submit button">
-      </figure>
-      <p class="code-caption">Name, one question, and a Submit button</p>
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>The learner logs in and submits</p>
+      <div class="cy-shots">
+        <figure class="cy-shot">
+          <img src="assets/images/cyber-safety-login.png" alt="The Cyber Safety log-in screen, where the learner types their name">
+          <figcaption>They log in with their name</figcaption>
+        </figure>
+        <figure class="cy-shot">
+          <img src="assets/images/cyber-safety-result.png" alt="The results screen showing a congratulations message, a score of 1 out of 1, and a Submit result button">
+          <figcaption>They click Submit result</figcaption>
+        </figure>
+      </div>
     </div>
 
     <div>
       <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>My code sends it</p>
-      <div class="dx-window">
-        <div class="dx-window__bar" aria-hidden="true">
-          <span class="dx-dot"></span><span class="dx-dot"></span><span class="dx-dot"></span>
-          <span>Execute JavaScript trigger</span>
-        </div>
-<pre class="dx-code"><span class="dx-key">var</span> player = GetPlayer();
-
-<span class="dx-com">// Get the Storyline variables</span>
-<span class="dx-key">var</span> name = player.GetVar(<span class="dx-str">"UserName"</span>);
-<span class="dx-key">var</span> score = player.GetVar(<span class="dx-str">"Score"</span>);
-<span class="dx-key">var</span> complete = player.GetVar(<span class="dx-str">"CourseComplete"</span>);
-
-<span class="dx-com">// Test address (placeholder)</span>
-<span class="dx-key">var</span> webhookURL = <span class="dx-str">"https://webhook.site/your-test-id"</span>;
-
-<span class="dx-com">// Send the data</span>
-<span class="dx-key">var</span> xhr = <span class="dx-key">new</span> XMLHttpRequest();
-xhr.open(<span class="dx-str">"POST"</span>, webhookURL, <span class="dx-key">true</span>);
-xhr.send(JSON.stringify({
-  user_name: name,
-  score: score,
-  completed: complete
-}));</pre>
-      </div>
-      <p class="code-caption">Runs when the learner clicks Submit: it reads three values from Storyline and sends them to the test address.</p>
+        <figure class="cy-shot cy-shot--fill">
+        <img src="assets/images/JS-editor.png" alt="Storyline's Execute JavaScript window, with code that reads the learner's name, score and completion, then sends them to a webhook">
+        <figcaption>Runs when the learner clicks Submit result: it reads three values from Storyline and sends them to a test address.</figcaption>
+      </figure>
     </div>
   </div>
 
-  <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>What arrived at the webhook</p>
-<pre class="dx-code"><span class="dx-ok">{
-  "user_name": "Loran",
-  "score": 1,
-  "completed": true
-}</span></pre>
+    <div class="cy-center">
+    <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>What arrived at the webhook</p>
+    <div class="cy-webhook">
+      <img src="assets/images/webhook-result.png" alt="The webhook test page showing the received data: user name Loran, score 1, completed true">
+    </div>
+    <p class="code-caption">The webhook test page, showing exactly what arrived</p>
+  </div>
 
   <ul class="chips mc-chips" aria-label="Built with">
     <li class="chip">Storyline</li>
@@ -390,6 +376,7 @@ xhr.send(JSON.stringify({
     <li class="chip">Webhook</li>
   </ul>
 </article>
+
 
         </div>
       </div>

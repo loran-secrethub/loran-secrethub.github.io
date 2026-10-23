@@ -3779,3 +3779,126 @@ mark {
 .wk-group .wave__fill {
   fill: var(--color-card);
 }
+/* ---------- 46. CYBER SAFETY SCREENSHOTS ---------- */
+
+/* The two screenshots, stacked */
+.cy-shots {
+  display: grid;
+  gap: var(--space-16);
+}
+.cy-shot {
+  margin: 0;
+}
+
+/* Mint frame around each screenshot */
+.cy-shot img {
+  width: 100%;
+  padding: var(--space-8);
+  background-color: var(--color-mint);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+}
+
+/* Small caption under each screenshot */
+.cy-shot figcaption {
+  margin-top: var(--space-4);
+  font-family: var(--font-clean);
+  font-size: var(--text-small);
+  color: var(--color-slate);
+}
+/* Webhook result: text and screenshot line up at the top */
+.cy-result {
+  align-items: start;
+}
+/* Tablets and laptops: the code screenshot matches the height
+   of the two screenshots on the left */
+@media (min-width: 768px) {
+  .cy-pair > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .cy-shot--fill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .cy-shot--fill img {
+    flex: 1;
+    height: 0;
+    min-height: 0;
+    object-fit: contain;   /* shrinks to fit, never stretches */
+  }
+}
+
+/* Webhook result: text and screenshot share one rounded box */
+.cy-box {
+  padding: var(--space-16);
+  background-color: var(--color-cream);
+  border: 2px solid var(--color-plum);
+  border-radius: 12px;
+}
+/* Cyber Safety: how wide each side is (left : right) */
+@media (min-width: 768px) {
+  .cy-pair {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  }
+}
+/* Webhook result: text and screenshot in one dark box */
+.cy-webhook {
+  display: grid;
+  gap: var(--space-16);
+  align-items: center;          /* text and picture centered side by side */
+  padding: var(--space-16);
+  background-color: var(--color-plum);
+  border-radius: 10px;
+}
+
+/* The text no longer needs its own box */
+.cy-webhook .dx-code {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.cy-webhook img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Tablets and laptops: side by side (phones: stacked) */
+@media (min-width: 768px) {
+  .cy-webhook {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);   /* text : picture */
+  }
+}
+/* Cyber Safety screenshots: rounded corners, like the Personality Test */
+.cy-shot img {
+  padding: 4px;           /* thinner mint frame */
+  border-radius: 12px;    /* rounds the frame AND the picture inside */
+}
+/* Webhook screenshot: same rounded corners as the others */
+.cy-webhook img {
+  border-radius: 12px;
+  clip-path: inset(0 round 12px);   /* trims the corners, no matter what */
+}
+/* Webhook result: just the screenshot now, in a smaller dark box */
+.cy-webhook {
+  max-width: 560px;          /* box width: bigger number = wider */
+  padding: var(--space-12);  /* thinner dark frame around the picture */
+}
+@media (min-width: 768px) {
+  .cy-webhook {
+    grid-template-columns: 1fr;   /* one column now, not two */
+  }
+}
+/* Part 3: title, picture and caption centered */
+.cy-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cy-center .cy-webhook {
+  width: 100%;   /* still stops at 560px wide */
+}
