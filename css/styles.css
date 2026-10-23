@@ -3902,3 +3902,26 @@ mark {
 .cy-center .cy-webhook {
   width: 100%;   /* still stops at 560px wide */
 }
+/* DOCX converter: give the result side more room (code : result) */
+@media (min-width: 768px) {
+  .dx-pair--code {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  }
+}
+/* DOCX converter: part 3 stretches to match part 4's height,
+   and part 4 gets a bit more room */
+@media (min-width: 768px) {
+  .dx-pair--code {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);   /* code : result */
+  }
+  .dx-pair--code > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* DOCX converter: fine-tune the split (code : result) */
+@media (min-width: 768px) {
+  .dx-pair--code {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+  }
+}

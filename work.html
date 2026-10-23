@@ -111,40 +111,25 @@ https://example.com/float-video
     </div>
   </div>
 
-  <!-- 3 and 4: the code and the result -->
+    <!-- 3 and 4: the code and the result -->
   <div class="dx-pair dx-pair--code">
     <div>
       <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>A peek at my code</p>
-      <div class="dx-window">
-        <div class="dx-window__bar" aria-hidden="true">
-          <span class="dx-dot"></span><span class="dx-dot"></span><span class="dx-dot"></span>
-          <span>docx-to-xml-converter.py</span>
-        </div>
-<pre class="dx-code"><span class="dx-com"># One QR code per link, named after the lesson</span>
-<span class="dx-key">for</span> qr_element <span class="dx-key">in</span> root.iter(<span class="dx-str">"qrLink"</span>):
-    url = qr_element.text
-    <span class="dx-key">if not</span> url:
-        <span class="dx-key">continue</span>
-
-    qr = qrcode.make(url)
-    filename = lesson_name + <span class="dx-str">"-qr-"</span> + str(qr_count) + <span class="dx-str">".png"</span>
-    qr.save(os.path.join(images_folder, filename))
-
-    print(<span class="dx-str">"✔ QR generated:"</span>, filename)
-    qr_count += 1</pre>
-      </div>
-      <p class="code-caption">Finds each link and names its QR code after the lesson, so the InDesign script can place it automatically.</p>
+      <figure class="cy-shot cy-shot--fill">
+        <img src="assets/images/python-snippet.png" alt="Python code that finds each link in a lesson, makes a QR code for it, and names the image after the lesson">
+        <figcaption>Finds each link and names its QR code after the lesson, so the InDesign script can place it automatically.</figcaption>
+      </figure>
     </div>
 
     <div>
       <p class="dx-step"><span class="dx-num" aria-hidden="true">4</span>The result</p>
-<pre class="dx-code"><span class="dx-key">&gt;</span> python docx-to-xml-converter.py
-✔ Converted: Lesson-code.docx
-<span class="dx-ok">✔ QR generated: Lesson-code-qr-1.png</span>
-<span class="dx-ok">✔ QR generated: Lesson-code-qr-2.png</span></pre>
-      <figure class="dx-shot">
-        <img src="assets/images/docx-folders.png" alt="The images folder with two QR code pictures, and the output folder with the XML files">
-        <figcaption class="code-caption">QR codes and XML files, ready for InDesign</figcaption>
+      <figure class="cy-shot">
+        <img src="assets/images/python-result.png" alt="The command window after running the script, confirming the lesson was converted and two QR codes were generated">
+        <figcaption>One command converts the lessons and makes the QR codes</figcaption>
+      </figure>
+      <figure class="cy-shot dx-shot">
+        <img src="assets/images/docx-xml-folder.png" alt="The images folder with two QR code pictures, and the output folder with the XML files">
+        <figcaption>QR codes and XML files, ready for InDesign</figcaption>
       </figure>
     </div>
   </div>
