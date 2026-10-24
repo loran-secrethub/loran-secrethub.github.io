@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Loran Iñosa · Full Stack E-learning Developer</title>
 
-  <!-- Fonts: Fraunces (headings), Atkinson Hyperlegible (body), JetBrains Mono (labels) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -19,13 +14,12 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ===== SITE HEADER (same on every page) ===== -->
-    <header class="site-header">
+  <header class="site-header">
     <div class="container site-header__inner">
 
       <a class="brand" href="index.html">
-        <!-- Flower logo: four pastel petals (decoration only) -->
-          <img class="brand__flower brand__flower--big" src="assets/images/spiral.png" alt="" width="32" height="32">
-        <span class="brand__name" style="font-size:35px">Loran Iñosa </span>
+        <img class="brand__flower brand__flower--big" src="assets/images/spiral.png" alt="" width="32" height="32">
+        <span class="brand__name" style="font-size:35px">Loran Iñosa</span>
       </a>
 
       <nav class="site-nav" aria-label="Main">
@@ -40,18 +34,17 @@
     </div>
   </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <!-- ===== MAIN CONTENT ===== -->
+  <!-- ===== MAIN CONTENT ===== -->
   <main id="main">
 
-        <!-- ===== 1. HERO ===== -->
+    <!-- ===== 1. HERO ===== -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <div class="hero__content">
 
           <p class="hero__pill" style="font-size:45px">Full Stack E-learning Developer</p>
 
-            <h1 id="hero-title" class="hero__title">
+          <h1 id="hero-title" class="hero__title">
             I build learning tools people actually
             <span class="hero__click">
               <mark class="hero__highlight">want to click.</mark>
@@ -81,7 +74,7 @@
       </div>
     </section>
 
-        <!-- ===== 2. JOURNEY STRIP ===== -->
+    <!-- ===== 2. JOURNEY STRIP ===== -->
     <section class="journey-strip" aria-labelledby="journey-strip-title">
 
       <!-- Wavy top edge (decoration) -->
@@ -132,98 +125,96 @@
       </svg>
 
     </section>
+
+    <!-- ===== 3. FEATURED WORK ===== -->
+    <section class="work-band work-band--featured" aria-labelledby="featured-title">
+      <div class="work-band__inner">
+
+        <h2 id="featured-title" class="work-band__title">Featured works</h2>
+
+        <!-- Worktext Studio (big card) -->
+        <article class="work-card work-card--featured">
+          <div class="work-card__art">
+            <img src="assets/images/WT_studio.png" alt="">
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__pill">In use by my team</p>
+            <h3 class="work-card__title">Worktext Studio</h3>
+            <p class="work-card__text">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
+            <ul class="chips" aria-label="Built with">
+              <li class="chip">JavaScript</li>
+              <li class="chip">Apps Script</li>
+              <li class="chip">Google Sheets</li>
+            </ul>
+            <div class="work-card__actions">
+              <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Two games, side by side -->
+        <div class="work-grid work-grid--two">
+
+          <!-- Pop the Verbs -->
+          <article class="work-card">
+            <div class="work-card__art work-card__art--rose">
+              <img src="assets/images/game_name.png" alt="">
+            </div>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Pop the Verbs</h3>
+              <p class="work-card__meta">A bubble-popping game: find the 15 verbs among 30 floating words.</p>
+              <ul class="chips" aria-label="Built with">
+                <li class="chip">Phaser</li>
+                <li class="chip">JavaScript</li>
+              </ul>
+              <div class="work-card__actions">
+                <a class="button button--primary button--small" href="https://pop-the-verbs.netlify.app/" data-popup="Pop the Verbs" target="_blank" rel="noopener">
+                  Pop some bubbles <span aria-hidden="true">▶</span>
+                  <span class="visually-hidden">(opens the game)</span>
+                </a>
+                <a class="button button--secondary button--small" href="pop-the-verbs.html">Read the case study</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ice Cream Petshop -->
+          <article class="work-card">
+            <div class="work-card__art work-card__art--lemon">
+              <img src="assets/images/paw-sceam.png" alt="" style="width:320px; height:auto;">
+            </div>
+            <div class="work-card__body">
+              <h3 class="work-card__title">Ice Cream Petshop</h3>
+              <p class="work-card__meta">A pixel-style training game: serve six pets the right flavor, letter by letter.</p>
+              <ul class="chips" aria-label="Built with">
+                <li class="chip">Storyline</li>
+                <li class="chip">Variables</li>
+              </ul>
+              <div class="work-card__actions">
+                <a class="button button--primary button--small" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
+                  Take an order <span aria-hidden="true">▶</span>
+                  <span class="visually-hidden">(opens the game)</span>
+                </a>
+                <a class="button button--secondary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="work-band__more">
+          <a class="text-link" href="work.html">See all work <span aria-hidden="true">→</span></a>
+        </p>
+
+      </div>
+
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+    </section>
+
   </main>
-
-            <!-- ===== 3. FEATURED WORK ===== -->
-<section class="work-band work-band--featured" aria-labelledby="featured-title">
-  <div class="work-band__inner">
-
-    <h2 id="featured-title" class="work-band__title">Featured works</h2>
-
-    <!-- Worktext Studio (big card) -->
-    <article class="work-card work-card--featured">
-      <div class="work-card__art">
-        <img src="assets/images/WT_studio.png" alt="">
-      </div>
-      <div class="work-card__body">
-        <p class="work-card__pill">In use by my team</p>
-        <h3 class="work-card__title">Worktext Studio</h3>
-        <p class="work-card__text">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
-        <ul class="chips" aria-label="Built with">
-          <li class="chip">JavaScript</li>
-          <li class="chip">Apps Script</li>
-          <li class="chip">Google Sheets</li>
-        </ul>
-        <div class="work-card__actions">
-          <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Two games, side by side -->
-    <div class="work-grid work-grid--two">
-
-      <!-- Pop the Verbs -->
-      <article class="work-card">
-        <div class="work-card__art work-card__art--rose">
-          <img src="assets/images/game_name.png" alt="">
-        </div>
-        <div class="work-card__body">
-          <h3 class="work-card__title">Pop the Verbs</h3>
-          <p class="work-card__meta">A bubble-popping game: find the 15 verbs among 30 floating words.</p>
-          <ul class="chips" aria-label="Built with">
-            <li class="chip">Phaser</li>
-            <li class="chip">JavaScript</li>
-          </ul>
-          <div class="work-card__actions">
-           <a class="button button--primary button--small" href="https://pop-the-verbs.netlify.app/" data-popup="Pop the Verbs" target="_blank" rel="noopener">
-              Pop some bubbles <span aria-hidden="true">▶</span>
-              <span class="visually-hidden">(opens in a new tab)</span>
-            </a>
-            <a class="button button--secondary button--small" href="pop-the-verbs.html">Read the case study</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Ice Cream Petshop -->
-      <article class="work-card">
-        <div class="work-card__art work-card__art--lemon">
-          <img src="assets/images/paw-sceam.png" alt="" style="width:320px; height:auto;">
-        </div>
-        <div class="work-card__body">
-          <h3 class="work-card__title">Ice Cream Petshop</h3>
-          <p class="work-card__meta">A pixel-style training game: serve six pets the right flavor, letter by letter.</p>
-          <ul class="chips" aria-label="Built with">
-            <li class="chip">Storyline</li>
-            <li class="chip">Variables</li>
-          </ul>
-          <div class="work-card__actions">
-            <a class="button button--primary button--small" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
-              Take an order <span aria-hidden="true">▶</span>
-              <span class="visually-hidden">(opens the game)</span>
-            </a>
-            <a class="button button--secondary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="work-band__more">
-      <a class="text-link" href="work.html">See all work <span aria-hidden="true">→</span></a>
-    </p>
-
-  </div>
-
-  <!-- Wavy bottom edge (decoration) -->
-  <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-  </svg>
-</section>
-
-
-    </main>
 
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
@@ -240,8 +231,7 @@
         </div>
 
         <ul class="contact__links">
-          <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
-          <li><a href="https://github.com/YOUR-USERNAME">GitHub</a></li>
+          <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
         </ul>
 
         <!-- Invisible message for screen readers when the email is copied -->
