@@ -4198,3 +4198,205 @@ mark {
   position: relative;
   z-index: 1;
 }
+/* ---------- 63. PLAY PAGE: bigger, chubbier cards ---------- */
+
+/* Wider grid = bigger cards (they stay square) */
+.play-grid {
+  max-width: 1100px;           /* grid width: bigger number = bigger cards */
+  gap: var(--space-32);        /* space between cards */
+}
+
+/* Bigger pictures */
+.play-grid .work-card__art img {
+  height: 240px;               /* picture size: bigger number = bigger */
+}
+
+/* More room inside the white part of each card */
+.play-grid .work-card__body {
+  padding: var(--space-24) var(--space-32) var(--space-32);
+}
+
+/* Bigger game names and descriptions */
+.play-grid .work-card__title {
+  font-size: 2.25rem;
+}
+.play-grid .work-card__meta {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-16);
+}
+
+/* Bigger buttons */
+.play-grid .button--small {
+  min-height: 48px;
+  padding: var(--space-8) var(--space-24);
+  font-size: 1.375rem;
+}
+/* ---------- 64. CYBER SAFETY: webhook left, pills right ---------- */
+
+.cy-bottom {
+  display: flex;
+  flex-wrap: wrap;                  /* phones: the pills drop below the picture */
+  align-items: center;              /* pills sit in the middle, up and down */
+  justify-content: space-between;   /* picture on the left, pills on the right */
+  gap: var(--space-24);
+}
+
+/* Part 3 lines up on the left instead of the middle */
+.cy-bottom .cy-center {
+  flex: 1 1 400px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Pills: no extra space above them */
+.cy-bottom .cy-chips {
+  margin: 0;
+}
+/* Pills: line up with the bottom of the dark webhook box */
+.cy-bottom .cy-chips {
+  align-self: flex-end;      /* move the pills to the bottom */
+  margin-bottom: 40px;       /* lift them above the caption: bigger number = higher */
+}
+/* Pills: line up with the bottom of the dark webhook box */
+.cy-bottom .cy-chips {
+  align-self: flex-end;      /* move the pills to the bottom */
+  margin-bottom: 40px;       /* lift them above the caption: bigger number = higher */
+  margin-right: 100px;        /* move them left: bigger number = further left */
+}
+/* Journey: the footer sits above the Threads section, so its wave shows */
+.jy-page ~ .site-footer {
+  z-index: 2;
+}
+/* ---------- 65. JOURNEY: chubbier Threads cards ---------- */
+
+.jy-threads .threads {
+  gap: var(--space-24);                          /* space between cards */
+}
+
+.jy-threads .thread {
+  padding: var(--space-32) var(--space-24) var(--space-24);   /* more room inside */
+}
+
+.jy-threads .thread h3 {
+  font-size: 1.5rem;                             /* card titles */
+}
+
+.jy-threads .thread dt {
+  font-size: 0.8125rem;                          /* the small "THEN" and "NOW" labels */
+}
+
+.jy-threads .thread dd {
+  font-size: var(--text-body);                   /* the descriptions */
+}
+/* ---------- 66. GAME POPUP ---------- */
+
+/* The window: sticker style, like your cards */
+.game-popup {
+  width: min(1100px, 92vw);              /* popup width: bigger number = wider */
+  padding: 0;
+  border: 3px solid var(--color-plum);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--color-plum);
+  background-color: var(--color-plum);
+  overflow: hidden;
+}
+
+/* The dimmed page behind the popup */
+.game-popup::backdrop {
+  background-color: rgb(59 42 68 / 0.6);
+}
+
+/* The page behind can't scroll while the popup is open */
+body:has(.game-popup[open]) {
+  overflow: hidden;
+}
+
+/* Pink title bar */
+.game-popup__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding: var(--space-8) var(--space-12) var(--space-8) var(--space-24);
+  background-color: var(--color-pink);
+  border-bottom: 3px solid var(--color-plum);
+}
+
+.game-popup__title {
+  margin: 0;
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  color: var(--color-plum);
+}
+
+.game-popup__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.game-popup__newtab {
+  font-family: var(--font-hand);
+  font-size: 1.125rem;
+  color: var(--color-plum);
+}
+
+/* The ✕ button, as a little sticker */
+.game-popup__close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-card);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 var(--color-plum);
+  font-size: 1.25rem;
+  color: var(--color-plum);
+  cursor: pointer;
+}
+.game-popup__close:hover {
+  background-color: var(--color-lemon);
+}
+
+/* The game screen: a wide 16:9 shape that never gets taller than the screen */
+.game-popup__screen {
+  aspect-ratio: 16 / 9;
+  max-height: calc(90vh - 70px);
+}
+.game-popup__screen iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* A soft pop-in when it opens */
+@media (prefers-reduced-motion: no-preference) {
+  .game-popup[open] {
+    animation: popup-in 250ms ease-out;
+  }
+}
+@keyframes popup-in {
+  from { opacity: 0; scale: 0.95; }
+  to   { opacity: 1; scale: 1; }
+}
+/* ---------- 67. GAME POPUP: loading note ---------- */
+
+/* Game name and note, side by side */
+.game-popup__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-4) var(--space-12);
+}
+
+/* The small "takes a little time to load" note */
+.game-popup__note {
+  margin: 0;
+  font-family: var(--font-clean);
+  font-size: 0.9375rem;      /* note size: bigger number = bigger */
+  font-weight: 600;
+  color: var(--color-plum);
+  opacity: 0.8;              /* a little softer than the game name */
+}

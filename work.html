@@ -171,11 +171,12 @@ https://example.com/float-video
       <p class="label">Case study · Storyline</p>
       <h3>Ice Cream Petshop</h3>
       <p>Serve six pets the right flavor, letter by letter.</p>
-      <div class="wk-slim__actions">
-        <a class="button button--primary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
-        <!-- TODO (at the end): add your game link, then remove these two comment lines
-        <a class="button button--secondary button--small" href="YOUR-GAME-LINK" target="_blank" rel="noopener">Play <span aria-hidden="true">▶</span><span class="visually-hidden">(opens in a new tab)</span></a>
-        -->
+        <div class="wk-slim__actions">
+        <a class="button button--primary button--small" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
+          Take an order <span aria-hidden="true">▶</span>
+          <span class="visually-hidden">(opens the game)</span>
+        </a>
+        <a class="button button--secondary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
       </div>
     </div>
   </article>
@@ -189,12 +190,12 @@ https://example.com/float-video
       <h3>Pop the Verbs</h3>
       <p>Find the 15 verbs among 30 floating words.</p>
       <div class="wk-slim__actions">
-        <a class="button button--primary button--small" href="pop-the-verbs.html">Read the case study</a>
-        <!-- TODO (at the end): add your game link, then remove these two comment lines
-        <a class="button button--secondary button--small" href="YOUR-GAME-LINK" target="_blank" rel="noopener">Play <span aria-hidden="true">▶</span><span class="visually-hidden">(opens in a new tab)</span></a>
-        -->
+        <a class="button button--primary button--small" href="https://pop-the-verbs.netlify.app/" data-popup="Pop the Verbs" target="_blank" rel="noopener">
+          Pop some bubbles <span aria-hidden="true">▶</span>
+          <span class="visually-hidden">(opens in a new tab)</span>
+        </a>
+        <a class="button button--secondary button--small" href="pop-the-verbs.html">Read the case study</a>
       </div>
-    </div>
   </article>
 
 </div>
@@ -237,11 +238,12 @@ https://example.com/float-video
 
   </div>
 
-  <div class="dx-footer">
+    <div class="dx-footer">
     <p class="dx-team"><strong>Bonus:</strong> a button downloads a guide to more creatures, straight from a direct-download link.</p>
-    <!-- TODO (at the end): add your game link, then remove these two comment lines
-    <a class="button button--primary button--small" href="YOUR-GAME-LINK" target="_blank" rel="noopener">Meet your creature <span aria-hidden="true">▶</span><span class="visually-hidden">(opens in a new tab)</span></a>
-    -->
+    <a class="button button--primary button--small" href="https://funpersonalitytest.netlify.app/story.html" data-popup="Which mythical creature are you?" target="_blank" rel="noopener">
+      Meet your creature <span aria-hidden="true">▶</span>
+      <span class="visually-hidden">(opens the game)</span>
+    </a>
   </div>
 
   <ul class="chips mc-chips" aria-label="Built with">
@@ -298,7 +300,13 @@ https://example.com/float-video
     </div>
   </div>
 
-  <p class="dx-team"><strong>Good to know:</strong> the Moodle trial has ended, so the course is shown with screenshots. The activity has feedback, unlimited tries and a restart option.</p>
+    <div class="dx-footer">
+    <p class="dx-team"><strong>Good to know:</strong> the Moodle trial has ended, so the course is shown with screenshots. The activity has feedback, unlimited tries and a restart option.</p>
+    <a class="button button--primary button--small" href="https://bloomstaxonomy.netlify.app/story.html" data-popup="Bloom's Taxonomy activity" target="_blank" rel="noopener">
+      Try the activity <span aria-hidden="true">▶</span>
+      <span class="visually-hidden">(opens the activity)</span>
+    </a>
+  </div>
 
   <ul class="chips mc-chips" aria-label="Built with">
     <li class="chip">Moodle</li>
@@ -343,21 +351,25 @@ https://example.com/float-video
     </div>
   </div>
 
-    <div class="cy-center">
-    <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>What arrived at the webhook</p>
-    <div class="cy-webhook">
-      <img src="assets/images/webhook-result.png" alt="The webhook test page showing the received data: user name Loran, score 1, completed true">
-    </div>
-    <p class="code-caption">The webhook test page, showing exactly what arrived</p>
-  </div>
+      <!-- 3 on the left, the pills on the right -->
+  <div class="cy-bottom">
 
-  <ul class="chips mc-chips" aria-label="Built with">
-    <li class="chip">Storyline</li>
-    <li class="chip">JavaScript</li>
-    <li class="chip">JSON</li>
-    <li class="chip">Webhook</li>
-  </ul>
-</article>
+    <div class="cy-center">
+      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>What arrived at the webhook</p>
+      <div class="cy-webhook">
+        <img src="assets/images/webhook-result.png" alt="The webhook test page showing the received data: user name Loran, score 1, completed true">
+      </div>
+      <p class="code-caption">The webhook test page, showing exactly what arrived</p>
+    </div>
+
+    <ul class="chips mc-chips cy-chips" aria-label="Built with">
+      <li class="chip">Storyline</li>
+      <li class="chip">JavaScript</li>
+      <li class="chip">JSON</li>
+      <li class="chip">Webhook</li>
+    </ul>
+
+  </div>
 
 
         </div>

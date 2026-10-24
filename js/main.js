@@ -69,3 +69,65 @@ if (journeyStrip && motionOK && "IntersectionObserver" in window) {
 
   observer.observe(journeyStrip);
 }
+// ---------- 4. Game popup ----------
+// Buttons with data-popup open their game in a popup window
+// on laptops and tablets. On phones, they open a new tab instead.
+
+const popupLinks = document.querySelectorAll("[data-popup]");
+
+if (popupLinks.length > 0) {
+
+  // Build the popup window once, and add it to the page
+  const popup = document.createElement("dialog");
+  popup.className = "game-popup";
+  popup.innerHTML = `
+    <div class="game-popup__bar">
+      <div class="game-popup__name">
+        <p class="game-popup__title"></p>
+        <p class="game-popup__note">Takes a little time to load</p>
+      </div>
+      <div class="game-popup__actions">
+        <a class="game-popup__newtab" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+        <button type="button" class="game-popup__close" aria-label="Close game">✕</button>
+      </div>
+    </div>
+    <div class="game-popup__screen">
+      <iframe title="Game" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  const frame = popup.querySelector("iframe");
+  const title = popup.querySelector(".game-popup__title");
+  const newTab = popup.querySelector(".game-popup__newtab");
+  const closeButton = popup.querySelector(".game-popup__close");
+  const bigScreen = window.matchMedia("(min-width: 768px)");
+
+  // Clicking a play button: open the popup with that game
+  popupLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (!bigScreen.matches) return;   // phones: open a new tab as usual
+
+      event.preventDefault();           // don't open a new tab
+      const gameName = link.dataset.popup;
+      title.textContent = gameName;
+      frame.title = gameName;
+      frame.src = link.href;
+      newTab.href = link.href;
+      popup.showModal();
+    });
+  });
+
+  // The ✕ button closes the popup
+  closeButton.addEventListener("click", () => popup.close());
+
+  // Clicking the dark area outside the window closes it too
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) popup.close();
+  });
+
+  // However it closes (✕, Esc key, or outside click), stop the game
+  popup.addEventListener("close", () => {
+    frame.src = "about:blank";
+  });
+}
