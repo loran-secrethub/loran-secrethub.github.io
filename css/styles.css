@@ -50,11 +50,11 @@
 :root {
     /* ----- Your pastel palette ----- */
   --color-cream: #FFF9f4;  /* Cream: page background, sticky notes */
-  --color-lemon: #FCF6BD;  /* Lemon: picture areas on cards */
-  --color-pink:  #FF99C8;  /* Baby Pink: things you can click */
-  --color-mint:  #D0F4DE;  /* Frosted Mint: tools that make teams faster */
-  --color-mauve: #E4C1F9;  /* Mauve: learning you can play */
-  --color-rose:  #FEC8C3;  /* Cotton Rose: learning systems, contact */
+  --color-lemon: #FEFBE5;  /* Lemon: picture areas on cards */
+  --color-pink:  #FFD6E9;  /* Baby Pink: things you can click */
+  --color-mint:  #ECFBF2;  /* Frosted Mint: tools that make teams faster */
+  --color-mauve: #F4E6FD;  /* Mauve: learning you can play */
+  --color-rose:  #FEE9E7;  /* Cotton Rose: learning systems, contact */
   --color-plum:  #3B2A44;  /* Dark plum: all text and outlines */
 
   /* ----- Jobs -----
