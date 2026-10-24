@@ -4100,3 +4100,80 @@ mark {
 .icp-page .pager {
   margin-bottom: 40px;
 }
+/* ---------- 57. POP THE VERBS: six "How I built it" cards ---------- */
+
+.cs-point:nth-child(4) { background-color: var(--color-mauve); }
+.cs-point:nth-child(5) { background-color: var(--color-lemon); }
+.cs-point:nth-child(6) { background-color: var(--color-mint); }
+/* ---------- 58. POP THE VERBS: real bubbles for the numbers ---------- */
+
+.pv-numbers .pv-number {
+  width: 140px;              /* bubble size: bigger number = bigger */
+  height: 140px;
+  background: url("../assets/images/bubble.png") center / contain no-repeat;
+  border: 0;                 /* no more plum outline */
+  border-radius: 0;
+  box-shadow: none;          /* no more sticker shadow */
+}
+/* ---------- 59. POP THE VERBS: big step cards (2 per row) ---------- */
+
+/* Laptops: 2 chubby cards per row, instead of 4 small ones */
+@media (min-width: 1024px) {
+  .cs-steps--big {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Taller picture frames, so the pictures can grow too */
+@media (min-width: 768px) {
+  .cs-steps--big .cs-media {
+    height: 360px;           /* frame height: bigger number = bigger pictures */
+  }
+}
+/* ---------- 60. POP THE VERBS: chubbier "How I built it" cards ---------- */
+
+/* The four screens (Boot, Preloader, Main menu, Game) */
+.pv-build .pv-scene {
+  padding: var(--space-24) var(--space-16);   /* more room inside: top/bottom, then sides */
+}
+.pv-build .pv-scene strong {
+  font-size: 1.6rem;           /* screen names */
+}
+.pv-build .pv-scene span {
+  font-size: var(--text-body); /* small words under the names */
+}
+
+/* The six colorful cards */
+.pv-build .cs-points {
+  gap: var(--space-24);        /* space between cards */
+}
+.pv-build .cs-point {
+  padding: var(--space-24) var(--space-32);   /* more room inside each card */
+}
+.pv-build .cs-point h3 {
+  font-size: 1.75rem;          /* card titles */
+  margin-bottom: var(--space-8);
+}
+.pv-build .cs-point p {
+  font-size: var(--text-body); /* card descriptions: same size as normal reading text */
+}
+/* ---------- 61. POP THE VERBS: no dashed lines + wavy edges ---------- */
+
+/* No dashed lines above and below the white sections */
+.ptv-page .cs-section--white {
+  border-block: 0;
+}
+
+/* Top section: its wave hangs over the white section below */
+.ptv-page .cs-hero {
+  position: relative;
+  z-index: 2;
+}
+.ptv-page .cs-hero .wave__fill {
+  fill: var(--color-cream);    /* same cream as the top section */
+}
+
+/* Extra room so the footer's wave doesn't cover the Previous / Next links */
+.ptv-page .pager {
+  margin-bottom: 40px;
+}

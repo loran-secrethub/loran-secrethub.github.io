@@ -31,7 +31,7 @@
     </div>
   </header>
 
-  <main id="main" class="cs-page">
+  <main id="main" class="cs-page ptv-page">
 
     <!-- ===== 1. WHAT IS IT? ===== -->
     <section class="cs-hero">
@@ -48,8 +48,8 @@
           <p class="cs-pill cs-pill--lemon">Educational game · Phaser</p>
           <h1 class="cs-title">Pop the Verbs</h1>
           <p class="cs-lede">
-            A bubble-popping game where players find the verbs hiding among
-            other words.
+            An underwater bubble-popping game where players find the verbs
+            hiding among other words, then review what they missed.
           </p>
 
           <!-- TODO: once the game is online, change this button to:
@@ -59,26 +59,17 @@
           <p class="pv-status">Playable version coming soon</p>
         </div>
 
-        <!-- TODO: when ptv-gameplay.gif is ready, replace the whole <svg>…</svg> with:
-             <img src="assets/images/ptv-gameplay.gif" alt="Word bubbles float around the screen and pop when clicked"> -->
-        <figure class="pv-screen cs-card">
-          <svg viewBox="0 0 400 260" role="img" aria-labelledby="ptv-art-title">
-            <title id="ptv-art-title">Illustration of word bubbles floating: jump, happy, write, table and sing</title>
-            <circle class="pv-art-bubble pv-art-bubble--verb" cx="80"  cy="90"  r="48"/>
-            <text   class="pv-art-word" x="80"  y="90">jump</text>
-            <circle class="pv-art-bubble" cx="200" cy="60"  r="40"/>
-            <text   class="pv-art-word" x="200" y="60">happy</text>
-            <circle class="pv-art-bubble" cx="300" cy="150" r="50"/>
-            <text   class="pv-art-word" x="300" y="150">write</text>
-            <circle class="pv-art-bubble" cx="150" cy="190" r="40"/>
-            <text   class="pv-art-word" x="150" y="190">table</text>
-            <circle class="pv-art-bubble" cx="350" cy="55"  r="32"/>
-            <text   class="pv-art-word" x="350" y="55">sing</text>
-            <text   class="pv-art-pop"  x="240" y="238">pop!</text>
-          </svg>
-        </figure>
-
+        <img src="assets/images/pop-the-verbs.png"
+             alt="The start screen of Pop the Verbs, with an underwater scene and Start and How to Play buttons"
+             class="img-xl"
+             style="width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
       </div>
+
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
     </section>
 
     <!-- ===== THE GAME IN NUMBERS ===== -->
@@ -89,7 +80,7 @@
           <li class="pv-number"><strong>30</strong><span>bubbles</span></li>
           <li class="pv-number"><strong>15</strong><span>are verbs</span></li>
           <li class="pv-number"><strong>15</strong><span>pops to use</span></li>
-          <li class="pv-number"><strong>?/15</strong><span>your score</span></li>
+          <li class="pv-number"><strong>3</strong><span>stars to earn</span></li>
         </ul>
       </div>
     </section>
@@ -102,11 +93,14 @@
           <h2 id="idea-title">Why a game?</h2>
           <p>
             Spotting verbs on a worksheet is quiet and slow. In this game,
-            every pop is a quick decision, and a sound tells the player right
-            away whether they got it right.
+            every pop is a quick decision, and a sound and a little animation
+            tell the player right away whether they got it right.
           </p>
-          <!-- TODO (optional): add a sentence on why you chose verbs,
-               why 15 pops, or how you picked the non-verbs -->
+          <p>
+            And the round doesn't end with just a score. A review screen
+            shows every mistake and every missed verb, so each round
+            becomes a learning moment.
+          </p>
         </div>
         <aside class="cs-note">
           <p class="cs-note__label">Every pop asks</p>
@@ -117,42 +111,54 @@
 
     <!-- ===== 3. HOW DOES IT WORK? ===== -->
     <section class="cs-section cs-section--white" id="how-it-plays" aria-labelledby="plays-title">
-      <div class="container">
+      <div class="container container--wide">
         <p class="label">How it plays</p>
-        <h2 id="plays-title">Start, pop, score</h2>
+        <h2 id="plays-title">Learn, pop, score, review</h2>
 
-        <ol class="cs-steps">
+        <ol class="cs-steps cs-steps--four cs-steps--big">
           <li class="cs-step cs-card">
             <figure class="cs-media cs-media--lemon">
-              <img src="assets/images/ptv-menu.png" alt="The main menu with a Start button and a How to Play button">
+              <img src="assets/images/how-to-play.png" alt="The How to Play card, with verb bubbles to pop and other words to leave alone">
             </figure>
-            <h3><span class="cs-step__num" aria-hidden="true">1</span>Start</h3>
+            <h3><span class="cs-step__num" aria-hidden="true">1</span>Learn</h3>
             <p>
-              The main menu plays music and has a How to Play popup, so
-              players know the rules before they begin.
+              A kid-friendly How to Play card explains that verbs are action
+              words, with little bobbing bubbles showing which words to pop
+              and which to leave alone.
             </p>
           </li>
 
           <li class="cs-step cs-card">
             <figure class="cs-media cs-media--mint">
-              <img src="assets/images/ptv-gameplay.gif" alt="Word bubbles float around the screen and pop when clicked">
+              <img src="assets/images/pop.gif" alt="Word bubbles float around an underwater scene and pop when clicked">
             </figure>
-            <h3><span class="cs-step__num" aria-hidden="true">2</span>Pop the verbs</h3>
+            <h3><span class="cs-step__num" aria-hidden="true">2</span>Pop</h3>
             <p>
-              30 word bubbles float and bounce around: 15 verbs and 15 other
-              words. Players get 15 pops. Right and wrong pops play
-              different sounds.
+              30 word bubbles float around an underwater scene: 15 verbs and
+              15 other words. Players get 15 pops. A right pop turns green
+              and bursts. A wrong pop turns red and shakes.
             </p>
           </li>
 
           <li class="cs-step cs-card">
             <figure class="cs-media cs-media--rose">
-              <img src="assets/images/ptv-score.png" alt="The score screen showing how many verbs were found out of 15">
+              <img src="assets/images/score.png" alt="The results card showing the score out of 15, a star rating and an encouraging message">
             </figure>
-            <h3><span class="cs-step__num" aria-hidden="true">3</span>See the score</h3>
+            <h3><span class="cs-step__num" aria-hidden="true">3</span>Score</h3>
             <p>
-              After 15 pops, the round ends and shows how many verbs the
-              player found, like "12 / 15 verbs found."
+              After 15 pops, a results card bounces in with the score, up to
+              three stars and a cheering message.
+            </p>
+          </li>
+
+          <li class="cs-step cs-card">
+            <figure class="cs-media cs-media--mauve">
+              <img src="assets/images/lets-review.png" alt="The Let's Review card, listing words popped by mistake and verbs that were missed">
+            </figure>
+            <h3><span class="cs-step__num" aria-hidden="true">4</span>Review</h3>
+            <p>
+              Let's Review shows two lists: words popped by mistake, and verbs
+              that were missed. Then players can play again with fresh words.
             </p>
           </li>
         </ol>
@@ -161,39 +167,50 @@
 
     <!-- ===== 4. HOW DID I BUILD IT? ===== -->
     <section class="cs-section" aria-labelledby="build-title">
-      <div class="container">
+      <div class="container container--wide pv-build">
         <p class="label">Under the hood</p>
         <h2 id="build-title">How I built it</h2>
         <p>The game is split into four screens, each with one job:</p>
 
         <ol class="pv-scenes">
           <li class="pv-scene cs-card"><strong>Boot</strong><span>loads the font</span></li>
-          <li class="pv-scene cs-card"><strong>Preloader</strong><span>pictures and sounds</span></li>
-          <li class="pv-scene cs-card"><strong>Main menu</strong><span>music, how to play</span></li>
-          <li class="pv-scene cs-card"><strong>Game</strong><span>play and score</span></li>
+          <li class="pv-scene cs-card"><strong>Preloader</strong><span>pictures, sounds, loading bar</span></li>
+          <li class="pv-scene cs-card"><strong>Main menu</strong><span>music, tutorial</span></li>
+          <li class="pv-scene cs-card"><strong>Game</strong><span>play, score, review</span></li>
         </ol>
 
         <ul class="cs-points">
           <li class="cs-point cs-card">
             <h3>Bubbles that bounce</h3>
-            <p>Each bubble starts moving in a random direction and bounces off the edges of the screen, so it never floats away.</p>
+            <p>Each bubble floats in a random direction and bounces off the edges. Its word follows it many times a second, so they always travel together.</p>
           </li>
           <li class="cs-point cs-card">
-            <h3>Words that follow</h3>
-            <p>Many times a second, the game moves each word to the center of its bubble, so they always travel together.</p>
+            <h3>Pops that feel real</h3>
+            <p>A right pop grows and fades like a bursting bubble. A wrong pop shakes first. One shared piece of code handles both.</p>
+          </li>
+          <li class="cs-point cs-card">
+            <h3>Remembering mistakes</h3>
+            <p>Every wrong pop is saved to a list. When the round ends, the game also checks which verbs are still floating. Both lists feed the review screen.</p>
+          </li>
+          <li class="cs-point cs-card">
+            <h3>A moving sea</h3>
+            <p>The game can't play GIFs by itself, so the swimming-fish GIF sits behind a see-through game screen. It fills any screen, with no black bars.</p>
+          </li>
+          <li class="cs-point cs-card">
+            <h3>One mute button</h3>
+            <p>Custom sound on and off icons, built once and shared by the menu and the game. It remembers the player's choice between screens.</p>
           </li>
           <li class="cs-point cs-card">
             <h3>Clean pops</h3>
-            <p>When a bubble is popped, the bubble and its word are removed right away, so the game stays smooth.</p>
+            <p>A popped bubble stops moving and can't be clicked twice. Once its animation ends, it's removed, so the game stays smooth.</p>
           </li>
         </ul>
-
-        <!-- TODO (optional): add a short piece of your click code here -->
 
         <ul class="chips" aria-label="Built with">
           <li class="chip">Phaser</li>
           <li class="chip">JavaScript</li>
           <li class="chip">Arcade Physics</li>
+          <li class="chip">Tweens</li>
         </ul>
       </div>
     </section>
@@ -205,13 +222,10 @@
         <h2 id="next-title" class="visually-hidden">What I'd add next</h2>
         <ul class="pv-next">
           <li class="cs-card">
-            <h3>Feedback that teaches</h3>
-            <p>A short message after a wrong pop, explaining why that word isn't a verb.</p>
-          </li>
-          <li class="cs-card">
             <h3>More word types</h3>
             <p>New levels for nouns and adjectives.</p>
           </li>
+          <!-- TODO (optional): add a second idea here, in the same style -->
         </ul>
       </div>
     </section>
@@ -226,8 +240,15 @@
 
   </main>
 
-  <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
+    <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
+
+    <!-- Wavy top edge (decoration) -->
+    <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+      <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+    </svg>
+
     <div class="container">
       <div class="contact">
         <p class="label label--light">Contact</p>
