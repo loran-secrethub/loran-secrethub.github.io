@@ -31,7 +31,7 @@
     </div>
   </header>
 
-  <main id="main" class="cs-page">
+  <main id="main" class="cs-page icp-page">
 
     <!-- ===== 1. WHAT IS IT? ===== -->
     <section class="cs-hero">
@@ -59,12 +59,17 @@
           <p class="pv-status">Playable version coming soon</p>
         </div>
 
-        <!-- TODO: when icp-gameplay.gif is ready, replace the whole <svg>…</svg> with:
-             <img src="assets/images/icp-gameplay.gif" alt="A player guesses letters to fill in a pet's ice cream order"> -->
-          <img alt src="assets/images/paw-sceam.png" 
-          class="img-xl" 
-          style="width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+        <img src="assets/images/paw-sceam.png"
+             alt="The start screen of Eli's Paw-Scream, a pixel-style ice cream shop game"
+             class="img-xl"
+             style="width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
       </div>
+
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
     </section>
 
     <!-- ===== 2. WHY DOES IT EXIST? ===== -->
@@ -83,16 +88,20 @@
         <div>
           <blockquote class="ic-quote cs-card">
             <p>
-              "Welcome to my presence! I am Princess Chloe. My Mama says that
-              even at 11 years old, my sassiness remains unmatched. I may move
-              with a more graceful, slow pace now, but my health is a top
-              priority in this kingdom! And remember, it simply must be pink!"
+              Hello! Hello! I’m Cheddar and I used to live on the streets,
+              but now I’m spoiled with toys and a cozy bed.
+              My skin is a little sensitive, though.
+              Do you have a scoop that will support my skin and keep my coat shiny?
             </p>
           </blockquote>
+          <!-- The speaker, right under the bubble's tail -->
+          <figure class="ic-speaker">
+            <img src="assets/images/cheddar.gif" alt="Cheddar, the first customer, at the counter">
+          </figure>
+
           <p class="ic-quote__who">Customer no. 1</p>
           <p class="ic-answer">
-            <strong>Her order:</strong> Strawberry Sniffer. It's pink, and its
-            immune boost keeps her healthy.
+            <strong>His order:</strong> Apple-y Ever After. It calms sensitive skin while keeping his coat soft, shiny, and pampered.
           </p>
         </div>
       </div>
@@ -106,32 +115,32 @@
 
         <ul class="ic-menu">
           <li class="ic-flavor cs-card">
-            <span class="ic-scoop ic-scoop--strawberry" aria-hidden="true"></span>
+            <img class="ic-fruit" src="assets/images/strawberry.png" alt="">
             <h3>Strawberry Sniffer</h3>
             <p>Immune boost</p>
           </li>
           <li class="ic-flavor cs-card">
-            <span class="ic-scoop ic-scoop--pumpkin" aria-hidden="true"></span>
+            <img class="ic-fruit" src="assets/images/pumpkin.png" alt="">
             <h3>Pumpkin Paws</h3>
             <p>Tummy care</p>
           </li>
           <li class="ic-flavor cs-card">
-            <span class="ic-scoop ic-scoop--apple" aria-hidden="true"></span>
+            <img class="ic-fruit" src="assets/images/apple.png" alt="">
             <h3>Apple-y Ever After</h3>
             <p>Skin and coat care</p>
           </li>
           <li class="ic-flavor cs-card">
-            <span class="ic-scoop ic-scoop--melon" aria-hidden="true"></span>
+            <img class="ic-fruit" src="assets/images/melon.png" alt="">
             <h3>Mellow Melona</h3>
             <p>Hydration</p>
           </li>
           <li class="ic-flavor cs-card">
-            <span class="ic-scoop ic-scoop--banana" aria-hidden="true"></span>
+            <img class="ic-fruit" src="assets/images/banana.png" alt="">
             <h3>Banana Bone-anza</h3>
             <p>Energy boost</p>
           </li>
           <li class="ic-flavor cs-card">
-            <span class="ic-scoop ic-scoop--mango" aria-hidden="true"></span>
+            <img class="ic-fruit" src="assets/images/mango.png" alt="">
             <h3>Mango Magic</h3>
             <p>Eye support</p>
           </li>
@@ -141,14 +150,14 @@
 
     <!-- ===== 3. HOW DOES IT WORK? ===== -->
     <section class="cs-section cs-section--white" id="how-it-plays" aria-labelledby="plays-title">
-      <div class="container">
+      <div class="container container--wide">
         <p class="label">How it plays</p>
-        <h2 id="plays-title">Learn, listen, guess</h2>
+        <h2 id="plays-title">Learn, listen, guess, oops!</h2>
 
-        <ol class="cs-steps">
+        <ol class="cs-steps cs-steps--four">
           <li class="cs-step cs-card">
             <figure class="cs-media cs-media--lemon">
-              <img src="assets/images/icp-eli.png" alt="Eli the manager introducing the ice cream flavors">
+              <img src="assets/images/Eli_emoji.gif" alt="Eli the manager introducing the ice cream flavors">
             </figure>
             <h3><span class="cs-step__num" aria-hidden="true">1</span>Meet Eli</h3>
             <p>
@@ -158,8 +167,8 @@
           </li>
 
           <li class="cs-step cs-card">
-            <figure class="cs-media cs-media--mint">
-              <img src="assets/images/icp-customer.png" alt="A pet customer describing themselves at the counter">
+            <figure class="cs-media cs-media--rose">
+              <img src="assets/images/chippy.gif" alt="Chippy, a pet customer, describing themselves at the counter">
             </figure>
             <h3><span class="cs-step__num" aria-hidden="true">2</span>Read the clue</h3>
             <p>
@@ -169,14 +178,24 @@
           </li>
 
           <li class="cs-step cs-card">
-            <div class="cs-media cs-media--rose ic-hearts">
-              <span class="ic-hearts__icons" aria-hidden="true">♥♥♥♥♥</span>
-              <span>5 tries per pet</span>
-            </div>
+            <figure class="cs-media cs-media--mint">
+              <img src="assets/images/tries.gif" alt="Five hearts showing the tries left for each pet">
+            </figure>
             <h3><span class="cs-step__num" aria-hidden="true">3</span>Guess the order</h3>
             <p>
               Pick letters one by one to spell the right flavor, like
               Hangman. Each wrong letter costs one of five tries.
+            </p>
+          </li>
+
+          <li class="cs-step cs-card">
+            <figure class="cs-media cs-media--mauve">
+              <img src="assets/images/Eli_wrong.gif" alt="Eli the manager looking frustrated after the player runs out of tries">
+            </figure>
+            <h3><span class="cs-step__num" aria-hidden="true">4</span>Out of tries</h3>
+            <p>
+              Use up all five tries, and Eli shows up with her
+              frustrated face. Time to step up the game!
             </p>
           </li>
         </ol>
@@ -225,6 +244,13 @@
 
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
+
+    <!-- Wavy top edge (decoration) -->
+    <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+      <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+    </svg>
+
     <div class="container">
       <div class="contact">
         <p class="label label--light">Contact</p>

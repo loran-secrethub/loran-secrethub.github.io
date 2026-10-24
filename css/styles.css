@@ -4032,3 +4032,71 @@ mark {
     animation-duration: 5s; /* one full turn every 5 seconds (was 8): smaller number = faster */
   }
 }
+/* ---------- 51. ICE CREAM PETSHOP: the speaker under the bubble ---------- */
+
+.ic-speaker {
+  margin: var(--space-16) 0 0;   /* space between the bubble and the gif */
+}
+
+.ic-speaker img {
+  width: 180px;                  /* gif size: bigger number = bigger */
+  height: auto;
+}
+/* ---------- 52. ICE CREAM PETSHOP: fruit pictures on the menu ---------- */
+
+.ic-fruit {
+  display: block;
+  width: 64px;              /* fruit size: bigger number = bigger */
+  height: 64px;
+  margin: 0 auto var(--space-8);
+  object-fit: contain;      /* each fruit fits the space without stretching */
+}
+/* ---------- 53. ICE CREAM PETSHOP: four step cards ---------- */
+
+/* Tablets: 2 cards per row */
+@media (min-width: 768px) {
+  .cs-steps--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Laptops: all 4 in one row */
+@media (min-width: 1024px) {
+  .cs-steps--four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+/* ---------- 54. WIDER CONTAINER (chubbier cards) ---------- */
+
+/* Use this on any section that needs more room than usual */
+.container--wide {
+  max-width: calc(1400px + var(--gutter) * 2);   /* bigger number = wider */
+}
+/* ---------- 55. ICE CREAM PETSHOP: no dashed lines ---------- */
+
+.icp-page .cs-section--white {
+  border-block: 0;   /* removes the dashed lines above and below white sections */
+}
+/* ---------- 56. ICE CREAM PETSHOP: wavy edges ---------- */
+
+/* Top section: its wave hangs over the white section below */
+.icp-page .cs-hero {
+  position: relative;
+  z-index: 2;
+}
+.icp-page .cs-hero .wave__fill {
+  fill: var(--color-cream);       /* same cream as the top section */
+}
+
+/* Footer: its wave sits on top of its edge */
+.site-footer {
+  position: relative;
+}
+.site-footer .wave__fill {
+  fill: var(--color-teal-deep);   /* same dark plum as the footer */
+}
+
+/* Extra room so the footer's wave doesn't cover the Previous / Next links */
+.icp-page .pager {
+  margin-bottom: 40px;
+}
