@@ -3998,3 +3998,20 @@ mark {
 .work-card--soon-solid .work-card__art {
   background-color: #FF99C8;   /* change to #FF99C8 if you prefer the pink */
 }
+/* ---------- 49. FEATURED WORK: matching game cards ---------- */
+
+/* Pink picture area (there wasn't one before) */
+.work-card__art--pink { background-color: var(--color-pink); }
+
+/* Both picture areas are the same height, so the lines match */
+.work-band--featured .work-grid .work-card__art {
+  height: 200px;           /* box height: bigger number = taller */
+}
+
+/* Pictures shrink to fit the box, never stretch or get cut off */
+.work-band--featured .work-grid .work-card__art img {
+  height: 170px;           /* picture size: keep it about 30 less than the box */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
