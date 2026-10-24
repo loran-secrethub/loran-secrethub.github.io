@@ -3925,3 +3925,81 @@ body:has(.game-popup[open]) {
   color: var(--color-plum);
   opacity: 0.8;              /* a little softer than the game name */
 }
+/* ---------- 68. WORKTEXT STUDIO: no dashed lines ---------- */
+
+.ws-page .cs-section--white {
+  border-block: 0;   /* removes the dashed lines above and below white sections */
+}
+/* ---------- 69. WORKTEXT STUDIO: wave under the top section ---------- */
+
+.ws-page .cs-hero {
+  position: relative;
+  z-index: 2;
+}
+.ws-page .cs-hero .wave__fill {
+  fill: var(--color-cream);    /* same cream as the top section */
+}
+/* ---------- 70. WORKTEXT STUDIO: room above the footer wave ---------- */
+
+/* Extra space so the footer's wave doesn't cover "All work" and "Next" */
+.ws-page .pager {
+  margin-bottom: 40px;
+}
+/* ---------- 71. WORK PAGE: bigger text ---------- */
+
+/* Project names */
+.wk-page .wk-item h3,
+.wk-page .wk-slim__body h3,
+.wk-page .wk-feature__body h3 {
+  font-size: 1.875rem;
+}
+
+/* Descriptions and notes */
+.wk-page .wk-item p,
+.wk-page .wk-slim__body p,
+.wk-page .wk-feature__body p {
+  font-size: 1.125rem;
+}
+
+/* Step titles, like "1 What goes in: a Word lesson" */
+.wk-page .wk-item .dx-step {
+  font-size: 1.125rem;
+}
+
+/* Small captions under pictures */
+.wk-page .wk-item .code-caption,
+.wk-page .cy-shot figcaption {
+  font-size: 1rem;
+}
+
+/* The flow boxes, like "Tagged Word lesson → Python parser" */
+.wk-page .pv-scene strong {
+  font-size: 1.4rem;
+}
+.wk-page .pv-scene span {
+  font-size: 1rem;
+}
+
+/* The Word lesson and code boxes */
+.wk-page .dx-doc {
+  font-size: 1rem;
+}
+.wk-page .dx-code {
+  font-size: 0.9375rem;
+}
+
+/* Bloom's learner path and the creature score counters */
+.wk-page .bl-stop,
+.wk-page .mc-tally {
+  font-size: 1rem;
+}
+
+/* Small red labels, like "SHORT WRITE-UP · PYTHON" */
+.wk-page .label {
+  font-size: 0.9375rem;
+}
+
+/* "Built with" pills */
+.wk-page .chip {
+  font-size: 0.9375rem;
+}

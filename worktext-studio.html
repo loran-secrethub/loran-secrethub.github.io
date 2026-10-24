@@ -31,7 +31,7 @@
     </div>
   </header>
 
-  <main id="main" class="cs-page">
+  <main id="main" class="cs-page ws-page">
 
     <!-- ===== 1. WHAT IS IT? ===== -->
     <section class="cs-hero">
@@ -72,11 +72,17 @@
         </dl>
 
         <!-- TODO: swap in a real screenshot with fake sample content, and describe it in alt="" -->
-        <figure class="cs-shot cs-card">
+               <figure class="cs-shot cs-card">
           <img src="assets/images/WT_studio.png" alt="The Worktext Studio interface">
         </figure>
 
       </div>
+
+      <!-- Wavy bottom edge (decoration) -->
+      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
     </section>
 
     <!-- ===== 2. WHY DOES IT EXIST? ===== -->
@@ -271,6 +277,13 @@
 
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
+
+    <!-- Wavy top edge (decoration) -->
+    <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+      <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+    </svg>
+    
     <div class="container">
       <div class="contact">
         <p class="label label--light">Contact</p>
