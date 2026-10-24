@@ -4015,3 +4015,20 @@ mark {
   max-width: 100%;
   object-fit: contain;
 }
+/* ---------- 50. HOMEPAGE SPIRAL: bigger and faster ---------- */
+
+.brand__flower--big {
+  width: 48px;              /* phone size: bigger number = bigger spiral */
+}
+
+@media (min-width: 768px) {
+  .brand__flower--big {
+    width: 64px;            /* tablet and laptop size */
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand__flower--big {
+    animation-duration: 5s; /* one full turn every 5 seconds (was 8): smaller number = faster */
+  }
+}
