@@ -4177,3 +4177,24 @@ mark {
 .ptv-page .pager {
   margin-bottom: 40px;
 }
+/* ---------- 62. JOURNEY: no dashed lines + wavy edges ---------- */
+
+/* No dashed lines above and below the white section */
+.jy-page .cs-section--white {
+  border-block: 0;
+}
+
+/* Top section: its wave hangs over the chapters below */
+.jy-page .cs-hero {
+  position: relative;
+  z-index: 2;
+}
+.jy-page .cs-hero .wave__fill {
+  fill: var(--color-cream);    /* same cream as the top section */
+}
+
+/* Threads section: its white wave sits on its top edge */
+.jy-threads {
+  position: relative;
+  z-index: 1;
+}

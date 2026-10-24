@@ -31,7 +31,7 @@
     </div>
   </header>
 
-  <main id="main" class="cs-page">
+  <main id="main" class="cs-page jy-page">
 
     <!-- ===== INTRO ===== -->
     <section class="cs-hero">
@@ -44,36 +44,12 @@
         </p>
         <!-- TODO (optional): add a photo of yourself here -->
       </div>
-    </section>
 
-    <!-- ===== WHERE I'VE WORKED ===== -->
-    <section class="logo-band" aria-labelledby="logos-title">
-
-      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-
-      <div class="container">
-        <h2 id="logos-title" class="logo-band__title">Where I've taught, coded and built</h2>
-
-        <!-- TODO: once you have permission, swap each name for its logo:
-             <li><img src="assets/images/logo-robothink.png" alt="RoboThink"></li> -->
-        <ul class="logo-band__list">
-          <li class="jy-logo cs-card">RoboThink</li>
-          <!-- TODO: write TLB's full name -->
-          <li class="jy-logo cs-card">TLB</li>
-          <li class="jy-logo cs-card">Everyday Play N Learn</li>
-          <li class="jy-logo cs-card">Audacious Labs</li>
-          <!-- TODO: add your fifth workplace (the green thumbs-up logo) -->
-        </ul>
-      </div>
-
+      <!-- Wavy bottom edge (decoration) -->
       <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
         <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
       </svg>
-
     </section>
 
     <!-- ===== FIVE CHAPTERS ===== -->
@@ -192,7 +168,14 @@
     </section>
 
     <!-- ===== THREADS ===== -->
-    <section class="cs-section cs-section--white" id="threads" aria-labelledby="threads-title">
+    <section class="cs-section cs-section--white jy-threads" id="threads" aria-labelledby="threads-title">
+
+      <!-- Wavy top edge (decoration) -->
+      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+      </svg>
+
       <div class="container">
         <p class="label">Threads, not a ladder</p>
         <h2 id="threads-title">What I carried from the classroom</h2>
@@ -245,115 +228,17 @@
       </div>
     </section>
 
-    <!-- ===== SKILLS WITH PROOF ===== -->
-    <section class="cs-section" id="skills" aria-labelledby="skills-title">
-      <div class="container">
-        <p class="label">Skills with proof</p>
-        <h2 id="skills-title">What I can do today, and where I did it</h2>
-
-        <div class="skill-groups">
-
-          <div class="skill-group">
-            <h3>E-learning</h3>
-            <ul class="skill-list">
-              <li><strong>Articulate Storyline</strong>
-                <span>Variables, triggers, layers, JavaScript · <a href="ice-cream-pet-shop.html">Ice Cream Petshop</a>, <a href="work.html#cyber-safety">Cyber Safety</a></span></li>
-              <li><strong>SCORM and Moodle</strong>
-                <span>Course setup, SCORM upload, quiz, completion tracking · <a href="work.html#bloom-moodle">Bloom's course</a></span></li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Front end</h3>
-            <ul class="skill-list">
-              <li><strong>HTML, CSS, JavaScript</strong>
-                <span><a href="worktext-studio.html">Worktext Studio</a>, this website</span></li>
-              <li><strong>Browser features</strong>
-                <span>PDF export, light and dark mode, drag-and-drop notes · <a href="worktext-studio.html">Worktext Studio</a></span></li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Educational games</h3>
-            <ul class="skill-list">
-              <li><strong>Phaser</strong>
-                <span><a href="pop-the-verbs.html">Pop the Verbs</a></span></li>
-              <li><strong>Gamified Storyline</strong>
-                <span><a href="ice-cream-pet-shop.html">Ice Cream Petshop</a>, <a href="work.html#mythical-creature">Mythical Creature Test</a></span></li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Integrations &amp; automation</h3>
-            <ul class="skill-list">
-              <li><strong>Google Sign-In and Apps Script</strong>
-                <span>Shared comments · <a href="worktext-studio.html">Worktext Studio</a></span></li>
-              <li><strong>Webhooks and JSON</strong>
-                <span><a href="work.html#cyber-safety">Cyber Safety</a></span></li>
-              <li><strong>Python</strong>
-                <span>Word to XML, QR codes · <a href="work.html#docx-xml">DOCX Converter</a></span></li>
-              <li><strong>GitHub Pages hosting</strong>
-                <span><a href="worktext-studio.html">Worktext Studio</a>, this website</span></li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Data</h3>
-            <ul class="skill-list">
-              <li><strong>Google Sheets as a data store</strong>
-                <span>Comments grouped by lesson · <a href="worktext-studio.html">Worktext Studio</a></span></li>
-              <li><strong>Data saved inside HTML files</strong>
-                <span>Save Reviewed HTML · <a href="worktext-studio.html">Worktext Studio</a></span></li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Teaching &amp; STEM</h3>
-            <ul class="skill-list">
-              <li><strong>Scratch and block-based coding</strong>
-                <span><a href="#preschool-ict">Chapter 2</a></span></li>
-              <li><strong>Robotics kits and the Rocomo app</strong>
-                <span><a href="#robotics">Chapter 3</a></span></li>
-              <li><strong>Online teaching</strong>
-                <span>Zoom, Google Classroom, Koobits · <a href="#preschool-ict">Chapter 2</a></span></li>
-              <li><strong>Training and supporting teachers</strong>
-                <span><a href="#preschool-ict">Chapter 2</a></span></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== THE SHORT VERSION ===== -->
-    <section class="jy-cta" aria-labelledby="cta-title">
-
-      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-
-      <div class="container">
-        <h2 id="cta-title">Want the short version?</h2>
-        <div class="button-row jy-cta__buttons">
-          <!-- TODO: put your résumé PDF in the assets folder with this exact name,
-               or delete this line until it's ready -->
-          <a class="button button--primary" href="assets/Loran-Inosa-Resume.pdf" download>Download my résumé</a>
-          <a class="button button--secondary" href="work.html">See my work</a>
-        </div>
-      </div>
-
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-
-    </section>
-
   </main>
 
   <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
   <footer class="site-footer" id="contact">
+
+    <!-- Wavy top edge (decoration) -->
+    <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
+      <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+    </svg>
+
     <div class="container">
       <div class="contact">
         <p class="label label--light">Contact</p>
