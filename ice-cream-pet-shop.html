@@ -35,43 +35,47 @@
 
     <!-- ===== 1. WHAT IS IT? ===== -->
     <section class="cs-hero">
-      <div class="container pv-hero">
+  <div class="container pv-hero">
 
-        <div>
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li><a href="work.html">Work</a></li>
-              <li aria-current="page">Ice Cream Petshop</li>
-            </ol>
-          </nav>
+    <!-- Left side: the words and buttons -->
+    <div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="work.html">Work</a></li>
+          <li aria-current="page">Ice Cream Petshop</li>
+        </ol>
+      </nav>
 
-          <p class="cs-pill cs-pill--rose">Training game · Articulate Storyline</p>
-          <h1 class="cs-title">Ice Cream Petshop</h1>
-          <p class="cs-lede">
-            A pixel-style training game that teaches new shop staff which
-            ice cream flavors suit each pet's health needs.
-          </p>
+      <p class="cs-pill cs-pill--rose">Training game · Articulate Storyline</p>
+      <h1 class="cs-title">Ice Cream Petshop</h1>
+      <p class="cs-lede">
+        A pixel-style training game that teaches new shop staff which
+        ice cream flavors suit each pet's health needs.
+      </p>
 
-          <div class="button-row">
-            <a class="button button--primary" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
-              Take an order <span aria-hidden="true">▶</span>
-              <span class="visually-hidden">(opens the game)</span>
-            </a>
-            <a class="button button--secondary" href="#how-it-plays">See how it plays</a>
-          </div>
-
-        <img src="assets/images/paw-sceam.png"
-             alt="The start screen of Eli's Paw-Scream, a pixel-style ice cream shop game"
-             class="img-xl"
-             style="width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+      <div class="button-row">
+        <a class="button button--primary" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
+          Take an order <span aria-hidden="true">▶</span>
+          <span class="visually-hidden">(opens the game)</span>
+        </a>
+        <a class="button button--secondary" href="#how-it-plays">See how it plays</a>
       </div>
+    </div> <!-- ← this was missing: it closes the left side -->
 
-      <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-    </section>
+    <!-- Right side: the game picture -->
+    <img src="assets/images/paw-sceam.png"
+         alt="The start screen of Eli's Paw-Scream, a pixel-style ice cream shop game"
+         class="img-xl"
+         style="width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+
+  </div> <!-- closes the whole top area -->
+
+  <!-- Wavy bottom edge (decoration) -->
+  <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
+    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+  </svg>
+</section>
 
     <!-- ===== 2. WHY DOES IT EXIST? ===== -->
     <section class="cs-section cs-section--white" aria-labelledby="scenario-title">
