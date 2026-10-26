@@ -1,5 +1,30 @@
-/* ---------- 0. CUSTOM FONT FILES ---------- */
-/* Loads Handy Casual from our own folder (it's not on Google Fonts). */
+/* ==========================================================================
+   Loran Iñosa · Portfolio styles
+
+   1.  Fonts
+   2.  Design tokens
+   3.  Base
+   4.  Layout
+   5.  Accessibility
+   6.  Site header
+   7.  Site footer
+   8.  Shared components
+   9.  Doodles
+   10. Inner pages
+   11. Home page
+   12. Work page
+   13. Play page
+   14. Journey page
+   15. Case studies
+   16. Keyframes
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Fonts
+   ========================================================================== */
+
+/* Handy Casual: the hand-drawn font for headings, buttons and labels */
 @font-face {
   font-family: "Handy Casual";
   src: url("../assets/font/handy-casual.otf") format("opentype");
@@ -7,8 +32,8 @@
   font-style: normal;
   font-display: swap;
 }
-/* Quicksand: a clean, rounded font with five real weights.
-   Each block connects one weight number to one file. */
+
+/* Quicksand: the rounded font for longer reading text */
 @font-face {
   font-family: "Quicksand";
   src: url("../assets/font/Quicksand-Light.ttf") format("truetype");
@@ -16,6 +41,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Quicksand";
   src: url("../assets/font/Quicksand-Regular.ttf") format("truetype");
@@ -23,6 +49,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Quicksand";
   src: url("../assets/font/Quicksand-Medium.ttf") format("truetype");
@@ -30,6 +57,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Quicksand";
   src: url("../assets/font/Quicksand-SemiBold.ttf") format("truetype");
@@ -37,6 +65,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Quicksand";
   src: url("../assets/font/Quicksand-Bold.ttf") format("truetype");
@@ -46,62 +75,60 @@
 }
 
 
-/* ---------- 1. DESIGN TOKENS ---------- */
+/* ==========================================================================
+   2. Design tokens
+   ========================================================================== */
+
 :root {
-    /* ----- Your pastel palette ----- */
-  --color-cream: #FFF9f4;  /* Cream: page background, sticky notes */
-  --color-lemon: #FEFBE5;  /* Lemon: picture areas on cards */
-  --color-pink:  #FFD6E9;  /* Baby Pink: things you can click */
-  --color-mint:  #ECFBF2;  /* Frosted Mint: tools that make teams faster */
-  --color-mauve: #F4E6FD;  /* Mauve: learning you can play */
-  --color-rose:  #FEE9E7;  /* Cotton Rose: learning systems, contact */
-  --color-plum:  #3B2A44;  /* Dark plum: all text and outlines */
+  /* Pastel palette */
+  --color-cream: #fff9f4;
+  --color-lemon: #fefbe5;
+  --color-pink: #ffd6e9;
+  --color-mint: #ecfbf2;
+  --color-mauve: #f4e6fd;
+  --color-lavender: #eee2f5;
+  --color-rose: #fee9e7;
+  --color-white: #ffffff;
 
-  /* ----- Jobs -----
-     Old names kept, so the rest of the site keeps working.
-     We'll tidy these up as we redesign each part. */
-  --color-paper:       var(--color-cream);
-  --color-card:        #FFFFFF;
-  --color-ink:         var(--color-plum);
-  --color-slate:       #6B5A73;              /* softer plum for secondary text */
-  --color-teal:        var(--color-plum);    /* links and buttons, for now */
-  --color-teal-deep:   #2A1D31;              /* slightly darker plum, for hover */
-  --color-teal-wash:   var(--color-mint);
-  --color-rule:        #DCCDE3;              /* light lines and borders */
-  --color-red-pen:     #C2412A;              /* labels, attention */
-  --color-red-wash:    var(--color-rose);
-  --color-highlighter: var(--color-pink);
-  --color-sticky:      #FFE89A;              /* margin notes */
-  --color-bubble:      #4D9DE0;              /* Pop the Verbs only */
-  --color-bubble-wash: #E7F1FB;
-  --color-aqua:        #8EDFE0;              /* old hero, removed in Step 10 */
-  --color-lime-wash:   var(--color-mint);    /* job title pill */
-  --color-grid:        #EEDDF8;              /* hero graph-paper lines (pale mauve) */
+  /* Text and lines */
+  --color-plum: #3b2a44;
+  --color-plum-dark: #2a1d31;
+  --color-muted: #6b5a73;
+  --color-line: #dccde3;
+  --color-red: #c2412a;
+  --color-sticky: #ffe89a;
 
-  /* Journey blends: pink → plum */
-  --mix-25: color-mix(in srgb, var(--color-teal) 25%, var(--color-highlighter));
-  --mix-50: color-mix(in srgb, var(--color-teal) 50%, var(--color-highlighter));
-  --mix-75: color-mix(in srgb, var(--color-teal) 75%, var(--color-highlighter));
+  /* Doodle colors */
+  --doodle-yellow: #f9d86b;
+  --doodle-lemon: #ffe066;
+  --doodle-mint: #8fd9ae;
+  --doodle-green: #6cc08b;
+  --doodle-pink: #f48fb1;
+  --doodle-pink-soft: #f4a1c0;
+  --doodle-berry: #f06292;
+  --doodle-lavender: #c9a8e8;
+  --doodle-lilac: #e2ccf5;
+  --doodle-peach: #f4a99a;
+  --doodle-coral: #f9a88b;
+  --doodle-blue: #8ec5f0;
+  --doodle-bubble: #cde8fa;
+  --doodle-tan: #d9b48f;
 
-  /* Fonts (with backups in case a font fails to load) */
+  /* Fonts */
   --font-hand: "Handy Casual", "Comic Sans MS", cursive;
   --font-clean: "Quicksand", "Segoe UI", system-ui, sans-serif;
-  --font-heading: var(--font-hand);
-  --font-body: var(--font-hand);
-  --font-mono: var(--font-hand);
 
-  /* Type sizes: PHONE sizes first (desktop sizes are below) */
-  --text-hero:  2.375rem;   /* 38px */
-  --text-h1:    2.125rem;   /* 34px */
-  --text-h2:    1.6875rem;  /* 27px */
-  --text-h3:    1.3125rem;  /* 21px */
-  --text-body:  1.0625rem;  /* 17px */
-  --text-small: 0.9375rem;  /* 15px */
-  --text-label: 0.8125rem;  /* 13px */
+  /* Type sizes (phones first) */
+  --text-h1: 2.125rem;
+  --text-h2: 1.6875rem;
+  --text-h3: 1.3125rem;
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-label: 0.8125rem;
 
-  /* Spacing scale: only use these for gaps and padding */
-  --space-4:  4px;
-  --space-8:  8px;
+  /* Spacing */
+  --space-4: 4px;
+  --space-8: 8px;
   --space-12: 12px;
   --space-16: 16px;
   --space-24: 24px;
@@ -111,41 +138,36 @@
   --space-96: 96px;
 
   /* Layout */
-  --gutter:      var(--space-16);  /* space at the left/right screen edges */
-  --section-gap: var(--space-48);  /* space between page sections */
-  --content-max: 1120px;           /* widest the content gets */
-  --reading-max: 68ch;             /* comfortable line length for paragraphs */
-  --header-height: 64px;           /* height of the top bar on phones */
+  --gutter: var(--space-16);
+  --section-gap: var(--space-48);
+  --content-max: 1120px;
+  --reading-max: 68ch;
+  --header-height: 64px;
 
   /* Shapes */
   --radius-button: 10px;
-  --radius-card:   16px;
-  --radius-pill:   999px;
-  --radius-note:   2px;
-
-  /* Shadows */
-  --shadow-card:       0 1px 2px rgb(28 35 51 / 0.06), 0 4px 12px rgb(28 35 51 / 0.06);
-  --shadow-card-hover: 0 2px 4px rgb(28 35 51 / 0.08), 0 12px 24px rgb(28 35 51 / 0.10);
-  --shadow-note:       0 2px 6px rgb(28 35 51 / 0.15);
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --shadow-sticker: 3px 3px 0 var(--color-plum);
 }
 
-/* Tablet and desktop: screens 768px wide or more get bigger sizes */
 @media (min-width: 768px) {
   :root {
-    --text-hero: 3.5rem;    /* 56px */
-    --text-h1:   3rem;      /* 48px */
-    --text-h2:   2.125rem;  /* 34px */
-    --text-h3:   1.5rem;    /* 24px */
-    --text-body: 1.125rem;  /* 18px */
+    --text-h1: 3rem;
+    --text-h2: 2.125rem;
+    --text-h3: 1.5rem;
+    --text-body: 1.125rem;
 
-    --gutter:      var(--space-24);
+    --gutter: var(--space-24);
     --section-gap: var(--space-96);
-    --header-height: 72px;         /* taller top bar on tablets and desktops */
+    --header-height: 72px;
   }
 }
 
 
-/* ---------- 2. BASE STYLES ---------- */
+/* ==========================================================================
+   3. Base
+   ========================================================================== */
 
 *,
 *::before,
@@ -159,47 +181,53 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-plum);
+  font-family: var(--font-hand);
   font-size: var(--text-body);
   line-height: 1.6;
-  font-synthesis: none;   /* never fake bold or italic: our font has one style */
+  font-synthesis: none; /* Handy Casual has one style, so never fake bold */
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0 0 var(--space-16);
-  font-family: var(--font-heading);
+  color: var(--color-plum);
+  font-family: var(--font-hand);
   font-weight: 600;
-  color: var(--color-ink);
-  text-wrap: balance;  /* avoids a single lonely word on the last line */
+  text-wrap: balance;
 }
 
-h1 { font-size: var(--text-h1); line-height: 1.1; }
-h2 { font-size: var(--text-h2); line-height: 1.15; }
-h3 { font-size: var(--text-h3); line-height: 1.2; }
+h1 {
+  font-size: var(--text-h1);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: var(--text-h3);
+  line-height: 1.2;
+}
 
 p {
-  margin: 0 0 var(--space-16);
   max-width: var(--reading-max);
+  margin: 0 0 var(--space-16);
 }
 
 a {
-  color: var(--color-teal);
+  color: var(--color-plum);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
 a:hover {
-  color: var(--color-teal-deep);
+  color: var(--color-plum-dark);
   text-decoration-thickness: 2px;
-}
-
-/* Keyboard focus: a clear teal outline (accessibility) */
-:focus-visible {
-  outline: 3px solid var(--color-teal);
-  outline-offset: 3px;
-  border-radius: 4px;
 }
 
 img,
@@ -210,22 +238,16 @@ video {
   height: auto;
 }
 
-mark {
-  background-color: var(--color-highlighter);
-  color: var(--color-ink);
-  padding: 0 0.15em;
-  border-radius: 2px;
-}
-
 ::selection {
   background-color: var(--color-sticky);
-  color: var(--color-ink);
+  color: var(--color-plum);
 }
 
 
-/* ---------- 3. LAYOUT HELPERS ---------- */
+/* ==========================================================================
+   4. Layout
+   ========================================================================== */
 
-/* Centers content and keeps it from getting too wide */
 .container {
   width: 100%;
   max-width: calc(var(--content-max) + var(--gutter) * 2);
@@ -233,58 +255,23 @@ mark {
   padding-inline: var(--gutter);
 }
 
-/* Vertical breathing room for each page section */
-.section {
-  padding-block: var(--section-gap);
+/* For sections that need more room, like rows of four cards */
+.container--wide {
+  max-width: calc(1400px + var(--gutter) * 2);
 }
 
 
-/* ---------- 4. TEXT HELPERS ---------- */
+/* ==========================================================================
+   5. Accessibility
+   ========================================================================== */
 
-.text-hero {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: var(--text-hero);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+:focus-visible {
+  outline: 3px solid var(--color-plum);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-.text-small {
-  font-size: var(--text-small);
-  line-height: 1.5;
-  color: var(--color-slate);
-}
-
-/* Small uppercase labels, e.g. "CASE STUDY · INTERNAL TOOL" */
-.label {
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-red-pen);
-}
-
-
-/* ---------- 5. REDUCED MOTION ---------- */
-/* From Handbook Chapter G: if someone turns on "reduce motion"
-   in their device settings, switch animations off. */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ---------- 6. ACCESSIBILITY HELPERS ---------- */
-
-/* Hides text visually but keeps it for screen readers */
+/* Hidden on screen, still read by screen readers */
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -297,17 +284,17 @@ mark {
   border: 0;
 }
 
-/* "Skip to main content": hidden above the screen until focused */
+/* "Skip to main content" slides in when focused with the keyboard */
 .skip-link {
   position: absolute;
   top: var(--space-16);
   left: var(--space-16);
   z-index: 100;
   padding: var(--space-8) var(--space-16);
-  background-color: var(--color-ink);
-  color: #FFFFFF;
-  font-weight: 700;
+  background-color: var(--color-plum);
   border-radius: var(--radius-button);
+  color: var(--color-white);
+  font-weight: 700;
   transform: translateY(-200%);
 }
 
@@ -316,155 +303,77 @@ mark {
 }
 
 .skip-link:hover {
-  color: #FFFFFF;
+  color: var(--color-white);
 }
 
-/* When jumping to #contact etc., stop below the sticky header */
+/* Jump links stop below the sticky header */
 [id] {
   scroll-margin-top: 88px;
 }
 
-
-/* ---------- 7. BUTTONS ---------- */
-/* Sticker buttons: plum outline + small plum shadow */
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-8);
-  min-height: 44px;                    /* comfortable finger-sized target */
-  padding: var(--space-8) var(--space-24);
-  border: 2px solid var(--color-plum);
-  border-radius: var(--radius-button);
-  box-shadow: 3px 3px 0 var(--color-plum);   /* the sticker shadow */
-  font-family: var(--font-hand);
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--color-ink);
-  text-decoration: none;
-  cursor: pointer;
-  transition: translate 120ms ease, box-shadow 120ms ease, background-color 180ms ease;
+/* Respect "reduce motion" in the visitor's device settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Hover: the sticker lifts a little */
-.button:hover {
-  translate: -1px -1px;
-  box-shadow: 4px 4px 0 var(--color-plum);
-  color: var(--color-ink);
-}
 
-/* Click: the sticker presses down into its shadow */
-.button:active {
-  translate: 2px 2px;
-  box-shadow: 1px 1px 0 var(--color-plum);
-}
+/* ==========================================================================
+   6. Site header
+   ========================================================================== */
 
-/* Pink: the main action ("See my work") */
-.button--primary {
-  background-color: var(--color-pink);
-}
-
-/* White: the second action ("Play something") */
-.button--secondary {
-  background-color: var(--color-card);
-}
-
-/* Smaller version */
-.button--small {
-  min-height: 40px;
-  padding: var(--space-4) var(--space-16);
-  font-size: 1rem;
-}
-
-/* For the dark footer (we'll redesign the footer later) */
-.button--light {
-  background-color: var(--color-card);
-  border-color: var(--color-card);
-  box-shadow: 3px 3px 0 var(--color-pink);
-}
-.button--light:hover {
-  box-shadow: 4px 4px 0 var(--color-pink);
-}
-
-.button--outline-light {
-  background-color: transparent;
-  border-color: rgb(255 255 255 / 0.6);
-  box-shadow: none;
-  color: #FFFFFF;
-}
-.button--outline-light:hover {
-  background-color: rgb(255 255 255 / 0.1);
-  border-color: #FFFFFF;
-  box-shadow: none;
-  color: #FFFFFF;
-}
-
-/* ---------- 8. SITE HEADER ---------- */
-
-/* Solid lemon bar with a plum line underneath */
 .site-header {
-  position: sticky;      /* stays at the top while scrolling */
+  position: sticky;
   top: 0;
-  z-index: 50;           /* sits above other content */
+  z-index: 50;
   background-color: var(--color-cream);
-
   transition: box-shadow 180ms ease;
 }
 
-/* JavaScript adds this class after the first scroll: a soft shadow */
+/* main.js adds .is-scrolled once the page moves */
 .site-header.is-scrolled {
   box-shadow: 0 4px 12px rgb(59 42 68 / 0.12);
 }
 
 .site-header__inner {
   display: flex;
-  flex-wrap: wrap;       /* tiny phones: the menu drops below your name instead of squashing */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-8) var(--space-16);
+  max-width: 1900px;
   min-height: var(--header-height);
   padding-block: var(--space-8);
-  max-width: 1900px;     /* wider than the page: bigger number = further apart */
 }
 
-/* Your name + flower */
 .brand {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
+  color: var(--color-plum);
   font-family: var(--font-hand);
   font-size: 1.375rem;
-  color: var(--color-ink);
   text-decoration: none;
 }
+
 .brand:hover {
-  color: var(--color-ink);
+  color: var(--color-plum);
 }
 
-/* The flower logo (flower_1.svg) */
 .brand__flower {
   display: block;
   flex-shrink: 0;
-  width: 32px;      /* ← phone size: change this number */
+  width: 48px;
   height: auto;
 }
 
-/* Spins clockwise, non-stop. One full turn every 8 seconds.
-   Stays still for visitors who ask their device to reduce motion. */
-@media (prefers-reduced-motion: no-preference) {
-  .brand__flower {
-    animation: flower-spin 8s linear infinite;
-  }
-}
-
-@keyframes flower-spin {
-  from { rotate: 0deg; }
-  to   { rotate: 360deg; }
-}
-
-/* On small phones show only "Loran" */
+/* Small phones show only the first name */
 .brand__surname {
   display: none;
 }
@@ -480,16 +389,15 @@ mark {
 .site-nav__link {
   display: inline-block;
   padding-block: var(--space-8);
+  color: var(--color-plum);
   font-family: var(--font-hand);
   font-size: 1.0625rem;
-  color: var(--color-ink);
   text-decoration: none;
 }
 
-/* Hover, and the "you are here" page: thick pink underline */
 .site-nav__link:hover,
 .site-nav__link[aria-current] {
-  color: var(--color-ink);
+  color: var(--color-plum);
   text-decoration: underline;
   text-decoration-color: var(--color-pink);
   text-decoration-thickness: 3px;
@@ -503,37 +411,48 @@ mark {
 }
 
 @media (min-width: 768px) {
-    .brand__flower {
-    width: 40px;    /* ← tablet and laptop size: change this number */
+  .brand__flower {
+    width: 64px;
   }
+
   .site-nav__list {
     gap: var(--space-24);
   }
+
   .site-nav__link {
     font-size: 1.25rem;
   }
 }
 
-/* ---------- 9. CONTACT BAND + FOOTER ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .brand__flower {
+    animation: spin 5s linear infinite;
+  }
+}
+
+
+/* ==========================================================================
+   7. Site footer
+   ========================================================================== */
 
 .site-footer {
+  position: relative;
   padding-top: var(--section-gap);
-  background-color: var(--color-teal-deep);
-  color: #FFFFFF;
+  background-color: var(--color-plum-dark);
+  color: var(--color-white);
 }
 
-/* Teal focus outlines would be invisible on teal, so use yellow here */
+.site-footer .wave__fill {
+  fill: var(--color-plum-dark);
+}
+
 .site-footer :focus-visible {
-  outline-color: var(--color-highlighter);
-}
-
-.label--light {
-  color: var(--color-highlighter);
+  outline-color: var(--color-pink);
 }
 
 .contact__title {
   max-width: 22ch;
-  color: #FFFFFF;
+  color: var(--color-white);
 }
 
 .contact__text {
@@ -547,7 +466,7 @@ mark {
   margin-block: var(--space-24);
 }
 
-/* Phones: full-width buttons, easy to tap */
+/* Full-width buttons on phones, easy to tap */
 .contact__email .button {
   flex: 1 1 100%;
 }
@@ -562,11 +481,12 @@ mark {
 }
 
 .contact__links a {
+  color: var(--color-pink);
   font-weight: 700;
-  color: var(--color-highlighter);
 }
+
 .contact__links a:hover {
-  color: #FFFFFF;
+  color: var(--color-white);
 }
 
 .site-footer__bottom {
@@ -577,8 +497,8 @@ mark {
   margin-top: var(--space-48);
   padding-block: var(--space-24);
   border-top: 1px solid rgb(255 255 255 / 0.2);
-  font-size: var(--text-small);
   color: rgb(255 255 255 / 0.8);
+  font-size: var(--text-small);
 }
 
 .site-footer__bottom p {
@@ -586,1006 +506,131 @@ mark {
 }
 
 .site-footer__bottom a {
-  color: #FFFFFF;
+  color: var(--color-white);
 }
 
 @media (min-width: 768px) {
   .contact__email .button {
-    flex: 0 0 auto;      /* desktop: buttons only as wide as their text */
-  }
-}
-/* ---------- 10. HERO ---------- */
-
-/* Your background image, everything centered */
-.hero {
-  overflow: hidden;            /* nothing can poke out sideways on phones */
-  padding-block: var(--space-48) var(--space-64);
-  background-color: #FFF9f4;
-  text-align: center;
-}
-
-/* Stack everything in a centered column */
-.hero__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* "Full stack e-learning developer" in a mint pill */
-.hero__pill {
-  margin: 0 0 var(--space-16);
-  padding: var(--space-4) var(--space-16);
-  background-color: var(--color-mint);
-  border: 2px solid var(--color-plum);
-  border-radius: var(--radius-pill);
-  font-size: 1.0625rem;
-  line-height: 1.3;
-}
-
-.hero__title {
-  margin: 0 auto var(--space-24);
-  font-size: clamp(2rem, 4.2vw, 3.25rem);   /* grows with the screen: 32px to 52px */
-  font-weight: 400;
-  line-height: 1.15;
-}
-
-/* Each part of the headline starts on its own line */
-.hero__line {
-  display: block;
-}
-
-/* "want to click." on a pink highlighter stripe */
-/* "want to click." on your hand-drawn highlight (highlight.svg) */
-.hero__highlight {
-  display: inline-block;
-  padding: 0.05em 0.3em 0.05em 0.6em;   /* top, right, bottom, LEFT */
-  margin-left: -0.3em;                   /* keeps the text from shifting right */
-  line-height: 1;
-  background-color: transparent;
-  background-image: url("../assets/images/highlight.svg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: var(--color-ink);
-  white-space: nowrap;
-}
-
-/* Wrapper that keeps the cursor attached to "want to click." */
-.hero__click {
-  position: relative;          /* lets the cursor sit at its corner */
-  display: inline-block;
-  white-space: nowrap;
-}
-
-/* White arrow cursor with a plum outline */
-.hero__cursor {
-  position: absolute;
-  right: -0.3em;               /* sideways position: bigger = further right */
-  bottom: -0.45em;             /* up/down position: bigger = lower */
-  width: 0.55em;               /* size: grows with the headline */
-  fill: var(--color-card);
-  stroke: var(--color-plum);
-  stroke-width: 1.5;
-  stroke-linejoin: round;
-  pointer-events: none;        /* never gets in the way of real clicks */
-  transform-origin: top left;  /* presses down from its tip */
-}
-
-/* The click animation, on loop.
-   Only plays if the visitor hasn't asked to reduce motion. */
-@media (prefers-reduced-motion: no-preference) {
-  .hero__cursor {
-    animation: cursor-click 2.6s ease-in-out infinite;
-  }
-  .hero__highlight {
-    animation: highlight-press 2.6s ease-in-out infinite;
-  }
-}
-
-/* Cursor: glides in, clicks, waits, fades away */
-@keyframes cursor-click {
-  0%   { translate: 0.6em 0.6em; opacity: 0; }
-  15%  { opacity: 1; }
-  45%  { translate: 0 0; scale: 1; }
-  52%  { scale: 0.8; }            /* press */
-  60%  { scale: 1; }              /* release */
-  85%  { translate: 0 0; opacity: 1; }
-  100% { translate: 0.6em 0.6em; opacity: 0; }
-}
-
-/* Pink highlight: a tiny squish at the moment of the click */
-@keyframes highlight-press {
-  0%, 48%   { scale: 1; }
-  52%       { scale: 0.95; }
-  60%, 100% { scale: 1; }
-}
-
-.hero__text {
-  max-width: 52ch;
-  margin: 0 auto var(--space-16);
-  font-family: var(--font-clean);   /* Quicksand */
-  font-weight: 700;                 /* Medium: try 400 for lighter, 600 for bolder */
-  font-size: 25px;
-}
-
-/* The definition line, with a short pink dash above it */
-.hero__definition {
-  max-width: 52ch;
-  margin: 0 auto var(--space-32);
-  font-family: var(--font-clean);   /* Quicksand */
-  font-weight: 600;                 /* Medium: try 400 for lighter, 600 for bolder */
-  font-size: 20px;
-  line-height: 1.5;
-  color: var(--color-slate);
-}
-
-.hero__definition::before {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 4px;
-  margin: 0 auto var(--space-12);
-  background-color: var(--color-pink);
-  border-radius: 2px;
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-12);
-  width: 100%;
-}
-
-/* The two top buttons: bigger and longer than the others */
-.hero__actions .button {
-  flex: 1 1 100%;                         /* phones: full width */
-  min-height: 52px;                       /* height: bigger number = taller */
-  padding: var(--space-12) var(--space-32);   /* space inside: top/bottom, then left/right */
-  font-size: 1.25rem;                     /* text size */
-}
-
-/* Tablets and laptops: both buttons the same, longer width */
-@media (min-width: 768px) {
-  .hero__actions .button {
-    min-width: 200px;                     /* length: bigger number = longer */
+    flex: 0 0 auto;
   }
 }
 
 
-/* --- Shapes inside the project SVG drawings ---
-   Still used by the Worktext Studio and Pop the Verbs pictures. Keep! */
+/* ==========================================================================
+   8. Shared components
+   ========================================================================== */
 
-.art-card      { fill: var(--color-card); stroke: var(--color-rule); stroke-width: 2; }
-.art-guide     { fill: none; stroke: var(--color-teal); stroke-opacity: 0.3;
-                 stroke-width: 1.5; stroke-dasharray: 6 5; }
-.art-teal      { fill: var(--color-teal); }
-.art-line      { fill: var(--color-rule); }
-.art-highlight { fill: var(--color-highlighter); }
-.art-wash      { fill: var(--color-teal-wash); }
-.art-bubble    { fill: var(--color-card); stroke: var(--color-bubble); stroke-width: 3; }
-.art-bubble--dashed { stroke-dasharray: 5 4; stroke-opacity: 0.6; }
-.art-word      { fill: var(--color-ink); font-family: var(--font-body); font-size: 15px;
-                 font-weight: 700; text-anchor: middle; dominant-baseline: central; }
-.art-ceiling   { stroke: var(--color-red-pen); stroke-width: 3; }
-.art-ceiling-label { fill: var(--color-red-pen); font-family: var(--font-mono);
-                     font-size: 12px; text-anchor: end; }
-
-
-/* --- Bigger screens --- */
-
-@media (min-width: 768px) {
-  .hero__actions .button {
-    flex: 0 0 auto;            /* buttons only as wide as their text */
-  }
-}
-
-@media (min-width: 960px) {
-  .hero {
-    padding-block: var(--space-64) var(--space-96);
-  }
-}
-/* ---------- 11. JOURNEY STRIP ---------- */
-
-.journey-strip {
-  --step-gap: var(--space-24);
-
-  position: relative;      /* lets the waves sit on its top and bottom edges */
-  z-index: 1;              /* waves draw on top of the sections around it */
-  padding-block: var(--space-48);
-  background-color: #eee2f5;
-}
-
-/* Wavy edges match the strip background */
-.journey-strip .wave__fill {
-  fill: #eee2f5;
-}
-
-/* Darker text so everything stays easy to read */
-.journey-strip__title,
-.journey-step__note {
-  color: var(--color-ink);
-}
-
-.journey-strip__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-8) var(--space-24);
-  margin-bottom: var(--space-32);
-}
-
-.journey-strip__title {
-  margin: 0;
-}
-
-.journey-strip__link {
-  font-size: var(--text-small);
-  font-weight: 700;
-  text-decoration: none;
-}
-.journey-strip__link:hover {
-  text-decoration: underline;
-}
-
-.journey-strip__list {
-  display: grid;
-  gap: var(--step-gap);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-
-/* --- One step (phone: dot on the left, text on the right) --- */
-
-.journey-step {
-  position: relative;
-  padding-left: var(--space-32);
-}
-
-/* ===== LINE + DOT COLORS: change these to recolor the line =====
-   --dot  = this step's dot color
-   --next = the color the line fades to
-   Rule: each --next must match the --dot on the line below it. */
-.journey-step:nth-child(1) { --dot: var(--color-highlighter); --next: var(--mix-25); }
-.journey-step:nth-child(2) { --dot: var(--mix-25);            --next: var(--mix-50); }
-.journey-step:nth-child(3) { --dot: var(--mix-50);            --next: var(--mix-75); }
-.journey-step:nth-child(4) { --dot: var(--mix-75);            --next: var(--color-teal); }
-.journey-step:nth-child(5) { --dot: var(--color-teal); }
-
-.journey-step__dot {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  z-index: 1;                        /* sits on top of the line */
-  width: 24px;                       /* bigger dot (was 18px) */
-  height: 24px;
-  background-color: var(--color-card);
-  border: 4px solid var(--dot);      /* thicker ring (was 3px) */
-  border-radius: 50%;
-}
-
-/* The current role: a filled dot */
-.journey-step--current .journey-step__dot {
-  background-color: #D94F83;
-}
-
-.journey-step--current .journey-step__role {
-  color: #D94F83;
-}
-
-/* The line (phone): goes down from this dot to the next one */
-.journey-step:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  top: 14px;                          /* center of the dot */
-  left: 9.5px;                        /* centers the line on the dot */
-  width: 5px;                         /* thicker line (was 3px) */
-  height: calc(100% + var(--step-gap));
-  background: linear-gradient(to bottom, var(--dot), var(--next));
-}
-
-.journey-step__role {
-  margin: 0 0 var(--space-4);
-  font-size: var(--text-small);
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.journey-step--current .journey-step__role {
-  color: var(--color-teal);
-}
-
-.journey-step__note {
-  margin: 0;
-  font-size: var(--text-small);
-  line-height: 1.4;
-  color: var(--color-slate);
-}
-
-
-/* --- Tablet and desktop: horizontal line --- */
-
-@media (min-width: 768px) {
-  .journey-strip {
-    --step-gap: var(--space-16);
-  }
-
-  .journey-strip__list {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .journey-step {
-    padding-left: 0;
-    padding-top: var(--space-40, 40px);   /* room for the bigger dot */
-  }
-
-  .journey-step__dot {
-    top: 0;
-  }
-
-  /* The line (desktop): goes right from this dot to the next one */
-  .journey-step:not(:last-child)::before {
-    top: 9.5px;                           /* centers the line on the dot */
-    left: 12px;                           /* starts at the dot's center */
-    width: calc(100% + var(--step-gap));  /* reaches the next dot */
-    height: 5px;                          /* thicker line (was 3px) */
-    background: linear-gradient(to right, var(--dot), var(--next));
-  }
-}
-
-/* --- Wide screens: make the line longer --- */
-
-@media (min-width: 1024px) {
-  .journey-strip__list {
-    margin-inline: -300px;    /* bigger number = longer line */
-  }
-}
-
-
-/* --- Wavy edges (top and bottom of the journey strip) --- */
+/* --- Wavy edges ---
+   An SVG that hangs just outside the top or bottom of a section.
+   The 1px overlap hides any hairline gap. */
 
 .wave {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 24px;                 /* phones: gentle waves */
-  pointer-events: none;         /* never blocks clicks */
+  height: 24px;
+  pointer-events: none;
 }
 
-/* Top wave sits just above the strip; bottom wave just below it.
-   The -1px overlap hides any thin gap between wave and strip. */
-.wave--top    { bottom: calc(100% - 1px); }
-.wave--bottom { top:    calc(100% - 1px); }
+.wave--top {
+  bottom: calc(100% - 1px);
+}
+
+.wave--bottom {
+  top: calc(100% - 1px);
+}
 
 .wave__fill {
-  fill: var(--color-card);
+  fill: var(--color-white);
 }
 
 .wave__line {
   fill: none;
-  stroke: var(--color-ink);
+  stroke: var(--color-plum);
   stroke-width: 2;
-  vector-effect: non-scaling-stroke;  /* line stays 2px thick at any screen width */
+  vector-effect: non-scaling-stroke;
 }
 
 @media (min-width: 768px) {
   .wave {
-    height: 40px;               /* taller waves on bigger screens */
+    height: 40px;
   }
 }
 
-/* ---------- 12. WORK BANDS ---------- */
+/* --- Buttons: sticker style with a plum outline and shadow --- */
 
-.work-band {
-  padding-block: var(--space-64);
-}
-
-/* First band: extra top space so the journey strip's bottom wave doesn't cover the title */
-.work-band--tools   { background-color: var(--color-cream); padding-top: calc(var(--space-48) + 40px); }
-.work-band--play    { background-color: var(--color-cream); }
-.work-band--systems { background-color: var(--color-cream); } 
-
-/* Last band: lets its wave hang over the top of the footer */
-.work-band--systems {
-  position: relative;
-  z-index: 1;
-}
-
-/* Wave color matches the cream band */
-.work-band--systems .wave__fill {
-  fill: var(--color-cream);
-}
-
-.work-band__inner {
-  width: min(100% - 2rem, 1100px);
-  margin-inline: auto;
-}
-
-/* Band title with the little outlined circle */
-.work-band__title {
-  display: flex;
+.button {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  margin: 0 0 var(--space-24);
-  font-family: var(--font-hand);
-  font-weight: 400;
-  font-size: 40px;
-  color: var(--color-plum);
-}
-
-/* Card grids */
-.work-grid {
-  display: grid;
-  gap: 20px;
-}
-@media (min-width: 768px) {
-  .work-grid--three { grid-template-columns: repeat(3, 1fr); }
-  .work-grid--two   { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* --- Card (sticker style) --- */
-.work-card {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background-color: #FFFFFF;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: 44px;
+  padding: var(--space-8) var(--space-24);
   border: 2px solid var(--color-plum);
-  border-radius: 12px;
-  box-shadow: 3px 3px 0 var(--color-plum);
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow-sticker);
+  color: var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    translate 120ms ease,
+    box-shadow 120ms ease,
+    background-color 180ms ease;
+}
+
+/* The sticker lifts on hover and presses down on click */
+.button:hover {
+  translate: -1px -1px;
+  box-shadow: 4px 4px 0 var(--color-plum);
   color: var(--color-plum);
 }
 
-/* Picture area on top of the card */
-.work-card__art {
-  display: grid;
-  place-items: center;
-  min-height: 90px;
-  padding: 12px;
-  border-bottom: 2px solid var(--color-plum);
-}
-.work-card__art svg,
-.work-card__art img {
-  height: 56px;
-  width: auto;
-}
-.work-card__art--rose  { background-color: var(--color-rose); }
-.work-card__art--mint  { background-color: var(--color-mint); }
-.work-card__art--lemon { background-color: var(--color-lemon); }
-
-.work-card__body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 14px 16px 16px;
+.button:active {
+  translate: 2px 2px;
+  box-shadow: 1px 1px 0 var(--color-plum);
 }
 
-.work-card__title {
-  margin: 0 0 4px;
-  font-family: var(--font-clean);
-  font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 1.3;
+.button--primary {
+  background-color: var(--color-pink);
 }
 
-.work-card__meta {
-  margin: 0 0 12px;
-  font-family: var(--font-clean);
-  font-size: 0.875rem;
+.button--secondary {
+  background-color: var(--color-white);
 }
 
-.work-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: auto;      /* buttons line up at the bottom */
-}
-
-/* Smaller sticker buttons for cards */
 .button--small {
   min-height: 40px;
   padding: 6px 20px;
-  font-family: var(--font-hand);
-  font-weight: 400;
   font-size: 20px;
 }
 
-/* --- Featured card (Worktext Studio) --- */
-.work-card--featured .work-card__art {
-  min-height: 0;
-  padding: 20px;
-  background-color: #FFFFFF;
+/* For the dark footer */
+.button--light {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  box-shadow: 3px 3px 0 var(--color-pink);
 }
-.work-card--featured .work-card__art svg,
-.work-card--featured .work-card__art img {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-}
-
-.work-card--featured .work-card__body {
-  padding: 20px 24px 24px;
-}
-.work-card--featured .work-card__title {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-}
-
-.work-card__pill {
-  align-self: flex-start;
-  margin: 0 0 8px;
-  padding: 2px 14px;
-  font-family: var(--font-clean);
-  font-size: 0.8rem;
-  background-color: var(--color-mint);
-  border: 2px solid var(--color-plum);
-  border-radius: 999px;
-}
-
-.work-card__text {
-  margin: 0 0 16px;
-  font-family: var(--font-clean);
-  line-height: 1.5;
-}
-
-/* Tablet and up: picture on the left, words on the right */
-@media (min-width: 768px) {
-  .work-card--featured {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-  }
-  .work-card--featured .work-card__art {
-    border-bottom: 0;
-    border-right: 2px solid var(--color-plum);
-  }
-}
-
-/* Slim card (DOCX converter): sits under the featured card */
-.work-card--slim {
-  margin-top: 20px;
-}
-
-/* Tablet and up: picture on the left, words on the right */
-@media (min-width: 768px) {
-  .work-card--slim {
-    flex-direction: row;
-  }
-  .work-card--slim .work-card__art {
-    flex: 0 0 140px;
-    border-bottom: 0;
-    border-right: 2px solid var(--color-plum);
-  }
-}
-
-/* "Built with" tags: small rounded labels */
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 0 0 16px;
-  padding: 0;
-  list-style: none;
-}
-
-.chip {
-  padding: 2px 12px;
-  font-family: var(--font-clean);
-  font-size: 0.8rem;
-  background-color: var(--color-cream);
-  border: 1.5px solid var(--color-plum);
-  border-radius: var(--radius-pill);
-}
-
-/* ----- Flowers in the work area ----- */
-
-/* Each band's content box is the "map" the flowers are placed on */
-.work-band__inner {
-  position: relative;
-}
-
-/* Cards sit on top of the flowers */
-.work-card {
-  position: relative;
-  z-index: 1;
-}
-
-/* Game cards sit one layer higher, so the green flower
-   from the section below can't cover them */
-.work-band--play .work-card {
-  z-index: 2;
-}
-
-/* Big flowers near the edge must not make the page scroll sideways */
-.work-band {
-  overflow-x: clip;
-}
-
-/* Every flower */
-.flower {
-  position: absolute;
-  z-index: 0;              /* behind the cards */
-  display: none;           /* hidden on phones and tablets */
-  height: auto;
-  pointer-events: none;    /* never blocks clicks */
-}
-
-/* Only show flowers on big screens, where there's room beside the cards */
-@media (min-width: 1200px) {
-  .flower {
-    display: block;
-  }
-}
-
-/* Each flower's size and spot.
-   width = size
-   top   = up/down (bigger = lower)
-   left  = from the left edge of the cards (more minus = further left)
-   right = from the right edge of the cards (more minus = further right) */
-.flower--purple { width: 350px; top: 100px;  left: -400px; }
-.flower--orange { width: 130px; top: 550px;  left: -120px;  z-index: 2; }  /* in FRONT of the card */
-.flower--pink   { width: 340px; top: 360px;  right: -380px; }
-.flower--blue   { width: 130px; top: 20px;   right: -165px; }
-.flower--green  { width: 390px; top: -180px; left: -290px; }
-.flower--green  { width: 390px; top: -180px; left: -290px; z-index: -1; }  /* very back, behind the title too */
-
-/* ----- Card text: sizes and boldness ----- */
-.work-card__title {
-  font-size: 30px;     /* project names */
-}
-
-.work-card__text,
-.work-card__meta {
-  font-size: 18px;     /* descriptions */
-  font-weight: 700;    /* bold */
-}
-
-.work-card__pill,
-.chip {
-  font-weight: 700;    /* bold pill and tags */
-}
-
-
-/* ---------- 16. MORE LEARNING WORK (compact cards) ---------- */
-
-/* Use when a section follows another closely: no extra top space */
-.section--tight-top {
-  padding-top: 0;
-}
-
-/* Section header with a link on the right */
-.section-header--split {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-8) var(--space-24);
-  margin-bottom: var(--space-32);
-}
-
-/* A bold teal link with an arrow, e.g. "See all learning work →" */
-.text-link {
-  font-weight: 700;
-  text-decoration: none;
-}
-.text-link:hover {
-  text-decoration: underline;
-}
-
-/* Responsive grid: 1 column → 2 → 3 */
-.card-grid {
-  display: grid;
-  gap: var(--space-24);
-}
-
-/* Cards in a grid sit side by side, so cancel the stacking gap
-   from section 15 (.project-card + .project-card) */
-.card-grid .project-card + .project-card {
-  margin-top: 0;
-}
-
-/* Compact card: text only, link pinned to the bottom */
-.project-card--compact .project-card__body {
-  display: flex;
-  flex-direction: column;
-}
-
-.project-card--compact .project-card__summary {
-  font-size: var(--text-small);
-  line-height: 1.5;
-}
-
-.project-card--compact .chips {
-  margin-bottom: var(--space-16);
-}
-
-.project-card--compact .project-card__link {
-  margin-top: auto;    /* pushes the link to the bottom of the card */
-}
-
-@media (min-width: 768px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 960px) {
-  .card-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ---------- 19. PAGE HEADER (top of inner pages) ---------- */
-
-.page-header {
-  padding-block: var(--space-48);
-}
-
-.page-header h1 {
-  max-width: 20ch;
-}
-
-.page-header__intro {
-  max-width: 60ch;
-  margin: 0;
-  color: var(--color-slate);
-}
-
-@media (min-width: 960px) {
-  .page-header {
-    padding-block: var(--space-64);
-  }
-}
-
-
-/* ---------- 20. WORK LIST (mini write-ups) ---------- */
-
-.work-list {
-  display: grid;
-  gap: var(--space-24);
-}
-
-.work-item {
-  padding: var(--space-24);
-  background-color: var(--color-paper);
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius-card);
-}
-
-.work-item .label {
-  margin-bottom: var(--space-8);
-}
-
-.work-item h3 {
-  margin-bottom: var(--space-12);
-}
-
-.work-item p {
-  font-size: var(--text-small);
-  line-height: 1.55;
-}
-
-/* Small heading inside an item, e.g. "What I did" */
-.work-item__subhead {
-  margin-bottom: var(--space-4);
-  font-weight: 700;
-  color: var(--color-ink);
-}
-
-.work-item__list {
-  margin: 0 0 var(--space-16);
-  padding-left: 1.2em;
-  font-size: var(--text-small);
-  line-height: 1.5;
-}
-
-.work-item__list li + li {
-  margin-top: var(--space-4);
-}
-
-.work-item .chips {
-  margin-bottom: 0;
-}
-
-/* Short cards in the "Earlier work" grid sit on paper, so make them white */
-.work-item--small {
-  background-color: var(--color-card);
-}
-
-.work-item--small p {
-  margin-bottom: 0;
-}
-
-/* Code examples */
-.code-sample {
-  margin: 0 0 var(--space-8);
-  padding: var(--space-12) var(--space-16);
-  background-color: var(--color-teal-wash);
-  border-radius: 8px;
-  color: var(--color-teal-deep);
-  font-family: "JetBrains Mono", Consolas, monospace;
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  white-space: pre-wrap;      /* wrap long lines instead of overflowing on phones */
-  overflow-wrap: anywhere;
-}
-
-.code-caption {
-  color: var(--color-slate);
-}
-
-@media (min-width: 960px) {
-  .work-item {
-    padding: var(--space-32);
-  }
-  .work-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-/* ---------- 21. JOURNEY CHAPTERS ---------- */
-
-.chapters {
-  --chapter-gap: var(--space-48);
-  display: grid;
-  gap: var(--chapter-gap);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
-.chapter {
-  position: relative;
-  display: grid;
-  gap: var(--space-24);
-  padding-left: 60px;     /* room for the numbered circle */
+.button--light:hover {
+  box-shadow: 4px 4px 0 var(--color-pink);
 }
-
-/* Each chapter's circle color, and the next one (for the line) */
-.chapter:nth-child(1) { --dot: var(--color-highlighter); --next: var(--mix-25); }
-.chapter:nth-child(2) { --dot: var(--mix-25);            --next: var(--mix-50); }
-.chapter:nth-child(3) { --dot: var(--mix-50);            --next: var(--mix-75); }
-.chapter:nth-child(4) { --dot: var(--mix-75);            --next: var(--color-teal); }
-.chapter:nth-child(5) { --dot: var(--color-teal); }
-
-/* The numbered circle */
-.chapter__marker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: grid;
-  place-items: center;    /* centers the number */
-  width: 44px;
-  height: 44px;
-  background-color: var(--color-paper);
-  border: 3px solid var(--dot);
-  border-radius: 50%;
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.chapter--current .chapter__marker {
-  background-color: var(--color-teal);
-  color: #FFFFFF;
-}
-
-/* The line from this circle down to the next one */
-.chapter:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  top: 44px;
-  left: 20.5px;
-  width: 3px;
-  height: calc(100% - 44px + var(--chapter-gap));
-  background: linear-gradient(to bottom, var(--dot), var(--next));
-}
-
-.chapter__main .label {
-  margin-bottom: var(--space-8);
-}
-
-.chapter__main p {
-  max-width: 62ch;
-}
-
-/* "What I carried forward" note */
-.chapter__note {
-  align-self: start;
-  max-width: 320px;
-  transform: rotate(1.5deg);
-}
-
-/* Notes can now hold several paragraphs */
-.margin-note p {
-  margin: 0;
-}
-
-.margin-note__label {
-  margin-bottom: var(--space-4) !important;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-slate);
-}
-
-/* Wide screens: notes move into a side column, like real margin notes */
-@media (min-width: 960px) {
-  .chapters {
-    --chapter-gap: var(--space-64);
-  }
-  .chapter {
-    grid-template-columns: minmax(0, 1fr) 280px;
-    gap: var(--space-48);
-  }
-  .chapter__note {
-    margin-top: var(--space-32);
-    transform: rotate(2deg);
-  }
-}
-
-
-/* ---------- 22. THREADS ---------- */
-
-.threads {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-16);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.thread {
-  padding: var(--space-24) var(--space-16) var(--space-16);
-  background-color: var(--color-paper);
-  border: 1px solid var(--color-rule);
-  border-top: 4px solid var(--thread-color);
-  border-radius: var(--radius-card);
-}
-
-.thread:nth-child(1) { --thread-color: var(--color-highlighter); }
-.thread:nth-child(2) { --thread-color: var(--mix-25); }
-.thread:nth-child(3) { --thread-color: var(--mix-50); }
-.thread:nth-child(4) { --thread-color: var(--mix-75); }
-.thread:nth-child(5) { --thread-color: var(--color-teal); }
-
-.thread h3 {
-  margin-bottom: var(--space-8);
-  font-size: 1.125rem;
-}
-
-.thread dl {
-  margin: 0;
-}
-
-.thread dt {
-  margin-top: var(--space-12);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-slate);
-}
-
-.thread dd {
-  margin: 0;
-  font-size: var(--text-small);
-  line-height: 1.5;
-}
-
-/* ---------- 24. CALL TO ACTION + BUTTON ROW ---------- */
 
-.cta h2 {
-  margin-bottom: var(--space-8);
+.button--outline-light {
+  background-color: transparent;
+  border-color: rgb(255 255 255 / 0.6);
+  box-shadow: none;
+  color: var(--color-white);
 }
 
-.cta p {
-  color: var(--color-slate);
+.button--outline-light:hover {
+  background-color: rgb(255 255 255 / 0.1);
+  border-color: var(--color-white);
+  box-shadow: none;
+  color: var(--color-white);
 }
 
 /* A row of buttons: full width on phones, side by side on bigger screens */
@@ -1605,394 +650,472 @@ mark {
     flex: 0 0 auto;
   }
 }
-/* ---------- 25. CASE STUDY PAGES ---------- */
 
-/* Breadcrumb: "Work / Worktext Studio" */
-.breadcrumb ol {
+/* --- Labels and links --- */
+
+/* Small uppercase labels, like "CASE STUDY · STORYLINE" */
+.label {
+  color: var(--color-red);
+  font-family: var(--font-hand);
+  font-size: var(--text-label);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.label--light {
+  color: var(--color-pink);
+}
+
+.text-link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* --- "Built with" chips --- */
+
+.chips {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-8);
+  gap: 6px;
   margin: 0 0 var(--space-16);
   padding: 0;
   list-style: none;
-  font-size: var(--text-small);
-  color: var(--color-slate);
 }
 
-.breadcrumb li + li::before {
-  content: "/";
-  margin-right: var(--space-8);
-}
-
-.breadcrumb a {
-  color: var(--color-slate);
-}
-
-.breadcrumb [aria-current="page"] {
+.chip {
+  padding: 2px 12px;
+  background-color: var(--color-cream);
+  border: 1.5px solid var(--color-plum);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-clean);
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--color-ink);
 }
 
-.case-header__who {
-  margin-top: var(--space-12);
-  font-size: var(--text-small);
-  color: var(--color-slate);
+/* --- Sticker card --- */
+
+.cs-card {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-plum);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sticker);
 }
 
-/* Facts strip: role, users, type, built with */
-.facts {
-  display: grid;
-  gap: var(--space-16) var(--space-24);
-  margin: var(--space-32) 0 0;
-  padding-top: var(--space-24);
-  border-top: 1px solid var(--color-rule);
-}
+/* --- Project cards (Home and Play): picture on top, words below --- */
 
-.facts dt {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-slate);
-}
-
-.facts dd {
-  margin: var(--space-4) 0 0;
-  font-size: var(--text-small);
-  line-height: 1.5;
-}
-
-/* Big framed visual */
-.case-visual {
-  margin: 0;
-}
-
-.case-visual__frame {
-  padding: var(--space-16);
-  background-color: var(--color-teal-wash);
-  border-radius: var(--radius-card);
-}
-
-.case-visual figcaption {
-  margin-top: var(--space-8);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-slate);
-}
-
-/* Case study sections: tighter than homepage sections */
-.case-section {
-  padding-block: var(--space-48);
-}
-
-/* Story on the left, margin note on the right (desktop) */
-.case-block {
-  display: grid;
-  gap: var(--space-24);
-}
-
-.case-block__main > p,
-.case-block__main > ul {
-  max-width: 62ch;
-}
-
-.case-block__note {
-  align-self: start;
-  max-width: 300px;
-  transform: rotate(1.5deg);
-}
-
-/* Second kind of margin note: a technical decision (pink) */
-.margin-note--decision {
-  background-color: var(--color-red-wash);
-}
-
-.margin-note--decision .margin-note__label {
-  color: var(--color-red-pen);
-}
-
-/* Flow diagram: boxes with arrows (vertical on phones) */
-.flow {
+.work-card {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
-  margin: var(--space-24) 0 0;
-  padding: 0;
-  list-style: none;
+  overflow: hidden;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-plum);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sticker);
+  color: var(--color-plum);
 }
 
-.flow > li {
+.work-card__art {
+  display: grid;
+  place-items: center;
+  min-height: 90px;
+  padding: 12px;
+  border-bottom: 2px solid var(--color-plum);
+}
+
+.work-card__art img {
+  width: auto;
+  height: 56px;
+}
+
+.work-card__art--rose {
+  background-color: var(--color-rose);
+}
+
+.work-card__art--mint {
+  background-color: var(--color-mint);
+}
+
+.work-card__art--lemon {
+  background-color: var(--color-lemon);
+}
+.work-card__art--pink {
+  background-color: var(--color-pink);
+}
+
+.work-card__body {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-8);
+  padding: 14px 16px 16px;
 }
 
-/* Arrow between boxes (the "/ ''" part hides it from screen readers) */
-.flow > li + li::before {
-  content: "↓" / "";
-  padding-left: var(--space-16);
-  font-weight: 700;
-  color: var(--color-slate);
-}
-
-.flow__box {
-  padding: var(--space-12) var(--space-16);
-  background-color: var(--color-card);
-  border: 2px solid var(--color-teal);
-  border-radius: var(--radius-button);
-  font-size: var(--text-small);
-  font-weight: 700;
+.work-card__title {
+  margin: 0 0 4px;
+  font-family: var(--font-clean);
+  font-size: 30px;
+  font-weight: 500;
   line-height: 1.3;
 }
 
-.flow__box span {
-  display: block;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  color: var(--color-slate);
+.work-card__meta,
+.work-card__text {
+  font-family: var(--font-clean);
+  font-size: 18px;
+  font-weight: 700;
 }
 
-/* Yellow boxes = the Google-hosted back-end parts */
-.flow__box--google {
-  background-color: color-mix(in srgb, var(--color-highlighter) 18%, white);
-  border-color: var(--color-highlighter);
+.work-card__meta {
+  margin: 0 0 12px;
 }
 
-/* Front end / back end panels */
-.arch {
-  display: grid;
-  gap: var(--space-16);
-  margin-top: var(--space-24);
-}
-
-.arch__panel {
-  padding: var(--space-24);
-  background-color: var(--color-card);
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius-card);
-}
-
-.arch__panel--google {
-  background-color: color-mix(in srgb, var(--color-highlighter) 12%, white);
-  border-color: var(--color-highlighter);
-}
-
-.arch__panel .label {
-  margin-bottom: var(--space-8);
-}
-
-.arch__panel ul {
-  margin: 0;
-  padding-left: 1.2em;
-  font-size: var(--text-small);
+.work-card__text {
+  margin: 0 0 16px;
   line-height: 1.5;
 }
 
-.arch__panel li + li {
-  margin-top: var(--space-4);
+.work-card__pill {
+  align-self: flex-start;
+  margin: 0 0 8px;
+  padding: 2px 14px;
+  background-color: var(--color-mint);
+  border: 2px solid var(--color-plum);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-clean);
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
-/* Feature tiles */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-16);
-  margin: var(--space-24) 0 0;
+/* Buttons line up at the bottom of the card */
+.work-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+/* --- Game popup (built by main.js) --- */
+
+.game-popup {
+  width: min(1100px, 92vw);
   padding: 0;
-  list-style: none;
+  overflow: hidden;
+  background-color: var(--color-plum);
+  border: 3px solid var(--color-plum);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--color-plum);
 }
 
-.feature-tile {
-  padding: var(--space-24);
-  background-color: var(--color-paper);
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius-card);
+.game-popup::backdrop {
+  background-color: rgb(59 42 68 / 0.6);
 }
 
-.feature-tile h3 {
-  margin-bottom: var(--space-8);
+/* The page behind can't scroll while a game is open */
+body:has(.game-popup[open]) {
+  overflow: hidden;
+}
+
+.game-popup__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding: var(--space-8) var(--space-12) var(--space-8) var(--space-24);
+  background-color: var(--color-pink);
+  border-bottom: 3px solid var(--color-plum);
+}
+
+.game-popup__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-4) var(--space-12);
+}
+
+.game-popup__title {
+  margin: 0;
+  color: var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+}
+
+.game-popup__note {
+  margin: 0;
+  color: var(--color-plum);
+  font-family: var(--font-clean);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.game-popup__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.game-popup__newtab {
+  color: var(--color-plum);
+  font-family: var(--font-hand);
   font-size: 1.125rem;
 }
 
-.feature-tile p {
-  margin: 0;
-  font-size: var(--text-small);
-  line-height: 1.5;
+.game-popup__close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 var(--color-plum);
+  color: var(--color-plum);
+  font-size: 1.25rem;
+  cursor: pointer;
 }
 
-/* Previous / next links at the bottom */
-.pager {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--space-16);
-  padding-block: var(--space-32);
-  border-top: 1px solid var(--color-rule);
+.game-popup__close:hover {
+  background-color: var(--color-lemon);
 }
 
-@media (min-width: 768px) {
-  .facts {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .flow,
-  .flow > li {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .flow > li + li::before {
-    content: "→" / "";
-    padding-left: 0;
-  }
-  .arch {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* A 16:9 screen that never gets taller than the window */
+.game-popup__screen {
+  aspect-ratio: 16 / 9;
+  max-height: calc(90vh - 70px);
 }
 
-@media (min-width: 960px) {
-  .facts {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .case-visual__frame {
-    padding: var(--space-32);
-  }
-  .case-section {
-    padding-block: var(--space-64);
-  }
-  .case-block {
-    grid-template-columns: minmax(0, 1fr) 280px;
-    gap: var(--space-48);
-  }
-  .case-block__note {
-    margin-top: var(--space-48);
-    transform: rotate(2deg);
-  }
+.game-popup__screen iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
-
-/* ---------- 27. MOTION (Handbook Chapter G) ---------- */
-/* Everything here runs ONLY if the visitor hasn't asked
-   their device to reduce motion. */
 
 @media (prefers-reduced-motion: no-preference) {
-
-  /* --- 1. Hero entrance --- */
-
-  /* Text: each line fades in and rises 12px, 80ms after the one before */
-  .hero__content > * {
-    animation: rise-in 400ms ease-out both;
-  }
-  .hero__content > :nth-child(2) { animation-delay: 80ms; }
-  .hero__content > :nth-child(3) { animation-delay: 160ms; }
-  .hero__content > :nth-child(4) { animation-delay: 240ms; }
-  .hero__content > :nth-child(5) { animation-delay: 320ms; }
-
-  /* The illustrated page rises in a little after the text starts */
-  .hero-art__page {
-    animation: rise-in 600ms ease-out 200ms both;
-  }
-
-  /* Sticky notes drop onto the page and settle */
-  .hero-art__note--sticky {
-    animation: settle-in 500ms ease-out 550ms both;
-  }
-  .hero-art__note--review {
-    animation: settle-in 500ms ease-out 700ms both;
-  }
-
-
-  /* --- 3. Journey line draws itself --- */
-  /* JavaScript adds .will-draw (get ready) and then
-     .is-drawn (it's on screen, go!) to the journey strip. */
-
-  /* Phone: lines grow downward from the top */
-  .journey-strip {
-    --draw-from: 1 0;
-  }
-  .journey-step:not(:last-child)::before {
-    transform-origin: top center;
-  }
-
-  /* Before it's on screen: lines collapsed, dots small and faint */
-  .journey-strip.will-draw .journey-step:not(:last-child)::before {
-    scale: var(--draw-from);
-  }
-  .journey-strip.will-draw .journey-step__dot {
-    opacity: 0.3;
-    scale: 0.6;
-  }
-
-  /* On screen: each step draws in turn, 180ms apart */
-  .journey-strip.is-drawn .journey-step:not(:last-child)::before {
-    animation: draw-line 300ms ease-out forwards;
-    animation-delay: calc(var(--step) * 180ms + 120ms);
-  }
-  .journey-strip.is-drawn .journey-step__dot {
-    animation: dot-in 250ms ease-out forwards;
-    animation-delay: calc(var(--step) * 180ms);
-  }
-
-  .journey-step:nth-child(1) { --dot: #f8dde6; --next: #F4A1C0; }
-  .journey-step:nth-child(2) { --dot: #F4A1C0; --next: #F48FB1; }
-  .journey-step:nth-child(3) { --dot: #F48FB1; --next: #F06292; }
-  .journey-step:nth-child(4) { --dot: #F06292; --next: #D94F83; }
-  .journey-step:nth-child(5) { --dot: #D94F83; }
-}
-
-/* Tablet and desktop: the line is horizontal, so it grows left to right */
-@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
-  .journey-strip {
-    --draw-from: 0 1;
-  }
-  .journey-step:not(:last-child)::before {
-    transform-origin: left center;
+  .game-popup[open] {
+    animation: popup-in 250ms ease-out;
   }
 }
 
 
-/* --- The movements themselves --- */
+/* ==========================================================================
+   9. Doodles
+   Little SVG decorations. Each page draws its shapes once in a hidden
+   <svg> and reuses them with <use>. Positions are set in the HTML.
+   ========================================================================== */
 
-@keyframes rise-in {
-  from { opacity: 0; translate: 0 12px; }
-  to   { opacity: 1; translate: 0 0; }
+.deco {
+  position: absolute;
+  overflow: visible;
+  stroke: var(--color-plum);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 
-@keyframes settle-in {
-  from { opacity: 0; translate: 0 -16px; rotate: 8deg; scale: 1.06; }
-  to   { opacity: 1; translate: 0 0;     rotate: 0deg; scale: 1; }
+/* A layer for doodles that never blocks clicks */
+.wk-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: none;
+  pointer-events: none;
 }
 
-@keyframes draw-line {
-  from { scale: var(--draw-from); }
-  to   { scale: 1; }
+/* Around a page's intro: only when there's empty space beside the title */
+@media (min-width: 1200px) {
+  .wk-decor--hero {
+    display: block;
+  }
 }
 
-@keyframes dot-in {
-  from { opacity: 0.3; scale: 0.6; }
-  to   { opacity: 1;   scale: 1; }
+/* Beside the content: only when there's room in the margins */
+@media (min-width: 1360px) {
+  .wk-decor--sides {
+    display: block;
+  }
 }
 
-/* ---------- 30. CASE STUDY PAGES (sticker style) ---------- */
+/* Shapes and colors */
+.d-star-yellow {
+  width: 52px;
+  height: 52px;
+  fill: var(--doodle-yellow);
+}
 
-/* Easy-to-read text on case study pages (Quicksand) */
+.d-star-mint {
+  width: 40px;
+  height: 40px;
+  fill: var(--doodle-mint);
+}
+
+.d-heart-pink {
+  width: 42px;
+  height: 42px;
+  fill: var(--doodle-pink);
+}
+
+.d-heart-outline {
+  width: 48px;
+  height: 48px;
+  fill: var(--color-pink);
+}
+
+.d-sparkle-mint,
+.d-sparkle-lavender,
+.d-sparkle-peach,
+.d-sparkle-yellow {
+  stroke: none;
+}
+
+.d-sparkle-mint {
+  width: 26px;
+  height: 26px;
+  fill: var(--doodle-mint);
+}
+
+.d-sparkle-lavender {
+  width: 28px;
+  height: 28px;
+  fill: var(--doodle-lavender);
+}
+
+.d-sparkle-peach {
+  width: 24px;
+  height: 24px;
+  fill: var(--doodle-peach);
+}
+
+.d-sparkle-yellow {
+  width: 26px;
+  height: 26px;
+  fill: var(--doodle-yellow);
+}
+
+.d-swirl {
+  width: 44px;
+  height: 44px;
+  fill: none;
+  stroke: var(--doodle-lavender);
+  stroke-width: 2.2;
+}
+
+.d-squiggle {
+  width: 100px;
+  height: 24px;
+  fill: none;
+  stroke: var(--doodle-mint);
+  stroke-width: 3;
+}
+
+.d-flower-pink {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-pink);
+}
+
+.d-flower-lavender {
+  width: 30px;
+  height: 30px;
+  fill: var(--doodle-lilac);
+}
+
+.d-cloud {
+  width: 44px;
+  height: 44px;
+  fill: var(--color-white);
+}
+
+.d-dots {
+  width: 30px;
+  height: 30px;
+  fill: var(--doodle-pink-soft);
+  stroke: none;
+}
+
+/* Office doodles (Worktext Studio) */
+.d-note,
+.d-page {
+  width: 40px;
+  height: 40px;
+}
+
+.d-pin {
+  width: 34px;
+  height: 34px;
+}
+
+.d-clip {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #9c86ac;
+  stroke-width: 2.2;
+}
+
+.d-check-mint,
+.d-check-pink {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke-width: 3.5;
+}
+
+.d-check-mint {
+  stroke: var(--doodle-mint);
+}
+
+.d-check-pink {
+  stroke: var(--doodle-pink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wk-decor [class*="d-sparkle"] {
+    animation: doodle-twinkle 2.4s ease-in-out infinite;
+  }
+
+  .wk-decor [class*="d-sparkle"]:nth-child(even) {
+    animation-delay: 1.2s;
+  }
+
+  .wk-decor [class*="d-flower"] {
+    animation: spin 10s linear infinite;
+  }
+
+  .wk-decor .d-clip {
+    animation: doodle-rock 2.8s ease-in-out infinite alternate;
+  }
+
+  .wk-decor [class*="d-check"] {
+    animation: check-pop 2.4s ease-in-out infinite;
+  }
+}
+
+
+/* ==========================================================================
+   10. Inner pages
+   Shared by Work, Play, Journey and the case studies.
+   ========================================================================== */
+
+/* Quicksand for easier reading */
 .cs-page :where(p, dd, li) {
   font-family: var(--font-clean);
   font-weight: 500;
 }
+
 .cs-page .label {
-  font-family: var(--font-mono);
+  font-family: var(--font-hand);
 }
 
-/* The sticker look: plum outline + little plum shadow */
-.cs-card {
-  background-color: var(--color-card);
-  border: 2px solid var(--color-plum);
-  border-radius: 12px;
-  box-shadow: 3px 3px 0 var(--color-plum);
-}
+/* --- Page intro --- */
 
-/* --- Top of the page --- */
 .cs-hero {
   padding-block: var(--space-32) var(--space-48);
 }
@@ -2008,9 +1131,21 @@ mark {
   font-weight: 700;
 }
 
+.cs-pill--lemon {
+  background-color: var(--color-lemon);
+}
+
+.cs-pill--rose {
+  background-color: var(--color-rose);
+}
+
+.cs-pill--mauve {
+  background-color: var(--color-mauve);
+}
+
 .cs-title {
   margin-bottom: var(--space-8);
-  font-size: clamp(2.5rem, 6vw, 4rem);   /* grows with the screen */
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 400;
 }
 
@@ -2021,75 +1156,78 @@ mark {
   line-height: 1.5;
 }
 
-/* Four colored fact boxes: 2 per row on phones, 4 on bigger screens */
-.cs-facts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-12);
-  margin: var(--space-24) 0 var(--space-32);
-}
-.cs-fact {
-  padding: var(--space-12);
-}
-.cs-fact:nth-child(1) { background-color: var(--color-lemon); }
-.cs-fact:nth-child(2) { background-color: var(--color-mint); }
-.cs-fact:nth-child(3) { background-color: var(--color-rose); }
-.cs-fact:nth-child(4) { background-color: var(--color-mauve); }
-
-.cs-fact dt {
-  font-family: var(--font-mono);
-  font-size: var(--text-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-red-pen);
-}
-.cs-fact dd {
-  margin: var(--space-4) 0 0;
+/* "Work / Worktext Studio" */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-16);
+  padding: 0;
+  color: var(--color-muted);
   font-size: var(--text-small);
-  line-height: 1.4;
+  list-style: none;
 }
 
-/* Big screenshot */
-.cs-shot {
-  margin: 0;
-  padding: var(--space-12);
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: var(--space-8);
 }
-.cs-shot img {
-  width: 100%;
-  border-radius: 8px;
+
+.breadcrumb a {
+  color: var(--color-muted);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--color-plum);
+  font-weight: 700;
 }
 
 /* --- Sections --- */
+
 .cs-section {
   padding-block: var(--section-gap);
 }
+
 .cs-section--white {
-  background-color: var(--color-card);
-  border-block: 2px dashed var(--color-rule);
+  background-color: var(--color-white);
 }
+
 .cs-section .label {
   margin-bottom: var(--space-4);
 }
 
-/* Words on the left, note or picture on the right (bigger screens) */
+/* Words on the left, a note or picture on the right */
 .cs-split {
   display: grid;
   gap: var(--space-24);
   align-items: center;
 }
 
-/* Yellow sticky note */
+@media (min-width: 768px) {
+  .cs-split {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+
+  .cs-split--even {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- Yellow sticky note --- */
+
 .cs-note {
   max-width: 260px;
   padding: var(--space-16);
   background-color: var(--color-sticky);
   border: 1.5px solid var(--color-plum);
+  border-radius: 12px;
   box-shadow: 2px 2px 0 var(--color-plum);
-  transform: rotate(2deg);
 }
+
 .cs-note p {
   margin: 0;
 }
+
 .cs-note__label {
   font-size: var(--text-label);
   font-weight: 700;
@@ -2097,7 +1235,8 @@ mark {
   text-transform: uppercase;
 }
 
-/* --- Check, review, finish cards --- */
+/* --- Numbered step cards --- */
+
 .cs-steps {
   display: grid;
   gap: var(--space-16);
@@ -2105,20 +1244,22 @@ mark {
   padding: 0;
   list-style: none;
 }
+
 .cs-step {
   padding: var(--space-12) var(--space-12) var(--space-16);
 }
+
 .cs-step h3 {
   margin: var(--space-12) 0 var(--space-4);
   font-weight: 400;
 }
+
 .cs-step p {
   margin: 0;
   font-size: var(--text-small);
   line-height: 1.5;
 }
 
-/* Pink number circle */
 .cs-step__num {
   display: inline-grid;
   place-items: center;
@@ -2131,7 +1272,7 @@ mark {
   font-size: 0.8em;
 }
 
-/* Colored frame around each GIF or picture */
+/* Colored frame around a picture or GIF */
 .cs-media {
   margin: 0;
   padding: var(--space-8);
@@ -2139,32 +1280,68 @@ mark {
   border: 2px solid var(--color-plum);
   border-radius: 10px;
 }
+
 .cs-media img {
   width: 100%;
   border-radius: 6px;
 }
-.cs-media--lemon { --media-bg: var(--color-lemon); }
-.cs-media--mint  { --media-bg: var(--color-mint); }
-.cs-media--rose  { --media-bg: var(--color-rose); }
-.cs-media--mauve { --media-bg: var(--color-mauve); }
 
-/* Wide card: picture left, words right (bigger screens) */
-.cs-wide {
-  display: grid;
-  gap: var(--space-16);
+.cs-media--lemon {
+  --media-bg: var(--color-lemon);
+}
+
+.cs-media--mint {
+  --media-bg: var(--color-mint);
+}
+
+.cs-media--rose {
+  --media-bg: var(--color-rose);
+}
+
+.cs-media--mauve {
+  --media-bg: var(--color-mauve);
+}
+
+/* Inside step cards, every frame is the same height and the picture fits inside */
+.cs-steps .cs-media {
+  display: flex;
   align-items: center;
-  margin-top: var(--space-16);
-  padding: var(--space-12);
-}
-.cs-wide h3 {
-  margin-bottom: var(--space-4);
-  font-weight: 400;
-}
-.cs-wide p {
-  margin: 0;
+  justify-content: center;
+  height: 220px;
 }
 
-/* --- How I built it cards --- */
+.cs-steps .cs-media img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (min-width: 768px) {
+  .cs-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cs-steps--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cs-steps--big .cs-media {
+    height: 360px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cs-steps--four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cs-steps--big {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- "How I built it" cards --- */
+
 .cs-points {
   display: grid;
   gap: var(--space-16);
@@ -2172,106 +1349,2643 @@ mark {
   padding: 0;
   list-style: none;
 }
+
 .cs-point {
   padding: var(--space-16);
 }
-.cs-point:nth-child(1) { background-color: var(--color-lemon); }
-.cs-point:nth-child(2) { background-color: var(--color-mint); }
-.cs-point:nth-child(3) { background-color: var(--color-rose); }
+
+.cs-point:nth-child(1),
+.cs-point:nth-child(5) {
+  background-color: var(--color-lemon);
+}
+
+.cs-point:nth-child(2),
+.cs-point:nth-child(6) {
+  background-color: var(--color-mint);
+}
+
+.cs-point:nth-child(3) {
+  background-color: var(--color-rose);
+}
+
+.cs-point:nth-child(4) {
+  background-color: var(--color-mauve);
+}
+
 .cs-point h3 {
   margin-bottom: var(--space-4);
   font-weight: 400;
 }
+
 .cs-point p {
   margin: 0;
   font-size: var(--text-small);
   line-height: 1.5;
 }
 
-/* Teammate quote */
+@media (min-width: 768px) {
+  .cs-points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --- Teammate quote --- */
+
 .cs-quote {
   margin: var(--space-24) 0;
   padding: var(--space-16) var(--space-24);
   background-color: var(--color-cream);
 }
+
 .cs-quote p {
   margin: 0;
 }
-.cs-quote__who {
-  margin-top: var(--space-8) !important;
+
+.cs-quote .cs-quote__who {
+  margin-top: var(--space-8);
+  color: var(--color-muted);
   font-size: var(--text-small);
-  color: var(--color-slate);
 }
 
-/* --- Bigger screens --- */
-@media (min-width: 768px) {
-  .cs-facts  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .cs-split  { grid-template-columns: minmax(0, 1fr) 260px; }
-  .cs-steps  { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .cs-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .cs-wide   { grid-template-columns: 260px minmax(0, 1fr); }
-}
-/* ---------- 31. POP THE VERBS PAGE ---------- */
+/* --- Flow boxes joined by arrows (Work page and Pop the Verbs) --- */
 
-/* Lemon version of the pill */
-.cs-pill--lemon {
+.pv-scenes {
+  display: grid;
+  gap: var(--space-32);
+  margin: var(--space-16) 0 var(--space-32);
+  padding: 0;
+  list-style: none;
+}
+
+.pv-scene {
+  position: relative;
+  padding: var(--space-12);
+  text-align: center;
+}
+
+.pv-scene:nth-child(1) {
   background-color: var(--color-lemon);
 }
 
-/* Top: words left, game picture right (bigger screens) */
+.pv-scene:nth-child(2) {
+  background-color: var(--color-mint);
+}
+
+.pv-scene:nth-child(3) {
+  background-color: var(--color-rose);
+}
+
+.pv-scene:nth-child(4) {
+  background-color: var(--color-mauve);
+}
+
+.pv-scene strong {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.pv-scene span {
+  font-size: var(--text-small);
+}
+
+/* Arrow between boxes: down on phones, right on bigger screens */
+.pv-scene + .pv-scene::before {
+  content: "↓" / "";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  translate: -50% 0;
+  color: var(--color-plum);
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .pv-scenes {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pv-scene + .pv-scene::before {
+    content: "→" / "";
+    top: 50%;
+    left: -16px;
+    translate: -50% -50%;
+  }
+}
+
+/* --- Previous / next links --- */
+
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-16);
+  margin-bottom: 40px; /* room for the footer's wave */
+  padding-block: var(--space-32);
+  border-top: 1px solid var(--color-line);
+}
+/* The home page has a bigger header */
+.page-home .brand__name {
+  font-size: 35px;
+}
+
+.page-home .site-nav__link {
+  font-size: 30px;
+}
+
+/* ==========================================================================
+   11. Home page
+   ========================================================================== */
+
+/* --- Hero --- */
+
+.hero {
+  overflow: hidden;
+  padding-block: var(--space-48) var(--space-64);
+  background-color: var(--color-cream);
+  text-align: center;
+}
+
+.hero .container {
+  position: relative;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__pill {
+  margin: 0 0 var(--space-16);
+  padding: var(--space-4) var(--space-16);
+  background-color: var(--color-mint);
+  border: 2px solid var(--color-plum);
+  border-radius: var(--radius-pill);
+  font-size: 45px;
+  line-height: 1.3;
+}
+
+.hero__title {
+  margin: 0 auto var(--space-24);
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+/* Keeps the highlight, squiggle and cursor together with "want to click." */
+.hero__click {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero__highlight {
+  display: inline-block;
+  margin-left: -0.3em;
+  padding: 0.05em 0.3em 0.05em 0.6em;
+  background: url("../assets/images/highlight.svg") center / 100% 100% no-repeat;
+  color: var(--color-plum);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero__squiggle {
+  position: absolute;
+  bottom: -0.35em;
+  left: 0.3em;
+  width: calc(100% - 0.3em);
+  height: 0.22em;
+  overflow: visible;
+  fill: none;
+  stroke: var(--doodle-pink-soft);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.hero__cursor {
+  position: absolute;
+  right: -0.3em;
+  bottom: -0.45em;
+  width: 0.55em;
+  fill: var(--color-white);
+  stroke: var(--color-plum);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.hero__text {
+  max-width: 52ch;
+  margin: 0 auto var(--space-16);
+  font-family: var(--font-clean);
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.hero__definition {
+  max-width: 52ch;
+  margin: 0 auto var(--space-32);
+  color: var(--color-muted);
+  font-family: var(--font-clean);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* A short pink dash above the definition */
+.hero__definition::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin: 0 auto var(--space-12);
+  background-color: var(--color-pink);
+  border-radius: 2px;
+}
+
+.hero__actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.hero__actions .button {
+  flex: 1 1 100%;
+  min-height: 52px;
+  padding: var(--space-12) var(--space-32);
+  font-size: 25px;
+}
+
+/* "psst, start here" with a curvy arrow pointing at the first button */
+.hero__nudge {
+  position: absolute;
+  top: -20px;
+  right: calc(50% + 240px);
+  display: none;
+  pointer-events: none;
+}
+
+.hero__nudge-arrow {
+  width: 150px;
+  height: auto;
+  margin-left: auto;
+  overflow: visible;
+  fill: none;
+  stroke: var(--doodle-lavender);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__nudge-text {
+  margin: -6px 0 0;
+  color: var(--color-muted);
+  font-family: var(--font-hand);
+  font-size: 1.375rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .hero__actions .button {
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero {
+    padding-block: var(--space-64) var(--space-96);
+  }
+
+  .hero__nudge {
+    display: block;
+  }
+}
+
+/* Hero doodles */
+.hero__decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: none;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .hero__decor {
+    display: block;
+  }
+}
+
+.deco--sparkle-peach {
+  top: 10%;
+  left: 22%;
+  width: 24px;
+  height: 24px;
+  fill: var(--doodle-peach);
+  stroke: none;
+}
+
+.deco--star-yellow {
+  top: 28%;
+  left: 6%;
+  width: 60px;
+  height: 60px;
+  fill: var(--doodle-yellow);
+}
+
+.deco--heart-pink {
+  top: 55%;
+  left: 12%;
+  width: 44px;
+  height: 44px;
+  fill: var(--doodle-pink);
+}
+
+.deco--sparkle-mint {
+  top: 70%;
+  left: 3%;
+  width: 26px;
+  height: 26px;
+  fill: var(--doodle-mint);
+  stroke: none;
+}
+
+.deco--sparkle-lavender {
+  top: 8%;
+  right: 22%;
+  width: 28px;
+  height: 28px;
+  fill: var(--doodle-lavender);
+  stroke: none;
+}
+
+.deco--heart-outline {
+  top: 26%;
+  right: 5%;
+  width: 52px;
+  height: 52px;
+  fill: var(--color-pink);
+}
+
+.deco--sparkle-yellow {
+  top: 46%;
+  right: 4%;
+  width: 26px;
+  height: 26px;
+  fill: var(--doodle-yellow);
+  stroke: none;
+}
+
+.deco--star-mint {
+  top: 64%;
+  right: 9%;
+  width: 40px;
+  height: 40px;
+  fill: var(--doodle-mint);
+}
+
+.deco--swirl {
+  top: 4%;
+  right: 5%;
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: var(--doodle-lavender);
+  stroke-width: 2.2;
+}
+
+.deco--squiggle {
+  top: 84%;
+  right: 6%;
+  width: 100px;
+  height: 24px;
+  fill: none;
+  stroke: var(--doodle-mint);
+  stroke-width: 3;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Each line rises in, one after another */
+  .hero__content > * {
+    animation: rise-in 400ms ease-out both;
+  }
+
+  .hero__content > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  .hero__content > :nth-child(3) {
+    animation-delay: 160ms;
+  }
+
+  .hero__content > :nth-child(4) {
+    animation-delay: 240ms;
+  }
+
+  .hero__content > :nth-child(5) {
+    animation-delay: 320ms;
+  }
+
+  /* The cursor clicks "want to click." on a loop */
+  .hero__cursor {
+    animation: cursor-click 2.6s ease-in-out infinite;
+  }
+
+  .hero__highlight {
+    animation: highlight-press 2.6s ease-in-out infinite;
+  }
+}
+
+/* --- Journey strip: "How I got here" --- */
+
+.journey-strip {
+  --step-gap: var(--space-24);
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-48);
+  background-color: var(--color-lavender);
+}
+
+.journey-strip .wave__fill {
+  fill: var(--color-lavender);
+}
+
+.journey-strip__header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8) var(--space-24);
+  margin-bottom: var(--space-48);
+}
+
+.journey-strip__title {
+  margin: 0;
+  color: var(--color-plum);
+  font-size: 25px;
+}
+
+.journey-strip__link {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.journey-strip__link:hover {
+  text-decoration: underline;
+}
+
+.journey-strip__list {
+  display: grid;
+  gap: var(--step-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Phones: dot on the left, words on the right, line going down */
+.journey-step {
+  position: relative;
+  padding-left: var(--space-32);
+}
+
+/* Each step's dot color, and the color its line fades into */
+.journey-step:nth-child(1) {
+  --step: 0;
+  --dot: #f8dde6;
+  --next: var(--doodle-pink-soft);
+}
+
+.journey-step:nth-child(2) {
+  --step: 1;
+  --dot: var(--doodle-pink-soft);
+  --next: var(--doodle-pink);
+}
+
+.journey-step:nth-child(3) {
+  --step: 2;
+  --dot: var(--doodle-pink);
+  --next: var(--doodle-berry);
+}
+
+.journey-step:nth-child(4) {
+  --step: 3;
+  --dot: var(--doodle-berry);
+  --next: #d94f83;
+}
+
+.journey-step:nth-child(5) {
+  --step: 4;
+  --dot: #d94f83;
+}
+
+.journey-step__dot {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-white);
+  border: 4px solid var(--dot);
+  border-radius: 50%;
+}
+
+.journey-step--current .journey-step__dot {
+  background-color: #d94f83;
+}
+
+.journey-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 9.5px;
+  width: 5px;
+  height: calc(100% + var(--step-gap));
+  background: linear-gradient(to bottom, var(--dot), var(--next));
+}
+
+.journey-step__role {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-small);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.journey-step__note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-small);
+  line-height: 1.4;
+}
+
+/* Tablets and up: the line runs left to right */
+@media (min-width: 768px) {
+  .journey-strip {
+    --step-gap: var(--space-16);
+  }
+
+  .journey-strip__list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .journey-step {
+    padding-top: 40px;
+    padding-left: 0;
+  }
+
+  .journey-step__dot {
+    top: 0;
+  }
+
+  .journey-step:not(:last-child)::before {
+    top: 9.5px;
+    left: 12px;
+    width: calc(100% + var(--step-gap));
+    height: 5px;
+    background: linear-gradient(to right, var(--dot), var(--next));
+  }
+}
+
+/* Paper airplane with a dashed trail */
+.journey-plane {
+  position: absolute;
+  top: -6px;
+  left: 26%;
+  display: none;
+  width: 120px;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.journey-plane__trail {
+  fill: none;
+  stroke: var(--color-plum);
+  stroke-width: 2;
+  stroke-dasharray: 4 5;
+  stroke-linecap: round;
+}
+
+.journey-plane__body {
+  fill: var(--color-white);
+  stroke: var(--color-plum);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.journey-plane__fold {
+  fill: none;
+  stroke: var(--color-plum);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Rainbow above the "now" dot */
+.journey-rainbow {
+  position: absolute;
+  top: -38px;
+  left: -18px;
+  display: none;
+  width: 60px;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.journey-rainbow path {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.journey-rainbow__pink {
+  stroke: var(--doodle-pink-soft);
+}
+
+.journey-rainbow__yellow {
+  stroke: var(--doodle-yellow);
+}
+
+.journey-rainbow__mint {
+  stroke: var(--doodle-mint);
+}
+
+@media (min-width: 768px) {
+  .journey-plane,
+  .journey-rainbow {
+    display: block;
+  }
+}
+
+/* The line draws itself when it scrolls into view.
+   main.js adds .will-draw, then .is-drawn once it's on screen. */
+@media (prefers-reduced-motion: no-preference) {
+  .journey-strip {
+    --draw-from: 1 0;
+  }
+
+  .journey-step:not(:last-child)::before {
+    transform-origin: top center;
+  }
+
+  .journey-strip.will-draw .journey-step:not(:last-child)::before {
+    scale: var(--draw-from);
+  }
+
+  .journey-strip.will-draw .journey-step__dot {
+    opacity: 0.3;
+    scale: 0.6;
+  }
+
+  .journey-strip.is-drawn .journey-step:not(:last-child)::before {
+    animation: draw-line 300ms ease-out forwards;
+    animation-delay: calc(var(--step) * 180ms + 120ms);
+  }
+
+  .journey-strip.is-drawn .journey-step__dot {
+    animation: dot-in 250ms ease-out forwards;
+    animation-delay: calc(var(--step) * 180ms);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .journey-strip {
+    --draw-from: 0 1;
+  }
+
+  .journey-step:not(:last-child)::before {
+    transform-origin: left center;
+  }
+}
+
+/* --- Featured works --- */
+
+.work-band {
+  position: relative;
+  z-index: 1;
+  overflow-x: clip;
+  padding-block: calc(var(--space-48) + 40px) var(--space-64);
+  background-color: var(--color-cream);
+}
+
+.work-band .wave__fill {
+  fill: var(--color-cream);
+}
+
+.work-band__inner {
+  position: relative;
+  width: min(100% - 2rem, 1100px);
+  margin-inline: auto;
+}
+
+.work-band__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 var(--space-4);
+  color: var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.work-band__zigzag {
+  width: 200px;
+  height: auto;
+  margin-bottom: var(--space-24);
+  fill: none;
+  stroke: var(--doodle-yellow);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.work-band .work-card__title {
+  font-family: var(--font-hand);
+  font-weight: 400;
+}
+
+/* Worktext Studio: the big card */
+.work-card--featured .work-card__art {
+  min-height: 0;
+  padding: 12px;
+  background-color: var(--color-white);
+}
+
+.work-card--featured .work-card__art img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+.work-card--featured .work-card__body {
+  padding: 20px 24px 24px;
+}
+
+.work-card--featured .work-card__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* The two game cards: matching picture areas */
+.work-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.work-grid .work-card__art {
+  height: 200px;
+}
+
+.work-grid .work-card__art img {
+  width: auto;
+  max-width: 100%;
+  height: 170px;
+  object-fit: contain;
+}
+/* The Ice Cream Petshop picture is wider than the others */
+.work-grid .work-card__art .work-card__img--wide {
+  width: 320px;
+  height: auto;
+}
+
+.work-band__more {
+  max-width: none;
+  margin: var(--space-24) 0 0;
+  font-size: 1.25rem;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .work-card--featured {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .work-card--featured .work-card__art {
+    border-right: 2px solid var(--color-plum);
+    border-bottom: 0;
+  }
+
+  .work-grid--two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Doodles beside the cards */
+.featured-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: none;
+  pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+  .featured-decor {
+    display: block;
+  }
+}
+
+.fdeco--star-yellow {
+  top: 60px;
+  left: -100px;
+  width: 56px;
+  height: 56px;
+  fill: var(--doodle-yellow);
+}
+
+.fdeco--sparkle-mint {
+  top: 230px;
+  left: -50px;
+  width: 26px;
+  height: 26px;
+  fill: var(--doodle-mint);
+  stroke: none;
+}
+
+.fdeco--heart-pink {
+  top: 420px;
+  left: -110px;
+  width: 42px;
+  height: 42px;
+  fill: var(--doodle-pink);
+}
+
+.fdeco--swirl {
+  top: 640px;
+  left: -70px;
+  width: 46px;
+  height: 46px;
+  fill: none;
+  stroke: var(--doodle-lavender);
+  stroke-width: 2.2;
+}
+
+.fdeco--sparkle-lavender {
+  top: 20px;
+  right: -60px;
+  width: 28px;
+  height: 28px;
+  fill: var(--doodle-lavender);
+  stroke: none;
+}
+
+.fdeco--heart-outline {
+  top: 190px;
+  right: -110px;
+  width: 50px;
+  height: 50px;
+  fill: var(--color-pink);
+}
+
+.fdeco--star-mint {
+  top: 410px;
+  right: -80px;
+  width: 40px;
+  height: 40px;
+  fill: var(--doodle-mint);
+}
+
+.fdeco--sparkle-peach {
+  top: 570px;
+  right: -45px;
+  width: 24px;
+  height: 24px;
+  fill: var(--doodle-peach);
+  stroke: none;
+}
+
+.fdeco--squiggle {
+  top: 700px;
+  right: -150px;
+  width: 100px;
+  height: 24px;
+  fill: none;
+  stroke: var(--doodle-mint);
+  stroke-width: 3;
+}
+
+
+/* ==========================================================================
+   12. Work page
+   ========================================================================== */
+
+.wk-page {
+  overflow-x: clip;
+}
+
+.wk-page p {
+  max-width: none;
+}
+
+.wk-page .label,
+.wk-page .chip {
+  font-size: 0.9375rem;
+}
+
+.wk-page .cs-hero .container,
+.wk-stack {
+  position: relative;
+}
+
+.wk-stack {
+  display: grid;
+  gap: var(--space-24);
+}
+
+/* White groups with wavy edges */
+.wk-group--tools,
+.wk-group--platforms {
+  position: relative;
+  z-index: 1;
+}
+
+.wk-group__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* The little doodle next to each group title */
+.wk-doodle {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  stroke: var(--color-plum);
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wk-doodle {
+    animation: doodle-rock 2.8s ease-in-out infinite alternate;
+  }
+}
+
+/* --- Worktext Studio card: picture on top, words below --- */
+
+.wk-feature {
+  display: grid;
+  overflow: hidden;
+}
+
+.wk-feature__art {
+  display: grid;
+  place-items: center;
+  padding: var(--space-16);
+  background-color: var(--color-mint);
+  border-bottom: 2px solid var(--color-plum);
+}
+
+.wk-feature__art img {
+  width: auto;
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+}
+
+.wk-feature__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-24);
+}
+
+.wk-feature__body .label {
+  margin-bottom: var(--space-4);
+}
+
+.wk-feature__body h3 {
+  margin-bottom: var(--space-8);
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+
+.wk-feature__body p {
+  font-size: 1.125rem;
+}
+
+.wk-feature__body .button {
+  margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  .wk-feature--wide {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .wk-feature--wide .wk-feature__art {
+    border-right: 2px solid var(--color-plum);
+    border-bottom: 0;
+  }
+}
+
+/* --- Slim game cards, side by side --- */
+
+.wk-pair {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.wk-slim {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.wk-slim__art {
+  display: grid;
+  place-items: center;
+  padding: var(--space-12);
+  border-right: 2px solid var(--color-plum);
+}
+
+.wk-slim__art--rose {
+  background-color: var(--color-rose);
+}
+
+.wk-slim__art--lemon {
+  background-color: var(--color-lemon);
+}
+
+.wk-slim__art img {
+  width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.wk-slim__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-16) var(--space-24);
+}
+
+.wk-slim__body .label {
+  margin-bottom: var(--space-4);
+}
+
+.wk-slim__body h3 {
+  margin-bottom: var(--space-4);
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+
+.wk-slim__body p {
+  margin-bottom: var(--space-12);
+  font-size: 1.125rem;
+}
+
+.wk-slim__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  .wk-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- Short write-ups --- */
+
+.wk-item {
+  padding: var(--space-24);
+}
+
+.wk-item .label {
+  margin-bottom: var(--space-4);
+}
+
+.wk-item h3 {
+  margin-bottom: var(--space-8);
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+
+.wk-item p {
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+
+.code-caption {
+  color: var(--color-muted);
+}
+
+.wk-page .code-caption {
+  font-size: 1rem;
+}
+
+.wk-page .pv-scene strong {
+  font-size: 1.4rem;
+}
+
+.wk-page .pv-scene span {
+  font-size: 1rem;
+}
+
+/* Numbered step titles, like "1 What goes in" */
+.dx-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-8);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.dx-num {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  background-color: var(--color-pink);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+  font-size: 0.8em;
+}
+
+/* Two columns, stacked on phones */
+.dx-pair {
+  display: grid;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+/* Note and chips at the bottom of a write-up */
+.dx-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.dx-footer .chips {
+  margin: 0;
+}
+
+.dx-team {
+  flex: 0 1 auto;
+  width: fit-content;
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  background-color: var(--color-cream);
+  border: 1.5px dashed var(--color-plum);
+  border-radius: 10px;
+}
+
+/* --- DOCX to XML Converter --- */
+
+.dx-flow {
+  margin: var(--space-24) 0;
+}
+
+.dx-flow .pv-scene:nth-child(2) {
+  background-color: var(--color-mauve);
+}
+
+/* "What goes in": a Word page with pink tags */
+.dx-doc {
+  margin: 0;
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-cream);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+  font-family: var(--font-clean);
+  font-size: 1rem;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.dx-tag {
+  padding: 0 2px;
+  background-color: var(--color-pink);
+  border-radius: 3px;
+}
+
+/* "What comes out": a dark code box */
+.dx-code {
+  margin: 0;
+  padding: var(--space-12) var(--space-16);
+  overflow-x: auto;
+  background-color: var(--color-plum);
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+  color: var(--color-cream);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+.dx-com {
+  color: var(--color-mauve);
+}
+
+.dx-key {
+  color: var(--color-pink);
+}
+
+.dx-ok {
+  color: var(--color-mint);
+}
+
+.dx-shot {
+  margin: var(--space-12) 0 0;
+}
+
+@media (min-width: 768px) {
+  .dx-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .dx-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Code on the left, a wider result on the right */
+  .dx-pair--code {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+  }
+
+  .dx-pair--code > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* --- Personality Test --- */
+
+.mc-steps {
+  display: grid;
+  gap: var(--space-16);
+  margin: var(--space-24) 0;
+}
+
+/* Same-size frames for all three steps */
+.mc-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  margin: 0;
+  padding: 4px;
+  border: 2px solid var(--color-plum);
+  border-radius: 10px;
+}
+
+.mc-frame img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+}
+
+.mc-frame--mint {
+  background-color: var(--color-mint);
+}
+
+.mc-frame--rose {
+  background-color: var(--color-rose);
+}
+
+/* Step 2: the score counters */
+.mc-tally {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-12);
+  background-color: var(--color-cream);
+  font-family: var(--font-clean);
+  font-size: 1rem;
+}
+
+.mc-bar {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr) 1.2em; /* name, bar, score */
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.mc-bar__fill {
+  width: var(--w);
+  height: 14px;
+  border: 1.5px solid var(--color-plum);
+  border-radius: 7px;
+}
+
+.mc-bar:nth-child(1) .mc-bar__fill {
+  background-color: var(--color-pink);
+}
+
+.mc-bar:nth-child(2) .mc-bar__fill {
+  background-color: var(--color-mauve);
+}
+
+.mc-bar:nth-child(3) .mc-bar__fill {
+  background-color: var(--color-lemon);
+}
+
+.mc-bar:nth-child(4) .mc-bar__fill {
+  background-color: var(--color-mint);
+}
+
+.mc-chips {
+  margin: var(--space-16) 0 0;
+}
+
+@media (min-width: 768px) {
+  .mc-steps {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.4fr);
+  }
+}
+
+/* --- Bloom's Taxonomy Course --- */
+
+.bl-path {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-16) var(--space-8);
+  margin: var(--space-8) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bl-stop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.bl-check {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-lemon);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+}
+
+.bl-stop--activity .bl-check {
+  background-color: var(--color-mauve);
+}
+
+.bl-stop--done .bl-check {
+  background-color: var(--color-pink);
+}
+
+/* Screenshot frames that hug the pictures */
+.bl-shots {
+  margin-top: var(--space-24);
+}
+
+.bl-shots .mc-frame {
+  height: auto;
+  border-radius: 12px;
+}
+
+.bl-shots .mc-frame img {
+  width: 100%;
+  max-height: none;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .bl-path {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  /* The line joining the checkmarks */
+  .bl-path::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 8%;
+    left: 8%;
+    height: 2px;
+    background-color: var(--color-plum);
+  }
+
+  .bl-shots {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+    align-items: start;
+  }
+}
+
+/* --- Cyber Safety LMS Simulation --- */
+
+.cy-shots {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.cy-shot {
+  margin: 0;
+}
+
+.cy-shot img {
+  width: 100%;
+  padding: 4px;
+  background-color: var(--color-mint);
+  border: 2px solid var(--color-plum);
+  border-radius: 12px;
+}
+
+.cy-shot figcaption {
+  margin-top: var(--space-4);
+  color: var(--color-muted);
+  font-family: var(--font-clean);
+  font-size: 1rem;
+}
+
+/* The webhook result in a dark frame */
+.cy-webhook {
+  display: grid;
+  gap: var(--space-16);
+  align-items: center;
+  width: 100%;
+  max-width: 560px;
+  padding: var(--space-12);
+  background-color: var(--color-plum);
+  border-radius: 10px;
+}
+
+.cy-webhook img {
+  width: 100%;
+  border-radius: 12px;
+  clip-path: inset(0 round 12px);
+}
+
+/* Step 3 on the left, chips on the right */
+.cy-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+}
+
+.cy-center {
+  display: flex;
+  flex: 1 1 400px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cy-bottom .cy-chips {
+  align-self: flex-end;
+  margin: 0 100px 40px 0;
+}
+
+@media (min-width: 768px) {
+  .cy-pair {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  }
+
+  .cy-pair > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* The code screenshot stretches to match the two screenshots beside it */
+  .cy-shot--fill {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .cy-shot--fill img {
+    flex: 1;
+    height: 0;
+    min-height: 0;
+    object-fit: contain;
+  }
+}
+
+
+/* ==========================================================================
+   13. Play page
+   ========================================================================== */
+
+.play-page {
+  overflow-x: clip;
+}
+
+/* --- Intro --- */
+
+.play-intro {
+  padding-block: var(--space-48) var(--space-64);
+  text-align: center;
+}
+
+.play-intro .container {
+  position: relative;
+}
+
+.play-intro p {
+  margin-inline: auto;
+}
+
+.play-intro__text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.play-intro__note {
+  color: var(--color-muted);
+  font-size: var(--text-small);
+}
+
+/* Pixel "Play" badge with stepped corners and a blocky shadow */
+.cs-pill--pixel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: var(--space-12) 6px var(--space-16);
+  padding: 4px 16px;
+  background-color: var(--color-mauve);
+  border: 0;
+  border-radius: 0;
+  box-shadow:
+    0 -3px 0 0 var(--color-plum),
+    0 3px 0 0 var(--color-plum),
+    -3px 0 0 0 var(--color-plum),
+    3px 0 0 0 var(--color-plum),
+    6px 6px 0 0 var(--color-plum);
+}
+
+.pl-pill-icon {
+  width: 8px;
+  height: 14px;
+  fill: var(--doodle-berry);
+  shape-rendering: crispEdges;
+}
+
+/* The headline word with a coin above it */
+.pl-coin-word {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.pl-pixel-line {
+  position: absolute;
+  right: 0;
+  bottom: -0.1em;
+  left: 0;
+  height: 0.12em;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--doodle-pink-soft) 0 0.24em,
+    transparent 0.24em 0.36em
+  );
+  pointer-events: none;
+}
+
+.pl-coin {
+  position: absolute;
+  top: -0.5em;
+  right: -0.55em;
+  width: 0.5em;
+  height: 0.5em;
+  shape-rendering: crispEdges;
+  pointer-events: none;
+}
+
+.pl-plus {
+  position: absolute;
+  top: -0.7em;
+  right: -1.1em;
+  color: var(--doodle-berry);
+  font-family: var(--font-hand);
+  font-size: 0.35em;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* "★ Press start ★" sticker */
+.pl-start {
+  position: absolute;
+  margin: 0;
+  padding: 4px 14px;
+  background-color: var(--color-lemon);
+  box-shadow:
+    0 -3px 0 0 var(--color-plum),
+    0 3px 0 0 var(--color-plum),
+    -3px 0 0 0 var(--color-plum),
+    3px 0 0 0 var(--color-plum),
+    6px 6px 0 0 var(--color-plum);
+  color: var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 1.125rem;
+  white-space: nowrap;
+  rotate: 6deg;
+}
+
+/* --- Game cards on a mauve band --- */
+
+.play-band {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-32) var(--space-64);
+  background-color: var(--color-mauve);
+}
+
+.play-band .wave__fill {
+  fill: var(--color-mauve);
+}
+
+.play-grid {
+  position: relative;
+  display: grid;
+  gap: var(--space-32);
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+/* Square cards with matching picture areas */
+.play-grid .work-card {
+  aspect-ratio: 1 / 1;
+}
+
+.play-grid .work-card__art {
+  flex: 0 0 300px;
+  height: 300px;
+  min-height: 0;
+}
+
+.play-grid .work-card__art img {
+  width: auto;
+  height: 240px;
+}
+
+.play-grid .work-card__body {
+  flex: 1;
+  padding: var(--space-24) var(--space-32) var(--space-32);
+}
+
+.play-grid .work-card__title {
+  font-family: var(--font-hand);
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+
+.play-grid .work-card__meta {
+  margin-bottom: var(--space-16);
+  font-size: 1.25rem;
+}
+
+.play-grid .button--small {
+  min-height: 48px;
+  padding: var(--space-8) var(--space-24);
+  font-size: 1.375rem;
+}
+
+@media (min-width: 768px) {
+  .play-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- Pixel doodles --- */
+
+/* Crisp pixels with a plum pixel outline */
+.px {
+  position: absolute;
+  overflow: visible;
+  shape-rendering: crispEdges;
+  filter:
+    drop-shadow(2px 0 0 var(--color-plum))
+    drop-shadow(-2px 0 0 var(--color-plum))
+    drop-shadow(0 2px 0 var(--color-plum))
+    drop-shadow(0 -2px 0 var(--color-plum));
+}
+
+.p-star-yellow {
+  width: 35px;
+  height: 35px;
+  fill: var(--doodle-yellow);
+}
+
+.p-star-mint {
+  width: 28px;
+  height: 28px;
+  fill: var(--doodle-mint);
+}
+
+.p-heart {
+  width: 28px;
+  height: 24px;
+  fill: var(--doodle-berry);
+}
+
+.p-sparkle-mint,
+.p-sparkle-lavender,
+.p-sparkle-peach {
+  width: 20px;
+  height: 20px;
+}
+
+.p-sparkle-mint {
+  fill: var(--doodle-mint);
+}
+
+.p-sparkle-lavender {
+  fill: var(--doodle-lavender);
+}
+
+.p-sparkle-peach {
+  fill: var(--doodle-peach);
+}
+
+.p-sparkle-yellow {
+  width: 25px;
+  height: 25px;
+  fill: var(--doodle-yellow);
+}
+
+.p-coin {
+  width: 30px;
+  height: 30px;
+}
+
+.p-gem-mint,
+.p-gem-lavender {
+  width: 35px;
+  height: 25px;
+}
+
+.p-gem-mint {
+  fill: var(--doodle-mint);
+}
+
+.p-gem-lavender {
+  fill: var(--doodle-lavender);
+}
+
+.p-cloud {
+  width: 48px;
+  height: 30px;
+  fill: var(--color-white);
+}
+
+.p-controller {
+  width: 55px;
+  height: 25px;
+  fill: var(--doodle-pink-soft);
+}
+
+.p-dice {
+  width: 28px;
+  height: 28px;
+  fill: var(--color-white);
+}
+
+.p-play {
+  width: 20px;
+  height: 35px;
+  fill: var(--doodle-lavender);
+}
+
+.p-zigzag {
+  width: 100px;
+  height: 20px;
+  fill: var(--doodle-mint);
+}
+
+/* A sparkle hidden where the gaps between the four cards cross */
+.pl-center {
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  translate: -50% -50%;
+}
+
+@media (min-width: 768px) {
+  .pl-decor--grid {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pl-coin {
+    animation:
+      coin-hop 2.4s ease-out infinite,
+      coin-spin 0.8s steps(1) infinite;
+  }
+
+  .pl-plus {
+    animation: plus-one 2.4s ease-out infinite;
+  }
+
+  .pl-start {
+    animation: start-blink 1.6s steps(1) infinite;
+  }
+
+  .p-star-yellow,
+  .p-star-mint,
+  [class*="p-sparkle"] {
+    animation: doodle-twinkle 2.4s ease-in-out infinite;
+  }
+
+  .p-heart {
+    animation: pixel-hop 1s steps(1) infinite;
+  }
+
+  .p-coin {
+    animation: coin-spin 1.2s steps(1) infinite;
+  }
+
+  .p-dice {
+    animation: doodle-wobble 3s ease-in-out infinite;
+  }
+
+  .p-controller {
+    animation: doodle-rock 2.8s ease-in-out infinite alternate;
+  }
+
+  [class*="p-gem"] {
+    animation: doodle-float 2s ease-in-out infinite alternate;
+  }
+
+  .p-cloud {
+    animation: doodle-drift 4s ease-in-out infinite alternate;
+  }
+
+  .p-play {
+    animation: play-nudge 1s steps(1) infinite;
+  }
+
+  .wk-decor .px:nth-child(even) {
+    animation-delay: 0.6s;
+  }
+}
+
+
+/* ==========================================================================
+   14. Journey page
+   ========================================================================== */
+
+.jy-page {
+  overflow-x: clip;
+}
+
+/* The footer's wave sits above the Threads section */
+.jy-page ~ .site-footer {
+  z-index: 2;
+}
+
+/* --- Intro --- */
+
+.jy-page .cs-hero {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-48) var(--space-64);
+  background-color: var(--color-rose);
+}
+
+.jy-page .cs-hero .wave__fill {
+  fill: var(--color-rose);
+}
+
+.jy-page .cs-hero .container {
+  position: relative;
+}
+
+/* Wraps earlier to leave room for the plane */
+.jy-page .cs-hero .cs-title {
+  max-width: 18ch;
+}
+
+/* Paper airplane flying along a dashed path */
+.jy-flight {
+  position: absolute;
+  top: 0;
+  right: var(--gutter);
+  display: none;
+  width: 420px;
+  height: 200px;
+  pointer-events: none;
+}
+
+.jy-flight__path {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  fill: none;
+  stroke: var(--color-plum);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  stroke-linecap: round;
+}
+
+.jy-flight__plane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 25px;
+  overflow: visible;
+  stroke: var(--color-plum);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  offset-path: path("M10 180 C120 40 260 220 410 30");
+  offset-rotate: auto;
+  offset-anchor: center;
+  offset-distance: 75%;
+}
+
+@media (min-width: 960px) {
+  .jy-flight {
+    display: block;
+  }
+}
+
+/* --- Chapters on a dotted notebook page --- */
+
+.jy-chapters {
+  background-color: var(--color-lemon);
+  background-image: radial-gradient(#e6dca8 1.3px, transparent 1.6px);
+  background-size: 24px 24px;
+}
+
+.jy-chapters .container {
+  position: relative;
+}
+
+.chapters {
+  --chapter-gap: var(--space-48);
+  display: grid;
+  gap: var(--chapter-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter {
+  position: relative;
+  display: grid;
+  gap: var(--space-24);
+  padding-left: 60px;
+}
+
+.chapter:nth-child(1),
+.chapter:nth-child(2) {
+  --dot: var(--color-rose);
+}
+
+.chapter:nth-child(3) {
+  --dot: var(--color-mauve);
+}
+
+.chapter:nth-child(4) {
+  --dot: var(--color-mint);
+}
+
+.chapter:nth-child(5) {
+  --dot: var(--color-pink);
+}
+
+/* The numbered circle */
+.chapter__marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--dot);
+  border: 3px solid var(--color-plum);
+  border-radius: 50%;
+  color: var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 1.125rem;
+}
+
+.chapter--current .chapter__marker {
+  border-width: 4px;
+}
+
+/* Dashed trail down to the next circle */
+.chapter:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 44px;
+  left: 20.5px;
+  width: 3px;
+  height: calc(100% - 44px + var(--chapter-gap));
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-plum) 0 8px,
+    transparent 8px 16px
+  );
+}
+
+/* Each chapter is a sticker card with a colored top */
+.chapter__main {
+  position: relative;
+  padding: var(--space-24);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-plum);
+  border-top: 8px solid var(--dot);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sticker);
+}
+
+.chapter__main .label {
+  margin-bottom: var(--space-8);
+}
+
+.chapter__main h3 {
+  font-weight: 400;
+}
+
+.chapter__main p {
+  max-width: 62ch;
+}
+
+.chapter__main p:last-child {
+  margin-bottom: 0;
+}
+
+/* "What I carried forward" sticky note */
+.margin-note {
+  padding: var(--space-12) var(--space-16);
+  background-color: var(--color-sticky);
+  border: 1.5px solid var(--color-plum);
+  border-radius: 12px;
+  box-shadow: 2px 2px 0 var(--color-plum);
+}
+
+.margin-note p {
+  margin: 0;
+}
+
+.margin-note .margin-note__label {
+  margin-bottom: var(--space-4);
+  color: var(--color-muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chapter__note {
+  position: relative;
+  align-self: start;
+  max-width: 320px;
+}
+
+/* Washi tape on each note */
+.chapter__note::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 72px;
+  height: 22px;
+  background-color: rgb(244 161 192 / 0.55);
+  border-inline: 2px dashed rgb(255 255 255 / 0.8);
+  translate: -50% 0;
+  rotate: -4deg;
+}
+
+.chapter:nth-child(2) .chapter__note::before,
+.chapter:nth-child(5) .chapter__note::before {
+  background-color: rgb(143 217 174 / 0.55);
+  rotate: 3deg;
+}
+
+.chapter:nth-child(3) .chapter__note::before {
+  background-color: rgb(201 168 232 / 0.55);
+  rotate: -2deg;
+}
+
+@media (min-width: 960px) {
+  .chapters {
+    --chapter-gap: var(--space-64);
+  }
+
+  .chapter {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--space-48);
+  }
+
+  .chapter__note {
+    margin-top: var(--space-32);
+  }
+}
+
+/* Doodle badge on each chapter card */
+.jy-icon {
+  position: absolute;
+  top: -28px;
+  right: 20px;
+  width: 54px;
+  height: 54px;
+  padding: 6px;
+  overflow: visible;
+  background-color: var(--color-cream);
+  border: 2px solid var(--color-plum);
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 var(--color-plum);
+  stroke: var(--color-plum);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.jy-icon__text {
+  fill: var(--color-plum);
+  stroke: none;
+  font-family: var(--font-hand);
+  font-size: 8px;
+}
+
+/* "you are here!" sign above the last chapter */
+.jy-here {
+  position: absolute;
+  top: -40px;
+  left: -14px;
+  z-index: 2;
+  padding: 2px 12px;
+  background-color: var(--color-pink);
+  border: 2px solid var(--color-plum);
+  border-radius: var(--radius-pill);
+  box-shadow: 2px 2px 0 var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.jy-here::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 28px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-pink);
+  border-right: 2px solid var(--color-plum);
+  border-bottom: 2px solid var(--color-plum);
+  rotate: 45deg;
+}
+
+/* --- Threads --- */
+
+.jy-threads {
+  position: relative;
+  z-index: 1;
+}
+
+.jy-yarn {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  margin-left: var(--space-8);
+  overflow: visible;
+  vertical-align: middle;
+  stroke: var(--color-plum);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+/* Three colored threads braided together */
+.jy-braid {
+  display: block;
+  width: 240px;
+  height: 24px;
+  margin: calc(var(--space-8) * -1) 0 var(--space-16);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.jy-braid__a {
+  stroke: var(--doodle-pink-soft);
+}
+
+.jy-braid__b {
+  stroke: var(--doodle-mint);
+}
+
+.jy-braid__c {
+  stroke: var(--doodle-lavender);
+}
+
+.threads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-24);
+  margin: var(--space-24) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.thread {
+  padding: var(--space-32) var(--space-24) var(--space-24);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-plum);
+  border-top: 6px solid var(--thread-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sticker);
+}
+
+.thread:nth-child(1) {
+  --thread-color: var(--color-rose);
+}
+
+.thread:nth-child(2) {
+  --thread-color: var(--color-mauve);
+}
+
+.thread:nth-child(3) {
+  --thread-color: var(--color-mint);
+}
+
+.thread:nth-child(4) {
+  --thread-color: var(--color-lemon);
+}
+
+.thread:nth-child(5) {
+  --thread-color: var(--color-pink);
+}
+
+.thread h3 {
+  margin-bottom: var(--space-8);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.thread dl {
+  margin: 0;
+}
+
+.thread dt {
+  margin-top: var(--space-12);
+  color: var(--color-muted);
+  font-family: var(--font-hand);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.thread dd {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .jy-flight__plane {
+    animation: plane-fly 8s ease-in-out infinite;
+  }
+
+  .jy-icon,
+  .jy-yarn {
+    animation: doodle-rock 2.8s ease-in-out infinite alternate;
+  }
+
+  .chapter:nth-child(even) .jy-icon {
+    animation-delay: 1.4s;
+  }
+
+  .jy-icon--rocket {
+    animation: doodle-float 1.8s ease-in-out infinite alternate;
+  }
+
+  .jy-here {
+    animation: doodle-float 0.9s ease-in-out infinite alternate;
+  }
+
+  .jy-braid use {
+    animation: braid-flow 3s linear infinite;
+  }
+}
+
+
+/* ==========================================================================
+   15. Case studies
+   ========================================================================== */
+
+/* --- Shared: a cream intro with a wavy edge, then white below --- */
+
+.ws-page,
+.ptv-page,
+.icp-page {
+  display: flow-root; /* stops the pager's margin from leaving a cream strip */
+  overflow-x: clip;
+  background-color: var(--color-white);
+}
+
+.ws-page .container,
+.ptv-page .container,
+.icp-page .container {
+  position: relative;
+}
+
+.ws-page .cs-hero,
+.ptv-page .cs-hero,
+.icp-page .cs-hero {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-cream);
+}
+
+.ws-page .cs-hero .wave__fill,
+.ptv-page .cs-hero .wave__fill,
+.icp-page .cs-hero .wave__fill {
+  fill: var(--color-cream);
+}
+
+/* Words on the left, game picture on the right */
 .pv-hero {
   display: grid;
   gap: var(--space-32);
   align-items: center;
 }
 
-.pv-status {
-  margin-top: var(--space-12);
-  font-size: var(--text-small);
-  color: var(--color-slate);
+@media (min-width: 960px) {
+  .pv-hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-64);
+  }
+}
+.pv-hero__img {
+  width: 100%;
+  margin-inline: auto;
+  border-radius: 8px;
 }
 
-/* Lemon frame around the game picture */
-.pv-screen {
-  margin: 0;
+/* --- Worktext Studio --- */
+
+.ws-highlight {
+  padding: 0 0.1em;
+  background-image: linear-gradient(
+    to top,
+    transparent 8%,
+    rgb(255 232 154 / 0.95) 8% 45%,
+    transparent 45%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Four colored fact boxes: two per row on phones, four on bigger screens */
+.cs-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+  margin: var(--space-24) 0 var(--space-32);
+}
+
+.cs-fact {
   padding: var(--space-12);
+}
+
+.cs-fact:nth-child(1) {
   background-color: var(--color-lemon);
 }
-.pv-screen svg,
-.pv-screen img {
+
+.cs-fact:nth-child(2) {
+  background-color: var(--color-mint);
+}
+
+.cs-fact:nth-child(3) {
+  background-color: var(--color-rose);
+}
+
+.cs-fact:nth-child(4) {
+  background-color: var(--color-mauve);
+}
+
+.cs-fact dt {
+  color: var(--color-red);
+  font-family: var(--font-hand);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cs-fact dd {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-small);
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .cs-facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Big screenshot with a "PDF ready" stamp */
+.cs-shot {
+  position: relative;
+  margin: 0;
+  padding: var(--space-12);
+}
+
+.cs-shot img {
   width: 100%;
   border-radius: 8px;
 }
 
-/* Bubbles in the drawing */
-.pv-art-bubble {
-  fill: var(--color-card);
-  stroke: var(--color-plum);
-  stroke-width: 3;
-}
-.pv-art-bubble--verb {
-  fill: var(--color-mint);
-}
-.pv-art-word {
-  fill: var(--color-plum);
+.ws-stamp {
+  position: absolute;
+  top: -22px;
+  right: -14px;
+  z-index: 2;
+  padding: 4px 14px;
+  background-color: rgb(255 255 255 / 0.85);
+  border: 3px solid var(--color-red);
+  border-radius: 8px;
+  outline: 1.5px solid var(--color-red);
+  outline-offset: 3px;
+  color: var(--color-red);
   font-family: var(--font-hand);
-  font-size: 20px;
-  text-anchor: middle;
-  dominant-baseline: central;
-}
-.pv-art-pop {
-  fill: var(--color-red-pen);
-  font-family: var(--font-hand);
-  font-size: 24px;
-  text-anchor: middle;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  rotate: -8deg;
+  pointer-events: none;
 }
 
-/* --- The game in numbers: four bubbles --- */
-.pv-center {
+/* Two modes, side by side on bigger screens */
+.cs-modes {
+  margin-top: var(--space-16);
+  padding: var(--space-16);
+}
+
+.cs-modes h3 {
+  margin-bottom: var(--space-4);
+  font-weight: 400;
+}
+
+.cs-modes__text p {
+  margin: 0 0 var(--space-16);
+}
+
+.cs-modes__shots {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.cs-modes__shots figcaption {
+  margin-top: var(--space-8);
+  font-family: var(--font-clean);
+  font-size: var(--text-small);
+  font-weight: 700;
   text-align: center;
-  margin-inline: auto;
 }
 
+@media (min-width: 768px) {
+  .cs-modes__shots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Doodle next to each section title */
+.ws-doodle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-left: var(--space-8);
+  overflow: visible;
+  vertical-align: middle;
+  stroke: var(--color-plum);
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* Chloe */
+.cs-chloe {
+  justify-self: center;
+  margin: 0;
+}
+
+.cs-chloe img {
+  width: 100%;
+  max-width: 220px;
+}
+
+/* Paw prints walking toward Chloe */
+.ws-paws {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  left: 0;
+  display: none;
+  height: 50px;
+  pointer-events: none;
+}
+
+.ws-paw {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  fill: var(--color-plum);
+  opacity: 0.25;
+  rotate: 90deg;
+}
+
+@media (min-width: 768px) {
+  .ws-paws {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ws-highlight {
+    animation: highlight-swipe 0.8s ease-out 0.3s both;
+  }
+  /* Bigger section labels on this page */
+.ws-page .label {
+  font-size: 20px;
+}
+
+  .ws-stamp {
+    animation: stamp-in 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) 1s both;
+  }
+
+  .ws-doodle {
+    animation: doodle-rock 2.8s ease-in-out infinite alternate;
+  }
+
+  .ws-paw {
+    animation: paw-walk 6s ease-in-out infinite;
+  }
+
+  .ws-paw:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .ws-paw:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  .ws-paw:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+
+  .ws-paw:nth-child(5) {
+    animation-delay: 2s;
+  }
+
+  .ws-paw:nth-child(6) {
+    animation-delay: 2.5s;
+  }
+}
+
+/* --- Pop the Verbs --- */
+
+.pv-status {
+  margin-top: var(--space-12);
+  color: var(--color-muted);
+  font-size: var(--text-small);
+}
+
+.pv-center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* The game in numbers, inside real bubbles */
 .pv-numbers {
   display: flex;
   flex-wrap: wrap;
@@ -2281,20 +3995,15 @@ mark {
   padding: 0;
   list-style: none;
 }
+
 .pv-number {
   display: grid;
   place-content: center;
-  width: 120px;
-  height: 120px;
-  border: 2px solid var(--color-plum);
-  border-radius: 50%;
-  box-shadow: 3px 3px 0 var(--color-plum);
+  width: 140px;
+  height: 140px;
+  background: url("../assets/images/bubble.png") center / contain no-repeat;
   text-align: center;
 }
-.pv-number:nth-child(1) { background-color: var(--color-lemon); }
-.pv-number:nth-child(2) { background-color: var(--color-mint); }
-.pv-number:nth-child(3) { background-color: var(--color-rose); }
-.pv-number:nth-child(4) { background-color: var(--color-mauve); }
 
 .pv-number strong {
   display: block;
@@ -2303,50 +4012,42 @@ mark {
   font-weight: 400;
   line-height: 1;
 }
+
 .pv-number span {
   font-size: var(--text-small);
 }
 
-/* --- Four game screens, joined by arrows --- */
-.pv-scenes {
-  display: grid;
-  gap: var(--space-32);
-  margin: var(--space-16) 0 var(--space-32);
-  padding: 0;
-  list-style: none;
-}
-.pv-scene {
-  position: relative;
-  padding: var(--space-12);
-  text-align: center;
-}
-.pv-scene:nth-child(1) { background-color: var(--color-lemon); }
-.pv-scene:nth-child(2) { background-color: var(--color-mint); }
-.pv-scene:nth-child(3) { background-color: var(--color-rose); }
-.pv-scene:nth-child(4) { background-color: var(--color-mauve); }
-
-.pv-scene strong {
-  display: block;
-  font-family: var(--font-hand);
-  font-size: 1.25rem;
-  font-weight: 400;
-}
-.pv-scene span {
-  font-size: var(--text-small);
+/* "How I built it": chubbier boxes and cards */
+.pv-build .pv-scene {
+  padding: var(--space-24) var(--space-16);
 }
 
-/* Arrow between screens: points down on phones */
-.pv-scene + .pv-scene::before {
-  content: "↓" / "";
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  translate: -50% 0;
-  font-weight: 700;
-  color: var(--color-plum);
+.pv-build .pv-scene strong {
+  font-size: 1.6rem;
 }
 
-/* --- What I'd add next: two cards --- */
+.pv-build .pv-scene span {
+  font-size: var(--text-body);
+}
+
+.pv-build .cs-points {
+  gap: var(--space-24);
+}
+
+.pv-build .cs-point {
+  padding: var(--space-24) var(--space-32);
+}
+
+.pv-build .cs-point h3 {
+  margin-bottom: var(--space-8);
+  font-size: 1.75rem;
+}
+
+.pv-build .cs-point p {
+  font-size: var(--text-body);
+}
+
+/* What I'd add next */
 .pv-next {
   display: grid;
   gap: var(--space-16);
@@ -2354,88 +4055,199 @@ mark {
   padding: 0;
   list-style: none;
 }
+
 .pv-next li {
   padding: var(--space-16);
   background-color: var(--color-cream);
 }
+
 .pv-next h3 {
   margin-bottom: var(--space-4);
   font-weight: 400;
 }
+
 .pv-next p {
   margin: 0;
   font-size: var(--text-small);
 }
 
-/* --- Bigger screens --- */
 @media (min-width: 768px) {
-  .pv-scenes {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  /* Arrow points right instead */
-  .pv-scene + .pv-scene::before {
-    content: "→" / "";
-    top: 50%;
-    left: -16px;
-    translate: -50% -50%;
-  }
   .pv-next {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Underwater doodles */
+.u-bubble {
+  width: 30px;
+  height: 30px;
+  fill: var(--doodle-bubble);
+}
+
+.u-bubble-sm {
+  width: 18px;
+  height: 18px;
+  fill: var(--doodle-bubble);
+}
+
+.u-fish-blue {
+  width: 38px;
+  height: 38px;
+  fill: var(--doodle-blue);
+}
+
+.u-fish-pink {
+  width: 38px;
+  height: 38px;
+  fill: var(--doodle-pink-soft);
+}
+
+.u-fish-yellow {
+  width: 36px;
+  height: 36px;
+  fill: var(--doodle-lemon);
+}
+
+.u-star {
+  width: 36px;
+  height: 36px;
+  fill: var(--doodle-coral);
+}
+
+.u-shell {
+  width: 34px;
+  height: 34px;
+  fill: var(--color-pink);
+}
+
+.u-jelly {
+  width: 38px;
+  height: 38px;
+  fill: var(--doodle-lilac);
+}
+
+.u-seaweed {
+  width: 32px;
+  height: 44px;
+  fill: none;
+  stroke: var(--doodle-green);
+  stroke-width: 2.5;
+  transform-origin: 50% 100%; /* sways from its base */
+}
+
+/* Sea floor around the number bubbles */
 @media (min-width: 960px) {
-  .pv-hero {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: var(--space-64);
-  }
-}
-/* ---------- 32. ICE CREAM PETSHOP PAGE ---------- */
-
-/* Rose version of the pill */
-.cs-pill--rose {
-  background-color: var(--color-rose);
-}
-
-/* Rose frame for the top picture (instead of lemon) */
-.ic-screen {
-  background-color: var(--color-rose);
-}
-
-/* Ice cream drawing */
-.ic-art-cone   { fill: #F6C98B; stroke: var(--color-plum); stroke-width: 3; stroke-linejoin: round; }
-.ic-art-scoop  { fill: var(--color-pink); stroke: var(--color-plum); stroke-width: 3; }
-.ic-art-cherry { fill: var(--color-red-pen); stroke: var(--color-plum); stroke-width: 2; }
-.ic-art-sparkle {
-  fill: var(--color-plum);
-  font-size: 24px;
-  text-anchor: middle;
-}
-
-/* Two equal columns (scenario words + speech bubble) */
-@media (min-width: 768px) {
-  .cs-split--even {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .uw-decor--inner {
+    display: block;
   }
 }
 
-/* --- Princess Chloe's speech bubble --- */
+/* Beside the extra-wide "How I built it" section */
+@media (min-width: 1680px) {
+  .uw-decor--wide {
+    display: block;
+  }
+}
+
+.uw-doodle {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  overflow: visible;
+  vertical-align: middle;
+  stroke: var(--color-plum);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.uw-doodle--bubble {
+  fill: var(--doodle-bubble);
+}
+
+.uw-doodle--fish {
+  fill: var(--doodle-blue);
+}
+
+.uw-doodle--star {
+  fill: var(--doodle-coral);
+}
+
+/* A little fish swimming above "How it plays" */
+.uw-swim-strip {
+  position: absolute;
+  top: 0;
+  right: var(--gutter);
+  display: none;
+  width: 320px;
+  height: 56px;
+  pointer-events: none;
+}
+
+@media (min-width: 960px) {
+  .uw-swim-strip {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [class*="u-fish"],
+  .u-shell,
+  .u-jelly {
+    animation: doodle-float 2.4s ease-in-out infinite alternate;
+  }
+
+  .u-star {
+    animation: spin 14s linear infinite;
+  }
+
+  .u-seaweed,
+  .uw-doodle {
+    animation: doodle-rock 2.8s ease-in-out infinite alternate;
+  }
+
+  .u-rise {
+    animation: bubble-rise 4s ease-in infinite;
+  }
+
+  .ptv-page .u-rise:nth-child(3n) {
+    animation-delay: 1.3s;
+  }
+
+  .ptv-page .u-rise:nth-child(3n + 2) {
+    animation-delay: 2.6s;
+  }
+
+  .u-swimmer {
+    animation: fish-swim 10s linear infinite;
+  }
+
+  .ptv-page .wk-decor .deco:nth-child(even):not(.u-rise) {
+    animation-delay: 0.6s;
+  }
+}
+
+/* --- Ice Cream Petshop --- */
+
+/* Cheddar's speech bubble */
 .ic-quote {
   position: relative;
   margin: 0;
   padding: var(--space-16) var(--space-24);
   background-color: var(--color-cream);
 }
+
 .ic-quote p {
   margin: 0;
 }
 
-/* The little tail at the bottom of the bubble */
+/* The bubble's little tail */
 .ic-quote::after {
   content: "";
   position: absolute;
-  left: 32px;
   bottom: -11px;
+  left: 32px;
   width: 18px;
   height: 18px;
   background-color: var(--color-cream);
@@ -2444,11 +4256,20 @@ mark {
   transform: rotate(45deg);
 }
 
+.ic-speaker {
+  margin: var(--space-16) 0 0;
+}
+
+.ic-speaker img {
+  width: 180px;
+  height: auto;
+}
+
 .ic-quote__who {
   margin: var(--space-16) 0 var(--space-8);
   padding-left: var(--space-16);
+  color: var(--color-muted);
   font-size: var(--text-small);
-  color: var(--color-slate);
 }
 
 .ic-answer {
@@ -2460,7 +4281,7 @@ mark {
   font-size: var(--text-small);
 }
 
-/* --- The flavor menu: 2 per row on phones, 3 on bigger screens --- */
+/* The flavor menu: two per row on phones, three on bigger screens */
 .ic-menu {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2474,47 +4295,25 @@ mark {
   padding: var(--space-16) var(--space-12);
   text-align: center;
 }
+
+.ic-fruit {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-8);
+  object-fit: contain;
+}
+
 .ic-flavor h3 {
   margin: 0 0 var(--space-4);
   font-size: 1.25rem;
   font-weight: 400;
 }
+
 .ic-flavor p {
   margin: 0 auto;
+  color: var(--color-muted);
   font-size: var(--text-small);
-  color: var(--color-slate);
-}
-
-/* The colored scoop above each flavor name */
-.ic-scoop {
-  display: block;
-  width: 44px;
-  height: 44px;
-  margin: 0 auto var(--space-8);
-  border: 2px solid var(--color-plum);
-  border-radius: 50%;
-}
-.ic-scoop--strawberry { background-color: var(--color-pink); }
-.ic-scoop--pumpkin    { background-color: #F6B26B; }
-.ic-scoop--apple      { background-color: #C8E6A0; }
-.ic-scoop--melon      { background-color: var(--color-mint); }
-.ic-scoop--banana     { background-color: var(--color-lemon); }
-.ic-scoop--mango      { background-color: #FFD27F; }
-
-/* --- Five hearts = five tries --- */
-.ic-hearts {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: var(--space-4);
-  min-height: 120px;
-  font-weight: 700;
-  font-size: var(--text-small);
-}
-.ic-hearts__icons {
-  font-size: 1.75rem;
-  letter-spacing: 0.15em;
-  color: var(--color-red-pen);
 }
 
 @media (min-width: 768px) {
@@ -2522,1496 +4321,534 @@ mark {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-/* ---------- 33. WORK PAGE ---------- */
 
-/* Space between cards inside a group */
-.wk-stack {
-  display: grid;
-  gap: var(--space-24);
-}
-
-/* Group title with a little colored dot */
-.wk-group__title {
-  display: flex;
-  align-items: center;
-  gap: var(--space-12);
-  margin: 0;
-  font-weight: 400;
-}
-/* --- Case study cards: picture on top (phones) --- */
-.wk-feature {
-  display: grid;
-  overflow: hidden;
-}
-.wk-feature__art {
-  display: grid;
-  place-items: center;
-  padding: var(--space-16);
-  background-color: var(--color-mint);
-  border-bottom: 2px solid var(--color-plum);
-}
-.wk-feature__art--rose  { background-color: var(--color-rose); }
-.wk-feature__art--lemon { background-color: var(--color-lemon); }
-.wk-feature__art img {
-  width: auto;
-  max-width: 100%;
-  max-height: 200px;
-  border-radius: 8px;
-}
-.wk-feature__body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: var(--space-24);
-}
-.wk-feature__body h3 {
-  margin-bottom: var(--space-8);
-  font-weight: 400;
-}
-.wk-feature__body .label {
-  margin-bottom: var(--space-4);
-}
-.wk-feature__body .button {
-  margin-top: auto;   /* buttons line up at the bottom */
+/* Fruit, ice cream and pet doodles */
+.i-strawberry,
+.i-apple,
+.i-mango {
+  width: 34px;
+  height: 34px;
 }
 
-/* Two cards side by side (bigger screens) */
-.wk-pair {
-  display: grid;
-  gap: var(--space-24);
+.i-banana,
+.i-pumpkin,
+.i-fish {
+  width: 36px;
+  height: 36px;
 }
 
-/* --- Short write-ups --- */
-.wk-item {
-  padding: var(--space-24);
-}
-.wk-item .label {
-  margin-bottom: var(--space-4);
-}
-.wk-item h3 {
-  margin-bottom: var(--space-8);
-  font-weight: 400;
-}
-.wk-item p {
-  font-size: var(--text-small);
-  line-height: 1.55;
-}
-.wk-item__sub {
-  margin: var(--space-16) 0 var(--space-4);
-  font-weight: 700 !important;
+.i-melon {
+  width: 38px;
+  height: 38px;
 }
 
-/* Screenshots: side by side when there's room */
-.wk-shots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-12);
-  margin: var(--space-16) 0;
-  padding: 0;
-  list-style: none;
-}
-.wk-shots figure {
-  margin: 0;
-}
-.wk-shots img {
-  width: 100%;
-  border: 2px solid var(--color-plum);
-  border-radius: 8px;
-}
-.wk-shots figcaption {
-  margin-top: var(--space-4);
-  font-family: var(--font-clean);
-  font-size: 0.8125rem;
-  color: var(--color-slate);
+.i-cone-pink,
+.i-cone-mint,
+.i-cone-lemon {
+  width: 38px;
+  height: 38px;
 }
 
-/* Small honest notes, like "shown with screenshots" */
-.wk-note {
-  padding-left: var(--space-12);
-  border-left: 3px solid var(--color-pink);
-  color: var(--color-slate);
+.i-cone-pink {
+  fill: var(--doodle-pink-soft);
 }
 
-/* --- Bigger screens --- */
-@media (min-width: 768px) {
-  .wk-pair {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  /* Worktext Studio: picture left, words right */
-  .wk-feature--wide {
-    grid-template-columns: 2fr 3fr;
-  }
-  .wk-feature--wide .wk-feature__art {
-    border-bottom: 0;
-    border-right: 2px solid var(--color-plum);
-  }
-}
-/* ---------- 35. PLAY PAGE ---------- */
-
-/* Mauve version of the pill */
-.cs-pill--mauve {
-  background-color: var(--color-mauve);
+.i-cone-mint {
+  fill: var(--doodle-mint);
 }
 
-/* --- Intro: everything centered --- */
-.play-intro {
-  padding-block: var(--space-48) var(--space-64);
-  text-align: center;
-}
-.play-intro p {
-  margin-inline: auto;
-}
-.play-intro__text {
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-.play-intro__note {
-  font-size: var(--text-small);
-  color: var(--color-slate);
+.i-cone-lemon {
+  fill: var(--color-sticky);
 }
 
-/* --- Mauve area with wavy edges --- */
-.play-band {
-  position: relative;      /* lets the waves sit on its edges */
-  z-index: 1;              /* waves draw over the footer */
-  padding-block: var(--space-32) var(--space-64);
-  background-color: var(--color-mauve);
-}
-.play-band .wave__fill {
-  fill: var(--color-mauve);
+.i-paw,
+.i-paw-pink {
+  width: 28px;
+  height: 28px;
 }
 
-/* --- Cards: 1 per row on phones, 2 on bigger screens --- */
-.play-grid {
-  display: grid;
-  gap: var(--space-24);
+.i-paw {
+  fill: var(--doodle-tan);
 }
 
-.play-grid .work-card__title {
-  font-family: var(--font-hand);   /* Handy Casual */
-  font-weight: 400;
-  font-size: 1.75rem;
+.i-paw-pink {
+  fill: var(--doodle-pink-soft);
 }
 
-/* Pictures in the card tops */
-.play-grid .work-card__art {
-  min-height: 140px;
-}
-.play-grid .work-card__art img {
-  width: auto;
-  height: 110px;
+.i-bone {
+  width: 34px;
+  height: 34px;
+  fill: var(--color-white);
 }
 
-/* Bloom's drawing */
-.play-art {
-  width: 160px;
-  height: auto;
-  fill: var(--color-card);
-  stroke: var(--color-plum);
-  stroke-width: 2;
-}
-.play-art line {
-  stroke-dasharray: 4 3;
-}
-.play-art__level {
-  fill: var(--color-rose);
+.i-fish {
+  fill: var(--doodle-blue);
 }
 
-/* "Coming soon" card: dashed outline, no sticker shadow */
-.work-card--soon {
-  border-style: dashed;
-  box-shadow: none;
-}
-.work-card--soon .work-card__art {
-  border-bottom-style: dashed;
-  background-color: var(--color-card);
-}
-
-@media (min-width: 768px) {
-  .play-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-/* ---------- 36. JOURNEY PAGE ---------- */
-
-/* --- Workplace names as stickers (until you have the logos) --- */
-.jy-logo {
-  padding: var(--space-12) var(--space-24);
-  font-family: var(--font-hand);
-  font-size: 1.25rem;
-}
-
-/* --- Sticky notes (this also fixes the missing sticky-note look) --- */
-.margin-note {
-  padding: var(--space-12) var(--space-16);
-  background-color: var(--color-sticky);
-  border: 1.5px solid var(--color-plum);
-  box-shadow: 2px 2px 0 var(--color-plum);
-}
-
-/* --- Chapter circles: rose (teaching) → pink (now) --- */
-.jy-chapters .chapter:nth-child(1),
-.jy-chapters .chapter:nth-child(2) { --dot: var(--color-rose); }
-.jy-chapters .chapter:nth-child(3) { --dot: var(--color-mauve); }
-.jy-chapters .chapter:nth-child(4) { --dot: var(--color-mint); }
-.jy-chapters .chapter:nth-child(5) { --dot: var(--color-pink); }
-
-.jy-chapters .chapter__marker {
-  background-color: var(--dot);
-  border-color: var(--color-plum);
-  color: var(--color-plum);
-  font-weight: 400;
-}
-
-/* "Now" circle: same pink, slightly bigger outline */
-.jy-chapters .chapter--current .chapter__marker {
-  background-color: var(--color-pink);
-  color: var(--color-plum);
-  border-width: 4px;
-}
-
-/* The line between circles: plain plum */
-.jy-chapters .chapter:not(:last-child)::before {
-  background: var(--color-plum);
-}
-
-.jy-chapters .chapter h3 {
-  font-weight: 400;
-}
-
-/* --- Threads as sticker cards with a colored top --- */
-.jy-chapters ~ .cs-section .threads {
-  margin-top: var(--space-24);
-}
-.thread {
-  background-color: var(--color-card);
-  border: 2px solid var(--color-plum);
-  border-top-width: 6px;
-  border-top-color: var(--thread-color);
-  box-shadow: 3px 3px 0 var(--color-plum);
-}
-.thread:nth-child(1) { --thread-color: var(--color-rose); }
-.thread:nth-child(2) { --thread-color: var(--color-mauve); }
-.thread:nth-child(3) { --thread-color: var(--color-mint); }
-.thread:nth-child(4) { --thread-color: var(--color-lemon); }
-.thread:nth-child(5) { --thread-color: var(--color-pink); }
-.thread h3 {
-  font-weight: 400;
-}
-
-/* --- Skill groups as sticker cards --- */
-.skill-groups {
-  margin-top: var(--space-24);
-  gap: var(--space-24);
-}
-.skill-group {
-  padding: var(--space-16) var(--space-24);
-  background-color: var(--color-card);
-  border: 2px solid var(--color-plum);
-  border-radius: 12px;
-  box-shadow: 3px 3px 0 var(--color-plum);
-}
-.skill-group h3 {
-  font-weight: 400;
-}
-.skill-list li {
-  border-bottom-style: dashed;
-}
-.skill-list li:last-child {
-  border-bottom: 0;
-}
-
-/* --- "Want the short version?" rose area with wavy edges --- */
-.jy-cta {
-  position: relative;
-  z-index: 1;
-  padding-block: var(--space-32) var(--space-48);
-  background-color: var(--color-rose);
-  text-align: center;
-}
-.jy-cta .wave__fill {
-  fill: var(--color-rose);
-}
-.jy-cta h2 {
-  font-weight: 400;
-}
-.jy-cta__buttons {
-  justify-content: center;
-}
-/* ---------- 37. STICKY NOTES: straight and rounded ---------- */
-
-.cs-note,
-.margin-note,
-.chapter__note,
-.case-block__note {
-  transform: none;        /* no more tilt */
-  border-radius: 12px;    /* rounded corners, same as your cards */
-}
-/* ---------- 38. STEP PICTURES: same size frames ---------- */
-
-/* Every picture frame in the step cards is the same height */
-.cs-steps .cs-media {
-  height: 220px;          /* change this number to make all frames taller or shorter */
-}
-
-/* Center the picture inside its frame */
-.cs-steps figure.cs-media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* The picture shrinks to fit, never stretches or gets cropped */
-.cs-steps .cs-media img {
-  width: auto;
-  max-width: 100%;
-  max-height: 100%;
-}
-/* ---------- 39. TWO MODES CARD (Worktext Studio) ---------- */
-
-.cs-modes {
-  margin-top: var(--space-16);
-  padding: var(--space-16);
-}
-.cs-modes h3 {
-  margin-bottom: var(--space-4);
-  font-weight: 400;
-}
-.cs-modes__text p {
-  margin: 0 0 var(--space-16);
-}
-
-/* The two screenshots: stacked on phones */
-.cs-modes__shots {
-  display: grid;
-  gap: var(--space-16);
-}
-
-/* Small caption under each screenshot */
-.cs-modes__shots figcaption {
-  margin-top: var(--space-8);
-  font-family: var(--font-clean);
-  font-size: var(--text-small);
-  font-weight: 700;
-  text-align: center;
-}
-
-/* Bigger screens: side by side */
-@media (min-width: 768px) {
-  .cs-modes__shots {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-/* ---------- 40. CHLOE (Worktext Studio extras) ---------- */
-
-.cs-chloe {
-  margin: 0;
-  justify-self: center;   /* sits in the middle of her space */
-}
-.cs-chloe img {
-  width: 100%;
-  max-width: 220px;       /* change this number to make Chloe bigger or smaller */
-}
-/* ---------- 41. FEATURED WORK (homepage) ---------- */
-
-.work-band--featured {
-  position: relative;      /* lets the wave hang over the footer */
-  z-index: 1;
-  background-color: var(--color-cream);
-  padding-top: calc(var(--space-48) + 40px);   /* room below the career strip's wave */
-}
-.work-band--featured .wave__fill {
-  fill: var(--color-cream);
-}
-
-/* Handwritten project names */
-.work-band--featured .work-card__title {
-  font-family: var(--font-hand);
-  font-weight: 400;
-}
-
-/* Space between the big card and the two game cards */
-.work-band--featured .work-grid {
-  margin-top: 20px;
-}
-
-/* Bigger pictures on the game cards */
-.work-band--featured .work-grid .work-card__art img {
-  height: 150px;
-}
-
-/* "See all work →" on the right */
-.work-band__more {
-  max-width: none;
-  margin: var(--space-24) 0 0;
-  text-align: right;
-  font-size: 1.25rem;
-}
-/* Keep the career strip's wave on top of the Featured work section */
-.journey-strip {
-  z-index: 2;
-}
-/* Worktext Studio card: bigger picture */
-.work-band--featured .work-card--featured .work-card__art {
-  padding: 12px;           /* less empty space around the picture */
-}
-
-@media (min-width: 768px) {
-  .work-band--featured .work-card--featured {
-    grid-template-columns: 3fr 2fr;   /* picture side : text side */
-  }
-}
-/* ---------- 42. DOCX TO XML CARD (Work page) ---------- */
-
-/* The flow strip: 3 boxes (reuses the Pop the Verbs arrows) */
-.dx-flow {
-  margin: var(--space-24) 0;
-}
-.dx-flow .pv-scene:nth-child(2) {
-  background-color: var(--color-mauve);
-}
-@media (min-width: 768px) {
-  .dx-flow {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Two columns side by side (stacked on phones) */
-.dx-pair {
-  display: grid;
-  gap: var(--space-16);
-  margin-bottom: var(--space-24);
-}
-@media (min-width: 768px) {
-  .dx-pair {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .dx-pair--code {
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);   /* code side a bit wider */
-  }
-}
-
-/* Step titles with a pink number */
-.dx-step {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-  margin: 0 0 var(--space-8);
-  font-weight: 700;
-}
-.dx-num {
-  display: inline-grid;
-  place-items: center;
-  width: 1.6em;
-  height: 1.6em;
-  background-color: var(--color-pink);
-  border: 2px solid var(--color-plum);
-  border-radius: 50%;
-  font-size: 0.8em;
-}
-
-/* "What goes in": a cream Word page with pink tags */
-.dx-doc {
-  margin: 0;
-  padding: var(--space-12) var(--space-16);
-  background-color: var(--color-cream);
-  border: 2px solid var(--color-plum);
-  border-radius: 10px;
-  font-family: var(--font-clean);
-  font-size: 0.875rem;
-  line-height: 1.9;
-  white-space: pre-wrap;     /* long lines wrap instead of running off */
-  overflow-wrap: anywhere;
-}
-.dx-tag {
-  padding: 0 2px;
-  background-color: var(--color-pink);
-  border-radius: 3px;
-}
-
-/* Dark plum code boxes */
-.dx-code {
-  margin: 0;
-  padding: var(--space-12) var(--space-16);
-  background-color: var(--color-plum);
-  color: var(--color-cream);
-  border: 2px solid var(--color-plum);
-  border-radius: 10px;
-  font-family: "JetBrains Mono", Consolas, monospace;
-  font-size: 0.8125rem;
-  line-height: 1.7;
-  white-space: pre;
-  overflow-x: auto;          /* long lines scroll sideways on small screens */
-}
-
-/* Code colors, from your palette */
-.dx-com { color: var(--color-mauve); }
-.dx-key { color: var(--color-pink); }
-.dx-str { color: var(--color-lemon); }
-.dx-ok  { color: var(--color-mint); }
-
-/* Code editor window with three dots and a file name */
-.dx-window {
-  overflow: hidden;
-  background-color: var(--color-plum);
-  border: 2px solid var(--color-plum);
-  border-radius: 10px;
-}
-.dx-window .dx-code {
-  border: 0;
-  border-radius: 0;
-}
-.dx-window__bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px var(--space-12);
-  background-color: var(--color-teal-deep);
-  color: var(--color-mauve);
-  font-family: "JetBrains Mono", Consolas, monospace;
-  font-size: 0.75rem;
-}
-.dx-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.dx-dot:nth-child(1) { background-color: var(--color-pink); }
-.dx-dot:nth-child(2) { background-color: var(--color-lemon); }
-.dx-dot:nth-child(3) { background-color: var(--color-mint); margin-right: 6px; }
-
-/* Folder screenshot under the result */
-.dx-shot {
-  margin: var(--space-12) 0 0;
-}
-.dx-shot img {
-  width: 100%;
-  border: 2px solid var(--color-plum);
-  border-radius: 8px;
-}
-
-/* Team note and tags at the bottom */
-.dx-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-12);
-}
-.dx-team {
-  flex: 1 1 280px;
-  margin: 0;
-  padding: var(--space-8) var(--space-12);
-  background-color: var(--color-cream);
-  border: 1.5px dashed var(--color-plum);
-  border-radius: 10px;
-}
-.dx-footer .chips {
-  margin: 0;
-}
-/* ---------- 43. LEARNING GAMES (Work page) ---------- */
-
-/* Slim cards: small picture on the left, words on the right */
-.wk-slim {
-  display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  overflow: hidden;
-}
-.wk-slim__art {
-  display: grid;
-  place-items: center;
-  padding: var(--space-12);
-  border-right: 2px solid var(--color-plum);
-}
-.wk-slim__art--rose  { background-color: var(--color-rose); }
-.wk-slim__art--lemon { background-color: var(--color-lemon); }
-.wk-slim__art img {
-  width: 100%;
-  max-height: 80px;
-  object-fit: contain;
-}
-.wk-slim__body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: var(--space-16) var(--space-24);
-}
-.wk-slim__body .label {
-  margin-bottom: var(--space-4);
-}
-.wk-slim__body h3 {
-  margin-bottom: var(--space-4);
-  font-weight: 400;
-}
-.wk-slim__body p {
-  margin-bottom: var(--space-12);
-  font-size: var(--text-small);
-}
-.wk-slim__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-8);
-  margin-top: auto;          /* buttons line up at the bottom */
-}
-
-/* Personality Test: three numbered steps (stacked on phones) */
-.mc-steps {
-  display: grid;
-  gap: var(--space-16);
-  margin: var(--space-24) 0;
-}
-@media (min-width: 768px) {
-  .mc-steps {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Same-size frames for all three steps */
-.mc-frame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 180px;
-  margin: 0;
-  padding: var(--space-8);
-  border: 2px solid var(--color-plum);
-  border-radius: 10px;
-}
-.mc-frame img {
-  width: auto;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 6px;
-}
-.mc-frame--mint { background-color: var(--color-mint); }
-.mc-frame--rose { background-color: var(--color-rose); }
-
-/* Step 2: the score counters */
-.mc-tally {
-  flex-direction: column;
-  align-items: stretch;
-  gap: var(--space-12);
-  padding: var(--space-12) var(--space-16);
-  background-color: var(--color-cream);
-  font-family: var(--font-clean);
-  font-size: var(--text-small);
-}
-.mc-bar {
-  display: grid;
-  grid-template-columns: 6em minmax(0, 1fr) 1.2em;   /* name, bar, number */
-  align-items: center;
-  gap: var(--space-8);
-}
-.mc-bar__fill {
-  width: var(--w);
-  height: 14px;
-  border: 1.5px solid var(--color-plum);
-  border-radius: 7px;
-}
-.mc-bar:nth-child(1) .mc-bar__fill { background-color: var(--color-pink); }
-.mc-bar:nth-child(2) .mc-bar__fill { background-color: var(--color-mauve); }
-.mc-bar:nth-child(3) .mc-bar__fill { background-color: var(--color-lemon); }
-.mc-bar:nth-child(4) .mc-bar__fill { background-color: var(--color-mint); }
-
-.mc-chips {
-  margin: var(--space-16) 0 0;
-}
-/* Personality Test: bigger screenshots */
-.mc-frame {
-  height: 220px;           /* taller frames: change this number to adjust */
-  padding: 4px;            /* less space around the pictures */
-}
-
-@media (min-width: 768px) {
-  .mc-steps {
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.4fr);
-    /* screenshot : counters : screenshot */
-  }
-}
-/* ---------- 44. LEARNING PLATFORMS (Work page) ---------- */
-
-/* Bloom's: the learner's path with checkmarks */
-.bl-path {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));   /* phones: 2 rows of 3 */
-  gap: var(--space-16) var(--space-8);
-  margin: var(--space-8) 0;
-  padding: 0;
-  list-style: none;
-}
-.bl-stop {
-  position: relative;
-  z-index: 1;                 /* sits on top of the line */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-8);
-  font-size: var(--text-small);
-  font-weight: 700;
-  text-align: center;
-}
-.bl-check {
-  display: grid;
-  place-items: center;
+.i-heart {
   width: 32px;
   height: 32px;
-  background-color: var(--color-lemon);
-  border: 2px solid var(--color-plum);
-  border-radius: 50%;
-}
-.bl-stop--activity .bl-check { background-color: var(--color-mauve); }  /* the part built in Storyline */
-.bl-stop--done .bl-check     { background-color: var(--color-pink); }
-
-/* Bigger screens: one row of 6, joined by a line */
-@media (min-width: 768px) {
-  .bl-path {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-  .bl-path::before {
-    content: "";
-    position: absolute;
-    top: 15px;                /* middle of the circles */
-    left: 8%;
-    right: 8%;
-    height: 2px;
-    background-color: var(--color-plum);
-  }
+  fill: var(--doodle-pink);
 }
 
-/* Space above the two screenshots and the note */
-.bl-shots {
-  margin-top: var(--space-24);
+.i-sparkle-yellow,
+.i-sparkle-mint {
+  width: 24px;
+  height: 24px;
+  stroke: none;
 }
 
-/* Cyber Safety: screenshot narrower, code wider */
-@media (min-width: 768px) {
-  .cy-pair {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
-  }
-}
-/* ---------- 45. WAVY DIVIDERS (Work page) ---------- */
-
-.wk-group--tools,
-.wk-group--platforms {
-  position: relative;      /* lets the waves sit on the top and bottom edges */
-  z-index: 1;              /* waves draw over the sections around them */
-  border-block: 0;         /* the waves replace the dashed lines */
+.i-sparkle-yellow {
+  fill: var(--doodle-yellow);
 }
 
-/* Waves match the white sections */
-.wk-group .wave__fill {
-  fill: var(--color-card);
-}
-/* ---------- 46. CYBER SAFETY SCREENSHOTS ---------- */
-
-/* The two screenshots, stacked */
-.cy-shots {
-  display: grid;
-  gap: var(--space-16);
-}
-.cy-shot {
-  margin: 0;
+.i-sparkle-mint {
+  fill: var(--doodle-mint);
 }
 
-/* Mint frame around each screenshot */
-.cy-shot img {
-  width: 100%;
-  padding: var(--space-8);
-  background-color: var(--color-mint);
-  border: 2px solid var(--color-plum);
-  border-radius: 10px;
+/* Doodle next to each section title */
+.ic-doodle {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  overflow: visible;
+  vertical-align: middle;
+  stroke: var(--color-plum);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 
-/* Small caption under each screenshot */
-.cy-shot figcaption {
-  margin-top: var(--space-4);
-  font-family: var(--font-clean);
-  font-size: var(--text-small);
-  color: var(--color-slate);
-}
-/* Webhook result: text and screenshot line up at the top */
-.cy-result {
-  align-items: start;
-}
-/* Tablets and laptops: the code screenshot matches the height
-   of the two screenshots on the left */
-@media (min-width: 768px) {
-  .cy-pair > div {
-    display: flex;
-    flex-direction: column;
-  }
-  .cy-shot--fill {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-  }
-  .cy-shot--fill img {
-    flex: 1;
-    height: 0;
-    min-height: 0;
-    object-fit: contain;   /* shrinks to fit, never stretches */
-  }
+.ic-doodle--paw,
+.ic-doodle--cone {
+  fill: var(--doodle-pink-soft);
 }
 
-/* Webhook result: text and screenshot share one rounded box */
-.cy-box {
-  padding: var(--space-16);
-  background-color: var(--color-cream);
-  border: 2px solid var(--color-plum);
-  border-radius: 12px;
-}
-/* Cyber Safety: how wide each side is (left : right) */
-@media (min-width: 768px) {
-  .cy-pair {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  }
-}
-/* Webhook result: text and screenshot in one dark box */
-.cy-webhook {
-  display: grid;
-  gap: var(--space-16);
-  align-items: center;          /* text and picture centered side by side */
-  padding: var(--space-16);
-  background-color: var(--color-plum);
-  border-radius: 10px;
+.ic-doodle--heart {
+  fill: var(--doodle-pink);
 }
 
-/* The text no longer needs its own box */
-.cy-webhook .dx-code {
-  padding: 0;
-  border: 0;
-  background-color: transparent;
+.ic-doodle--sparkle {
+  fill: var(--doodle-yellow);
+  stroke: none;
 }
 
-.cy-webhook img {
-  width: 100%;
-  border-radius: 6px;
+/* Paw prints walking across the top of "How it plays" */
+.ic-trail {
+  position: absolute;
+  top: 4px;
+  right: var(--gutter);
+  display: none;
+  width: 340px;
+  height: 44px;
+  pointer-events: none;
 }
 
-/* Tablets and laptops: side by side (phones: stacked) */
-@media (min-width: 768px) {
-  .cy-webhook {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);   /* text : picture */
-  }
-}
-/* Cyber Safety screenshots: rounded corners, like the Personality Test */
-.cy-shot img {
-  padding: 4px;           /* thinner mint frame */
-  border-radius: 12px;    /* rounds the frame AND the picture inside */
-}
-/* Webhook screenshot: same rounded corners as the others */
-.cy-webhook img {
-  border-radius: 12px;
-  clip-path: inset(0 round 12px);   /* trims the corners, no matter what */
-}
-/* Webhook result: just the screenshot now, in a smaller dark box */
-.cy-webhook {
-  max-width: 560px;          /* box width: bigger number = wider */
-  padding: var(--space-12);  /* thinner dark frame around the picture */
-}
-@media (min-width: 768px) {
-  .cy-webhook {
-    grid-template-columns: 1fr;   /* one column now, not two */
-  }
-}
-/* Part 3: title, picture and caption centered */
-.cy-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.cy-center .cy-webhook {
-  width: 100%;   /* still stops at 560px wide */
-}
-/* DOCX converter: give the result side more room (code : result) */
-@media (min-width: 768px) {
-  .dx-pair--code {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  }
-}
-/* DOCX converter: part 3 stretches to match part 4's height,
-   and part 4 gets a bit more room */
-@media (min-width: 768px) {
-  .dx-pair--code {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);   /* code : result */
-  }
-  .dx-pair--code > div {
-    display: flex;
-    flex-direction: column;
-  }
-}
-/* DOCX converter: fine-tune the split (code : result) */
-@media (min-width: 768px) {
-  .dx-pair--code {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
-  }
-}
-/* ---------- 47. BLOOM'S COURSE SCREENSHOTS ---------- */
-
-/* Frames hug the pictures: thin, rounded, no fixed height */
-.bl-shots .mc-frame {
-  height: auto;
-  padding: 4px;
-  border-radius: 12px;
-}
-.bl-shots .mc-frame img {
-  width: 100%;
-  max-height: none;
-  border-radius: 8px;
+.ic-trail .deco {
+  rotate: 90deg;
 }
 
-/* Tablets and laptops: split matches the picture shapes (Moodle : activity) */
-@media (min-width: 768px) {
-  .bl-shots {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-    align-items: start;
-  }
-}
-/* Bloom's: fine-tune so both pictures are the same height */
-@media (min-width: 768px) {
-  .bl-shots {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
-  }
-}
-/* Cream notes: one line when there's room, box hugs the text */
-.dx-team {
-  max-width: none;       /* no more reading-width limit */
-  width: fit-content;    /* box is only as wide as its text */
-  flex: 0 1 auto;
-}
-/* Work page: no reading-width limit, text uses the full width */
-.wk-page p {
-  max-width: none;
-}
-/* Play page: Pop the Verbs picture area in mauve */
-.work-card--soon .work-card__art {
-  background-color: #FF99C8;
-}
-/* ---------- 48. PLAY PAGE: SQUARE CARDS ---------- */
-
-/* Narrower, centered grid so the squares aren't too tall */
-.play-grid {
-  max-width: 760px;        /* grid width: bigger number = bigger squares */
-  margin-inline: auto;
-}
-
-/* Square cards (rounded corners stay) */
-.play-grid .work-card {
-  aspect-ratio: 1 / 1;
-}
-
-/* The picture area fills the extra space... */
-.play-grid .work-card__art {
-  flex: 1;
-  min-height: 0;
-}
-
-/* ...and the words area only takes what it needs */
-.play-grid .work-card__body {
-  flex: 0 0 auto;
-}
-
-/* Bigger pictures */
-.play-grid .work-card__art img {
-  height: 160px;           /* picture size: bigger number = bigger */
-}
-/* Pop the Verbs: same look as the other cards, with its own color */
-.work-card--soon-solid .work-card__art {
-  background-color: var(--color-pink);   /* baby pink #FFD6E9 */
-}
-/* ---------- 49. FEATURED WORK: matching game cards ---------- */
-
-/* Pink picture area (there wasn't one before) */
-.work-card__art--pink { background-color: var(--color-pink); }
-
-/* Both picture areas are the same height, so the lines match */
-.work-band--featured .work-grid .work-card__art {
-  height: 200px;           /* box height: bigger number = taller */
-}
-
-/* Pictures shrink to fit the box, never stretch or get cut off */
-.work-band--featured .work-grid .work-card__art img {
-  height: 170px;           /* picture size: keep it about 30 less than the box */
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-}
-/* ---------- 50. HOMEPAGE SPIRAL: bigger and faster ---------- */
-
-.brand__flower--big {
-  width: 48px;              /* phone size: bigger number = bigger spiral */
-}
-
-@media (min-width: 768px) {
-  .brand__flower--big {
-    width: 64px;            /* tablet and laptop size */
+@media (min-width: 960px) {
+  .ic-trail {
+    display: block;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .brand__flower--big {
-    animation-duration: 5s; /* one full turn every 5 seconds (was 8): smaller number = faster */
+  .i-strawberry,
+  .i-apple,
+  .i-mango,
+  .i-melon,
+  .i-banana,
+  .i-pumpkin {
+    animation: doodle-float 2.2s ease-in-out infinite alternate;
   }
-}
-/* ---------- 51. ICE CREAM PETSHOP: the speaker under the bubble ---------- */
 
-.ic-speaker {
-  margin: var(--space-16) 0 0;   /* space between the bubble and the gif */
-}
-
-.ic-speaker img {
-  width: 180px;                  /* gif size: bigger number = bigger */
-  height: auto;
-}
-/* ---------- 52. ICE CREAM PETSHOP: fruit pictures on the menu ---------- */
-
-.ic-fruit {
-  display: block;
-  width: 64px;              /* fruit size: bigger number = bigger */
-  height: 64px;
-  margin: 0 auto var(--space-8);
-  object-fit: contain;      /* each fruit fits the space without stretching */
-}
-/* ---------- 53. ICE CREAM PETSHOP: four step cards ---------- */
-
-/* Tablets: 2 cards per row */
-@media (min-width: 768px) {
-  .cs-steps--four {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  [class*="i-cone"],
+  .ic-doodle {
+    animation: doodle-rock 2.8s ease-in-out infinite alternate;
   }
-}
 
-/* Laptops: all 4 in one row */
-@media (min-width: 1024px) {
-  .cs-steps--four {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .i-heart,
+  [class*="i-paw"] {
+    animation: doodle-float 0.9s ease-in-out infinite alternate;
   }
-}
-/* ---------- 54. WIDER CONTAINER (chubbier cards) ---------- */
 
-/* Use this on any section that needs more room than usual */
-.container--wide {
-  max-width: calc(1400px + var(--gutter) * 2);   /* bigger number = wider */
-}
-/* ---------- 55. ICE CREAM PETSHOP: no dashed lines ---------- */
+  .i-bone {
+    animation: doodle-wobble 3s ease-in-out infinite;
+  }
 
-.icp-page .cs-section--white {
-  border-block: 0;   /* removes the dashed lines above and below white sections */
-}
-/* ---------- 56. ICE CREAM PETSHOP: wavy edges ---------- */
+  .i-fish {
+    animation: doodle-drift 2.5s ease-in-out infinite alternate;
+  }
 
-/* Top section: its wave hangs over the white section below */
-.icp-page .cs-hero {
-  position: relative;
-  z-index: 2;
-}
-.icp-page .cs-hero .wave__fill {
-  fill: var(--color-cream);       /* same cream as the top section */
-}
+  [class*="i-sparkle"] {
+    animation: doodle-twinkle 2.4s ease-in-out infinite;
+  }
 
-/* Footer: its wave sits on top of its edge */
-.site-footer {
-  position: relative;
-}
-.site-footer .wave__fill {
-  fill: var(--color-teal-deep);   /* same dark plum as the footer */
-}
+  .icp-page .wk-decor .deco:nth-child(even) {
+    animation-delay: 0.6s;
+  }
 
-/* Extra room so the footer's wave doesn't cover the Previous / Next links */
-.icp-page .pager {
-  margin-bottom: 40px;
-}
-/* ---------- 57. POP THE VERBS: six "How I built it" cards ---------- */
+  .ic-trail .deco:nth-child(2) {
+    animation-delay: 0.2s;
+  }
 
-.cs-point:nth-child(4) { background-color: var(--color-mauve); }
-.cs-point:nth-child(5) { background-color: var(--color-lemon); }
-.cs-point:nth-child(6) { background-color: var(--color-mint); }
-/* ---------- 58. POP THE VERBS: real bubbles for the numbers ---------- */
+  .ic-trail .deco:nth-child(3) {
+    animation-delay: 0.4s;
+  }
 
-.pv-numbers .pv-number {
-  width: 140px;              /* bubble size: bigger number = bigger */
-  height: 140px;
-  background: url("../assets/images/bubble.png") center / contain no-repeat;
-  border: 0;                 /* no more plum outline */
-  border-radius: 0;
-  box-shadow: none;          /* no more sticker shadow */
-}
-/* ---------- 59. POP THE VERBS: big step cards (2 per row) ---------- */
+  .ic-trail .deco:nth-child(4) {
+    animation-delay: 0.6s;
+  }
 
-/* Laptops: 2 chubby cards per row, instead of 4 small ones */
-@media (min-width: 1024px) {
-  .cs-steps--big {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .ic-trail .deco:nth-child(5) {
+    animation-delay: 0.8s;
   }
 }
 
-/* Taller picture frames, so the pictures can grow too */
-@media (min-width: 768px) {
-  .cs-steps--big .cs-media {
-    height: 360px;           /* frame height: bigger number = bigger pictures */
+
+/* ==========================================================================
+   16. Keyframes
+   ========================================================================== */
+
+/* --- Doodles --- */
+
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
   }
 }
-/* ---------- 60. POP THE VERBS: chubbier "How I built it" cards ---------- */
 
-/* The four screens (Boot, Preloader, Main menu, Game) */
-.pv-build .pv-scene {
-  padding: var(--space-24) var(--space-16);   /* more room inside: top/bottom, then sides */
-}
-.pv-build .pv-scene strong {
-  font-size: 1.6rem;           /* screen names */
-}
-.pv-build .pv-scene span {
-  font-size: var(--text-body); /* small words under the names */
-}
-
-/* The six colorful cards */
-.pv-build .cs-points {
-  gap: var(--space-24);        /* space between cards */
-}
-.pv-build .cs-point {
-  padding: var(--space-24) var(--space-32);   /* more room inside each card */
-}
-.pv-build .cs-point h3 {
-  font-size: 1.75rem;          /* card titles */
-  margin-bottom: var(--space-8);
-}
-.pv-build .cs-point p {
-  font-size: var(--text-body); /* card descriptions: same size as normal reading text */
-}
-/* ---------- 61. POP THE VERBS: no dashed lines + wavy edges ---------- */
-
-/* No dashed lines above and below the white sections */
-.ptv-page .cs-section--white {
-  border-block: 0;
-}
-
-/* Top section: its wave hangs over the white section below */
-.ptv-page .cs-hero {
-  position: relative;
-  z-index: 2;
-}
-.ptv-page .cs-hero .wave__fill {
-  fill: var(--color-cream);    /* same cream as the top section */
-}
-
-/* Extra room so the footer's wave doesn't cover the Previous / Next links */
-.ptv-page .pager {
-  margin-bottom: 40px;
-}
-/* ---------- 62. JOURNEY: no dashed lines + wavy edges ---------- */
-
-/* No dashed lines above and below the white section */
-.jy-page .cs-section--white {
-  border-block: 0;
-}
-
-/* Top section: its wave hangs over the chapters below */
-.jy-page .cs-hero {
-  position: relative;
-  z-index: 2;
-}
-.jy-page .cs-hero .wave__fill {
-  fill: var(--color-cream);    /* same cream as the top section */
-}
-
-/* Threads section: its white wave sits on its top edge */
-.jy-threads {
-  position: relative;
-  z-index: 1;
-}
-/* ---------- 63. PLAY PAGE: bigger, chubbier cards ---------- */
-
-/* Wider grid = bigger cards (they stay square) */
-.play-grid {
-  max-width: 1100px;           /* grid width: bigger number = bigger cards */
-  gap: var(--space-32);        /* space between cards */
-}
-
-/* Bigger pictures */
-.play-grid .work-card__art img {
-  height: 240px;               /* picture size: bigger number = bigger */
-}
-
-/* More room inside the white part of each card */
-.play-grid .work-card__body {
-  padding: var(--space-24) var(--space-32) var(--space-32);
-}
-
-/* Bigger game names and descriptions */
-.play-grid .work-card__title {
-  font-size: 2.25rem;
-}
-.play-grid .work-card__meta {
-  font-size: 1.25rem;
-  margin-bottom: var(--space-16);
-}
-
-/* Bigger buttons */
-.play-grid .button--small {
-  min-height: 48px;
-  padding: var(--space-8) var(--space-24);
-  font-size: 1.375rem;
-}
-/* ---------- 64. CYBER SAFETY: webhook left, pills right ---------- */
-
-.cy-bottom {
-  display: flex;
-  flex-wrap: wrap;                  /* phones: the pills drop below the picture */
-  align-items: center;              /* pills sit in the middle, up and down */
-  justify-content: space-between;   /* picture on the left, pills on the right */
-  gap: var(--space-24);
-}
-
-/* Part 3 lines up on the left instead of the middle */
-.cy-bottom .cy-center {
-  flex: 1 1 400px;
-  align-items: flex-start;
-  text-align: left;
-}
-
-/* Pills: no extra space above them */
-.cy-bottom .cy-chips {
-  margin: 0;
-}
-/* Pills: line up with the bottom of the dark webhook box */
-.cy-bottom .cy-chips {
-  align-self: flex-end;      /* move the pills to the bottom */
-  margin-bottom: 40px;       /* lift them above the caption: bigger number = higher */
-}
-/* Pills: line up with the bottom of the dark webhook box */
-.cy-bottom .cy-chips {
-  align-self: flex-end;      /* move the pills to the bottom */
-  margin-bottom: 40px;       /* lift them above the caption: bigger number = higher */
-  margin-right: 100px;        /* move them left: bigger number = further left */
-}
-/* Journey: the footer sits above the Threads section, so its wave shows */
-.jy-page ~ .site-footer {
-  z-index: 2;
-}
-/* ---------- 65. JOURNEY: chubbier Threads cards ---------- */
-
-.jy-threads .threads {
-  gap: var(--space-24);                          /* space between cards */
-}
-
-.jy-threads .thread {
-  padding: var(--space-32) var(--space-24) var(--space-24);   /* more room inside */
-}
-
-.jy-threads .thread h3 {
-  font-size: 1.5rem;                             /* card titles */
-}
-
-.jy-threads .thread dt {
-  font-size: 0.8125rem;                          /* the small "THEN" and "NOW" labels */
-}
-
-.jy-threads .thread dd {
-  font-size: var(--text-body);                   /* the descriptions */
-}
-/* ---------- 66. GAME POPUP ---------- */
-
-/* The window: sticker style, like your cards */
-.game-popup {
-  width: min(1100px, 92vw);              /* popup width: bigger number = wider */
-  padding: 0;
-  border: 3px solid var(--color-plum);
-  border-radius: 16px;
-  box-shadow: 6px 6px 0 var(--color-plum);
-  background-color: var(--color-plum);
-  overflow: hidden;
-}
-
-/* The dimmed page behind the popup */
-.game-popup::backdrop {
-  background-color: rgb(59 42 68 / 0.6);
-}
-
-/* The page behind can't scroll while the popup is open */
-body:has(.game-popup[open]) {
-  overflow: hidden;
-}
-
-/* Pink title bar */
-.game-popup__bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-16);
-  padding: var(--space-8) var(--space-12) var(--space-8) var(--space-24);
-  background-color: var(--color-pink);
-  border-bottom: 3px solid var(--color-plum);
-}
-
-.game-popup__title {
-  margin: 0;
-  font-family: var(--font-hand);
-  font-size: 1.5rem;
-  color: var(--color-plum);
-}
-
-.game-popup__actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-16);
-}
-
-.game-popup__newtab {
-  font-family: var(--font-hand);
-  font-size: 1.125rem;
-  color: var(--color-plum);
-}
-
-/* The ✕ button, as a little sticker */
-.game-popup__close {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: var(--color-card);
-  border: 2px solid var(--color-plum);
-  border-radius: 10px;
-  box-shadow: 2px 2px 0 var(--color-plum);
-  font-size: 1.25rem;
-  color: var(--color-plum);
-  cursor: pointer;
-}
-.game-popup__close:hover {
-  background-color: var(--color-lemon);
-}
-
-/* The game screen: a wide 16:9 shape that never gets taller than the screen */
-.game-popup__screen {
-  aspect-ratio: 16 / 9;
-  max-height: calc(90vh - 70px);
-}
-.game-popup__screen iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* A soft pop-in when it opens */
-@media (prefers-reduced-motion: no-preference) {
-  .game-popup[open] {
-    animation: popup-in 250ms ease-out;
+@keyframes doodle-rock {
+  from {
+    rotate: -8deg;
+  }
+  to {
+    rotate: 8deg;
   }
 }
+
+@keyframes doodle-float {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes doodle-drift {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 10px 0;
+  }
+}
+
+@keyframes doodle-wobble {
+  0%,
+  100% {
+    rotate: -10deg;
+  }
+  50% {
+    rotate: 10deg;
+  }
+}
+
+@keyframes doodle-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+  50% {
+    opacity: 0.6;
+    scale: 0.75;
+  }
+}
+
+@keyframes check-pop {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.15;
+  }
+}
+
+/* --- Home --- */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* The cursor glides in, clicks, waits and fades away */
+@keyframes cursor-click {
+  0% {
+    opacity: 0;
+    translate: 0.6em 0.6em;
+  }
+  15% {
+    opacity: 1;
+  }
+  45% {
+    translate: 0 0;
+    scale: 1;
+  }
+  52% {
+    scale: 0.8;
+  }
+  60% {
+    scale: 1;
+  }
+  85% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  100% {
+    opacity: 0;
+    translate: 0.6em 0.6em;
+  }
+}
+
+/* The highlight squishes at the moment of the click */
+@keyframes highlight-press {
+  0%,
+  48% {
+    scale: 1;
+  }
+  52% {
+    scale: 0.95;
+  }
+  60%,
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes draw-line {
+  from {
+    scale: var(--draw-from);
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes dot-in {
+  from {
+    opacity: 0.3;
+    scale: 0.6;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+/* --- Game popup --- */
+
 @keyframes popup-in {
-  from { opacity: 0; scale: 0.95; }
-  to   { opacity: 1; scale: 1; }
-}
-/* ---------- 67. GAME POPUP: loading note ---------- */
-
-/* Game name and note, side by side */
-.game-popup__name {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-4) var(--space-12);
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }
 
-/* The small "takes a little time to load" note */
-.game-popup__note {
-  margin: 0;
-  font-family: var(--font-clean);
-  font-size: 0.9375rem;      /* note size: bigger number = bigger */
-  font-weight: 600;
-  color: var(--color-plum);
-  opacity: 0.8;              /* a little softer than the game name */
-}
-/* ---------- 68. WORKTEXT STUDIO: no dashed lines ---------- */
+/* --- Play --- */
 
-.ws-page .cs-section--white {
-  border-block: 0;   /* removes the dashed lines above and below white sections */
-}
-/* ---------- 69. WORKTEXT STUDIO: wave under the top section ---------- */
-
-.ws-page .cs-hero {
-  position: relative;
-  z-index: 2;
-}
-.ws-page .cs-hero .wave__fill {
-  fill: var(--color-cream);    /* same cream as the top section */
-}
-/* ---------- 70. WORKTEXT STUDIO: room above the footer wave ---------- */
-
-/* Extra space so the footer's wave doesn't cover "All work" and "Next" */
-.ws-page .pager {
-  margin-bottom: 40px;
-}
-/* ---------- 71. WORK PAGE: bigger text ---------- */
-
-/* Project names */
-.wk-page .wk-item h3,
-.wk-page .wk-slim__body h3,
-.wk-page .wk-feature__body h3 {
-  font-size: 1.875rem;
+@keyframes pixel-hop {
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
 }
 
-/* Descriptions and notes */
-.wk-page .wk-item p,
-.wk-page .wk-slim__body p,
-.wk-page .wk-feature__body p {
-  font-size: 1.125rem;
+@keyframes play-nudge {
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 4px 0;
+  }
 }
 
-/* Step titles, like "1 What goes in: a Word lesson" */
-.wk-page .wk-item .dx-step {
-  font-size: 1.125rem;
+@keyframes start-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 
-/* Small captions under pictures */
-.wk-page .wk-item .code-caption,
-.wk-page .cy-shot figcaption {
-  font-size: 1rem;
+@keyframes coin-hop {
+  0%,
+  40% {
+    translate: 0 0;
+  }
+  55% {
+    translate: 0 -0.3em;
+  }
+  70%,
+  100% {
+    translate: 0 0;
+  }
 }
 
-/* The flow boxes, like "Tagged Word lesson → Python parser" */
-.wk-page .pv-scene strong {
-  font-size: 1.4rem;
-}
-.wk-page .pv-scene span {
-  font-size: 1rem;
-}
-
-/* The Word lesson and code boxes */
-.wk-page .dx-doc {
-  font-size: 1rem;
-}
-.wk-page .dx-code {
-  font-size: 0.9375rem;
-}
-
-/* Bloom's learner path and the creature score counters */
-.wk-page .bl-stop,
-.wk-page .mc-tally {
-  font-size: 1rem;
+/* Squeezes sideways in steps, like a spinning pixel coin */
+@keyframes coin-spin {
+  0%,
+  100% {
+    scale: 1 1;
+  }
+  25% {
+    scale: 0.5 1;
+  }
+  50% {
+    scale: 0.15 1;
+  }
+  75% {
+    scale: 0.5 1;
+  }
 }
 
-/* Small red labels, like "SHORT WRITE-UP · PYTHON" */
-.wk-page .label {
-  font-size: 0.9375rem;
+@keyframes plus-one {
+  0%,
+  50% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  60% {
+    opacity: 1;
+    translate: 0 -0.2em;
+  }
+  85%,
+  100% {
+    opacity: 0;
+    translate: 0 -0.6em;
+  }
 }
 
-/* "Built with" pills */
-.wk-page .chip {
-  font-size: 0.9375rem;
-}
-/* ---------- 72. PLAY PAGE: picture areas all the same height ---------- */
+/* --- Journey --- */
 
-/* Every picture area is the same height, so the lines match */
-.play-grid .work-card__art {
-  flex: 0 0 300px;     /* picture area height: bigger number = taller */
-  height: 300px;
+@keyframes plane-fly {
+  0% {
+    opacity: 0;
+    offset-distance: 0%;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    offset-distance: 100%;
+  }
 }
 
-/* The white part fills whatever space is left */
-.play-grid .work-card__body {
-  flex: 1;
+@keyframes braid-flow {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 40px 0;
+  }
+}
+
+/* --- Case studies --- */
+
+@keyframes highlight-swipe {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes stamp-in {
+  from {
+    opacity: 0;
+    scale: 1.8;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes paw-walk {
+  0% {
+    opacity: 0;
+  }
+  8%,
+  70% {
+    opacity: 0.25;
+  }
+  85%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-rise {
+  0% {
+    opacity: 0;
+    translate: 0 20px;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 -120px;
+  }
+}
+
+/* Swims left, turns around, swims back right, turns again */
+@keyframes fish-swim {
+  0% {
+    translate: 0 0;
+    scale: 1 1;
+  }
+  49% {
+    translate: -280px 0;
+    scale: 1 1;
+  }
+  50% {
+    translate: -280px 0;
+    scale: -1 1;
+  }
+  99% {
+    translate: 0 0;
+    scale: -1 1;
+  }
+  100% {
+    translate: 0 0;
+    scale: 1 1;
+  }
 }

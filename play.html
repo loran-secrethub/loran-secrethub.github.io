@@ -1,171 +1,452 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Play · Loran Iñosa</title>
-  <meta name="description" content="Play the learning games and activities built by Loran Iñosa. Every build here is real and working.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Play · Loran Iñosa</title>
+    <meta
+      name="description"
+      content="Play the learning games and activities built by Loran Iñosa. Every build here is real and working."
+    />
 
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-  <a class="skip-link" href="#main">Skip to main content</a>
+    <!-- Pixel doodle shapes, drawn once and reused with <use> -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="pix-star" viewBox="0 0 7 7">
+        <path
+          d="M3 0h1v2H3zM0 2h7v1H0zM1 3h5v1H1zM2 4h3v1H2zM1 5h2v1H1zM4 5h2v1H4zM0 6h2v1H0zM5 6h2v1H5z"
+        />
+      </symbol>
+      <symbol id="pix-heart" viewBox="0 0 7 6">
+        <path d="M1 0h2v1h1V0h2v1h1v2H6v1H5v1H4v1H3V5H2V4H1V3H0V1h1z" />
+        <path fill="#FFFFFF" d="M1 1h1v1H1z" />
+      </symbol>
+      <symbol id="pix-sparkle" viewBox="0 0 5 5">
+        <path d="M2 0h1v5H2zM0 2h5v1H0z" />
+      </symbol>
+      <symbol id="pix-coin" viewBox="0 0 10 10">
+        <path
+          fill="#F9D86B"
+          d="M3 0h4v1h1v1h1v1h1v4H9v1H8v1H7v1H3V9H2V8H1V7H0V3h1V2h1V1h1z"
+        />
+        <path fill="#E0A93B" d="M5 3h1v4H5z" />
+        <path fill="#FFFFFF" d="M3 2h1v2H3z" />
+      </symbol>
+      <symbol id="pix-gem" viewBox="0 0 7 5">
+        <path d="M1 0h5v1h1v1H6v1H5v1H4v1H3V4H2V3H1V2H0V1h1z" />
+        <path fill="#FFFFFF" d="M2 1h1v1H2z" />
+      </symbol>
+      <symbol id="pix-cloud" viewBox="0 0 8 5">
+        <path d="M2 0h3v1H2zM1 1h6v1H1zM0 2h8v2H0zM1 4h6v1H1z" />
+      </symbol>
+      <symbol id="pix-controller" viewBox="0 0 11 5">
+        <path d="M1 0h9v1h1v4H8V4H3v1H0V1h1z" />
+        <path fill="#3B2A44" d="M2 2h3v1H2zM3 1h1v3H3zM7 1h1v1H7zM8 2h1v1H8z" />
+      </symbol>
+      <symbol id="pix-dice" viewBox="0 0 7 7">
+        <path d="M1 0h5v1h1v5H6v1H1V6H0V1h1z" />
+        <path fill="#3B2A44" d="M2 2h1v1H2zM3 3h1v1H3zM4 4h1v1H4z" />
+      </symbol>
+      <symbol id="pix-play" viewBox="0 0 4 7">
+        <path d="M0 0h1v1h1v1h1v1h1v1H3v1H2v1H1v1H0z" />
+      </symbol>
+      <symbol id="pix-zigzag" viewBox="0 0 20 4">
+        <path
+          d="M0 3h2v1H0zM2 2h2v1H2zM4 1h2v1H4zM6 0h2v1H6zM8 1h2v1H8zM10 2h2v1H10zM12 3h2v1H12zM14 2h2v1H14zM16 1h2v1H16zM18 0h2v1H18z"
+        />
+      </symbol>
+    </svg>
 
-  <!-- ===== SITE HEADER (same on every page) ===== -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="brand" href="index.html">
-        <img class="brand__flower brand__flower--big" src="assets/images/spiral.png" alt="" width="32" height="32">
-        <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
-      </a>
-      <nav class="site-nav" aria-label="Main">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="work.html">Work</a></li>
-          <li><a class="site-nav__link" href="play.html" aria-current="page">Play</a></li>
-          <li><a class="site-nav__link" href="journey.html">Journey</a></li>
-          <li><a class="site-nav__link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" class="cs-page">
-
-    <!-- ===== INTRO ===== -->
-    <section class="play-intro">
-      <div class="container">
-        <p class="cs-pill cs-pill--mauve">Play</p>
-        <h1 class="cs-title">Go ahead, click things.</h1>
-        <p class="play-intro__text">Every build here is real and working. Each one opens in a new tab.</p>
-        <p class="play-intro__note">Best on a laptop or tablet.</p>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html">
+          <img
+            class="brand__flower"
+            src="assets/images/spiral.png"
+            alt=""
+            width="64"
+            height="64"
+          />
+          <span class="brand__name"
+            >Loran<span class="brand__surname"> Iñosa</span></span
+          >
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="work.html">Work</a></li>
+            <li>
+              <a class="site-nav__link" href="play.html" aria-current="page"
+                >Play</a
+              >
+            </li>
+            <li><a class="site-nav__link" href="journey.html">Journey</a></li>
+            <li><a class="site-nav__link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <!-- ===== THE GAMES ===== -->
-    <section class="play-band" aria-labelledby="games-title">
+    <main id="main" class="cs-page play-page">
+      <!-- Intro -->
+      <section class="play-intro">
+        <div class="container">
+          <p class="cs-pill cs-pill--pixel">
+            <svg
+              class="pl-pill-icon"
+              viewBox="0 0 4 7"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="#pix-play" />
+            </svg>
+            Play
+          </p>
 
-      <!-- Wavy top edge (decoration) -->
-      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
+          <h1 class="cs-title">
+            Learning you can
+            <span class="pl-coin-word">
+              play.
+              <span class="pl-pixel-line" aria-hidden="true"></span>
+              <svg
+                class="pl-coin"
+                viewBox="0 0 10 10"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="#3B2A44"
+                  d="M3 0h4v1h1v1h1v1h1v4H9v1H8v1H7v1H3V9H2V8H1V7H0V3h1V2h1V1h1z"
+                />
+                <path
+                  fill="#F9D86B"
+                  d="M3 1h4v1h1v1h1v4H8v1H7v1H3V8H2V7H1V3h1V2h1z"
+                />
+                <path fill="#E0A93B" d="M5 3h1v4H5z" />
+                <path fill="#FFFFFF" d="M3 3h1v2H3z" />
+              </svg>
+              <span class="pl-plus" aria-hidden="true">+1</span>
+            </span>
+          </h1>
 
-      <div class="container">
-        <h2 id="games-title" class="visually-hidden">Games and activities</h2>
+          <p class="play-intro__text">
+            Every build here is real and working. Click one to start playing.
+          </p>
+          <p class="play-intro__note">Best on a laptop or tablet.</p>
 
-               <div class="play-grid">
+          <!-- Pixel doodles on both sides of the intro -->
+          <div class="wk-decor wk-decor--hero" aria-hidden="true">
+            <svg class="px p-controller" style="top: 20px; left: 3%">
+              <use href="#pix-controller" />
+            </svg>
+            <svg class="px p-sparkle-peach" style="top: 0; left: 15%">
+              <use href="#pix-sparkle" />
+            </svg>
+            <svg class="px p-heart" style="top: 100px; left: 10%">
+              <use href="#pix-heart" />
+            </svg>
+            <svg class="px p-coin" style="top: 160px; left: 3%">
+              <use href="#pix-coin" />
+            </svg>
+            <svg class="px p-star-yellow" style="top: -10px; right: 18%">
+              <use href="#pix-star" />
+            </svg>
+            <svg class="px p-dice" style="top: 10px; right: 5%">
+              <use href="#pix-dice" />
+            </svg>
+            <svg class="px p-sparkle-lavender" style="top: 80px; right: 15%">
+              <use href="#pix-sparkle" />
+            </svg>
+            <svg class="px p-gem-mint" style="top: 115px; right: 3%">
+              <use href="#pix-gem" />
+            </svg>
+            <p class="pl-start" style="top: 175px; right: 9%">
+              ★ Press start ★
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <!-- Ice Cream Petshop -->
-          <article class="work-card">
-            <div class="work-card__art work-card__art--rose">
-              <img src="assets/images/ice-cream.png" alt="">
+      <!-- The games -->
+      <section class="play-band" aria-labelledby="games-title">
+        <svg
+          class="wave wave--top"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+
+        <div class="container">
+          <h2 id="games-title" class="visually-hidden">Games and activities</h2>
+
+          <div class="play-grid">
+            <div class="wk-decor wk-decor--sides" aria-hidden="true">
+              <svg class="px p-star-yellow" style="top: 2%; left: -100px">
+                <use href="#pix-star" />
+              </svg>
+              <svg class="px p-heart" style="top: 14%; left: -60px">
+                <use href="#pix-heart" />
+              </svg>
+              <svg class="px p-cloud" style="top: 26%; left: -100px">
+                <use href="#pix-cloud" />
+              </svg>
+              <svg class="px p-sparkle-mint" style="top: 38%; left: -50px">
+                <use href="#pix-sparkle" />
+              </svg>
+              <svg class="px p-controller" style="top: 50%; left: -105px">
+                <use href="#pix-controller" />
+              </svg>
+              <svg class="px p-gem-lavender" style="top: 62%; left: -80px">
+                <use href="#pix-gem" />
+              </svg>
+              <svg class="px p-dice" style="top: 74%; left: -100px">
+                <use href="#pix-dice" />
+              </svg>
+              <svg class="px p-sparkle-peach" style="top: 86%; left: -45px">
+                <use href="#pix-sparkle" />
+              </svg>
+              <svg class="px p-play" style="top: 95%; left: -80px">
+                <use href="#pix-play" />
+              </svg>
+              <svg class="px p-sparkle-lavender" style="top: 4%; right: -55px">
+                <use href="#pix-sparkle" />
+              </svg>
+              <svg class="px p-dice" style="top: 14%; right: -95px">
+                <use href="#pix-dice" />
+              </svg>
+              <svg class="px p-coin" style="top: 26%; right: -90px">
+                <use href="#pix-coin" />
+              </svg>
+              <svg class="px p-heart" style="top: 38%; right: -65px">
+                <use href="#pix-heart" />
+              </svg>
+              <svg class="px p-gem-mint" style="top: 50%; right: -85px">
+                <use href="#pix-gem" />
+              </svg>
+              <svg class="px p-star-mint" style="top: 62%; right: -90px">
+                <use href="#pix-star" />
+              </svg>
+              <svg class="px p-play" style="top: 74%; right: -60px">
+                <use href="#pix-play" />
+              </svg>
+              <svg class="px p-cloud" style="top: 84%; right: -100px">
+                <use href="#pix-cloud" />
+              </svg>
+              <svg class="px p-zigzag" style="top: 94%; right: -115px">
+                <use href="#pix-zigzag" />
+              </svg>
             </div>
-            <div class="work-card__body">
-              <h3 class="work-card__title">Ice Cream Petshop</h3>
-              <p class="work-card__meta">Serve 6 pets. Guess each order from its health clue.</p>
-              <div class="work-card__actions">
-                <a class="button button--primary button--small" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
-                  Take an order <span aria-hidden="true">▶</span>
-                  <span class="visually-hidden">(opens the game)</span>
-                </a>
-                <a class="button button--secondary button--small" href="ice-cream-pet-shop.html">How I built it</a>
+
+            <!-- A sparkle hidden where the gaps between the cards cross -->
+            <div class="wk-decor pl-decor--grid" aria-hidden="true">
+              <svg class="px p-sparkle-yellow pl-center">
+                <use href="#pix-sparkle" />
+              </svg>
+            </div>
+
+            <!-- Ice Cream Petshop -->
+            <article class="work-card">
+              <div class="work-card__art work-card__art--rose">
+                <img src="assets/images/ice-cream.png" alt="" />
               </div>
-            </div>
-          </article>
-
-          <!-- Mythical creature quiz -->
-          <article class="work-card">
-            <div class="work-card__art work-card__art--mint">
-              <img src="assets/images/mythical-creature.png" alt="">
-            </div>
-            <div class="work-card__body">
-              <h3 class="work-card__title">Which mythical creature are you?</h3>
-              <p class="work-card__meta">12 situations, 4 Philippine creatures.</p>
-              <div class="work-card__actions">
-                <a class="button button--primary button--small" href="https://funpersonalitytest.netlify.app/story.html" data-popup="Which mythical creature are you?" target="_blank" rel="noopener">
-                  Meet your creature <span aria-hidden="true">▶</span>
-                  <span class="visually-hidden">(opens the game)</span>
-                </a>
-                <a class="button button--secondary button--small" href="work.html#mythical-creature">How I built it</a>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Ice Cream Petshop</h3>
+                <p class="work-card__meta">
+                  Serve 6 pets. Guess each order from its health clue.
+                </p>
+                <div class="work-card__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://icecream-pet-shop.netlify.app/story.html"
+                    data-popup="Ice Cream Petshop"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Take an order <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the game)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="ice-cream-pet-shop.html"
+                    >How I built it</a
+                  >
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- Bloom's Taxonomy activity -->
-          <article class="work-card">
-            <div class="work-card__art work-card__art--lemon">
-              <img src="assets/images/blooms-taxonomy.png" alt="">
-            </div>
-            <div class="work-card__body">
-              <h3 class="work-card__title">Bloom's Taxonomy activity</h3>
-              <p class="work-card__meta">Match descriptions to Bloom's levels.</p>
-              <div class="work-card__actions">
-                <a class="button button--primary button--small" href="https://bloomstaxonomy.netlify.app/story.html" data-popup="Bloom's Taxonomy activity" target="_blank" rel="noopener">
-                  Try the activity <span aria-hidden="true">▶</span>
-                  <span class="visually-hidden">(opens the activity)</span>
-                </a>
-                <a class="button button--secondary button--small" href="work.html#bloom-moodle">See the full course</a>
+            <!-- Which mythical creature are you? -->
+            <article class="work-card">
+              <div class="work-card__art work-card__art--mint">
+                <img src="assets/images/mythical-creature.png" alt="" />
               </div>
-            </div>
-          </article>
-
-          <!-- Pop the Verbs -->
-          <article class="work-card work-card--soon-solid">
-            <div class="work-card__art">
-              <img src="assets/images/bubbles.png" alt="">
-            </div>
-            <div class="work-card__body">
-              <h3 class="work-card__title">Pop the Verbs</h3>
-              <p class="work-card__meta">30 bubbles, 15 pops. Can you find every verb?</p>
-              <div class="work-card__actions">
-               <a class="button button--primary button--small" href="https://pop-the-verbs.netlify.app/" data-popup="Pop the Verbs" target="_blank" rel="noopener">
-                  Pop some bubbles <span aria-hidden="true">▶</span>
-                  <span class="visually-hidden">(opens in a new tab)</span>
-                </a>
-                <a class="button button--secondary button--small" href="pop-the-verbs.html">How I built it</a>
+              <div class="work-card__body">
+                <h3 class="work-card__title">
+                  Which mythical creature are you?
+                </h3>
+                <p class="work-card__meta">
+                  12 situations, 4 Philippine creatures.
+                </p>
+                <div class="work-card__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://funpersonalitytest.netlify.app/story.html"
+                    data-popup="Which mythical creature are you?"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Meet your creature <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the game)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="work.html#mythical-creature"
+                    >How I built it</a
+                  >
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
+            <!-- Bloom's Taxonomy activity -->
+            <article class="work-card">
+              <div class="work-card__art work-card__art--lemon">
+                <img src="assets/images/blooms-taxonomy.png" alt="" />
+              </div>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Bloom's Taxonomy activity</h3>
+                <p class="work-card__meta">
+                  Match descriptions to Bloom's levels.
+                </p>
+                <div class="work-card__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://bloomstaxonomy.netlify.app/story.html"
+                    data-popup="Bloom's Taxonomy activity"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Try the activity <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the activity)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="work.html#bloom-moodle"
+                    >See the full course</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Pop the Verbs -->
+            <article class="work-card">
+              <div class="work-card__art work-card__art--pink">
+                <img src="assets/images/bubbles.png" alt="" />
+              </div>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Pop the Verbs</h3>
+                <p class="work-card__meta">
+                  30 bubbles, 15 pops. Can you find every verb?
+                </p>
+                <div class="work-card__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://pop-the-verbs.netlify.app/"
+                    data-popup="Pop the Verbs"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Pop some bubbles <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the game)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="pop-the-verbs.html"
+                    >How I built it</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
 
-      </div>
+        <svg
+          class="wave wave--bottom"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+      </section>
+    </main>
 
-      <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
+    <!-- Contact and footer -->
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="contact">
+          <p class="label label--light">Contact</p>
+          <h2 class="contact__title">
+            Building something for learners, or for the people who make
+            learning?
+          </h2>
+          <p class="contact__text">I'd love to hear about it.</p>
 
-    </section>
+          <div class="contact__email">
+            <a class="button button--light" href="mailto:loran.inosa@gmail.com"
+              >loran.inosa@gmail.com</a
+            >
+            <button
+              type="button"
+              class="button button--outline-light"
+              data-copy-email="loran.inosa@gmail.com"
+            >
+              Copy email
+            </button>
+          </div>
 
-  </main>
+          <ul class="contact__links">
+            <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
+          </ul>
 
-  <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
-  <footer class="site-footer" id="contact">
-    <div class="container">
-      <div class="contact">
-        <p class="label label--light">Contact</p>
-        <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
-        <p class="contact__text">I'd love to hear about it.</p>
-        <div class="contact__email">
-          <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
-          <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
+          <!-- Read aloud by screen readers when the email is copied -->
+          <p class="visually-hidden" aria-live="polite" data-copy-status></p>
         </div>
-        <ul class="contact__links">
-          <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
-          <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
-        </ul>
-        <p class="visually-hidden" aria-live="polite" data-copy-status></p>
-      </div>
-      <div class="site-footer__bottom">
-        <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
-        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-    </div>
-  </footer>
 
-</body>
+        <div class="site-footer__bottom">
+          <p>
+            © 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript
+          </p>
+          <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

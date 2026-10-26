@@ -1,281 +1,601 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pop the Verbs · Case study · Loran Iñosa</title>
-  <meta name="description" content="A bubble-popping game built with Phaser, where players find the verbs hiding among other words.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pop the Verbs · Case study · Loran Iñosa</title>
+    <meta
+      name="description"
+      content="A bubble-popping game built with Phaser, where players find the verbs hiding among other words."
+    />
 
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- ===== SITE HEADER (same on every page) ===== -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="brand" href="index.html">
-        <img class="brand__flower brand__flower--big" src="assets/images/spiral.png" alt="" width="32" height="32">
-        <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
-      </a>
-      <nav class="site-nav" aria-label="Main">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="work.html" aria-current="true">Work</a></li>
-          <li><a class="site-nav__link" href="play.html">Play</a></li>
-          <li><a class="site-nav__link" href="journey.html">Journey</a></li>
-          <li><a class="site-nav__link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" class="cs-page ptv-page">
-
-    <!-- ===== 1. WHAT IS IT? ===== -->
-    <section class="cs-hero">
-  <div class="container pv-hero">
-
-    <!-- Left side: the words and buttons -->
-    <div>
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="work.html">Work</a></li>
-          <li aria-current="page">Pop the Verbs</li>
-        </ol>
-      </nav>
-
-      <p class="cs-pill cs-pill--lemon">Educational game · Phaser</p>
-      <h1 class="cs-title">Pop the Verbs</h1>
-      <p class="cs-lede">
-        An underwater bubble-popping game where players find the verbs
-        hiding among other words, then review what they missed.
-      </p>
-
-      <div class="button-row">
-        <a class="button button--primary" href="https://pop-the-verbs.netlify.app/" data-popup="Pop the Verbs" target="_blank" rel="noopener">
-          Pop some bubbles <span aria-hidden="true">▶</span>
-          <span class="visually-hidden">(opens in a new tab)</span>
-        </a>
-        <a class="button button--secondary" href="#how-it-plays">See how it plays</a>
-        <p class="pv-status">Also on <a href="https://loran20.itch.io/pop-the-verbs" target="_blank" rel="noopener">itch.io</a></p>
-      </div>
-    </div> <!-- ← this was missing: it closes the left side -->
-
-    <!-- Right side: the game picture -->
-    <img src="assets/images/pop-the-verbs.png"
-         alt="The start screen of Pop the Verbs, with an underwater scene and Start and How to Play buttons"
-         class="img-xl"
-         style="width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
-
-  </div> <!-- closes the whole top area -->
-
-  <!-- Wavy bottom edge (decoration) -->
-  <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-  </svg>
-</section>
-
-    <!-- ===== THE GAME IN NUMBERS ===== -->
-    <section class="cs-section cs-section--white" aria-labelledby="numbers-title">
-      <div class="container">
-        <h2 id="numbers-title" class="label pv-center">The game in numbers</h2>
-        <ul class="pv-numbers">
-          <li class="pv-number"><strong>30</strong><span>bubbles</span></li>
-          <li class="pv-number"><strong>15</strong><span>are verbs</span></li>
-          <li class="pv-number"><strong>15</strong><span>pops to use</span></li>
-          <li class="pv-number"><strong>3</strong><span>stars to earn</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== 2. WHY DOES IT EXIST? ===== -->
-    <section class="cs-section" aria-labelledby="idea-title">
-      <div class="container cs-split">
-        <div>
-          <p class="label">The idea</p>
-          <h2 id="idea-title">Why a game?</h2>
-          <p>
-            Spotting verbs on a worksheet is quiet and slow. In this game,
-            every pop is a quick decision, and a sound and a little animation
-            tell the player right away whether they got it right.
-          </p>
-          <p>
-            And the round doesn't end with just a score. A review screen
-            shows every mistake and every missed verb, so each round
-            becomes a learning moment.
-          </p>
-        </div>
-        <aside class="cs-note">
-          <p class="cs-note__label">Every pop asks</p>
-          <p>Is this a verb?</p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ===== 3. HOW DOES IT WORK? ===== -->
-    <section class="cs-section cs-section--white" id="how-it-plays" aria-labelledby="plays-title">
-      <div class="container container--wide">
-        <p class="label">How it plays</p>
-        <h2 id="plays-title">Learn, pop, score, review</h2>
-
-        <ol class="cs-steps cs-steps--four cs-steps--big">
-          <li class="cs-step cs-card">
-            <figure class="cs-media cs-media--lemon">
-              <img src="assets/images/how-to-play.png" alt="The How to Play card, with verb bubbles to pop and other words to leave alone">
-            </figure>
-            <h3><span class="cs-step__num" aria-hidden="true">1</span>Learn</h3>
-            <p>
-              A kid-friendly How to Play card explains that verbs are action
-              words, with little bobbing bubbles showing which words to pop
-              and which to leave alone.
-            </p>
-          </li>
-
-          <li class="cs-step cs-card">
-            <figure class="cs-media cs-media--mint">
-              <img src="assets/images/pop.gif" alt="Word bubbles float around an underwater scene and pop when clicked">
-            </figure>
-            <h3><span class="cs-step__num" aria-hidden="true">2</span>Pop</h3>
-            <p>
-              30 word bubbles float around an underwater scene: 15 verbs and
-              15 other words. Players get 15 pops. A right pop turns green
-              and bursts. A wrong pop turns red and shakes.
-            </p>
-          </li>
-
-          <li class="cs-step cs-card">
-            <figure class="cs-media cs-media--rose">
-              <img src="assets/images/score.png" alt="The results card showing the score out of 15, a star rating and an encouraging message">
-            </figure>
-            <h3><span class="cs-step__num" aria-hidden="true">3</span>Score</h3>
-            <p>
-              After 15 pops, a results card bounces in with the score, up to
-              three stars and a cheering message.
-            </p>
-          </li>
-
-          <li class="cs-step cs-card">
-            <figure class="cs-media cs-media--mauve">
-              <img src="assets/images/lets-review.png" alt="The Let's Review card, listing words popped by mistake and verbs that were missed">
-            </figure>
-            <h3><span class="cs-step__num" aria-hidden="true">4</span>Review</h3>
-            <p>
-              Let's Review shows two lists: words popped by mistake, and verbs
-              that were missed. Then players can play again with fresh words.
-            </p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===== 4. HOW DID I BUILD IT? ===== -->
-    <section class="cs-section" aria-labelledby="build-title">
-      <div class="container container--wide pv-build">
-        <p class="label">Under the hood</p>
-        <h2 id="build-title">How I built it</h2>
-        <p>The game is split into four screens, each with one job:</p>
-
-        <ol class="pv-scenes">
-          <li class="pv-scene cs-card"><strong>Boot</strong><span>loads the font</span></li>
-          <li class="pv-scene cs-card"><strong>Preloader</strong><span>pictures, sounds, loading bar</span></li>
-          <li class="pv-scene cs-card"><strong>Main menu</strong><span>music, tutorial</span></li>
-          <li class="pv-scene cs-card"><strong>Game</strong><span>play, score, review</span></li>
-        </ol>
-
-        <ul class="cs-points">
-          <li class="cs-point cs-card">
-            <h3>Bubbles that bounce</h3>
-            <p>Each bubble floats in a random direction and bounces off the edges. Its word follows it many times a second, so they always travel together.</p>
-          </li>
-          <li class="cs-point cs-card">
-            <h3>Pops that feel real</h3>
-            <p>A right pop grows and fades like a bursting bubble. A wrong pop shakes first. One shared piece of code handles both.</p>
-          </li>
-          <li class="cs-point cs-card">
-            <h3>Remembering mistakes</h3>
-            <p>Every wrong pop is saved to a list. When the round ends, the game also checks which verbs are still floating. Both lists feed the review screen.</p>
-          </li>
-          <li class="cs-point cs-card">
-            <h3>A moving sea</h3>
-            <p>The game can't play GIFs by itself, so the swimming-fish GIF sits behind a see-through game screen. It fills any screen, with no black bars.</p>
-          </li>
-          <li class="cs-point cs-card">
-            <h3>One mute button</h3>
-            <p>Custom sound on and off icons, built once and shared by the menu and the game. It remembers the player's choice between screens.</p>
-          </li>
-          <li class="cs-point cs-card">
-            <h3>Clean pops</h3>
-            <p>A popped bubble stops moving and can't be clicked twice. Once its animation ends, it's removed, so the game stays smooth.</p>
-          </li>
-        </ul>
-
-        <ul class="chips" aria-label="Built with">
-          <li class="chip">Phaser</li>
-          <li class="chip">JavaScript</li>
-          <li class="chip">Arcade Physics</li>
-          <li class="chip">Tweens</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== 5. WHAT I'D ADD NEXT ===== -->
-    <section class="cs-section cs-section--white" aria-labelledby="next-title">
-      <div class="container">
-        <p class="label">What I'd add next</p>
-        <h2 id="next-title" class="visually-hidden">What I'd add next</h2>
-        <ul class="pv-next">
-          <li class="cs-card">
-            <h3>More word types</h3>
-            <p>New levels for nouns and adjectives.</p>
-          </li>
-          <!-- TODO (optional): add a second idea here, in the same style -->
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== PREVIOUS / NEXT ===== -->
-    <div class="container">
-      <nav class="pager" aria-label="More projects">
-        <a class="text-link" href="work.html"><span aria-hidden="true">←</span> All work</a>
-        <a class="text-link" href="ice-cream-pet-shop.html">Next: Ice Cream Petshop <span aria-hidden="true">→</span></a>
-      </nav>
-    </div>
-
-  </main>
-
-    <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
-  <footer class="site-footer" id="contact">
-
-    <!-- Wavy top edge (decoration) -->
-    <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-      <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+    <!-- Underwater doodle shapes, drawn once and reused with <use> -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="uw-bubble" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="1.8"
+          d="M7.5 9.5a5 5 0 0 1 3.5-3.2"
+        />
+      </symbol>
+      <symbol id="uw-fish" viewBox="0 0 24 24">
+        <path d="M3 12c3-5 10-6 14-1l4-3v8l-4-3c-4 5-11 4-14-1z" />
+        <path fill="none" d="M10 9c1 1.5 1 4.5 0 6" />
+        <circle cx="6.8" cy="11" r="1" fill="#3B2A44" stroke="none" />
+      </symbol>
+      <symbol id="uw-star" viewBox="0 0 24 24">
+        <path
+          d="M12 2.5c.9 0 1.4 1.4 2 3.6.4 1.4 1 1.9 2.4 1.9 2.4 0 4.1.1 4.4 1 .3.9-1 1.8-3 3.2-1.2.8-1.4 1.6-.9 3 .8 2.3 1.2 3.8.4 4.4-.7.5-2-.4-3.9-1.8-1.2-.9-2-.9-3.2 0-1.9 1.4-3.2 2.3-3.9 1.8-.8-.6-.4-2.1.4-4.4.5-1.4.3-2.2-.9-3C3 11.1 1.7 10.2 2 9.3c.3-.9 2-1 4.4-1 1.4 0 2-.5 2.4-1.9.6-2.2 1.1-3.6 2-3.6z"
+        />
+        <g fill="#FFFFFF" stroke="none">
+          <circle cx="12" cy="7" r=".8" />
+          <circle cx="8" cy="11" r=".8" />
+          <circle cx="16" cy="11" r=".8" />
+          <circle cx="12" cy="13" r=".8" />
+        </g>
+      </symbol>
+      <symbol id="uw-seaweed" viewBox="0 0 24 24">
+        <path
+          d="M8 23c-2-3 2-5 0-8s2-5 0-8M15 23c2-3-2-5 0-8s-2-5 0-8 1-3 2-4"
+        />
+      </symbol>
+      <symbol id="uw-shell" viewBox="0 0 24 24">
+        <path
+          d="M3 12a9 9 0 0 1 18 0c0 1-1 1.5-2 1.5L12 21l-7-7.5c-1 0-2-.5-2-1.5z"
+        />
+        <path fill="none" d="M12 21V4.5M12 21L7.5 6M12 21l4.5-15" />
+      </symbol>
+      <symbol id="uw-jelly" viewBox="0 0 24 24">
+        <path
+          fill="none"
+          d="M8 15c-1 2 1 3 0 5M12 15c-1 2 1 3 0 5M16 15c-1 2 1 3 0 5"
+        />
+        <path
+          d="M5 13a7 7 0 0 1 14 0c0 1-.8 1.5-1.8 1.5H6.8C5.8 14.5 5 14 5 13z"
+        />
+        <g fill="#3B2A44" stroke="none">
+          <circle cx="10" cy="11" r=".9" />
+          <circle cx="14" cy="11" r=".9" />
+        </g>
+      </symbol>
     </svg>
 
-    <div class="container">
-      <div class="contact">
-        <p class="label label--light">Contact</p>
-        <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
-        <p class="contact__text">I'd love to hear about it.</p>
-        <div class="contact__email">
-          <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
-          <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
-        </div>
-        <ul class="contact__links">
-          <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
-          <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
-        </ul>
-        <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html">
+          <img
+            class="brand__flower"
+            src="assets/images/spiral.png"
+            alt=""
+            width="64"
+            height="64"
+          />
+          <span class="brand__name"
+            >Loran<span class="brand__surname"> Iñosa</span></span
+          >
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <ul class="site-nav__list">
+            <li>
+              <a class="site-nav__link" href="work.html" aria-current="true"
+                >Work</a
+              >
+            </li>
+            <li><a class="site-nav__link" href="play.html">Play</a></li>
+            <li><a class="site-nav__link" href="journey.html">Journey</a></li>
+            <li><a class="site-nav__link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="site-footer__bottom">
-        <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
-        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-    </div>
-  </footer>
+    </header>
 
-</body>
+    <main id="main" class="cs-page ptv-page">
+      <!-- What is it? -->
+      <section class="cs-hero">
+        <div class="container pv-hero">
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco u-bubble u-rise" style="top: 6%; left: -70px">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-fish-pink" style="top: 25%; left: -100px">
+              <use href="#uw-fish" />
+            </svg>
+            <svg class="deco u-seaweed" style="top: 55%; left: -80px">
+              <use href="#uw-seaweed" />
+            </svg>
+            <svg class="deco u-bubble-sm u-rise" style="top: 80%; left: -50px">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-jelly" style="top: 6%; right: -90px">
+              <use href="#uw-jelly" />
+            </svg>
+            <svg class="deco u-bubble u-rise" style="top: 30%; right: -55px">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-star" style="top: 55%; right: -95px">
+              <use href="#uw-star" />
+            </svg>
+            <svg class="deco u-shell" style="top: 82%; right: -80px">
+              <use href="#uw-shell" />
+            </svg>
+          </div>
+
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="work.html">Work</a></li>
+                <li aria-current="page">Pop the Verbs</li>
+              </ol>
+            </nav>
+
+            <p class="cs-pill cs-pill--lemon">Educational game · Phaser</p>
+            <h1 class="cs-title">Pop the Verbs</h1>
+            <p class="cs-lede">
+              An underwater bubble-popping game where players find the verbs
+              hiding among other words, then review what they missed.
+            </p>
+
+            <div class="button-row">
+              <a
+                class="button button--primary"
+                href="https://pop-the-verbs.netlify.app/"
+                data-popup="Pop the Verbs"
+                target="_blank"
+                rel="noopener"
+              >
+                Pop some bubbles <span aria-hidden="true">▶</span>
+                <span class="visually-hidden">(opens the game)</span>
+              </a>
+              <a class="button button--secondary" href="#how-it-plays"
+                >See how it plays</a
+              >
+              <p class="pv-status">
+                Also on
+                <a
+                  href="https://loran20.itch.io/pop-the-verbs"
+                  target="_blank"
+                  rel="noopener"
+                  >itch.io</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <img
+            class="pv-hero__img"
+            src="assets/images/pop-the-verbs.png"
+            alt="The start screen of Pop the Verbs, with an underwater scene and Start and How to Play buttons"
+          />
+        </div>
+
+        <svg
+          class="wave wave--bottom"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+      </section>
+
+      <!-- The game in numbers -->
+      <section class="cs-section" aria-labelledby="numbers-title">
+        <div class="container">
+          <!-- A little sea floor around the number bubbles -->
+          <div class="wk-decor uw-decor--inner" aria-hidden="true">
+            <svg class="deco u-seaweed" style="top: 25%; left: 2%">
+              <use href="#uw-seaweed" />
+            </svg>
+            <svg class="deco u-shell" style="top: 65%; left: 11%">
+              <use href="#uw-shell" />
+            </svg>
+            <svg class="deco u-bubble-sm u-rise" style="top: 10%; left: 14%">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-star" style="top: 15%; right: 4%">
+              <use href="#uw-star" />
+            </svg>
+            <svg class="deco u-bubble u-rise" style="top: 55%; right: 14%">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-seaweed" style="top: 50%; right: 2%">
+              <use href="#uw-seaweed" />
+            </svg>
+          </div>
+
+          <h2 id="numbers-title" class="label pv-center">
+            The game in numbers
+          </h2>
+          <ul class="pv-numbers">
+            <li class="pv-number"><strong>30</strong><span>bubbles</span></li>
+            <li class="pv-number"><strong>15</strong><span>are verbs</span></li>
+            <li class="pv-number">
+              <strong>15</strong><span>pops to use</span>
+            </li>
+            <li class="pv-number">
+              <strong>3</strong><span>stars to earn</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Why a game? -->
+      <section class="cs-section" aria-labelledby="idea-title">
+        <div class="container cs-split">
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco u-fish-blue" style="top: 15%; left: -100px">
+              <use href="#uw-fish" />
+            </svg>
+            <svg class="deco u-bubble u-rise" style="top: 60%; left: -60px">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-shell" style="top: 20%; right: -90px">
+              <use href="#uw-shell" />
+            </svg>
+            <svg class="deco u-seaweed" style="top: 60%; right: -80px">
+              <use href="#uw-seaweed" />
+            </svg>
+          </div>
+
+          <div>
+            <p class="label">The idea</p>
+            <h2 id="idea-title">
+              Why a game?
+              <svg
+                class="uw-doodle uw-doodle--bubble"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#uw-bubble" />
+              </svg>
+            </h2>
+            <p>
+              Spotting verbs on a worksheet is quiet and slow. In this game,
+              every pop is a quick decision, and a sound and a little animation
+              tell the player right away whether they got it right.
+            </p>
+            <p>
+              And the round doesn't end with just a score. A review screen shows
+              every mistake and every missed verb, so each round becomes a
+              learning moment.
+            </p>
+          </div>
+
+          <aside class="cs-note">
+            <p class="cs-note__label">Every pop asks</p>
+            <p>Is this a verb?</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- How it plays -->
+      <section
+        class="cs-section"
+        id="how-it-plays"
+        aria-labelledby="plays-title"
+      >
+        <div class="container container--wide">
+          <!-- A little fish swimming back and forth, with rising bubbles -->
+          <div class="uw-swim-strip" aria-hidden="true">
+            <svg class="deco u-bubble-sm u-rise" style="top: 20px; left: 15%">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-bubble-sm u-rise" style="top: 20px; left: 45%">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-bubble-sm u-rise" style="top: 20px; left: 75%">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg
+              class="deco u-fish-yellow u-swimmer"
+              style="top: 8px; right: 0"
+            >
+              <use href="#uw-fish" />
+            </svg>
+          </div>
+
+          <p class="label">How it plays</p>
+          <h2 id="plays-title">
+            Learn, pop, score, review
+            <svg
+              class="uw-doodle uw-doodle--fish"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="#uw-fish" />
+            </svg>
+          </h2>
+
+          <ol class="cs-steps cs-steps--four cs-steps--big">
+            <li class="cs-step cs-card">
+              <figure class="cs-media cs-media--lemon">
+                <img
+                  src="assets/images/how-to-play.png"
+                  alt="The How to Play card, with verb bubbles to pop and other words to leave alone"
+                />
+              </figure>
+              <h3>
+                <span class="cs-step__num" aria-hidden="true">1</span>Learn
+              </h3>
+              <p>
+                A kid-friendly How to Play card explains that verbs are action
+                words, with little bobbing bubbles showing which words to pop
+                and which to leave alone.
+              </p>
+            </li>
+
+            <li class="cs-step cs-card">
+              <figure class="cs-media cs-media--mint">
+                <img
+                  src="assets/images/pop.gif"
+                  alt="Word bubbles float around an underwater scene and pop when clicked"
+                />
+              </figure>
+              <h3><span class="cs-step__num" aria-hidden="true">2</span>Pop</h3>
+              <p>
+                30 word bubbles float around an underwater scene: 15 verbs and
+                15 other words. Players get 15 pops. A right pop turns green and
+                bursts. A wrong pop turns red and shakes.
+              </p>
+            </li>
+
+            <li class="cs-step cs-card">
+              <figure class="cs-media cs-media--rose">
+                <img
+                  src="assets/images/score.png"
+                  alt="The results card showing the score out of 15, a star rating and an encouraging message"
+                />
+              </figure>
+              <h3>
+                <span class="cs-step__num" aria-hidden="true">3</span>Score
+              </h3>
+              <p>
+                After 15 pops, a results card bounces in with the score, up to
+                three stars and a cheering message.
+              </p>
+            </li>
+
+            <li class="cs-step cs-card">
+              <figure class="cs-media cs-media--mauve">
+                <img
+                  src="assets/images/lets-review.png"
+                  alt="The Let's Review card, listing words popped by mistake and verbs that were missed"
+                />
+              </figure>
+              <h3>
+                <span class="cs-step__num" aria-hidden="true">4</span>Review
+              </h3>
+              <p>
+                Let's Review shows two lists: words popped by mistake, and verbs
+                that were missed. Then players can play again with fresh words.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- How I built it -->
+      <section class="cs-section" aria-labelledby="build-title">
+        <div class="container container--wide pv-build">
+          <div class="wk-decor uw-decor--wide" aria-hidden="true">
+            <svg class="deco u-jelly" style="top: 20%; left: -100px">
+              <use href="#uw-jelly" />
+            </svg>
+            <svg class="deco u-bubble u-rise" style="top: 60%; left: -60px">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-star" style="top: 30%; right: -90px">
+              <use href="#uw-star" />
+            </svg>
+            <svg class="deco u-seaweed" style="top: 70%; right: -80px">
+              <use href="#uw-seaweed" />
+            </svg>
+          </div>
+
+          <p class="label">Under the hood</p>
+          <h2 id="build-title">
+            How I built it
+            <svg
+              class="uw-doodle uw-doodle--star"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="#uw-star" />
+            </svg>
+          </h2>
+          <p>The game is split into four screens, each with one job:</p>
+
+          <ol class="pv-scenes">
+            <li class="pv-scene cs-card">
+              <strong>Boot</strong><span>loads the font</span>
+            </li>
+            <li class="pv-scene cs-card">
+              <strong>Preloader</strong
+              ><span>pictures, sounds, loading bar</span>
+            </li>
+            <li class="pv-scene cs-card">
+              <strong>Main menu</strong><span>music, tutorial</span>
+            </li>
+            <li class="pv-scene cs-card">
+              <strong>Game</strong><span>play, score, review</span>
+            </li>
+          </ol>
+
+          <ul class="cs-points">
+            <li class="cs-point cs-card">
+              <h3>Bubbles that bounce</h3>
+              <p>
+                Each bubble floats in a random direction and bounces off the
+                edges. Its word follows it many times a second, so they always
+                travel together.
+              </p>
+            </li>
+            <li class="cs-point cs-card">
+              <h3>Pops that feel real</h3>
+              <p>
+                A right pop grows and fades like a bursting bubble. A wrong pop
+                shakes first. One shared piece of code handles both.
+              </p>
+            </li>
+            <li class="cs-point cs-card">
+              <h3>Remembering mistakes</h3>
+              <p>
+                Every wrong pop is saved to a list. When the round ends, the
+                game also checks which verbs are still floating. Both lists feed
+                the review screen.
+              </p>
+            </li>
+            <li class="cs-point cs-card">
+              <h3>A moving sea</h3>
+              <p>
+                The game can't play GIFs by itself, so the swimming-fish GIF
+                sits behind a see-through game screen. It fills any screen, with
+                no black bars.
+              </p>
+            </li>
+            <li class="cs-point cs-card">
+              <h3>One mute button</h3>
+              <p>
+                Custom sound on and off icons, built once and shared by the menu
+                and the game. It remembers the player's choice between screens.
+              </p>
+            </li>
+            <li class="cs-point cs-card">
+              <h3>Clean pops</h3>
+              <p>
+                A popped bubble stops moving and can't be clicked twice. Once
+                its animation ends, it's removed, so the game stays smooth.
+              </p>
+            </li>
+          </ul>
+
+          <ul class="chips" aria-label="Built with">
+            <li class="chip">Phaser</li>
+            <li class="chip">JavaScript</li>
+            <li class="chip">Arcade Physics</li>
+            <li class="chip">Tweens</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- What I'd add next -->
+      <section class="cs-section" aria-labelledby="next-title">
+        <div class="container">
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco u-bubble u-rise" style="top: 20%; left: -60px">
+              <use href="#uw-bubble" />
+            </svg>
+            <svg class="deco u-fish-pink" style="top: 30%; right: -100px">
+              <use href="#uw-fish" />
+            </svg>
+          </div>
+
+          <p class="label">What I'd add next</p>
+          <h2 id="next-title" class="visually-hidden">What I'd add next</h2>
+          <ul class="pv-next">
+            <li class="cs-card">
+              <h3>More word types</h3>
+              <p>New levels for nouns and adjectives.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Previous / next -->
+      <div class="container">
+        <nav class="pager" aria-label="More projects">
+          <a class="text-link" href="work.html"
+            ><span aria-hidden="true">←</span> All work</a
+          >
+          <a class="text-link" href="ice-cream-pet-shop.html"
+            >Next: Ice Cream Petshop <span aria-hidden="true">→</span></a
+          >
+        </nav>
+      </div>
+    </main>
+
+    <!-- Contact and footer -->
+    <footer class="site-footer" id="contact">
+      <svg
+        class="wave wave--top"
+        viewBox="0 0 1200 40"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          class="wave__fill"
+          d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"
+        />
+        <path
+          class="wave__line"
+          d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+        />
+      </svg>
+
+      <div class="container">
+        <div class="contact">
+          <p class="label label--light">Contact</p>
+          <h2 class="contact__title">
+            Building something for learners, or for the people who make
+            learning?
+          </h2>
+          <p class="contact__text">I'd love to hear about it.</p>
+
+          <div class="contact__email">
+            <a class="button button--light" href="mailto:loran.inosa@gmail.com"
+              >loran.inosa@gmail.com</a
+            >
+            <button
+              type="button"
+              class="button button--outline-light"
+              data-copy-email="loran.inosa@gmail.com"
+            >
+              Copy email
+            </button>
+          </div>
+
+          <ul class="contact__links">
+            <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
+          </ul>
+
+          <!-- Read aloud by screen readers when the email is copied -->
+          <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>
+            © 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript
+          </p>
+          <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

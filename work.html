@@ -1,408 +1,965 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Work · Loran Iñosa</title>
-  <meta name="description" content="Tools for learning teams, learning games, and learning platforms built by Loran Iñosa, e-learning developer.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Work · Loran Iñosa</title>
+    <meta
+      name="description"
+      content="Tools for learning teams, learning games, and learning platforms built by Loran Iñosa, e-learning developer."
+    />
 
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-  <a class="skip-link" href="#main">Skip to main content</a>
+    <!-- Doodle shapes, drawn once and reused with <use> -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="deco-star" viewBox="0 0 24 24">
+        <path
+          d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"
+        />
+      </symbol>
+      <symbol id="deco-heart" viewBox="0 0 24 24">
+        <path
+          d="M12 20.5S3 15 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8 21 15 12 20.5 12 20.5z"
+        />
+      </symbol>
+      <symbol id="deco-sparkle" viewBox="0 0 24 24">
+        <path
+          d="M12 2C12.8 8 16 11.2 22 12 16 12.8 12.8 16 12 22 11.2 16 8 12.8 2 12 8 11.2 11.2 8 12 2z"
+        />
+      </symbol>
+      <symbol id="deco-swirl" viewBox="0 0 24 24">
+        <path
+          d="M13 13c0 1.3-1.3 2-2.4 1.5-1.4-.6-1.6-2.5-.7-3.6 1.2-1.6 3.7-1.6 5 0 1.6 1.9 1.2 4.8-.6 6.3-2.4 1.9-5.9 1.3-7.6-1-1.9-2.6-1.2-6.3 1.4-8.2 3.2-2.2 7.6-1.4 9.8 1.6"
+        />
+      </symbol>
+      <symbol id="deco-squiggle" viewBox="0 0 100 24">
+        <path d="M4 12c6-8 12-8 16 0s10 8 16 0 10-8 16 0 10 8 16 0 10-8 16 0" />
+      </symbol>
+      <symbol id="deco-flower" viewBox="0 0 24 24">
+        <circle cx="12" cy="5.5" r="4" />
+        <circle cx="18.2" cy="10" r="4" />
+        <circle cx="15.8" cy="17.3" r="4" />
+        <circle cx="8.2" cy="17.3" r="4" />
+        <circle cx="5.8" cy="10" r="4" />
+        <circle cx="12" cy="12" r="3.2" fill="#F9D86B" />
+      </symbol>
+      <symbol id="deco-cloud" viewBox="0 0 24 24">
+        <path
+          d="M7 18h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.6-1A4.5 4.5 0 0 0 7 18z"
+        />
+      </symbol>
+      <symbol id="deco-dots" viewBox="0 0 24 24">
+        <circle cx="5" cy="13" r="2.5" />
+        <circle cx="12" cy="7" r="2.5" />
+        <circle cx="19" cy="14" r="2.5" />
+      </symbol>
+    </svg>
 
-  <!-- ===== SITE HEADER (same on every page) ===== -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="brand" href="index.html">
-        <img class="brand__flower brand__flower--big" src="assets/images/spiral.png" alt="" width="32" height="32">
-        <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
-      </a>
-      <nav class="site-nav" aria-label="Main">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="work.html" aria-current="page">Work</a></li>
-          <li><a class="site-nav__link" href="play.html">Play</a></li>
-          <li><a class="site-nav__link" href="journey.html">Journey</a></li>
-          <li><a class="site-nav__link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html">
+          <img
+            class="brand__flower"
+            src="assets/images/spiral.png"
+            alt=""
+            width="64"
+            height="64"
+          />
+          <span class="brand__name"
+            >Loran<span class="brand__surname"> Iñosa</span></span
+          >
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <ul class="site-nav__list">
+            <li>
+              <a class="site-nav__link" href="work.html" aria-current="page"
+                >Work</a
+              >
+            </li>
+            <li><a class="site-nav__link" href="play.html">Play</a></li>
+            <li><a class="site-nav__link" href="journey.html">Journey</a></li>
+            <li><a class="site-nav__link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <main id="main" class="cs-page wk-page">
+      <!-- Intro -->
+      <section class="cs-hero">
+        <div class="container">
+          <p class="label">Work</p>
+          <h1 class="cs-title">
+            Things I've built for learners and learning teams
+          </h1>
+          <p class="cs-lede">
+            Tools, games and learning platforms. Start with the three case
+            studies, then explore the rest.
+          </p>
 
-    <!-- ===== INTRO ===== -->
-    <section class="cs-hero">
-      <div class="container">
-        <p class="label">Work</p>
-        <h1 class="cs-title">Things I've built for learners and learning teams</h1>
-        <p class="cs-lede wk-lede">Tools, games and learning platforms. Start with the three case studies, then explore the rest.</p></div>
-    </section>
-
-    <!-- ===== GROUP 1: TOOLS FOR LEARNING TEAMS ===== -->
-    <section class="cs-section cs-section--white wk-group wk-group--tools" id="tools" aria-labelledby="tools-title">
-        <!-- Wavy top edge (decoration) -->
-  <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-  </svg>
-      <div class="container wk-stack">
-        <h2 id="tools-title" class="wk-group__title">Tools for learning teams</h2>
-
-        <!-- Worktext Studio (case study) -->
-        <article class="wk-feature wk-feature--wide cs-card">
-          <div class="wk-feature__art">
-            <img src="assets/images/WT_studio.png" alt="">
+          <!-- Doodles in the empty space around the title -->
+          <div class="wk-decor wk-decor--hero" aria-hidden="true">
+            <svg class="deco d-cloud" style="top: -24px; right: 60%">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-dots" style="top: -12px; right: 48%">
+              <use href="#deco-dots" />
+            </svg>
+            <svg class="deco d-sparkle-peach" style="top: -18px; right: 38%">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-flower-lavender" style="top: -26px; right: 24%">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-swirl" style="top: -22px; right: 3%">
+              <use href="#deco-swirl" />
+            </svg>
+            <svg
+              class="deco d-sparkle-lavender"
+              style="top: 32px; right: 150px"
+            >
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-star-yellow" style="top: 40px; right: 70px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-heart-pink" style="top: 110px; right: 110px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-sparkle-mint" style="top: 120px; right: 30px">
+              <use href="#deco-sparkle" />
+            </svg>
           </div>
-          <div class="wk-feature__body">
-            <p class="label">Case study · In use by my team</p>
-            <h3>Worktext Studio</h3>
-            <p>A browser tool that lets my team check and review worktext pages before they become PDFs.</p>
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">JavaScript</li>
-              <li class="chip">Apps Script</li>
-              <li class="chip">Google Sheets</li>
-            </ul>
-            <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
+
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco d-star-mint" style="top: 0; left: -80px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-heart-outline" style="top: 90px; left: -100px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-sparkle-yellow" style="top: 60px; right: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
           </div>
-        </article>
+        </div>
+      </section>
 
-        <!-- DOCX to XML Converter (short write-up) -->
-<article class="wk-item cs-card" id="docx-xml">
-  <p class="label">Short write-up · Python</p>
-  <h3>DOCX to XML Converter</h3>
-  <p>Reads Word lessons marked with simple tags, turns them into structured XML for InDesign, and makes a QR code for every link. 
-    A whole folder, one command.</p>
+      <!-- Tools for learning teams -->
+      <section
+        class="cs-section cs-section--white wk-group wk-group--tools"
+        id="tools"
+        aria-labelledby="tools-title"
+      >
+        <svg
+          class="wave wave--top"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
 
-  <!-- The flow: in → script → out -->
-  <ol class="pv-scenes dx-flow">
-    <li class="pv-scene cs-card"><strong>Tagged Word lesson</strong><span>writers mark each part</span></li>
-    <li class="pv-scene cs-card"><strong>Python parser</strong><span>one command</span></li>
-    <li class="pv-scene cs-card"><strong>XML + QR codes</strong><span>ready for InDesign</span></li>
-  </ol>
+        <div class="container wk-stack">
+          <h2 id="tools-title" class="wk-group__title">
+            Tools for learning teams
+            <svg
+              class="wk-doodle"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path fill="#F9D86B" d="M7 21L20 8l4 4L11 25z" />
+              <path fill="#FFF9F4" d="M7 21l4 4-6 2z" />
+              <path
+                fill="#F4A1C0"
+                d="M20 8l2-2a2 2 0 0 1 3 0l1 1a2 2 0 0 1 0 3l-2 2z"
+              />
+            </svg>
+          </h2>
 
-  <!-- 1 and 2: before and after -->
-  <div class="dx-pair">
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>What goes in: a Word lesson</p>
-<pre class="dx-doc"><span class="dx-tag">[ENGAGE]</span>
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco d-star-yellow" style="top: 3%; left: -90px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-dots" style="top: 14%; left: -60px">
+              <use href="#deco-dots" />
+            </svg>
+            <svg class="deco d-sparkle-mint" style="top: 24%; left: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-cloud" style="top: 36%; left: -100px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-heart-pink" style="top: 50%; left: -95px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-flower-pink" style="top: 64%; left: -70px">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-sparkle-peach" style="top: 76%; left: -45px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-swirl" style="top: 90%; left: -85px">
+              <use href="#deco-swirl" />
+            </svg>
+            <svg class="deco d-sparkle-lavender" style="top: 5%; right: -60px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-flower-lavender" style="top: 16%; right: -95px">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-heart-outline" style="top: 30%; right: -100px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-dots" style="top: 44%; right: -55px">
+              <use href="#deco-dots" />
+            </svg>
+            <svg class="deco d-star-mint" style="top: 56%; right: -85px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-sparkle-yellow" style="top: 68%; right: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-cloud" style="top: 78%; right: -100px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-squiggle" style="top: 90%; right: -110px">
+              <use href="#deco-squiggle" />
+            </svg>
+          </div>
+
+          <!-- Worktext Studio -->
+          <article class="wk-feature wk-feature--wide cs-card">
+            <div class="wk-feature__art">
+              <img src="assets/images/WT_studio.png" alt="" />
+            </div>
+            <div class="wk-feature__body">
+              <p class="label">Case study · In use by my team</p>
+              <h3>Worktext Studio</h3>
+              <p>
+                A browser tool that lets my team check and review worktext pages
+                before they become PDFs.
+              </p>
+              <ul class="chips" aria-label="Built with">
+                <li class="chip">JavaScript</li>
+                <li class="chip">Apps Script</li>
+                <li class="chip">Google Sheets</li>
+              </ul>
+              <a
+                class="button button--primary button--small"
+                href="worktext-studio.html"
+                >Read the case study</a
+              >
+            </div>
+          </article>
+
+          <!-- DOCX to XML Converter -->
+          <article class="wk-item cs-card" id="docx-xml">
+            <p class="label">Short write-up · Python</p>
+            <h3>DOCX to XML Converter</h3>
+            <p>
+              Reads Word lessons marked with simple tags, turns them into
+              structured XML for InDesign, and makes a QR code for every link. A
+              whole folder, one command.
+            </p>
+
+            <ol class="pv-scenes dx-flow">
+              <li class="pv-scene cs-card">
+                <strong>Tagged Word lesson</strong
+                ><span>writers mark each part</span>
+              </li>
+              <li class="pv-scene cs-card">
+                <strong>Python parser</strong><span>one command</span>
+              </li>
+              <li class="pv-scene cs-card">
+                <strong>XML + QR codes</strong><span>ready for InDesign</span>
+              </li>
+            </ol>
+
+            <div class="dx-pair">
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">1</span>What goes in:
+                  a Word lesson
+                </p>
+                <pre class="dx-doc"><span class="dx-tag">[ENGAGE]</span>
 <span class="dx-tag">[LESSON_TITLE]</span>Float or Sink?<span class="dx-tag">[/LESSON_TITLE]</span>
 <span class="dx-tag">[BODY]</span>Have you ever pushed a beach ball underwater?<span class="dx-tag">[/BODY]</span>
 https://example.com/float-video
 <span class="dx-tag">[/ENGAGE]</span></pre>
-      <p class="code-caption">Writers mark each part with a tag</p>
-    </div>
+                <p class="code-caption">Writers mark each part with a tag</p>
+              </div>
 
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>What comes out: clean XML</p>
-<pre class="dx-code"><span class="dx-com">&lt;lesson&gt;</span>
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">2</span>What comes
+                  out: clean XML
+                </p>
+                <pre class="dx-code"><span class="dx-com">&lt;lesson&gt;</span>
   <span class="dx-com">&lt;engage&gt;</span>
     <span class="dx-key">&lt;lessonTitle&gt;</span>Float or Sink?<span class="dx-key">&lt;/lessonTitle&gt;</span>
     <span class="dx-key">&lt;body&gt;</span>Have you ever pushed a beach ball underwater?<span class="dx-key">&lt;/body&gt;</span>
     <span class="dx-ok">&lt;qrLink&gt;</span>https://example.com/float-video<span class="dx-ok">&lt;/qrLink&gt;</span>
   <span class="dx-com">&lt;/engage&gt;</span>
 <span class="dx-com">&lt;/lesson&gt;</span></pre>
-      <p class="code-caption">Sections, text and links, ready for InDesign</p>
-    </div>
-  </div>
+                <p class="code-caption">
+                  Sections, text and links, ready for InDesign
+                </p>
+              </div>
+            </div>
 
-    <!-- 3 and 4: the code and the result -->
-  <div class="dx-pair dx-pair--code">
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>A peek at my code</p>
-      <figure class="cy-shot cy-shot--fill">
-        <img src="assets/images/python-snippet.png" alt="Python code that finds each link in a lesson, makes a QR code for it, and names the image after the lesson">
-        <figcaption>Finds each link and names its QR code after the lesson, so the InDesign script can place it automatically.</figcaption>
-      </figure>
-    </div>
+            <div class="dx-pair dx-pair--code">
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">3</span>A peek at my
+                  code
+                </p>
+                <figure class="cy-shot cy-shot--fill">
+                  <img
+                    src="assets/images/python-snippet.png"
+                    alt="Python code that finds each link in a lesson, makes a QR code for it, and names the image after the lesson"
+                  />
+                  <figcaption>
+                    Finds each link and names its QR code after the lesson, so
+                    the InDesign script can place it automatically.
+                  </figcaption>
+                </figure>
+              </div>
 
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">4</span>The result</p>
-      <figure class="cy-shot">
-        <img src="assets/images/python-result.png" alt="The command window after running the script, confirming the lesson was converted and two QR codes were generated">
-        <figcaption>One command converts the lessons and makes the QR codes</figcaption>
-      </figure>
-      <figure class="cy-shot dx-shot">
-        <img src="assets/images/docx-xml-folder.png" alt="The images folder with two QR code pictures, and the output folder with the XML files">
-        <figcaption>QR codes and XML files, ready for InDesign</figcaption>
-      </figure>
-    </div>
-  </div>
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">4</span>The result
+                </p>
+                <figure class="cy-shot">
+                  <img
+                    src="assets/images/python-result.png"
+                    alt="The command window after running the script, confirming the lesson was converted and two QR codes were generated"
+                  />
+                  <figcaption>
+                    One command converts the lessons and makes the QR codes
+                  </figcaption>
+                </figure>
+                <figure class="cy-shot dx-shot">
+                  <img
+                    src="assets/images/docx-xml-folder.png"
+                    alt="The images folder with two QR code pictures, and the output folder with the XML files"
+                  />
+                  <figcaption>
+                    QR codes and XML files, ready for InDesign
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
 
-  <!-- Team note + tags -->
-  <div class="dx-footer">
-    <p class="dx-team"><strong>Made for my team.</strong> I wrote a step-by-step guide so anyone can run it, no coding needed.</p>
-    <ul class="chips" aria-label="Built with">
-      <li class="chip">Python</li>
-      <li class="chip">XML</li>
-      <li class="chip">lxml</li>
-      <li class="chip">QR codes</li>
-    </ul>
-  </div>
-</article>
+            <div class="dx-footer">
+              <p class="dx-team">
+                <strong>Made for my team.</strong> I wrote a step-by-step guide
+                so anyone can run it, no coding needed.
+              </p>
+              <ul class="chips" aria-label="Built with">
+                <li class="chip">Python</li>
+                <li class="chip">XML</li>
+                <li class="chip">lxml</li>
+                <li class="chip">QR codes</li>
+              </ul>
+            </div>
+          </article>
+        </div>
 
-      </div>
+        <svg
+          class="wave wave--bottom"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+      </section>
 
-      <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-    </section>
+      <!-- Learning games and interactions -->
+      <section
+        class="cs-section wk-group wk-group--games"
+        id="games"
+        aria-labelledby="games-title"
+      >
+        <div class="container wk-stack">
+          <h2 id="games-title" class="wk-group__title">
+            Learning games and interactions
+            <svg
+              class="wk-doodle"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="#F4A1C0"
+                d="M9 10h14a6 6 0 0 1 6 6v3a4 4 0 0 1-7.2 2.4L19.5 19h-7l-2.3 2.4A4 4 0 0 1 3 19v-3a6 6 0 0 1 6-6z"
+              />
+              <path fill="none" d="M10 13v6M7 16h6" />
+              <circle cx="22" cy="14.5" r="1.4" fill="#3B2A44" stroke="none" />
+              <circle cx="25" cy="17.5" r="1.4" fill="#3B2A44" stroke="none" />
+            </svg>
+          </h2>
 
-    <!-- ===== GROUP 2: LEARNING GAMES AND INTERACTIONS ===== -->
-    <section class="cs-section wk-group wk-group--games" id="games" aria-labelledby="games-title">
-      <div class="container wk-stack">
-        <h2 id="games-title" class="wk-group__title">Learning games and interactions</h2>
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco d-heart-outline" style="top: 6%; left: -100px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-sparkle-yellow" style="top: 20%; left: -55px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-flower-pink" style="top: 36%; left: -85px">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-dots" style="top: 52%; left: -60px">
+              <use href="#deco-dots" />
+            </svg>
+            <svg class="deco d-star-yellow" style="top: 66%; left: -95px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-swirl" style="top: 84%; left: -85px">
+              <use href="#deco-swirl" />
+            </svg>
+            <svg class="deco d-star-mint" style="top: 8%; right: -80px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-sparkle-peach" style="top: 24%; right: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-cloud" style="top: 40%; right: -100px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-heart-pink" style="top: 56%; right: -95px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-sparkle-lavender" style="top: 72%; right: -55px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-flower-lavender" style="top: 88%; right: -90px">
+              <use href="#deco-flower" />
+            </svg>
+          </div>
 
-        <!-- Two slim cards: games that have their own case study page -->
-<div class="wk-pair">
+          <div class="wk-pair">
+            <!-- Ice Cream Petshop -->
+            <article class="wk-slim cs-card" id="ice-cream">
+              <div class="wk-slim__art wk-slim__art--rose">
+                <img src="assets/images/ice-cream.png" alt="" />
+              </div>
+              <div class="wk-slim__body">
+                <p class="label">Case study · Storyline</p>
+                <h3>Ice Cream Petshop</h3>
+                <p>Serve six pets the right flavor, letter by letter.</p>
+                <div class="wk-slim__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://icecream-pet-shop.netlify.app/story.html"
+                    data-popup="Ice Cream Petshop"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Take an order <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the game)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="ice-cream-pet-shop.html"
+                    >Read the case study</a
+                  >
+                </div>
+              </div>
+            </article>
 
-  <article class="wk-slim cs-card" id="ice-cream">
-    <div class="wk-slim__art wk-slim__art--rose">
-      <img src="assets/images/ice-cream.png" alt="">
-    </div>
-    <div class="wk-slim__body">
-      <p class="label">Case study · Storyline</p>
-      <h3>Ice Cream Petshop</h3>
-      <p>Serve six pets the right flavor, letter by letter.</p>
-        <div class="wk-slim__actions">
-        <a class="button button--primary button--small" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
-          Take an order <span aria-hidden="true">▶</span>
-          <span class="visually-hidden">(opens the game)</span>
-        </a>
-        <a class="button button--secondary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
-      </div>
-    </div>
-  </article>
+            <!-- Pop the Verbs -->
+            <article class="wk-slim cs-card" id="pop-the-verbs">
+              <div class="wk-slim__art wk-slim__art--lemon">
+                <img src="assets/images/bubbles.png" alt="" />
+              </div>
+              <div class="wk-slim__body">
+                <p class="label">Case study · Phaser</p>
+                <h3>Pop the Verbs</h3>
+                <p>Find the 15 verbs among 30 floating words.</p>
+                <div class="wk-slim__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://pop-the-verbs.netlify.app/"
+                    data-popup="Pop the Verbs"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Pop some bubbles <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the game)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="pop-the-verbs.html"
+                    >Read the case study</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
 
-  <article class="wk-slim cs-card" id="pop-the-verbs">
-    <div class="wk-slim__art wk-slim__art--lemon">
-      <img src="assets/images/bubbles.png" alt="">
-    </div>
-    <div class="wk-slim__body">
-      <p class="label">Case study · Phaser</p>
-      <h3>Pop the Verbs</h3>
-      <p>Find the 15 verbs among 30 floating words.</p>
-      <div class="wk-slim__actions">
-        <a class="button button--primary button--small" href="https://pop-the-verbs.netlify.app/" data-popup="Pop the Verbs" target="_blank" rel="noopener">
-          Pop some bubbles <span aria-hidden="true">▶</span>
-          <span class="visually-hidden">(opens in a new tab)</span>
-        </a>
-        <a class="button button--secondary button--small" href="pop-the-verbs.html">Read the case study</a>
-      </div>
-  </article>
+          <!-- Personality Test -->
+          <article class="wk-item cs-card" id="mythical-creature">
+            <p class="label">Short write-up · Storyline</p>
+            <h3>Personality Test: Philippine Mythical Creatures</h3>
+            <p>
+              Twelve situations, four ways to respond. Your answers reveal which
+              Philippine mythical creature matches your learning style.
+            </p>
 
-</div>
+            <div class="mc-steps">
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">1</span>Answer 12
+                  situations
+                </p>
+                <figure class="mc-frame mc-frame--mint">
+                  <img
+                    src="assets/images/myth-question.png"
+                    alt="A situational question with four answer choices"
+                  />
+                </figure>
+                <p class="code-caption">
+                  Each answer type belongs to one creature
+                </p>
+              </div>
 
-<!-- Personality Test (the bigger card) -->
-<article class="wk-item cs-card" id="mythical-creature">
-  <p class="label">Short write-up · Storyline</p>
-  <h3>Personality Test: Philippine Mythical Creatures</h3>
-  <p>Twelve situations, four ways to respond. Your answers reveal which Philippine mythical creature matches your learning style.</p>
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">2</span>Variables keep
+                  score
+                </p>
+                <div
+                  class="mc-frame mc-tally"
+                  role="img"
+                  aria-label="Example score: Kapre 5, Tikbalang 3, Creature 3 2, Creature 4 2"
+                >
+                  <div class="mc-bar">
+                    <span>Kapre</span
+                    ><span class="mc-bar__fill" style="--w: 100%"></span
+                    ><strong>5</strong>
+                  </div>
+                  <div class="mc-bar">
+                    <span>Tikbalang</span
+                    ><span class="mc-bar__fill" style="--w: 60%"></span
+                    ><span>3</span>
+                  </div>
+                  <div class="mc-bar">
+                    <span>Mangkukulam</span
+                    ><span class="mc-bar__fill" style="--w: 50%"></span
+                    ><span>2</span>
+                  </div>
+                  <div class="mc-bar">
+                    <span>Manananggal</span
+                    ><span class="mc-bar__fill" style="--w: 40%"></span
+                    ><span>2</span>
+                  </div>
+                </div>
+                <p class="code-caption">Four counters, one per answer type</p>
+              </div>
 
-  <div class="mc-steps">
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">3</span>Meet your
+                  creature
+                </p>
+                <figure class="mc-frame mc-frame--rose">
+                  <img
+                    src="assets/images/myth-result.png"
+                    alt="The result screen revealing the matching mythical creature"
+                  />
+                </figure>
+                <p class="code-caption">Triggers reveal the highest count</p>
+              </div>
+            </div>
 
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>Answer 12 situations</p>
-      <figure class="mc-frame mc-frame--mint">
-        <img src="assets/images/myth-question.png" alt="A situational question with four answer choices">
-      </figure>
-      <p class="code-caption">Each answer type belongs to one creature</p>
-    </div>
+            <div class="dx-footer">
+              <p class="dx-team">
+                <strong>Bonus:</strong> a button downloads a guide to more
+                creatures, straight from a direct-download link.
+              </p>
+              <a
+                class="button button--primary button--small"
+                href="https://funpersonalitytest.netlify.app/story.html"
+                data-popup="Which mythical creature are you?"
+                target="_blank"
+                rel="noopener"
+              >
+                Meet your creature <span aria-hidden="true">▶</span>
+                <span class="visually-hidden">(opens the game)</span>
+              </a>
+            </div>
 
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>Variables keep score</p>
-      <!-- TODO: replace Creature A to D with your four creatures -->
-      <div class="mc-frame mc-tally" role="img" aria-label="Example score: Creature A 5, Creature B 3, Creature C 2, Creature D 2">
-        <div class="mc-bar"><span>Creature A</span><span class="mc-bar__fill" style="--w: 100%"></span><strong>5</strong></div>
-        <div class="mc-bar"><span>Creature B</span><span class="mc-bar__fill" style="--w: 60%"></span><span>3</span></div>
-        <div class="mc-bar"><span>Creature C</span><span class="mc-bar__fill" style="--w: 40%"></span><span>2</span></div>
-        <div class="mc-bar"><span>Creature D</span><span class="mc-bar__fill" style="--w: 40%"></span><span>2</span></div>
-      </div>
-      <p class="code-caption">Four counters, one per answer type</p>
-    </div>
+            <ul class="chips mc-chips" aria-label="Built with">
+              <li class="chip">Storyline</li>
+              <li class="chip">Triggers</li>
+              <li class="chip">Variables</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>Meet your creature</p>
-      <figure class="mc-frame mc-frame--rose">
-        <img src="assets/images/myth-result.png" alt="The result screen revealing the matching mythical creature">
-      </figure>
-      <p class="code-caption">Triggers reveal the highest count</p>
-    </div>
+      <!-- Learning platforms and tracking -->
+      <section
+        class="cs-section cs-section--white wk-group wk-group--platforms"
+        id="platforms"
+        aria-labelledby="platforms-title"
+      >
+        <svg
+          class="wave wave--top"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
 
-  </div>
+        <div class="container wk-stack">
+          <h2 id="platforms-title" class="wk-group__title">
+            Learning platforms and tracking
+            <svg
+              class="wk-doodle"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="#BDEBD0"
+                d="M9 15v6c0 2 3.5 3.5 7 3.5s7-1.5 7-3.5v-6"
+              />
+              <path fill="#8FD9AE" d="M16 6l14 6-14 6-14-6z" />
+              <path fill="none" d="M27 13.3v6" />
+              <circle cx="27" cy="21" r="1.6" fill="#F9D86B" />
+            </svg>
+          </h2>
 
-    <div class="dx-footer">
-    <p class="dx-team"><strong>Bonus:</strong> a button downloads a guide to more creatures, straight from a direct-download link.</p>
-    <a class="button button--primary button--small" href="https://funpersonalitytest.netlify.app/story.html" data-popup="Which mythical creature are you?" target="_blank" rel="noopener">
-      Meet your creature <span aria-hidden="true">▶</span>
-      <span class="visually-hidden">(opens the game)</span>
-    </a>
-  </div>
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco d-sparkle-lavender" style="top: 4%; left: -55px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-cloud" style="top: 16%; left: -100px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-star-mint" style="top: 30%; left: -90px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-dots" style="top: 44%; left: -60px">
+              <use href="#deco-dots" />
+            </svg>
+            <svg class="deco d-flower-pink" style="top: 58%; left: -80px">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-heart-pink" style="top: 72%; left: -85px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-sparkle-peach" style="top: 86%; left: -45px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-swirl" style="top: 6%; right: -85px">
+              <use href="#deco-swirl" />
+            </svg>
+            <svg class="deco d-sparkle-yellow" style="top: 18%; right: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-heart-outline" style="top: 32%; right: -100px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-flower-lavender" style="top: 46%; right: -90px">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-sparkle-mint" style="top: 60%; right: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-star-yellow" style="top: 74%; right: -95px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-squiggle" style="top: 88%; right: -110px">
+              <use href="#deco-squiggle" />
+            </svg>
+          </div>
 
-  <ul class="chips mc-chips" aria-label="Built with">
-    <li class="chip">Storyline</li>
-    <li class="chip">Triggers</li>
-    <li class="chip">Variables</li>
-  </ul>
-        </article>
+          <!-- Bloom's Taxonomy Course -->
+          <article class="wk-item cs-card" id="bloom-moodle">
+            <p class="label">Short write-up · Moodle</p>
+            <h3>Bloom's Taxonomy Course</h3>
+            <p>
+              A full Moodle course built around Bloom's Taxonomy, with a
+              Storyline activity inside it and progress tracked from start to
+              finish.
+            </p>
 
-      </div>
-    </section>
+            <p class="dx-step">
+              <span class="dx-num" aria-hidden="true">1</span>The learner's path
+            </p>
+            <ol class="bl-path">
+              <li class="bl-stop">
+                <span class="bl-check" aria-hidden="true">✓</span>Introduction
+              </li>
+              <li class="bl-stop">
+                <span class="bl-check" aria-hidden="true">✓</span>Learning goals
+              </li>
+              <li class="bl-stop">
+                <span class="bl-check" aria-hidden="true">✓</span>Lessons
+              </li>
+              <li class="bl-stop bl-stop--activity">
+                <span class="bl-check" aria-hidden="true">✓</span>Storyline
+                activity
+              </li>
+              <li class="bl-stop">
+                <span class="bl-check" aria-hidden="true">✓</span>Quiz
+              </li>
+              <li class="bl-stop bl-stop--done">
+                <span class="bl-check" aria-hidden="true">★</span>Complete
+              </li>
+            </ol>
+            <p class="code-caption">
+              Moodle checks off each step until the course is complete
+            </p>
 
-    <!-- ===== GROUP 3: LEARNING PLATFORMS AND TRACKING ===== -->
-    <section class="cs-section cs-section--white wk-group wk-group--platforms" id="platforms" aria-labelledby="platforms-title">
-        <!-- Wavy top edge (decoration) -->
-  <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-    <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-  </svg>
-      <div class="container wk-stack">
-        <h2 id="platforms-title" class="wk-group__title">Learning platforms and tracking</h2>
+            <div class="dx-pair bl-shots">
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">2</span>The course in
+                  Moodle
+                </p>
+                <figure class="mc-frame mc-frame--mint">
+                  <img
+                    src="assets/images/course-structure.png"
+                    alt="The Moodle course page showing each section of the course"
+                  />
+                </figure>
+                <p class="code-caption">Every section, in order</p>
+              </div>
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">3</span>The
+                  drag-and-drop activity
+                </p>
+                <figure class="mc-frame mc-frame--rose">
+                  <img
+                    src="assets/images/blooms-taxonomy-activity.png"
+                    alt="The drag-and-drop activity matching descriptions to Bloom's levels"
+                  />
+                </figure>
+                <p class="code-caption">
+                  Built in Storyline, added to Moodle as a SCORM package
+                </p>
+              </div>
+            </div>
 
-        <!-- Bloom's Taxonomy Moodle course (short write-up) -->
-<article class="wk-item cs-card" id="bloom-moodle">
-  <p class="label">Short write-up · Moodle</p>
-  <h3>Bloom's Taxonomy Course</h3>
-  <p>A full Moodle course built around Bloom's Taxonomy, with a Storyline activity inside it and progress tracked from start to finish.</p>
+            <div class="dx-footer">
+              <p class="dx-team">
+                <strong>Good to know:</strong> the Moodle trial has ended, so
+                the course is shown with screenshots. The activity has feedback,
+                unlimited tries and a restart option.
+              </p>
+              <a
+                class="button button--primary button--small"
+                href="https://bloomstaxonomy.netlify.app/story.html"
+                data-popup="Bloom's Taxonomy activity"
+                target="_blank"
+                rel="noopener"
+              >
+                Try the activity <span aria-hidden="true">▶</span>
+                <span class="visually-hidden">(opens the activity)</span>
+              </a>
+            </div>
 
-  <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>The learner's path</p>
-  <ol class="bl-path">
-    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Introduction</li>
-    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Learning goals</li>
-    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Lessons</li>
-    <li class="bl-stop bl-stop--activity"><span class="bl-check" aria-hidden="true">✓</span>Storyline activity</li>
-    <li class="bl-stop"><span class="bl-check" aria-hidden="true">✓</span>Quiz</li>
-    <li class="bl-stop bl-stop--done"><span class="bl-check" aria-hidden="true">★</span>Complete</li>
-  </ol>
-  <p class="code-caption">Moodle checks off each step until the course is complete</p>
+            <ul class="chips mc-chips" aria-label="Built with">
+              <li class="chip">Moodle</li>
+              <li class="chip">SCORM</li>
+              <li class="chip">Storyline</li>
+            </ul>
+          </article>
 
-  <div class="dx-pair bl-shots">
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>The course in Moodle</p>
-      <figure class="mc-frame mc-frame--mint">
-                <img src="assets/images/course-structure.png" alt="The Moodle course page showing each section of the course">
-      </figure>
-      <p class="code-caption">Every section, in order</p>
-    </div>
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>The drag-and-drop activity</p>
-      <figure class="mc-frame mc-frame--rose">
-        <img src="assets/images/blooms-taxonomy-activity.png" alt="The drag-and-drop activity matching descriptions to Bloom's levels">
-      </figure>
-      <p class="code-caption">Built in Storyline, added to Moodle as a SCORM package</p>
-    </div>
-  </div>
+          <!-- Cyber Safety LMS Simulation -->
+          <article class="wk-item cs-card" id="cyber-safety">
+            <p class="label">Short write-up · Storyline + JavaScript</p>
+            <h3>Cyber Safety LMS Simulation</h3>
+            <p>
+              A pretend learning platform that sends each learner's result to an
+              outside service the moment they click Submit.
+            </p>
 
-    <div class="dx-footer">
-    <p class="dx-team"><strong>Good to know:</strong> the Moodle trial has ended, so the course is shown with screenshots. The activity has feedback, unlimited tries and a restart option.</p>
-    <a class="button button--primary button--small" href="https://bloomstaxonomy.netlify.app/story.html" data-popup="Bloom's Taxonomy activity" target="_blank" rel="noopener">
-      Try the activity <span aria-hidden="true">▶</span>
-      <span class="visually-hidden">(opens the activity)</span>
-    </a>
-  </div>
+            <ol class="pv-scenes dx-flow">
+              <li class="pv-scene cs-card">
+                <strong>Storyline lesson</strong
+                ><span>learner clicks Submit</span>
+              </li>
+              <li class="pv-scene cs-card">
+                <strong>My JavaScript</strong><span>reads and sends</span>
+              </li>
+              <li class="pv-scene cs-card">
+                <strong>Webhook</strong><span>receives the data</span>
+              </li>
+            </ol>
 
-  <ul class="chips mc-chips" aria-label="Built with">
-    <li class="chip">Moodle</li>
-    <li class="chip">SCORM</li>
-    <li class="chip">Storyline</li>
-  </ul>
-</article>
+            <div class="dx-pair cy-pair">
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">1</span>The learner
+                  logs in and submits
+                </p>
+                <div class="cy-shots">
+                  <figure class="cy-shot">
+                    <img
+                      src="assets/images/cyber-safety-login.png"
+                      alt="The Cyber Safety log-in screen, where the learner types their name"
+                    />
+                    <figcaption>They log in with their name</figcaption>
+                  </figure>
+                  <figure class="cy-shot">
+                    <img
+                      src="assets/images/cyber-safety-result.png"
+                      alt="The results screen showing a congratulations message, a score of 1 out of 1, and a Submit result button"
+                    />
+                    <figcaption>They click Submit result</figcaption>
+                  </figure>
+                </div>
+              </div>
 
-<!-- Cyber Safety LMS Simulation (short write-up) -->
-<article class="wk-item cs-card" id="cyber-safety">
-  <p class="label">Short write-up · Storyline + JavaScript</p>
-  <h3>Cyber Safety LMS Simulation</h3>
-  <p>A pretend learning platform that sends each learner's result to an outside service the moment they click Submit.</p>
+              <div>
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">2</span>My code sends
+                  it
+                </p>
+                <figure class="cy-shot cy-shot--fill">
+                  <img
+                    src="assets/images/JS-editor.png"
+                    alt="Storyline's Execute JavaScript window, with code that reads the learner's name, score and completion, then sends them to a webhook"
+                  />
+                  <figcaption>
+                    Runs when the learner clicks Submit result: it reads three
+                    values from Storyline and sends them to a test address.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
 
-  <ol class="pv-scenes dx-flow">
-    <li class="pv-scene cs-card"><strong>Storyline lesson</strong><span>learner clicks Submit</span></li>
-    <li class="pv-scene cs-card"><strong>My JavaScript</strong><span>reads and sends</span></li>
-    <li class="pv-scene cs-card"><strong>Webhook</strong><span>receives the data</span></li>
-  </ol>
+            <div class="cy-bottom">
+              <div class="cy-center">
+                <p class="dx-step">
+                  <span class="dx-num" aria-hidden="true">3</span>What arrived
+                  at the webhook
+                </p>
+                <div class="cy-webhook">
+                  <img
+                    src="assets/images/webhook-result.png"
+                    alt="The webhook test page showing the received data: user name Loran, score 1, completed true"
+                  />
+                </div>
+                <p class="code-caption">
+                  The webhook test page, showing exactly what arrived
+                </p>
+              </div>
 
-  <div class="dx-pair cy-pair">
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">1</span>The learner logs in and submits</p>
-      <div class="cy-shots">
-        <figure class="cy-shot">
-          <img src="assets/images/cyber-safety-login.png" alt="The Cyber Safety log-in screen, where the learner types their name">
-          <figcaption>They log in with their name</figcaption>
-        </figure>
-        <figure class="cy-shot">
-          <img src="assets/images/cyber-safety-result.png" alt="The results screen showing a congratulations message, a score of 1 out of 1, and a Submit result button">
-          <figcaption>They click Submit result</figcaption>
-        </figure>
-      </div>
-    </div>
+              <ul class="chips mc-chips cy-chips" aria-label="Built with">
+                <li class="chip">Storyline</li>
+                <li class="chip">JavaScript</li>
+                <li class="chip">JSON</li>
+                <li class="chip">Webhook</li>
+              </ul>
+            </div>
+          </article>
+        </div>
 
-    <div>
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">2</span>My code sends it</p>
-        <figure class="cy-shot cy-shot--fill">
-        <img src="assets/images/JS-editor.png" alt="Storyline's Execute JavaScript window, with code that reads the learner's name, score and completion, then sends them to a webhook">
-        <figcaption>Runs when the learner clicks Submit result: it reads three values from Storyline and sends them to a test address.</figcaption>
-      </figure>
-    </div>
-  </div>
+        <svg
+          class="wave wave--bottom"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+      </section>
+    </main>
 
-      <!-- 3 on the left, the pills on the right -->
-  <div class="cy-bottom">
+    <!-- Contact and footer -->
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="contact">
+          <p class="label label--light">Contact</p>
+          <h2 class="contact__title">
+            Building something for learners, or for the people who make
+            learning?
+          </h2>
+          <p class="contact__text">I'd love to hear about it.</p>
 
-    <div class="cy-center">
-      <p class="dx-step"><span class="dx-num" aria-hidden="true">3</span>What arrived at the webhook</p>
-      <div class="cy-webhook">
-        <img src="assets/images/webhook-result.png" alt="The webhook test page showing the received data: user name Loran, score 1, completed true">
-      </div>
-      <p class="code-caption">The webhook test page, showing exactly what arrived</p>
-    </div>
+          <div class="contact__email">
+            <a class="button button--light" href="mailto:loran.inosa@gmail.com"
+              >loran.inosa@gmail.com</a
+            >
+            <button
+              type="button"
+              class="button button--outline-light"
+              data-copy-email="loran.inosa@gmail.com"
+            >
+              Copy email
+            </button>
+          </div>
 
-    <ul class="chips mc-chips cy-chips" aria-label="Built with">
-      <li class="chip">Storyline</li>
-      <li class="chip">JavaScript</li>
-      <li class="chip">JSON</li>
-      <li class="chip">Webhook</li>
-    </ul>
+          <ul class="contact__links">
+            <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
+          </ul>
 
-  </div>
+          <!-- Read aloud by screen readers when the email is copied -->
+          <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+        </div>
 
-
+        <div class="site-footer__bottom">
+          <p>
+            © 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript
+          </p>
+          <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
         </div>
       </div>
-            <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-    </section>
-
-  </main>
-
-  <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
-  <footer class="site-footer" id="contact">
-    <div class="container">
-      <div class="contact">
-        <p class="label label--light">Contact</p>
-        <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
-        <p class="contact__text">I'd love to hear about it.</p>
-        <div class="contact__email">
-          <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
-          <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
-        </div>
-        <ul class="contact__links">
-          <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
-          <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
-        </ul>
-        <p class="visually-hidden" aria-live="polite" data-copy-status></p>
-      </div>
-      <div class="site-footer__bottom">
-        <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
-        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-    </div>
-  </footer>
-
-</body>
+    </footer>
+  </body>
 </html>

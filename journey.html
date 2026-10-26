@@ -1,263 +1,570 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Journey · Loran Iñosa</title>
-  <meta name="description" content="About six years in education, then into building e-learning tools. How Loran Iñosa went from the classroom to the code behind the course.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Journey · Loran Iñosa</title>
+    <meta
+      name="description"
+      content="About six years in education, then into building e-learning tools. How Loran Iñosa went from the classroom to the code behind the course."
+    />
 
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- ===== SITE HEADER (same on every page) ===== -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="brand" href="index.html">
-        <img class="brand__flower brand__flower--big" src="assets/images/spiral.png" alt="" width="32" height="32">
-        <span class="brand__name">Loran<span class="brand__surname"> Iñosa</span></span>
-      </a>
-      <nav class="site-nav" aria-label="Main">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="work.html">Work</a></li>
-          <li><a class="site-nav__link" href="play.html">Play</a></li>
-          <li><a class="site-nav__link" href="journey.html" aria-current="page">Journey</a></li>
-          <li><a class="site-nav__link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" class="cs-page jy-page">
-
-    <!-- ===== INTRO ===== -->
-    <section class="cs-hero">
-      <div class="container">
-        <p class="cs-pill cs-pill--mauve">Journey</p>
-        <h1 class="cs-title">From the classroom to the code behind the course</h1>
-        <p class="cs-lede">
-          About six years in education, then into building. Here's how one
-          led to the other.
-        </p>
-        <!-- TODO (optional): add a photo of yourself here -->
-      </div>
-
-      <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-    </section>
-
-    <!-- ===== FIVE CHAPTERS ===== -->
-    <section class="cs-section jy-chapters" aria-labelledby="chapters-title">
-      <div class="container">
-        <h2 id="chapters-title" class="visually-hidden">Five chapters</h2>
-
-        <ol class="chapters">
-
-          <!-- Chapter 1 -->
-          <li class="chapter" id="esl">
-            <span class="chapter__marker" aria-hidden="true">1</span>
-            <div class="chapter__main">
-              <p class="label">ESL Teacher · About 1 year</p>
-              <h3>Every learner is different</h3>
-              <p>
-                I started by teaching English to foreign students, from
-                preschoolers to teenagers. Each age group needed a different
-                approach, and adapting to very different learners became the
-                first skill I relied on.
-              </p>
-            </div>
-            <aside class="margin-note chapter__note">
-              <p class="margin-note__label">What I carried forward</p>
-              <p>Start with who the learner is, not with the content.</p>
-            </aside>
-          </li>
-
-          <!-- Chapter 2 -->
-          <li class="chapter" id="preschool-ict">
-            <span class="chapter__marker" aria-hidden="true">2</span>
-            <div class="chapter__main">
-              <p class="label">Preschool &amp; ICT Lead Teacher · About 4 years</p>
-              <h3>Teaching through a screen</h3>
-              <p>
-                I started with Nursery, then the pandemic moved my Kindergarten
-                class entirely onto Zoom. I taught myself Google Classroom and
-                Koobits to keep lessons running.
-              </p>
-              <p>
-                Later, teaching ICT to grade schoolers, I introduced coding through
-                Scratch and other free block-based platforms. Keeping them free
-                mattered to me. Before long, I was the person colleagues asked when
-                technology got in the way, so I started helping and training other
-                teachers.
-              </p>
-            </div>
-            <aside class="margin-note chapter__note">
-              <p class="margin-note__label">What I carried forward</p>
-              <p>Make tools feel less scary for the people using them.</p>
-            </aside>
-          </li>
-
-          <!-- Chapter 3 -->
-          <li class="chapter" id="robotics">
-            <span class="chapter__marker" aria-hidden="true">3</span>
-            <div class="chapter__main">
-              <p class="label">Robotics Lead Teacher · About 6 months</p>
-              <h3>Robots on the classroom floor</h3>
-              <p>
-                For about six months I taught robotics with construction kits and
-                battery-powered robots that students programmed through the Rocomo
-                app. The role was short, but it's where coding stopped being a
-                screen-only activity for me.
-              </p>
-            </div>
-            <aside class="margin-note chapter__note">
-              <p class="margin-note__label">What I carried forward</p>
-              <p>Code clicks when you can see it move.</p>
-            </aside>
-          </li>
-
-          <!-- Chapter 4 -->
-          <li class="chapter" id="storyline">
-            <span class="chapter__marker" aria-hidden="true">4</span>
-            <div class="chapter__main">
-              <p class="label">Articulate Storyline Developer</p>
-              <h3>From teaching lessons to building them</h3>
-              <p>
-                I moved from delivering lessons to building them. In Articulate
-                Storyline I turned lesson content into interactive digital lessons
-                using variables, triggers and layers, and packaged them so
-                platforms could track each learner's progress.
-              </p>
-            </div>
-            <aside class="margin-note chapter__note">
-              <p class="margin-note__label">What I carried forward</p>
-              <p>Learning doesn't have to feel like a chore.</p>
-            </aside>
-          </li>
-
-          <!-- Chapter 5 -->
-          <li class="chapter chapter--current" id="now">
-            <span class="chapter__marker" aria-hidden="true">5</span>
-            <div class="chapter__main">
-              <p class="label">Full Stack E-learning Developer · Now</p>
-              <h3>Building the tools</h3>
-              <p>
-                Today I write code to solve real problems for my team. I build
-                browser tools that make reviewing easier, scripts that save hours
-                of repetitive work, and tracking that shows how learners move
-                through a lesson. And when a lesson needs to feel like play,
-                I build games.
-              </p>
-            </div>
-            <aside class="margin-note chapter__note">
-              <p class="margin-note__label">Still a teacher</p>
-              <p>I plan tools the way I used to plan lessons: starting from what people struggle with.</p>
-            </aside>
-          </li>
-
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===== THREADS ===== -->
-    <section class="cs-section cs-section--white jy-threads" id="threads" aria-labelledby="threads-title">
-
-      <!-- Wavy top edge (decoration) -->
-      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-
-      <div class="container container--wide">
-        <p class="label">Threads, not a ladder</p>
-        <h2 id="threads-title">What I carried from the classroom</h2>
-
-        <ul class="threads">
-          <li class="thread">
-            <h3>Understanding learners</h3>
-            <dl>
-              <dt>Then</dt>
-              <dd>ESL learners, from preschoolers to teens</dd>
-              <dt>Now</dt>
-              <dd>Designing interactive lessons and games</dd>
-            </dl>
-          </li>
-          <li class="thread">
-            <h3>Helping people use technology</h3>
-            <dl>
-              <dt>Then</dt>
-              <dd>Teachers came to me for tech help</dd>
-              <dt>Now</dt>
-              <dd>Building tools for my team</dd>
-            </dl>
-          </li>
-          <li class="thread">
-            <h3>Coding for learning</h3>
-            <dl>
-              <dt>Then</dt>
-              <dd>Scratch, then the Rocomo app</dd>
-              <dt>Now</dt>
-              <dd>Storyline triggers, JavaScript and Phaser</dd>
-            </dl>
-          </li>
-          <li class="thread">
-            <h3>Digital &amp; online learning</h3>
-            <dl>
-              <dt>Then</dt>
-              <dd>Zoom and Google Classroom</dd>
-              <dt>Now</dt>
-              <dd>Moodle courses and SCORM packages</dd>
-            </dl>
-          </li>
-          <li class="thread">
-            <h3>Building tools</h3>
-            <dl>
-              <dt>The newest thread</dt>
-              <dd>Python automation and Worktext Studio, resting on all the others</dd>
-            </dl>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
-  <footer class="site-footer" id="contact">
-
-    <!-- Wavy top edge (decoration) -->
-    <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-      <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
+    <!-- Doodle shapes, drawn once and reused with <use> -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="deco-star" viewBox="0 0 24 24">
+        <path
+          d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"
+        />
+      </symbol>
+      <symbol id="deco-heart" viewBox="0 0 24 24">
+        <path
+          d="M12 20.5S3 15 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8 21 15 12 20.5 12 20.5z"
+        />
+      </symbol>
+      <symbol id="deco-sparkle" viewBox="0 0 24 24">
+        <path
+          d="M12 2C12.8 8 16 11.2 22 12 16 12.8 12.8 16 12 22 11.2 16 8 12.8 2 12 8 11.2 11.2 8 12 2z"
+        />
+      </symbol>
+      <symbol id="deco-cloud" viewBox="0 0 24 24">
+        <path
+          d="M7 18h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.6-1A4.5 4.5 0 0 0 7 18z"
+        />
+      </symbol>
+      <symbol id="deco-flower" viewBox="0 0 24 24">
+        <circle cx="12" cy="5.5" r="4" />
+        <circle cx="18.2" cy="10" r="4" />
+        <circle cx="15.8" cy="17.3" r="4" />
+        <circle cx="8.2" cy="17.3" r="4" />
+        <circle cx="5.8" cy="10" r="4" />
+        <circle cx="12" cy="12" r="3.2" fill="#F9D86B" />
+      </symbol>
+      <symbol id="deco-dots" viewBox="0 0 24 24">
+        <circle cx="5" cy="13" r="2.5" />
+        <circle cx="12" cy="7" r="2.5" />
+        <circle cx="19" cy="14" r="2.5" />
+      </symbol>
     </svg>
 
-    <div class="container">
-      <div class="contact">
-        <p class="label label--light">Contact</p>
-        <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
-        <p class="contact__text">I'd love to hear about it.</p>
-        <div class="contact__email">
-          <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
-          <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
-        </div>
-        <ul class="contact__links">
-          <!-- TODO: replace YOUR-USERNAME with your GitHub username -->
-          <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
-        </ul>
-        <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html">
+          <img
+            class="brand__flower"
+            src="assets/images/spiral.png"
+            alt=""
+            width="64"
+            height="64"
+          />
+          <span class="brand__name"
+            >Loran<span class="brand__surname"> Iñosa</span></span
+          >
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="work.html">Work</a></li>
+            <li><a class="site-nav__link" href="play.html">Play</a></li>
+            <li>
+              <a class="site-nav__link" href="journey.html" aria-current="page"
+                >Journey</a
+              >
+            </li>
+            <li><a class="site-nav__link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="site-footer__bottom">
-        <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
-        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-    </div>
-  </footer>
+    </header>
 
-</body>
+    <main id="main" class="cs-page jy-page">
+      <!-- Intro -->
+      <section class="cs-hero">
+        <div class="container">
+          <p class="cs-pill cs-pill--mauve">Journey</p>
+          <h1 class="cs-title">
+            From the classroom to the code behind the course
+          </h1>
+          <p class="cs-lede">
+            About six years in education, then into building. Here's how one led
+            to the other.
+          </p>
+
+          <!-- Paper airplane flying along a dashed path -->
+          <div class="jy-flight" aria-hidden="true">
+            <svg
+              class="jy-flight__path"
+              viewBox="0 0 420 200"
+              focusable="false"
+            >
+              <path d="M10 180 C120 40 260 220 410 30" />
+            </svg>
+            <svg class="jy-flight__plane" viewBox="0 0 32 20" focusable="false">
+              <path fill="#FFFFFF" d="M2 2L30 10L2 18L8 10Z" />
+              <path fill="none" d="M8 10H30" />
+            </svg>
+          </div>
+
+          <div class="wk-decor wk-decor--hero" aria-hidden="true">
+            <svg class="deco d-cloud" style="top: 40px; right: 440px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-cloud" style="top: 220px; right: 60px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-sparkle-lavender" style="top: 10px; right: 30px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-sparkle-peach" style="top: 250px; right: 300px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-star-yellow" style="top: 230px; right: 420px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-heart-pink" style="top: 280px; right: 160px">
+              <use href="#deco-heart" />
+            </svg>
+          </div>
+        </div>
+
+        <svg
+          class="wave wave--bottom"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+      </section>
+
+      <!-- Five chapters -->
+      <section class="cs-section jy-chapters" aria-labelledby="chapters-title">
+        <div class="container">
+          <h2 id="chapters-title" class="visually-hidden">Five chapters</h2>
+
+          <div class="wk-decor wk-decor--sides" aria-hidden="true">
+            <svg class="deco d-star-yellow" style="top: 2%; left: -90px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-sparkle-mint" style="top: 14%; left: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-cloud" style="top: 27%; left: -100px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-flower-pink" style="top: 41%; left: -70px">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-heart-pink" style="top: 55%; left: -95px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-dots" style="top: 69%; left: -60px">
+              <use href="#deco-dots" />
+            </svg>
+            <svg class="deco d-sparkle-peach" style="top: 83%; left: -45px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-sparkle-lavender" style="top: 6%; right: -60px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-heart-outline" style="top: 20%; right: -100px">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco d-flower-lavender" style="top: 34%; right: -80px">
+              <use href="#deco-flower" />
+            </svg>
+            <svg class="deco d-star-mint" style="top: 48%; right: -90px">
+              <use href="#deco-star" />
+            </svg>
+            <svg class="deco d-sparkle-yellow" style="top: 62%; right: -50px">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco d-cloud" style="top: 76%; right: -100px">
+              <use href="#deco-cloud" />
+            </svg>
+            <svg class="deco d-dots" style="top: 90%; right: -60px">
+              <use href="#deco-dots" />
+            </svg>
+          </div>
+
+          <ol class="chapters">
+            <!-- 1. ESL Teacher -->
+            <li class="chapter" id="esl">
+              <span class="chapter__marker" aria-hidden="true">1</span>
+              <div class="chapter__main">
+                <svg
+                  class="jy-icon"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    fill="#FFD6E9"
+                    d="M5 6h22a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H14l-6 5v-5H5a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z"
+                  />
+                  <text
+                    class="jy-icon__text"
+                    x="16"
+                    y="17.5"
+                    text-anchor="middle"
+                  >
+                    ABC
+                  </text>
+                </svg>
+                <p class="label">ESL Teacher · About 1 year</p>
+                <h3>Every learner is different</h3>
+                <p>
+                  I started by teaching English to foreign students, from
+                  preschoolers to teenagers. Each age group needed a different
+                  approach, and adapting to very different learners became the
+                  first skill I relied on.
+                </p>
+              </div>
+              <aside class="margin-note chapter__note">
+                <p class="margin-note__label">What I carried forward</p>
+                <p>Start with who the learner is, not with the content.</p>
+              </aside>
+            </li>
+
+            <!-- 2. Preschool & ICT Lead Teacher -->
+            <li class="chapter" id="preschool-ict">
+              <span class="chapter__marker" aria-hidden="true">2</span>
+              <div class="chapter__main">
+                <svg
+                  class="jy-icon"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    fill="#8FD9AE"
+                    d="M7 7h18a2 2 0 0 1 2 2v12H5V9a2 2 0 0 1 2-2z"
+                  />
+                  <path fill="#FFFFFF" d="M8 10h16v8H8z" />
+                  <path
+                    fill="#C9A8E8"
+                    d="M2 21h28v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"
+                  />
+                </svg>
+                <p class="label">
+                  Preschool &amp; ICT Lead Teacher · About 4 years
+                </p>
+                <h3>Teaching through a screen</h3>
+                <p>
+                  I started with Nursery, then the pandemic moved my
+                  Kindergarten class entirely onto Zoom. I taught myself Google
+                  Classroom and Koobits to keep lessons running.
+                </p>
+                <p>
+                  Later, teaching ICT to grade schoolers, I introduced coding
+                  through Scratch and other free block-based platforms. Keeping
+                  them free mattered to me. Before long, I was the person
+                  colleagues asked when technology got in the way, so I started
+                  helping and training other teachers.
+                </p>
+              </div>
+              <aside class="margin-note chapter__note">
+                <p class="margin-note__label">What I carried forward</p>
+                <p>Make tools feel less scary for the people using them.</p>
+              </aside>
+            </li>
+
+            <!-- 3. Robotics Lead Teacher -->
+            <li class="chapter" id="robotics">
+              <span class="chapter__marker" aria-hidden="true">3</span>
+              <div class="chapter__main">
+                <svg
+                  class="jy-icon"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path fill="none" d="M16 10V6" />
+                  <circle cx="16" cy="5" r="1.8" fill="#F06292" />
+                  <path
+                    fill="#E2CCF5"
+                    d="M8 10h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"
+                  />
+                  <path fill="none" d="M6 15H4v5h2M26 15h2v5h-2" />
+                  <circle cx="12" cy="17" r="2" fill="#3B2A44" stroke="none" />
+                  <circle cx="20" cy="17" r="2" fill="#3B2A44" stroke="none" />
+                  <path fill="none" d="M13 22h6" />
+                </svg>
+                <p class="label">Robotics Lead Teacher · About 6 months</p>
+                <h3>Robots on the classroom floor</h3>
+                <p>
+                  For about six months I taught robotics with construction kits
+                  and battery-powered robots that students programmed through
+                  the Rocomo app. The role was short, but it's where coding
+                  stopped being a screen-only activity for me.
+                </p>
+              </div>
+              <aside class="margin-note chapter__note">
+                <p class="margin-note__label">What I carried forward</p>
+                <p>Code clicks when you can see it move.</p>
+              </aside>
+            </li>
+
+            <!-- 4. Articulate Storyline Developer -->
+            <li class="chapter" id="storyline">
+              <span class="chapter__marker" aria-hidden="true">4</span>
+              <div class="chapter__main">
+                <svg
+                  class="jy-icon"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    fill="#F9D86B"
+                    d="M4 7h24a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"
+                  />
+                  <path fill="#FFFFFF" d="M13 11.5v9l7.5-4.5z" />
+                </svg>
+                <p class="label">Articulate Storyline Developer</p>
+                <h3>From teaching lessons to building them</h3>
+                <p>
+                  I moved from delivering lessons to building them. In
+                  Articulate Storyline I turned lesson content into interactive
+                  digital lessons using variables, triggers and layers, and
+                  packaged them so platforms could track each learner's
+                  progress.
+                </p>
+              </div>
+              <aside class="margin-note chapter__note">
+                <p class="margin-note__label">What I carried forward</p>
+                <p>Learning doesn't have to feel like a chore.</p>
+              </aside>
+            </li>
+
+            <!-- 5. Full Stack E-learning Developer -->
+            <li class="chapter chapter--current" id="now">
+              <span class="jy-here" aria-hidden="true">I am here!</span>
+              <span class="chapter__marker" aria-hidden="true">5</span>
+              <div class="chapter__main">
+                <svg
+                  class="jy-icon jy-icon--rocket"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path fill="#F9D86B" d="M13 21c0 4 3 7 3 7s3-3 3-7z" />
+                  <path fill="#F4A1C0" d="M10 15l-4 5 4 1zM22 15l4 5-4 1z" />
+                  <path
+                    fill="#FFFFFF"
+                    d="M16 3c5 4 7 9 6 16H10c-1-7 1-12 6-16z"
+                  />
+                  <circle cx="16" cy="12" r="2.6" fill="#8FD9AE" />
+                </svg>
+                <p class="label">Full Stack E-learning Developer · Now</p>
+                <h3>Building the tools</h3>
+                <p>
+                  Today I write code to solve real problems for my team. I build
+                  browser tools that make reviewing easier, scripts that save
+                  hours of repetitive work, and tracking that shows how learners
+                  move through a lesson. And when a lesson needs to feel like
+                  play, I build games.
+                </p>
+              </div>
+              <aside class="margin-note chapter__note">
+                <p class="margin-note__label">Still a teacher</p>
+                <p>
+                  I plan tools the way I used to plan lessons: starting from
+                  what people struggle with.
+                </p>
+              </aside>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Threads -->
+      <section
+        class="cs-section cs-section--white jy-threads"
+        id="threads"
+        aria-labelledby="threads-title"
+      >
+        <svg
+          class="wave wave--top"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+
+        <div class="container container--wide">
+          <p class="label">Threads, not a ladder</p>
+          <h2 id="threads-title">
+            What I carried from the classroom
+            <svg
+              class="jy-yarn"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle cx="16" cy="16" r="11" fill="#F4A1C0" />
+              <path
+                fill="none"
+                d="M7 12c5 3 13 3 18-1M6 19c6 3 14 3 20-1M13 5.5c-3 6-3 15 0 21"
+              />
+              <path fill="none" d="M26 22c3 1 4 4 2 6s-5 1-6 3" />
+            </svg>
+          </h2>
+
+          <!-- Three threads: one wavy line, reused and shifted -->
+          <svg
+            class="jy-braid"
+            viewBox="0 0 240 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <defs>
+              <path
+                id="braid-thread"
+                d="M-40 12c5-9 15-9 20 0s15 9 20 0c5-9 15-9 20 0s15 9 20 0c5-9 15-9 20 0s15 9 20 0c5-9 15-9 20 0s15 9 20 0c5-9 15-9 20 0s15 9 20 0c5-9 15-9 20 0s15 9 20 0c5-9 15-9 20 0s15 9 20 0c5-9 15-9 20 0s15 9 20 0"
+              />
+            </defs>
+            <use class="jy-braid__a" href="#braid-thread" />
+            <use class="jy-braid__b" href="#braid-thread" x="-13" />
+            <use class="jy-braid__c" href="#braid-thread" x="-26" />
+          </svg>
+
+          <ul class="threads">
+            <li class="thread">
+              <h3>Understanding learners</h3>
+              <dl>
+                <dt>Then</dt>
+                <dd>ESL learners, from preschoolers to teens</dd>
+                <dt>Now</dt>
+                <dd>Designing interactive lessons and games</dd>
+              </dl>
+            </li>
+            <li class="thread">
+              <h3>Helping people use technology</h3>
+              <dl>
+                <dt>Then</dt>
+                <dd>Teachers came to me for tech help</dd>
+                <dt>Now</dt>
+                <dd>Building tools for my team</dd>
+              </dl>
+            </li>
+            <li class="thread">
+              <h3>Coding for learning</h3>
+              <dl>
+                <dt>Then</dt>
+                <dd>Scratch, then the Rocomo app</dd>
+                <dt>Now</dt>
+                <dd>Storyline triggers, JavaScript and Phaser</dd>
+              </dl>
+            </li>
+            <li class="thread">
+              <h3>Digital &amp; online learning</h3>
+              <dl>
+                <dt>Then</dt>
+                <dd>Zoom and Google Classroom</dd>
+                <dt>Now</dt>
+                <dd>Moodle courses and SCORM packages</dd>
+              </dl>
+            </li>
+            <li class="thread">
+              <h3>Building tools</h3>
+              <dl>
+                <dt>The newest thread</dt>
+                <dd>
+                  Python automation and Worktext Studio, resting on all the
+                  others
+                </dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Contact and footer -->
+    <footer class="site-footer" id="contact">
+      <svg
+        class="wave wave--top"
+        viewBox="0 0 1200 40"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          class="wave__fill"
+          d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"
+        />
+        <path
+          class="wave__line"
+          d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+        />
+      </svg>
+
+      <div class="container">
+        <div class="contact">
+          <p class="label label--light">Contact</p>
+          <h2 class="contact__title">
+            Building something for learners, or for the people who make
+            learning?
+          </h2>
+          <p class="contact__text">I'd love to hear about it.</p>
+
+          <div class="contact__email">
+            <a class="button button--light" href="mailto:loran.inosa@gmail.com"
+              >loran.inosa@gmail.com</a
+            >
+            <button
+              type="button"
+              class="button button--outline-light"
+              data-copy-email="loran.inosa@gmail.com"
+            >
+              Copy email
+            </button>
+          </div>
+
+          <ul class="contact__links">
+            <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
+          </ul>
+
+          <!-- Read aloud by screen readers when the email is copied -->
+          <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>
+            © 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript
+          </p>
+          <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

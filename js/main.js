@@ -1,11 +1,15 @@
 // ==========================================================
 // Loran Iñosa · Portfolio scripts
+//
+// 1. Header shadow on scroll
+// 2. "Copy email" button
+// 3. Journey line that draws itself (home page)
+// 4. Game popup
 // ==========================================================
 
-
-// ---------- 1. Header border after scrolling ----------
-// Adds the class "is-scrolled" to the header once the page
-// has moved down, so CSS can show a thin bottom border.
+// ---------- 1. Header shadow on scroll ----------
+// Adds .is-scrolled once the page moves, so the CSS can
+// show a soft shadow under the sticky header.
 
 const header = document.querySelector(".site-header");
 
@@ -14,70 +18,74 @@ function updateHeader() {
 }
 
 if (header) {
-  updateHeader(); // check once when the page loads
+  updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 }
 
-
 // ---------- 2. "Copy email" button ----------
-// Copies the email to the clipboard, shows "Copied ✓"
-// for 2 seconds, then changes back.
+// Copies the email address, shows "Copied ✓" for two seconds,
+// and tells screen reader users that it worked.
 
 const copyButton = document.querySelector("[data-copy-email]");
 const copyStatus = document.querySelector("[data-copy-status]");
 
 if (copyButton) {
   const originalText = copyButton.textContent;
+  let resetTimer;
 
   copyButton.addEventListener("click", async () => {
-    const email = copyButton.dataset.copyEmail;
+    clearTimeout(resetTimer);
 
     try {
-      await navigator.clipboard.writeText(email);
+      await navigator.clipboard.writeText(copyButton.dataset.copyEmail);
       copyButton.textContent = "Copied ✓";
       if (copyStatus) copyStatus.textContent = "Email address copied.";
     } catch (error) {
       copyButton.textContent = "Couldn't copy";
     }
 
-    setTimeout(() => {
+    resetTimer = setTimeout(() => {
       copyButton.textContent = originalText;
       if (copyStatus) copyStatus.textContent = "";
     }, 2000);
   });
 }
-// ---------- 3. Journey line: draw when it scrolls into view ----------
-// Only runs if the visitor hasn't asked to reduce motion,
-// and only once per page visit.
+
+// ---------- 3. Journey line that draws itself ----------
+// When the "How I got here" strip scrolls into view, the CSS
+// draws the line one step at a time. It only happens once,
+// and never for visitors who prefer reduced motion.
 
 const journeyStrip = document.querySelector(".journey-strip");
-const motionOK = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+const motionOK = window.matchMedia(
+  "(prefers-reduced-motion: no-preference)",
+).matches;
 
 if (journeyStrip && motionOK && "IntersectionObserver" in window) {
-  // Step 1: get ready (CSS collapses the lines)
   journeyStrip.classList.add("will-draw");
 
-  // Step 2: watch for the strip to appear on screen
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        journeyStrip.classList.add("is-drawn"); // CSS starts the drawing
-        observer.disconnect();                  // stop watching: draw only once
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        journeyStrip.classList.add("is-drawn");
+        observer.disconnect();
       }
-    });
-  }, { threshold: 0.4 });  // start when 40% of the strip is visible
+    },
+    { threshold: 0.4 }, // start once 40% of the strip is visible
+  );
 
   observer.observe(journeyStrip);
 }
+
 // ---------- 4. Game popup ----------
-// Buttons with data-popup open their game in a popup window
-// on laptops and tablets. On phones, they open a new tab instead.
+// On tablets and laptops, play buttons (links with data-popup)
+// open the game in a popup window. On phones, they open in a
+// new tab as normal links.
 
 const popupLinks = document.querySelectorAll("[data-popup]");
 
 if (popupLinks.length > 0) {
-
-  // Build the popup window once, and add it to the page
+  // Build the popup once and add it to the page
   const popup = document.createElement("dialog");
   popup.className = "game-popup";
   popup.innerHTML = `
@@ -103,12 +111,11 @@ if (popupLinks.length > 0) {
   const closeButton = popup.querySelector(".game-popup__close");
   const bigScreen = window.matchMedia("(min-width: 768px)");
 
-  // Clicking a play button: open the popup with that game
   popupLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
-      if (!bigScreen.matches) return;   // phones: open a new tab as usual
+      if (!bigScreen.matches) return; // phones: let the link open a new tab
 
-      event.preventDefault();           // don't open a new tab
+      event.preventDefault();
       const gameName = link.dataset.popup;
       title.textContent = gameName;
       frame.title = gameName;
@@ -118,15 +125,14 @@ if (popupLinks.length > 0) {
     });
   });
 
-  // The ✕ button closes the popup
   closeButton.addEventListener("click", () => popup.close());
 
-  // Clicking the dark area outside the window closes it too
+  // Clicking the dark area around the window also closes it
   popup.addEventListener("click", (event) => {
     if (event.target === popup) popup.close();
   });
 
-  // However it closes (✕, Esc key, or outside click), stop the game
+  // However it closes (✕, Esc or an outside click), stop the game
   popup.addEventListener("close", () => {
     frame.src = "about:blank";
   });

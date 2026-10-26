@@ -1,250 +1,475 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Loran Iñosa · Full Stack E-learning Developer</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loran Iñosa · Full Stack E-learning Developer</title>
+    <meta
+      name="description"
+      content="Loran Iñosa builds interactive lessons, educational games and the little tools that help learning teams ship faster."
+    />
 
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body class="page-home">
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Hidden link for keyboard users: appears when they press Tab -->
-  <a class="skip-link" href="#main">Skip to main content</a>
+    <!-- Doodle shapes, drawn once and reused with <use> -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="deco-star" viewBox="0 0 24 24">
+        <path
+          d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"
+        />
+      </symbol>
+      <symbol id="deco-heart" viewBox="0 0 24 24">
+        <path
+          d="M12 20.5S3 15 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8 21 15 12 20.5 12 20.5z"
+        />
+      </symbol>
+      <symbol id="deco-sparkle" viewBox="0 0 24 24">
+        <path
+          d="M12 2C12.8 8 16 11.2 22 12 16 12.8 12.8 16 12 22 11.2 16 8 12.8 2 12 8 11.2 11.2 8 12 2z"
+        />
+      </symbol>
+      <symbol id="deco-swirl" viewBox="0 0 24 24">
+        <path
+          d="M13 13c0 1.3-1.3 2-2.4 1.5-1.4-.6-1.6-2.5-.7-3.6 1.2-1.6 3.7-1.6 5 0 1.6 1.9 1.2 4.8-.6 6.3-2.4 1.9-5.9 1.3-7.6-1-1.9-2.6-1.2-6.3 1.4-8.2 3.2-2.2 7.6-1.4 9.8 1.6"
+        />
+      </symbol>
+      <symbol
+        id="deco-squiggle"
+        viewBox="0 0 100 24"
+        preserveAspectRatio="none"
+      >
+        <path d="M4 12c6-8 12-8 16 0s10 8 16 0 10-8 16 0 10 8 16 0 10-8 16 0" />
+      </symbol>
+    </svg>
 
-  <!-- ===== SITE HEADER (same on every page) ===== -->
-  <header class="site-header">
-    <div class="container site-header__inner">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html">
+          <img
+            class="brand__flower"
+            src="assets/images/spiral.png"
+            alt=""
+            width="64"
+            height="64"
+          />
+          <span class="brand__name"
+            >Loran<span class="brand__surname"> Iñosa</span></span
+          >
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="work.html">Work</a></li>
+            <li><a class="site-nav__link" href="play.html">Play</a></li>
+            <li><a class="site-nav__link" href="journey.html">Journey</a></li>
+            <li><a class="site-nav__link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-      <a class="brand" href="index.html">
-        <img class="brand__flower brand__flower--big" src="assets/images/spiral.png" alt="" width="32" height="32">
-        <span class="brand__name" style="font-size:35px">Loran Iñosa</span>
-      </a>
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero__decor" aria-hidden="true">
+            <svg class="deco deco--sparkle-peach">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco deco--star-yellow"><use href="#deco-star" /></svg>
+            <svg class="deco deco--heart-pink"><use href="#deco-heart" /></svg>
+            <svg class="deco deco--sparkle-mint">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco deco--sparkle-lavender">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco deco--heart-outline">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco deco--sparkle-yellow">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco deco--star-mint"><use href="#deco-star" /></svg>
+            <svg class="deco deco--swirl"><use href="#deco-swirl" /></svg>
+            <svg class="deco deco--squiggle"><use href="#deco-squiggle" /></svg>
+          </div>
 
-      <nav class="site-nav" aria-label="Main">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="work.html" style="font-size: 30px">Work</a></li>
-          <li><a class="site-nav__link" href="play.html" style="font-size: 30px">Play</a></li>
-          <li><a class="site-nav__link" href="journey.html" style="font-size:30px">Journey</a></li>
-          <li><a class="site-nav__link" href="#contact" style="font-size:30px">Contact</a></li>
-        </ul>
-      </nav>
+          <div class="hero__content">
+            <p class="hero__pill">Full Stack E-learning Developer</p>
 
-    </div>
-  </header>
+            <h1 id="hero-title" class="hero__title">
+              I build learning tools people actually
+              <span class="hero__click">
+                <mark class="hero__highlight">want to click.</mark>
+                <svg
+                  class="hero__squiggle"
+                  viewBox="0 0 124 12"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M2 6c5-5 10-5 15 0s10 5 15 0 10-5 15 0 10 5 15 0 10-5 15 0 10 5 15 0 10-5 15 0 10 5 15 0"
+                  />
+                </svg>
+                <svg
+                  class="hero__cursor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M4 2L4 19L8.5 14.8L11.5 21.5L14.3 20.3L11.4 13.7L17.5 13.5Z"
+                  />
+                </svg>
+              </span>
+            </h1>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main">
+            <p class="hero__text">
+              Interactive lessons, educational games, and the little tools
+              <br />that help learning teams ship faster.
+            </p>
 
-    <!-- ===== 1. HERO ===== -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero__content">
+            <div class="hero__actions">
+              <a class="button button--primary" href="work.html">See my work</a>
+              <a class="button button--secondary" href="play.html"
+                >Play something</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <p class="hero__pill" style="font-size:45px">Full Stack E-learning Developer</p>
+      <!-- How I got here -->
+      <section class="journey-strip" aria-labelledby="journey-strip-title">
+        <svg
+          class="wave wave--top"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
 
-          <h1 id="hero-title" class="hero__title">
-            I build learning tools people actually
-            <span class="hero__click">
-              <mark class="hero__highlight">want to click.</mark>
-              <!-- Arrow cursor that "clicks" the words (decoration only) -->
-              <svg class="hero__cursor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M4 2L4 19L8.5 14.8L11.5 21.5L14.3 20.3L11.4 13.7L17.5 13.5Z"/>
+        <div class="container">
+          <div class="journey-strip__header">
+            <h2 id="journey-strip-title" class="label journey-strip__title">
+              How I got here
+            </h2>
+
+            <svg
+              class="journey-plane"
+              viewBox="0 0 120 40"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path class="journey-plane__trail" d="M4 34C20 20 40 14 70 22" />
+              <path
+                class="journey-plane__body"
+                d="M78 20L114 6L100 34L92 24Z"
+              />
+              <path class="journey-plane__fold" d="M92 24L114 6" />
+            </svg>
+
+            <a class="journey-strip__link" href="journey.html"
+              >Read the full journey <span aria-hidden="true">→</span></a
+            >
+          </div>
+
+          <ol class="journey-strip__list">
+            <li class="journey-step">
+              <span class="journey-step__dot" aria-hidden="true"></span>
+              <p class="journey-step__role">ESL Teacher</p>
+              <p class="journey-step__note">Adapting to every learner</p>
+            </li>
+            <li class="journey-step">
+              <span class="journey-step__dot" aria-hidden="true"></span>
+              <p class="journey-step__role">Preschool &amp; ICT Lead Teacher</p>
+              <p class="journey-step__note">
+                Online classes, Scratch, tech help
+              </p>
+            </li>
+            <li class="journey-step">
+              <span class="journey-step__dot" aria-hidden="true"></span>
+              <p class="journey-step__role">Robotics Lead Teacher</p>
+              <p class="journey-step__note">Kits, robots and app coding</p>
+            </li>
+            <li class="journey-step">
+              <span class="journey-step__dot" aria-hidden="true"></span>
+              <p class="journey-step__role">Articulate Storyline Developer</p>
+              <p class="journey-step__note">
+                Created and tracked digital lessons
+              </p>
+            </li>
+            <li class="journey-step journey-step--current">
+              <svg
+                class="journey-rainbow"
+                viewBox="0 0 60 34"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  class="journey-rainbow__pink"
+                  d="M4 32A26 26 0 0 1 56 32"
+                />
+                <path
+                  class="journey-rainbow__yellow"
+                  d="M11 32A19 19 0 0 1 49 32"
+                />
+                <path
+                  class="journey-rainbow__mint"
+                  d="M18 32A12 12 0 0 1 42 32"
+                />
               </svg>
-            </span>
-          </h1>
-
-          <p class="hero__text">
-            Interactive lessons, educational games, and the little tools
-            <br> that help learning teams ship faster.
-          </p>
-
-          <p class="hero__definition">
-            Full stack, the e-learning way: learning design, interactive builds,
-            tracking, and the tools and data behind them.
-          </p>
-
-          <div class="hero__actions">
-            <a class="button button--primary" href="work.html" style="font-size: 25px">See my work</a>
-            <a class="button button--secondary" href="play.html" style="font-size: 25px">Play something</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 2. JOURNEY STRIP ===== -->
-    <section class="journey-strip" aria-labelledby="journey-strip-title">
-
-      <!-- Wavy top edge (decoration) -->
-      <svg class="wave wave--top" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V40 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-
-      <div class="container">
-        <div class="journey-strip__header">
-          <h2 id="journey-strip-title" class="label journey-strip__title" style="font-size: 25px">How I got here</h2>
-          <a class="journey-strip__link" href="journey.html" style="font-size: 25px">Read the full journey <span aria-hidden="true">→</span></a>
+              <span class="journey-step__dot" aria-hidden="true"></span>
+              <p class="journey-step__role">Full Stack E-learning Developer</p>
+              <p class="journey-step__note">Now: building tools</p>
+            </li>
+          </ol>
         </div>
 
-        <ol class="journey-strip__list">
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role" style="font-size: 20px">ESL Teacher</p>
-            <p class="journey-step__note">Adapting to every learner</p>
-          </li>
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role" style="font-size: 20px">Preschool &amp; ICT Lead Teacher</p>
-            <p class="journey-step__note">Online classes, Scratch, tech help</p>
-          </li>
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role" style="font-size: 20px">Robotics Lead Teacher</p>
-            <p class="journey-step__note">Kits, robots and app coding</p>
-          </li>
-          <li class="journey-step">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role" style="font-size: 20px">Articulate Storyline Developer</p>
-            <p class="journey-step__note">Created and tracked digital lessons</p>
-          </li>
-          <li class="journey-step journey-step--current">
-            <span class="journey-step__dot" aria-hidden="true"></span>
-            <p class="journey-step__role" style="font-size: 20px">Fullstack E-learning Developer</p>
-            <p class="journey-step__note">Now: building tools</p>
-          </li>
-        </ol>
-      </div>
+        <svg
+          class="wave wave--bottom"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+      </section>
 
-      <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
+      <!-- Featured works -->
+      <section class="work-band" aria-labelledby="featured-title">
+        <div class="work-band__inner">
+          <h2 id="featured-title" class="work-band__title">Featured works</h2>
+          <svg
+            class="work-band__zigzag"
+            viewBox="0 0 194 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M2 12L12 4L22 12L32 4L42 12L52 4L62 12L72 4L82 12L92 4L102 12L112 4L122 12L132 4L142 12L152 4L162 12L172 4L182 12L192 4"
+            />
+          </svg>
 
-    </section>
-
-    <!-- ===== 3. FEATURED WORK ===== -->
-    <section class="work-band work-band--featured" aria-labelledby="featured-title">
-      <div class="work-band__inner">
-
-        <h2 id="featured-title" class="work-band__title">Featured works</h2>
-
-        <!-- Worktext Studio (big card) -->
-        <article class="work-card work-card--featured">
-          <div class="work-card__art">
-            <img src="assets/images/WT_studio.png" alt="">
+          <div class="featured-decor" aria-hidden="true">
+            <svg class="deco fdeco--star-yellow"><use href="#deco-star" /></svg>
+            <svg class="deco fdeco--sparkle-mint">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco fdeco--heart-pink"><use href="#deco-heart" /></svg>
+            <svg class="deco fdeco--sparkle-lavender">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco fdeco--heart-outline">
+              <use href="#deco-heart" />
+            </svg>
+            <svg class="deco fdeco--star-mint"><use href="#deco-star" /></svg>
+            <svg class="deco fdeco--sparkle-peach">
+              <use href="#deco-sparkle" />
+            </svg>
+            <svg class="deco fdeco--swirl"><use href="#deco-swirl" /></svg>
+            <svg class="deco fdeco--squiggle">
+              <use href="#deco-squiggle" />
+            </svg>
           </div>
-          <div class="work-card__body">
-            <p class="work-card__pill">In use by my team</p>
-            <h3 class="work-card__title">Worktext Studio</h3>
-            <p class="work-card__text">Catches layout problems before worktexts become PDFs, with shared sticky-note reviews.</p>
-            <ul class="chips" aria-label="Built with">
-              <li class="chip">JavaScript</li>
-              <li class="chip">Apps Script</li>
-              <li class="chip">Google Sheets</li>
-            </ul>
-            <div class="work-card__actions">
-              <a class="button button--primary button--small" href="worktext-studio.html">Read the case study</a>
-            </div>
-          </div>
-        </article>
 
-        <!-- Two games, side by side -->
-        <div class="work-grid work-grid--two">
-
-          <!-- Pop the Verbs -->
-          <article class="work-card">
-            <div class="work-card__art work-card__art--rose">
-              <img src="assets/images/game_name.png" alt="">
+          <!-- Worktext Studio -->
+          <article class="work-card work-card--featured">
+            <div class="work-card__art">
+              <img src="assets/images/WT_studio.png" alt="" />
             </div>
             <div class="work-card__body">
-              <h3 class="work-card__title">Pop the Verbs</h3>
-              <p class="work-card__meta">A bubble-popping game: find the 15 verbs among 30 floating words.</p>
+              <p class="work-card__pill">In use by my team</p>
+              <h3 class="work-card__title">Worktext Studio</h3>
+              <p class="work-card__text">
+                Catches layout problems before worktexts become PDFs, with
+                shared sticky-note reviews.
+              </p>
               <ul class="chips" aria-label="Built with">
-                <li class="chip">Phaser</li>
                 <li class="chip">JavaScript</li>
+                <li class="chip">Apps Script</li>
+                <li class="chip">Google Sheets</li>
               </ul>
               <div class="work-card__actions">
-                <a class="button button--primary button--small" href="https://pop-the-verbs.netlify.app/" data-popup="Pop the Verbs" target="_blank" rel="noopener">
-                  Pop some bubbles <span aria-hidden="true">▶</span>
-                  <span class="visually-hidden">(opens the game)</span>
-                </a>
-                <a class="button button--secondary button--small" href="pop-the-verbs.html">Read the case study</a>
+                <a
+                  class="button button--primary button--small"
+                  href="worktext-studio.html"
+                  >Read the case study</a
+                >
               </div>
             </div>
           </article>
 
-          <!-- Ice Cream Petshop -->
-          <article class="work-card">
-            <div class="work-card__art work-card__art--lemon">
-              <img src="assets/images/paw-sceam.png" alt="" style="width:320px; height:auto;">
-            </div>
-            <div class="work-card__body">
-              <h3 class="work-card__title">Ice Cream Petshop</h3>
-              <p class="work-card__meta">A pixel-style training game: serve six pets the right flavor, letter by letter.</p>
-              <ul class="chips" aria-label="Built with">
-                <li class="chip">Storyline</li>
-                <li class="chip">Variables</li>
-              </ul>
-              <div class="work-card__actions">
-                <a class="button button--primary button--small" href="https://icecream-pet-shop.netlify.app/story.html" data-popup="Ice Cream Petshop" target="_blank" rel="noopener">
-                  Take an order <span aria-hidden="true">▶</span>
-                  <span class="visually-hidden">(opens the game)</span>
-                </a>
-                <a class="button button--secondary button--small" href="ice-cream-pet-shop.html">Read the case study</a>
+          <div class="work-grid work-grid--two">
+            <!-- Pop the Verbs -->
+            <article class="work-card">
+              <div class="work-card__art work-card__art--rose">
+                <img src="assets/images/game_name.png" alt="" />
               </div>
-            </div>
-          </article>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Pop the Verbs</h3>
+                <p class="work-card__meta">
+                  A bubble-popping game: find the 15 verbs among 30 floating
+                  words.
+                </p>
+                <ul class="chips" aria-label="Built with">
+                  <li class="chip">Phaser</li>
+                  <li class="chip">JavaScript</li>
+                </ul>
+                <div class="work-card__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://pop-the-verbs.netlify.app/"
+                    data-popup="Pop the Verbs"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Pop some bubbles <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the game)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="pop-the-verbs.html"
+                    >Read the case study</a
+                  >
+                </div>
+              </div>
+            </article>
 
+            <!-- Ice Cream Petshop -->
+            <article class="work-card">
+              <div class="work-card__art work-card__art--lemon">
+                <img
+                  class="work-card__img--wide"
+                  src="assets/images/paw-sceam.png"
+                  alt=""
+                />
+              </div>
+              <div class="work-card__body">
+                <h3 class="work-card__title">Ice Cream Petshop</h3>
+                <p class="work-card__meta">
+                  A pixel-style training game: serve six pets the right flavor,
+                  letter by letter.
+                </p>
+                <ul class="chips" aria-label="Built with">
+                  <li class="chip">Storyline</li>
+                  <li class="chip">Variables</li>
+                </ul>
+                <div class="work-card__actions">
+                  <a
+                    class="button button--primary button--small"
+                    href="https://icecream-pet-shop.netlify.app/story.html"
+                    data-popup="Ice Cream Petshop"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Take an order <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">(opens the game)</span>
+                  </a>
+                  <a
+                    class="button button--secondary button--small"
+                    href="ice-cream-pet-shop.html"
+                    >Read the case study</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p class="work-band__more">
+            <a class="text-link" href="work.html"
+              >See all work <span aria-hidden="true">→</span></a
+            >
+          </p>
         </div>
 
-        <p class="work-band__more">
-          <a class="text-link" href="work.html">See all work <span aria-hidden="true">→</span></a>
-        </p>
+        <svg
+          class="wave wave--bottom"
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            class="wave__fill"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"
+          />
+          <path
+            class="wave__line"
+            d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"
+          />
+        </svg>
+      </section>
+    </main>
 
-      </div>
+    <!-- Contact and footer -->
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="contact">
+          <p class="label label--light">Contact</p>
+          <h2 class="contact__title">
+            Building something for learners, or for the people who make
+            learning?
+          </h2>
+          <p class="contact__text">I'd love to hear about it.</p>
 
-      <!-- Wavy bottom edge (decoration) -->
-      <svg class="wave wave--bottom" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="wave__fill" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20 V0 H0 Z"/>
-        <path class="wave__line" d="M0 20 C100 4 200 4 300 20 S500 36 600 20 S800 4 900 20 S1100 36 1200 20"/>
-      </svg>
-    </section>
+          <div class="contact__email">
+            <a class="button button--light" href="mailto:loran.inosa@gmail.com"
+              >loran.inosa@gmail.com</a
+            >
+            <button
+              type="button"
+              class="button button--outline-light"
+              data-copy-email="loran.inosa@gmail.com"
+            >
+              Copy email
+            </button>
+          </div>
 
-  </main>
+          <ul class="contact__links">
+            <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
+          </ul>
 
-  <!-- ===== CONTACT + FOOTER (same on every page) ===== -->
-  <footer class="site-footer" id="contact">
-    <div class="container">
-
-      <div class="contact">
-        <p class="label label--light">Contact</p>
-        <h2 class="contact__title">Building something for learners, or for the people who make learning?</h2>
-        <p class="contact__text">I'd love to hear about it.</p>
-
-        <div class="contact__email">
-          <a class="button button--light" href="mailto:loran.inosa@gmail.com">loran.inosa@gmail.com</a>
-          <button type="button" class="button button--outline-light" data-copy-email="loran.inosa@gmail.com">Copy email</button>
+          <!-- Read aloud by screen readers when the email is copied -->
+          <p class="visually-hidden" aria-live="polite" data-copy-status></p>
         </div>
 
-        <ul class="contact__links">
-          <li><a href="https://github.com/loran-secrethub">GitHub</a></li>
-        </ul>
-
-        <!-- Invisible message for screen readers when the email is copied -->
-        <p class="visually-hidden" aria-live="polite" data-copy-status></p>
+        <div class="site-footer__bottom">
+          <p>
+            © 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript
+          </p>
+          <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
       </div>
-
-      <div class="site-footer__bottom">
-        <p>© 2026 Loran Iñosa · Built by hand with HTML, CSS &amp; JavaScript</p>
-        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-
-    </div>
-  </footer>
-
-</body>
+    </footer>
+  </body>
 </html>
