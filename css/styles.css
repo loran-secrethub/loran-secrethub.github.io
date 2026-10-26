@@ -3521,7 +3521,7 @@ mark {
 }
 /* Pop the Verbs: same look as the other cards, with its own color */
 .work-card--soon-solid .work-card__art {
-  background-color: #FF99C8;   /* change to #FF99C8 if you prefer the pink */
+  background-color: var(--color-pink);   /* baby pink #FFD6E9 */
 }
 /* ---------- 49. FEATURED WORK: matching game cards ---------- */
 
@@ -4002,4 +4002,16 @@ body:has(.game-popup[open]) {
 /* "Built with" pills */
 .wk-page .chip {
   font-size: 0.9375rem;
+}
+/* ---------- 72. PLAY PAGE: picture areas all the same height ---------- */
+
+/* Every picture area is the same height, so the lines match */
+.play-grid .work-card__art {
+  flex: 0 0 300px;     /* picture area height: bigger number = taller */
+  height: 300px;
+}
+
+/* The white part fills whatever space is left */
+.play-grid .work-card__body {
+  flex: 1;
 }
